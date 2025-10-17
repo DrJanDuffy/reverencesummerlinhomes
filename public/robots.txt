@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_vercel/
+Disallow: /.vercel/
+
+# Allow important pages
+Allow: /buying/
+Allow: /selling/
+Allow: /relocate/
+Allow: /communities/
+Allow: /resources/
+Allow: /about/
+Allow: /contact
+Allow: /valuation
+Allow: /properties
+
+# Sitemap
+Sitemap: https://reverencesummerlinhomes.com/sitemap.xml
+

@@ -11,4 +11,39 @@ export default defineConfig({
     },
   },
   plugins: [reactRouter(), tsconfigPaths()],
+  
+  // Performance optimizations
+  build: {
+    target: "es2022",
+    minify: "esbuild",
+    sourcemap: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom"],
+          router: ["react-router"],
+        },
+      },
+    },
+  },
+  
+  // Development optimizations
+  server: {
+    port: 5173,
+    host: true,
+    hmr: {
+      overlay: true,
+    },
+  },
+  
+  // Optimize dependencies
+  optimizeDeps: {
+    include: ["react", "react-dom", "react-router"],
+    exclude: ["@react-router/dev"],
+  },
+  
+  // Environment variables
+  define: {
+    __DEV__: JSON.stringify(process.env.NODE_ENV === "development"),
+  },
 });
