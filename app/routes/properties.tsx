@@ -17,7 +17,10 @@ import {
   Heart,
   Share2,
   Phone,
-  Mail
+  Mail,
+  Play,
+  Eye,
+  ExternalLink
 } from "lucide-react";
 import type { Route } from "./+types/properties";
 
@@ -55,7 +58,9 @@ export default function Properties() {
       status: "For Sale",
       daysOnMarket: 15,
       features: ["Pool", "Mountain Views", "Updated Kitchen"],
-      description: "Beautiful family home in prestigious Summerlin West with stunning mountain views and modern amenities."
+      description: "Beautiful family home in prestigious Summerlin West with stunning mountain views and modern amenities.",
+      virtualTour: "https://my.matterport.com/show/?m=example123",
+      videoTour: "https://www.youtube.com/embed/example123"
     },
     {
       id: 2,
@@ -72,7 +77,9 @@ export default function Properties() {
       status: "For Sale",
       daysOnMarket: 8,
       features: ["Golf Course Views", "Pool", "Wine Cellar"],
-      description: "Luxury home with golf course views in the exclusive Red Rock Country Club community."
+      description: "Luxury home with golf course views in the exclusive Red Rock Country Club community.",
+      virtualTour: "https://my.matterport.com/show/?m=example456",
+      videoTour: "https://www.youtube.com/embed/example456"
     },
     {
       id: 3,
@@ -358,18 +365,50 @@ export default function Properties() {
                   ))}
                 </div>
                 
-                <div className="flex gap-2">
-                  <Button asChild className="flex-1">
-                    <Link to={`/properties/${property.id}`}>
-                      View Details
-                    </Link>
-                  </Button>
-                  <Button variant="outline" size="sm">
-                    <Phone className="w-4 h-4" />
-                  </Button>
-                  <Button variant="outline" size="sm">
-                    <Mail className="w-4 h-4" />
-                  </Button>
+                <div className="space-y-2">
+                  <div className="flex gap-2">
+                    <Button asChild className="flex-1">
+                      <Link to={`/properties/${property.id}`}>
+                        View Details
+                      </Link>
+                    </Button>
+                    <Button variant="outline" size="sm">
+                      <Phone className="w-4 h-4" />
+                    </Button>
+                    <Button variant="outline" size="sm">
+                      <Mail className="w-4 h-4" />
+                    </Button>
+                  </div>
+                  
+                  {/* Virtual Tour Buttons */}
+                  {(property.virtualTour || property.videoTour) && (
+                    <div className="flex gap-2">
+                      {property.virtualTour && (
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          className="flex-1"
+                          onClick={() => window.open(property.virtualTour, '_blank')}
+                        >
+                          <Eye className="w-4 h-4 mr-1" />
+                          Virtual Tour
+                          <ExternalLink className="w-3 h-3 ml-1" />
+                        </Button>
+                      )}
+                      {property.videoTour && (
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          className="flex-1"
+                          onClick={() => window.open(property.videoTour, '_blank')}
+                        >
+                          <Play className="w-4 h-4 mr-1" />
+                          Video Tour
+                          <ExternalLink className="w-3 h-3 ml-1" />
+                        </Button>
+                      )}
+                    </div>
+                  )}
                 </div>
               </CardContent>
             </Card>
