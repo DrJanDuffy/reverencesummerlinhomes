@@ -17,7 +17,7 @@ export const config = {
   },
   contact: {
     phone: "(702) 555-0100", // Update with actual phone
-    email: "janet@reverencesummerlinhomes.com", // Update with actual email
+    email: "DrJanSells@ReverenceSummerlinHomes.com",
     calendly: "https://calendly.com/drjanetduffy", // Update with actual Calendly
   },
   social: {
