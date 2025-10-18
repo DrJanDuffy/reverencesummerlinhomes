@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npx react-router build",
+  "buildCommand": "npm run build",
   "outputDirectory": "build/client",
   "framework": "react-router",
   "installCommand": "npm ci",
