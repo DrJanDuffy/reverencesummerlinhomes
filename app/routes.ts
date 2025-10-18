@@ -80,6 +80,10 @@ export default [
     
     // API routes
     route("api/sitemap", "routes/api/sitemap.tsx"),
+    route("api/sitemap-index", "routes/api/sitemap-index.tsx"),
+    route("api/sitemap-communities", "routes/api/sitemap-communities.tsx"),
+    route("api/sitemap-properties", "routes/api/sitemap-properties.tsx"),
+    route("api/sitemap-images", "routes/api/sitemap-images.tsx"),
   ]),
   
   // About section (outside layout)

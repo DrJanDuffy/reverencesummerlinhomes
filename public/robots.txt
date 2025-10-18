@@ -1,8 +1,11 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Sitemaps
 Sitemap: https://reverencesummerlinhomes.com/sitemap.xml
+Sitemap: https://reverencesummerlinhomes.com/sitemap-communities.xml
+Sitemap: https://reverencesummerlinhomes.com/sitemap-properties.xml
+Sitemap: https://reverencesummerlinhomes.com/sitemap-images.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1

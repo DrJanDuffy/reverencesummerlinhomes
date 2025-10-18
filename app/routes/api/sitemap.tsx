@@ -6,27 +6,43 @@ export async function loader() {
   const baseUrl = config.seo.siteUrl;
   const currentDate = new Date().toISOString();
 
-  // Static pages
+  // Static pages with enhanced priorities for real estate
   const staticPages = [
     { url: "", priority: "1.0", changefreq: "weekly" },
-    { url: "/buying", priority: "0.9", changefreq: "monthly" },
-    { url: "/selling", priority: "0.9", changefreq: "monthly" },
+    { url: "/buying", priority: "0.9", changefreq: "weekly" },
+    { url: "/selling", priority: "0.9", changefreq: "weekly" },
     { url: "/relocate", priority: "0.8", changefreq: "monthly" },
     { url: "/communities", priority: "0.9", changefreq: "weekly" },
     { url: "/resources", priority: "0.7", changefreq: "weekly" },
     { url: "/about", priority: "0.6", changefreq: "monthly" },
     { url: "/contact", priority: "0.8", changefreq: "monthly" },
-    { url: "/valuation", priority: "0.7", changefreq: "monthly" },
+    { url: "/valuation", priority: "0.8", changefreq: "weekly" },
+    { url: "/properties", priority: "0.9", changefreq: "daily" },
   ];
 
-  // Community pages
+  // Buying pages with enhanced SEO priorities
+  const buyingPages = [
+    { url: "/buying/new-home", priority: "0.8", changefreq: "weekly" },
+    { url: "/buying/military-veterans", priority: "0.7", changefreq: "monthly" },
+    { url: "/buying/mortgage-calculator", priority: "0.8", changefreq: "monthly" },
+    { url: "/buying/financing", priority: "0.8", changefreq: "monthly" },
+  ];
+
+  // Selling pages
+  const sellingPages = [
+    { url: "/selling/foreclosure-avoidance", priority: "0.7", changefreq: "monthly" },
+    { url: "/selling/short-sales", priority: "0.7", changefreq: "monthly" },
+    { url: "/selling/marketing", priority: "0.7", changefreq: "monthly" },
+  ];
+
+  // Community pages with enhanced priorities for Monument at Reverence
   const communityPages = communitiesData.map(community => ({
     url: `/communities/${community.id}`,
-    priority: community.id === "monument-at-reverence" ? "0.9" : "0.7",
+    priority: community.id === "monument-at-reverence" ? "0.9" : "0.8",
     changefreq: "weekly"
   }));
 
-  // Relocation pages
+  // Relocation pages with location-specific priorities
   const relocationPages = [
     { url: "/relocate/summerlin", priority: "0.8", changefreq: "monthly" },
     { url: "/relocate/california", priority: "0.7", changefreq: "monthly" },
@@ -38,10 +54,10 @@ export async function loader() {
     { url: "/relocate/chicago", priority: "0.7", changefreq: "monthly" },
   ];
 
-  // Resource pages
+  // Resource pages with content-focused priorities
   const resourcePages = [
-    { url: "/resources/blog", priority: "0.6", changefreq: "weekly" },
-    { url: "/resources/youtube", priority: "0.5", changefreq: "monthly" },
+    { url: "/resources/blog", priority: "0.7", changefreq: "weekly" },
+    { url: "/resources/youtube", priority: "0.6", changefreq: "weekly" },
     { url: "/resources/schools", priority: "0.6", changefreq: "monthly" },
     { url: "/resources/golf-courses", priority: "0.5", changefreq: "monthly" },
     { url: "/resources/trails", priority: "0.5", changefreq: "monthly" },
@@ -49,10 +65,27 @@ export async function loader() {
     { url: "/resources/pools", priority: "0.5", changefreq: "monthly" },
   ];
 
-  const allPages = [...staticPages, ...communityPages, ...relocationPages, ...resourcePages];
+  // About pages
+  const aboutPages = [
+    { url: "/about/media", priority: "0.6", changefreq: "monthly" },
+    { url: "/about/reviews", priority: "0.7", changefreq: "weekly" },
+    { url: "/about/zillow-premier", priority: "0.6", changefreq: "monthly" },
+  ];
+
+  const allPages = [
+    ...staticPages, 
+    ...buyingPages, 
+    ...sellingPages, 
+    ...communityPages, 
+    ...relocationPages, 
+    ...resourcePages, 
+    ...aboutPages
+  ];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
 ${allPages.map(page => `  <url>
     <loc>${baseUrl}${page.url}</loc>
     <lastmod>${currentDate}</lastmod>
