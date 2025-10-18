@@ -52,14 +52,24 @@ export async function loader() {
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-${images.map(image => `  <url>
+  <url>
     <loc>${baseUrl}</loc>
     <image:image>
-      <image:loc>${image.loc}</image:loc>
-      <image:title>${image.title}</image:title>
-      <image:caption>${image.caption}</image:caption>
+      <image:loc>${baseUrl}/images/og-image.svg</image:loc>
+      <image:title>Dr. Janet Duffy - Las Vegas Real Estate Expert</image:title>
+      <image:caption>Dr. Janet Duffy, Featured Pulte Homes Agent specializing in Las Vegas and Summerlin real estate</image:caption>
     </image:image>
-  </url>`).join('\n')}
+    <image:image>
+      <image:loc>${baseUrl}/images/twitter-image.svg</image:loc>
+      <image:title>Dr. Janet Duffy Real Estate Services</image:title>
+      <image:caption>Expert real estate services in Las Vegas, Summerlin, and Monument at Reverence</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>${baseUrl}/images/dr-janet-duffy.svg</image:loc>
+      <image:title>Dr. Janet Duffy Professional Headshot</image:title>
+      <image:caption>Dr. Janet Duffy, Licensed Real Estate Agent serving Las Vegas and Summerlin</image:caption>
+    </image:image>
+  </url>
 </urlset>`;
 
   return new Response(sitemap, {
