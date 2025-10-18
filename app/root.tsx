@@ -28,7 +28,7 @@ export const meta: MetaFunction = () => [
   { property: "og:title", content: config.seo.siteName },
   { property: "og:description", content: config.seo.description },
   { property: "og:url", content: config.seo.siteUrl },
-  { property: "og:image", content: `${config.seo.siteUrl}/images/og-image.jpg` },
+  { property: "og:image", content: `${config.seo.siteUrl}/images/og-image.svg` },
   { property: "og:image:width", content: "1200" },
   { property: "og:image:height", content: "630" },
   { property: "og:image:alt", content: `${config.agent.name} - Las Vegas Real Estate Expert` },
@@ -40,7 +40,7 @@ export const meta: MetaFunction = () => [
   { name: "twitter:creator", content: "@drjanetduffy" },
   { name: "twitter:title", content: config.seo.siteName },
   { name: "twitter:description", content: config.seo.description },
-  { name: "twitter:image", content: `${config.seo.siteUrl}/images/twitter-image.jpg` },
+  { name: "twitter:image", content: `${config.seo.siteUrl}/images/twitter-image.svg` },
   { name: "twitter:image:alt", content: `${config.agent.name} - Las Vegas Real Estate Expert` },
   
   // Additional SEO meta tags
@@ -122,7 +122,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 "Home Selling",
                 "Relocation Services"
               ],
-              "image": `${config.seo.siteUrl}/images/dr-janet-duffy.jpg`,
+              "image": `${config.seo.siteUrl}/images/dr-janet-duffy.svg`,
               "sameAs": [
                 config.social.facebook,
                 config.social.instagram,
