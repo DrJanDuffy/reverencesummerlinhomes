@@ -77,6 +77,9 @@ export default [
     route("valuation", "routes/valuation.tsx"),
     route("properties", "routes/properties.tsx"),
     route("properties/:id", "routes/property-detail.tsx"),
+    
+    // API routes
+    route("api/sitemap", "routes/api/sitemap.tsx"),
   ]),
   
   // About section (outside layout)

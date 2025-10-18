@@ -1,23 +1,21 @@
 User-agent: *
 Allow: /
 
-# Disallow admin and private areas
+# Sitemap
+Sitemap: https://reverencesummerlinhomes.com/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Disallow admin or sensitive areas
 Disallow: /admin/
 Disallow: /api/
 Disallow: /_vercel/
 Disallow: /.vercel/
 
 # Allow important pages
+Allow: /communities/
 Allow: /buying/
 Allow: /selling/
 Allow: /relocate/
-Allow: /communities/
 Allow: /resources/
-Allow: /about/
-Allow: /contact
-Allow: /valuation
-Allow: /properties
-
-# Sitemap
-Sitemap: https://reverencesummerlinhomes.com/sitemap.xml
-

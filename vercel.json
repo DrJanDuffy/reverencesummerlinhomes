@@ -4,6 +4,11 @@
   "framework": "react-router",
   "installCommand": "npm ci",
   "devCommand": "npx react-router dev",
+  "functions": {
+    "app/routes/**/*.tsx": {
+      "runtime": "nodejs18.x"
+    }
+  },
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -11,6 +16,15 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
         }
       ]
     },
@@ -32,8 +46,25 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
         }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "destination": "/api/sitemap"
     }
   ]
 }

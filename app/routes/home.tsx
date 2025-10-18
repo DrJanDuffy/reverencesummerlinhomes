@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/com
 import { Badge } from "~/components/ui/badge";
 import { Separator } from "~/components/ui/separator";
 import { 
-  Home, 
+  Home as HomeIcon, 
   MapPin, 
   Phone, 
   Mail, 
@@ -169,7 +169,7 @@ export default function Home() {
             <Card className="text-center hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Home className="w-8 h-8 text-primary-600" />
+                  <HomeIcon className="w-8 h-8 text-primary-600" />
                 </div>
                 <CardTitle>Featured Pulte Agent</CardTitle>
               </CardHeader>
@@ -368,7 +368,7 @@ export default function Home() {
             <Card className="text-center hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Home className="w-8 h-8 text-primary-600" />
+                  <HomeIcon className="w-8 h-8 text-primary-600" />
                 </div>
                 <CardTitle>Home Buying</CardTitle>
               </CardHeader>
