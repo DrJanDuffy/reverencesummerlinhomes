@@ -161,4 +161,8 @@ docker run -p 3000:3000 reverencesummerlinhomes
 
 ---
 
-Built with ❤️ for Dr. Janet Duffy's Las Vegas real estate business using React Router.
+Built with ❤️ for Dr. Janet Duffy's Las Vegas real estate business using React Router v7 Framework Mode.
+
+## Auto-Deployment Test
+
+This commit tests the auto-deployment functionality after fixing the GitHub remote URL.
