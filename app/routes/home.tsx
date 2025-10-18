@@ -102,37 +102,49 @@ export default function Home() {
             
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <h3 className="text-2xl font-bold mb-6">Featured Community</h3>
-                <div className="space-y-4">
+                <h3 className="text-2xl font-bold mb-6">Get Your Free Home Valuation</h3>
+                <p className="text-primary-100 mb-6">
+                  Discover what your Las Vegas home is worth in today's market. 
+                  Get instant results and expert insights from Dr. Janet Duffy.
+                </p>
+                
+                <form className="space-y-4">
                   <div>
-                    <h4 className="text-xl font-semibold text-white mb-2">Monument at Reverence</h4>
-                    <p className="text-primary-100 mb-4">
-                      Two-story townhomes starting from the $500s in Summerlin's 
-                      northernmost guard-gated community.
-                    </p>
+                    <input
+                      type="text"
+                      placeholder="Your Address"
+                      className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50"
+                    />
                   </div>
-                  <div className="grid grid-cols-2 gap-4 text-sm">
-                    <div className="flex justify-between">
-                      <span>Price Range:</span>
-                      <span className="font-semibold">Starting from the $500s</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Square Feet:</span>
-                      <span className="font-semibold">1,654 - 1,869</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Bedrooms:</span>
-                      <span className="font-semibold">3-4</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Bathrooms:</span>
-                      <span className="font-semibold">2.5-3</span>
-                    </div>
+                  <div>
+                    <input
+                      type="email"
+                      placeholder="Your Email"
+                      className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50"
+                    />
+                  </div>
+                  <div>
+                    <input
+                      type="tel"
+                      placeholder="Your Phone"
+                      className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50"
+                    />
                   </div>
                   <Button className="w-full bg-white text-primary-700 hover:bg-primary-50">
-                    <ArrowRight className="w-4 h-4 mr-2" />
-                    Learn More About Monument
+                    <Zap className="w-4 h-4 mr-2" />
+                    Get Free Valuation
                   </Button>
+                </form>
+                
+                <div className="mt-6 pt-6 border-t border-white/20">
+                  <div className="flex items-center gap-2 text-sm text-primary-200 mb-2">
+                    <Shield className="w-4 h-4" />
+                    <span>Your information is secure and private</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-primary-200">
+                    <CheckCircle className="w-4 h-4" />
+                    <span>No obligation, instant results</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -433,6 +445,95 @@ export default function Home() {
                 </Button>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 bg-muted/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">What My Clients Are Saying</h2>
+            <p className="text-xl text-muted-foreground">
+              Don't just take my word for it. Here's what my clients have to say about their experience.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                    <Users className="w-6 h-6 text-primary-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">Sarah Johnson</h3>
+                    <p className="text-sm text-muted-foreground">Summerlin West</p>
+                  </div>
+                </div>
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground italic">
+                  "Dr. Janet Duffy made our relocation from California seamless. Her knowledge of Summerlin communities and attention to detail helped us find the perfect home."
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                    <HomeIcon className="w-6 h-6 text-primary-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">Michael Chen</h3>
+                    <p className="text-sm text-muted-foreground">The Ridges</p>
+                  </div>
+                </div>
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground italic">
+                  "As first-time homebuyers, we were nervous about the process. Dr. Janet guided us through every step and helped us understand the Las Vegas market."
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                    <Award className="w-6 h-6 text-primary-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">Jennifer Martinez</h3>
+                    <p className="text-sm text-muted-foreground">Downtown Summerlin</p>
+                  </div>
+                </div>
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground italic">
+                  "Dr. Janet helped us sell our home quickly and for top dollar. Her marketing strategy and professional network ensured we had multiple offers within days."
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+          
+          <div className="text-center mt-12">
+            <Button size="lg" variant="outline" asChild>
+              <Link to="/about/reviews">
+                Read More Reviews
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
