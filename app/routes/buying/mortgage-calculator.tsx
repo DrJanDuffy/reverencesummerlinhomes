@@ -219,7 +219,7 @@ export default function MortgageCalculator() {
                   <li>• 3-20% down payment</li>
                   <li>• Fixed or adjustable rates</li>
                   <li>• 15-30 year terms</li>
-                  <li>• PMI required if <20% down</li>
+                  <li>• PMI required if &lt;20% down</li>
                 </ul>
               </div>
               
