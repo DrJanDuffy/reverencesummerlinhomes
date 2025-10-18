@@ -1,9 +1,9 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "npx react-router build",
   "outputDirectory": "build/client",
   "framework": "react-router",
   "installCommand": "npm ci",
-  "devCommand": "npm run dev",
+  "devCommand": "npx react-router dev",
   "rewrites": [
     {
       "source": "/(.*)",
@@ -59,11 +59,5 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "regions": ["iad1"],
-  "crons": [
-    {
-      "path": "/api/sync-properties",
-      "schedule": "0 2 * * *"
-    }
-  ]
+  "regions": ["iad1"]
 }

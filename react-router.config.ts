@@ -31,17 +31,4 @@ export default {
   buildDirectory: "build",
   serverBuildFile: "index.js",
   
-  // Real estate specific routes
-  routes: (defineRoute) => [
-    defineRoute("/", "routes/home.tsx"),
-    defineRoute("/properties", "routes/properties.tsx"),
-    defineRoute("/properties/:id", "routes/property-detail.tsx"),
-    defineRoute("/valuation", "routes/valuation.tsx"),
-    defineRoute("/contact", "routes/contact.tsx"),
-    defineRoute("/about", "routes/about.tsx"),
-    defineRoute("/neighborhoods", "routes/neighborhoods.tsx"),
-    defineRoute("/neighborhoods/:slug", "routes/neighborhood-detail.tsx"),
-    defineRoute("/blog", "routes/blog.tsx"),
-    defineRoute("/blog/:slug", "routes/blog-post.tsx"),
-  ],
 } satisfies Config;

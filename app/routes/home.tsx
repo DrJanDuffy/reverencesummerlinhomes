@@ -8,8 +8,9 @@ import { VideoSection } from "~/components/VideoSection";
 import { TestimonialsSection } from "~/components/TestimonialsSection";
 import { BlogSection } from "~/components/BlogSection";
 import { ContactSection } from "~/components/ContactSection";
+import type { Route } from "./+types/home";
 
-export const meta: MetaFunction = () => {
+export function meta() {
   return [
     { title: "Dr. Janet Duffy - Las Vegas Real Estate Expert | Reference Summerlin Homes" },
     { name: "description", content: config.seo.description },
@@ -19,7 +20,7 @@ export const meta: MetaFunction = () => {
     { property: "og:type", content: "website" },
     { property: "og:url", content: config.seo.siteUrl },
   ];
-};
+}
 
 export const links: LinksFunction = () => [
   { rel: "canonical", href: config.seo.siteUrl },
@@ -92,6 +93,23 @@ export default function Home() {
 
       {/* Contact Section */}
       <ContactSection />
+    </div>
+  );
+}
+
+export function ErrorBoundary() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="text-center">
+        <h1 className="text-2xl font-bold text-gray-900 mb-4">Something went wrong</h1>
+        <p className="text-gray-600 mb-6">We're sorry, but there was an error loading this page.</p>
+        <a 
+          href="/" 
+          className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+        >
+          Return to Home
+        </a>
+      </div>
     </div>
   );
 }

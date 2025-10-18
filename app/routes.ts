@@ -1,234 +1,88 @@
-import type { RouteObject } from "react-router";
+import type { RouteConfig } from "@react-router/dev/routes";
+import {
+  route,
+  index,
+  layout,
+  prefix,
+} from "@react-router/dev/routes";
 
-export const routes: RouteObject[] = [
-  {
-    path: "/",
-    lazy: () => import("./routes/home"),
-  },
-  {
-    path: "/buying",
-    children: [
-      {
-        index: true,
-        lazy: () => import("./routes/buying/index"),
-      },
-      {
-        path: "new-home",
-        lazy: () => import("./routes/buying/new-home"),
-      },
-      {
-        path: "military-veterans",
-        lazy: () => import("./routes/buying/military-veterans"),
-      },
-      {
-        path: "mortgage-calculator",
-        lazy: () => import("./routes/buying/mortgage-calculator"),
-      },
-      {
-        path: "financing",
-        lazy: () => import("./routes/buying/financing"),
-      },
-    ],
-  },
-  {
-    path: "/selling",
-    children: [
-      {
-        index: true,
-        lazy: () => import("./routes/selling/index"),
-      },
-      {
-        path: "foreclosure-avoidance",
-        lazy: () => import("./routes/selling/foreclosure-avoidance"),
-      },
-      {
-        path: "short-sales",
-        lazy: () => import("./routes/selling/short-sales"),
-      },
-      {
-        path: "marketing",
-        lazy: () => import("./routes/selling/marketing"),
-      },
-    ],
-  },
-  {
-    path: "/relocate",
-    children: [
-      {
-        index: true,
-        lazy: () => import("./routes/relocate/index"),
-      },
-      {
-        path: "summerlin",
-        lazy: () => import("./routes/relocate/summerlin"),
-      },
-      {
-        path: "california",
-        lazy: () => import("./routes/relocate/california"),
-      },
-      {
-        path: "los-angeles",
-        lazy: () => import("./routes/relocate/los-angeles"),
-      },
-      {
-        path: "san-francisco",
-        lazy: () => import("./routes/relocate/san-francisco"),
-      },
-      {
-        path: "new-york",
-        lazy: () => import("./routes/relocate/new-york"),
-      },
-      {
-        path: "seattle",
-        lazy: () => import("./routes/relocate/seattle"),
-      },
-      {
-        path: "phoenix",
-        lazy: () => import("./routes/relocate/phoenix"),
-      },
-      {
-        path: "chicago",
-        lazy: () => import("./routes/relocate/chicago"),
-      },
-    ],
-  },
-  {
-    path: "/communities",
-    children: [
-      {
-        index: true,
-        lazy: () => import("./routes/communities/index"),
-      },
-      {
-        path: "ascension-summerlin",
-        lazy: () => import("./routes/communities/ascension-summerlin"),
-      },
-      {
-        path: "astra-la-madre-peaks",
-        lazy: () => import("./routes/communities/astra-la-madre-peaks"),
-      },
-      {
-        path: "summerlin-west",
-        lazy: () => import("./routes/communities/summerlin-west"),
-      },
-      {
-        path: "luxury-homes",
-        lazy: () => import("./routes/communities/luxury-homes"),
-      },
-      {
-        path: "the-ridges",
-        lazy: () => import("./routes/communities/the-ridges"),
-      },
-      {
-        path: "red-rock-country-club",
-        lazy: () => import("./routes/communities/red-rock-country-club"),
-      },
-      {
-        path: "new-construction",
-        lazy: () => import("./routes/communities/new-construction"),
-      },
-      {
-        path: "mesa-ridge",
-        lazy: () => import("./routes/communities/mesa-ridge"),
-      },
-      {
-        path: "the-peaks",
-        lazy: () => import("./routes/communities/the-peaks"),
-      },
-      {
-        path: "downtown-summerlin",
-        lazy: () => import("./routes/communities/downtown-summerlin"),
-      },
-      {
-        path: "reverence-summerlin",
-        lazy: () => import("./routes/communities/reverence-summerlin"),
-      },
-      {
-        path: "kestrel",
-        lazy: () => import("./routes/communities/kestrel"),
-      },
-      {
-        path: "skye-canyon",
-        lazy: () => import("./routes/communities/skye-canyon"),
-      },
-      {
-        path: "henderson",
-        lazy: () => import("./routes/communities/henderson"),
-      },
-    ],
-  },
-  {
-    path: "/resources",
-    children: [
-      {
-        index: true,
-        lazy: () => import("./routes/resources/index"),
-      },
-      {
-        path: "blog",
-        lazy: () => import("./routes/resources/blog"),
-      },
-      {
-        path: "youtube",
-        lazy: () => import("./routes/resources/youtube"),
-      },
-      {
-        path: "golf-courses",
-        lazy: () => import("./routes/resources/golf-courses"),
-      },
-      {
-        path: "schools",
-        lazy: () => import("./routes/resources/schools"),
-      },
-      {
-        path: "trails",
-        lazy: () => import("./routes/resources/trails"),
-      },
-      {
-        path: "tennis-pickleball",
-        lazy: () => import("./routes/resources/tennis-pickleball"),
-      },
-      {
-        path: "pools",
-        lazy: () => import("./routes/resources/pools"),
-      },
-    ],
-  },
-  {
-    path: "/about",
-    children: [
-      {
-        index: true,
-        lazy: () => import("./routes/about/index"),
-      },
-      {
-        path: "media",
-        lazy: () => import("./routes/about/media"),
-      },
-      {
-        path: "reviews",
-        lazy: () => import("./routes/about/reviews"),
-      },
-      {
-        path: "zillow-premier",
-        lazy: () => import("./routes/about/zillow-premier"),
-      },
-    ],
-  },
-  {
-    path: "/contact",
-    lazy: () => import("./routes/contact"),
-  },
-  {
-    path: "/valuation",
-    lazy: () => import("./routes/valuation"),
-  },
-  {
-    path: "/properties",
-    lazy: () => import("./routes/properties"),
-  },
-  {
-    path: "/properties/:id",
-    lazy: () => import("./routes/property-detail"),
-  },
-];
+export default [
+  layout("routes/_layout.tsx", [
+    index("routes/home.tsx"),
+    
+    // Buying section
+    ...prefix("buying", [
+      index("routes/buying/index.tsx"),
+      route("new-home", "routes/buying/new-home.tsx"),
+      route("military-veterans", "routes/buying/military-veterans.tsx"),
+      route("mortgage-calculator", "routes/buying/mortgage-calculator.tsx"),
+      route("financing", "routes/buying/financing.tsx"),
+    ]),
+    
+    // Selling section
+    ...prefix("selling", [
+      index("routes/selling/index.tsx"),
+      route("foreclosure-avoidance", "routes/selling/foreclosure-avoidance.tsx"),
+      route("short-sales", "routes/selling/short-sales.tsx"),
+      route("marketing", "routes/selling/marketing.tsx"),
+    ]),
+    
+    // Relocation section
+    ...prefix("relocate", [
+      index("routes/relocate/index.tsx"),
+      route("summerlin", "routes/relocate/summerlin.tsx"),
+      route("california", "routes/relocate/california.tsx"),
+      route("los-angeles", "routes/relocate/los-angeles.tsx"),
+      route("san-francisco", "routes/relocate/san-francisco.tsx"),
+      route("new-york", "routes/relocate/new-york.tsx"),
+      route("seattle", "routes/relocate/seattle.tsx"),
+      route("phoenix", "routes/relocate/phoenix.tsx"),
+      route("chicago", "routes/relocate/chicago.tsx"),
+    ]),
+    
+    // Communities section
+    ...prefix("communities", [
+      index("routes/communities/index.tsx"),
+      route("ascension-summerlin", "routes/communities/ascension-summerlin.tsx"),
+      route("astra-la-madre-peaks", "routes/communities/astra-la-madre-peaks.tsx"),
+      route("summerlin-west", "routes/communities/summerlin-west.tsx"),
+      route("luxury-homes", "routes/communities/luxury-homes.tsx"),
+      route("the-ridges", "routes/communities/the-ridges.tsx"),
+      route("red-rock-country-club", "routes/communities/red-rock-country-club.tsx"),
+      route("new-construction", "routes/communities/new-construction.tsx"),
+      route("mesa-ridge", "routes/communities/mesa-ridge.tsx"),
+      route("the-peaks", "routes/communities/the-peaks.tsx"),
+      route("downtown-summerlin", "routes/communities/downtown-summerlin.tsx"),
+      route("reverence-summerlin", "routes/communities/reverence-summerlin.tsx"),
+      route("kestrel", "routes/communities/kestrel.tsx"),
+      route("skye-canyon", "routes/communities/skye-canyon.tsx"),
+      route("henderson", "routes/communities/henderson.tsx"),
+    ]),
+    
+    // Resources section
+    ...prefix("resources", [
+      index("routes/resources/index.tsx"),
+      route("blog", "routes/resources/blog.tsx"),
+      route("youtube", "routes/resources/youtube.tsx"),
+      route("golf-courses", "routes/resources/golf-courses.tsx"),
+      route("schools", "routes/resources/schools.tsx"),
+      route("trails", "routes/resources/trails.tsx"),
+      route("tennis-pickleball", "routes/resources/tennis-pickleball.tsx"),
+      route("pools", "routes/resources/pools.tsx"),
+    ]),
+    
+    // Core routes
+    route("contact", "routes/contact.tsx"),
+    route("valuation", "routes/valuation.tsx"),
+    route("properties", "routes/properties.tsx"),
+    route("properties/:id", "routes/property-detail.tsx"),
+  ]),
+  
+  // About section (outside layout)
+  ...prefix("about", [
+    index("routes/about/index.tsx"),
+    route("media", "routes/about/media.tsx"),
+    route("reviews", "routes/about/reviews.tsx"),
+    route("zillow-premier", "routes/about/zillow-premier.tsx"),
+  ]),
+] satisfies RouteConfig;
