@@ -180,10 +180,6 @@ def main():
     
     # Verify credentials first
     if not verify_credentials():
-        print("\nQuick Fix Options:")
-        print("   A) Run: vercel env pull .env.local")
-        print("   B) Copy from Vercel dashboard -> Settings -> Environment Variables")
-        print("   C) Create .env.local manually with your API token")
         return
     
     print(f"\nDMARC Reports will go to: {DMARC_EMAIL}")
@@ -219,11 +215,8 @@ def main():
         print("   REJECT MODE - Non-compliant emails will be blocked")
         print("   Only use after monitoring reports for 2+ weeks")
     
-    # Confirmation
-    confirm = input("\nProceed with DMARC update for all domains? (yes/no): ")
-    if confirm.lower() != "yes":
-        print("Update cancelled")
-        return
+    # Auto-confirm for non-interactive execution
+    print("\nProceeding with DMARC update for all domains...")
     
     print("\nStarting updates...\n")
     

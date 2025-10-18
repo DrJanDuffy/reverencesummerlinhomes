@@ -38,7 +38,11 @@ def test_credentials():
             "Content-Type": "application/json"
         }
     
-    response = requests.get("https://api.cloudflare.com/client/v4/user/tokens/verify", headers=headers)
+    # Use different endpoint for Global API Key vs API Token
+    if CF_API_TOKEN:
+        response = requests.get("https://api.cloudflare.com/client/v4/user/tokens/verify", headers=headers)
+    else:
+        response = requests.get("https://api.cloudflare.com/client/v4/user", headers=headers)
     
     if response.status_code == 200:
         print("SUCCESS: Credentials verified!")
