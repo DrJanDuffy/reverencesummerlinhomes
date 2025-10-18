@@ -54,6 +54,7 @@ export default [
       route("the-peaks", "routes/communities/the-peaks.tsx"),
       route("downtown-summerlin", "routes/communities/downtown-summerlin.tsx"),
       route("reverence-summerlin", "routes/communities/reverence-summerlin.tsx"),
+      route("monument-at-reverence", "routes/communities/monument-at-reverence.tsx"),
       route("kestrel", "routes/communities/kestrel.tsx"),
       route("skye-canyon", "routes/communities/skye-canyon.tsx"),
       route("henderson", "routes/communities/henderson.tsx"),

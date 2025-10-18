@@ -1,29 +1,85 @@
 import { Link, NavLink } from "react-router";
 import { useState } from "react";
 import { config } from "~/lib/config";
+import { Button } from "~/components/ui/button";
+import { Badge } from "~/components/ui/badge";
+import { 
+  Phone, 
+  Mail, 
+  Menu, 
+  X, 
+  ChevronDown,
+  Home,
+  Award,
+  Shield,
+  Star
+} from "lucide-react";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-lg sticky top-0 z-50">
+    <header className="bg-white shadow-lg sticky top-0 z-50 border-b border-border">
+      {/* Top Bar with Partnerships */}
+      <div className="bg-primary-600 text-white py-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between text-sm">
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2">
+                <Award className="w-4 h-4" />
+                <span>Certified Summerlin Specialist</span>
+              </div>
+              <div className="hidden sm:flex items-center gap-2">
+                <Shield className="w-4 h-4" />
+                <span>Featured Pulte Homes Agent</span>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <a 
+                href={`tel:${config.contact.phone}`}
+                className="flex items-center gap-1 hover:text-primary-200 transition-colors"
+              >
+                <Phone className="w-4 h-4" />
+                <span className="hidden sm:inline">{config.contact.phone}</span>
+              </a>
+              <a 
+                href={`mailto:${config.contact.email}`}
+                className="flex items-center gap-1 hover:text-primary-200 transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+                <span className="hidden sm:inline">Email</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center">
-              <div className="text-2xl font-bold text-primary-600">
-                Reference Summerlin Homes
+            <Link to="/" className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
+                <Home className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <div className="text-xl font-bold text-primary-600">
+                  Dr. Janet Duffy
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  Real Estate Expert
+                </div>
               </div>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden lg:flex space-x-1">
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                `px-4 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-1 ${
                   isActive
                     ? "text-primary-600 bg-primary-50"
                     : "text-gray-700 hover:text-primary-600 hover:bg-gray-50"
@@ -34,102 +90,88 @@ export function Header() {
             </NavLink>
             
             <div className="relative group">
-              <button className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 flex items-center">
+              <button className="px-4 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 flex items-center gap-1">
                 Buying
-                <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+                <ChevronDown className="w-4 h-4" />
               </button>
-              <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <div className="py-1">
-                  <Link to="/buying" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Buying a New Home</Link>
-                  <Link to="/buying/military-veterans" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Active Duty Military & Veterans</Link>
-                  <Link to="/buying/mortgage-calculator" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mortgage Calculator</Link>
-                  <Link to="/buying/financing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Get Financing Now</Link>
+              <div className="absolute left-0 mt-2 w-72 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-border">
+                <div className="py-2">
+                  <Link to="/buying" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">Buying a New Home</Link>
+                  <Link to="/buying/new-home" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">New Construction</Link>
+                  <Link to="/buying/military-veterans" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">Military & Veterans</Link>
+                  <Link to="/buying/mortgage-calculator" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">Mortgage Calculator</Link>
+                  <Link to="/buying/financing" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">Get Financing</Link>
                 </div>
               </div>
             </div>
 
             <div className="relative group">
-              <button className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 flex items-center">
+              <button className="px-4 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 flex items-center gap-1">
                 Selling
-                <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+                <ChevronDown className="w-4 h-4" />
               </button>
-              <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <div className="py-1">
-                  <Link to="/selling" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Marketing Your Home</Link>
-                  <Link to="/selling/foreclosure-avoidance" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Foreclosure Avoidance</Link>
-                  <Link to="/selling/short-sales" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Las Vegas Short Sales</Link>
+              <div className="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-border">
+                <div className="py-2">
+                  <Link to="/selling" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">Marketing Your Home</Link>
+                  <Link to="/selling/foreclosure-avoidance" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">Foreclosure Avoidance</Link>
+                  <Link to="/selling/short-sales" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">Short Sales</Link>
                 </div>
               </div>
             </div>
 
             <div className="relative group">
-              <button className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 flex items-center">
-                Relocate
-                <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              </button>
-              <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <div className="py-1">
-                  <Link to="/relocate/summerlin" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Relocate to Summerlin</Link>
-                  <Link to="/relocate/california" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">How Do I Move Out of California?</Link>
-                  <Link to="/relocate/los-angeles" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Relocating from Los Angeles</Link>
-                  <Link to="/relocate/san-francisco" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Relocate from San Francisco</Link>
-                  <Link to="/relocate/new-york" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Relocate from New York</Link>
-                  <Link to="/relocate/seattle" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Relocate from Seattle</Link>
-                  <Link to="/relocate/phoenix" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Relocate from Phoenix</Link>
-                  <Link to="/relocate/chicago" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Relocate from Chicago</Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative group">
-              <button className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 flex items-center">
+              <button className="px-4 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 flex items-center gap-1">
                 Communities
-                <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+                <ChevronDown className="w-4 h-4" />
               </button>
-              <div className="absolute left-0 mt-2 w-80 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <div className="py-1">
-                  <Link to="/communities/ascension-summerlin" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Ascension Summerlin</Link>
-                  <Link to="/communities/astra-la-madre-peaks" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Astra at La Madre Peaks</Link>
-                  <Link to="/communities/summerlin-west" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summerlin West</Link>
-                  <Link to="/communities/luxury-homes" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summerlin Luxury Homes</Link>
-                  <Link to="/communities/the-ridges" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">The Ridges Summerlin</Link>
-                  <Link to="/communities/red-rock-country-club" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Red Rock Country Club</Link>
-                  <Link to="/communities/new-construction" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">New Construction Homes</Link>
-                  <Link to="/communities/mesa-ridge" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mesa Ridge Summerlin</Link>
-                  <Link to="/communities/the-peaks" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">The Peaks Summerlin</Link>
-                  <Link to="/communities/downtown-summerlin" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Downtown Summerlin</Link>
-                  <Link to="/communities/reverence-summerlin" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Reverence Summerlin</Link>
-                  <Link to="/communities/kestrel" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Kestrel & Kestrel Commons</Link>
-                  <Link to="/communities/skye-canyon" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Skye Canyon Las Vegas</Link>
-                  <Link to="/communities/henderson" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Henderson Real Estate</Link>
+              <div className="absolute left-0 mt-2 w-80 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-border">
+                <div className="py-2">
+                  <div className="px-4 py-2 border-b border-border">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Star className="w-4 h-4 text-primary-600" />
+                      <span className="text-sm font-semibold text-primary-600">Featured Community</span>
+                    </div>
+                    <Link to="/communities/monument-at-reverence" className="block px-2 py-1 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600 font-medium">
+                      Monument at Reverence
+                    </Link>
+                  </div>
+                  <Link to="/communities" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">All Communities</Link>
+                  <Link to="/communities/summerlin-west" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">Summerlin West</Link>
+                  <Link to="/communities/downtown-summerlin" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">Downtown Summerlin</Link>
+                  <Link to="/communities/the-ridges" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">The Ridges</Link>
+                  <Link to="/communities/luxury-homes" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">Luxury Homes</Link>
+                  <Link to="/communities/new-construction" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">New Construction</Link>
                 </div>
               </div>
             </div>
 
             <div className="relative group">
-              <button className="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 flex items-center">
-                Resources
-                <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
+              <button className="px-4 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 flex items-center gap-1">
+                Relocate
+                <ChevronDown className="w-4 h-4" />
               </button>
-              <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <div className="py-1">
-                  <Link to="/resources/blog" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Blog</Link>
-                  <Link to="/resources/youtube" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">YouTube Channel</Link>
-                  <Link to="/resources/golf-courses" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summerlin Golf Courses</Link>
-                  <Link to="/resources/schools" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Schools in Summerlin</Link>
-                  <Link to="/resources/trails" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summerlin Trail System</Link>
-                  <Link to="/resources/tennis-pickleball" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Tennis & Pickleball Courts</Link>
-                  <Link to="/resources/pools" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Summerlin Community Pools</Link>
+              <div className="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-border">
+                <div className="py-2">
+                  <Link to="/relocate" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">Relocation Services</Link>
+                  <Link to="/relocate/summerlin" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">Relocate to Summerlin</Link>
+                  <Link to="/relocate/california" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">From California</Link>
+                  <Link to="/relocate/seattle" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">From Seattle</Link>
+                  <Link to="/relocate/new-york" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">From New York</Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative group">
+              <button className="px-4 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 flex items-center gap-1">
+                Resources
+                <ChevronDown className="w-4 h-4" />
+              </button>
+              <div className="absolute left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-border">
+                <div className="py-2">
+                  <Link to="/resources/blog" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">Blog</Link>
+                  <Link to="/resources/youtube" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">YouTube Channel</Link>
+                  <Link to="/resources/schools" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">Schools</Link>
+                  <Link to="/resources/golf-courses" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-primary-600">Golf Courses</Link>
                 </div>
               </div>
             </div>
@@ -137,70 +179,97 @@ export function Header() {
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                `px-4 py-2 rounded-md text-sm font-medium transition-colors ${
                   isActive
                     ? "text-primary-600 bg-primary-50"
                     : "text-gray-700 hover:text-primary-600 hover:bg-gray-50"
                 }`
               }
             >
-              About Dr. Janet
-            </NavLink>
-
-            <NavLink
-              to="/contact"
-              className={({ isActive }) =>
-                `px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  isActive
-                    ? "text-primary-600 bg-primary-50"
-                    : "text-gray-700 hover:text-primary-600 hover:bg-gray-50"
-                }`
-              }
-            >
-              Contact
+              About
             </NavLink>
           </nav>
 
-          {/* Phone Number */}
-          <div className="hidden lg:flex items-center">
-            <a
-              href={`tel:${config.contact.phone}`}
-              className="bg-primary-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-700 transition-colors"
-            >
-              {config.contact.phone}
-            </a>
+          {/* CTA Buttons */}
+          <div className="hidden lg:flex items-center gap-3">
+            <Button variant="outline" size="sm" asChild>
+              <Link to="/valuation">Get Home Value</Link>
+            </Button>
+            <Button size="sm" asChild>
+              <Link to="/contact">Contact</Link>
+            </Button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
+          <div className="lg:hidden">
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-primary-600 focus:outline-none focus:text-primary-600"
+              className="text-gray-700 hover:text-primary-600"
             >
-              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </Button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-50 rounded-md mt-2">
-              <Link to="/" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600">Home</Link>
-              <Link to="/buying" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600">Buying</Link>
-              <Link to="/selling" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600">Selling</Link>
-              <Link to="/relocate" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600">Relocate</Link>
-              <Link to="/communities" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600">Communities</Link>
-              <Link to="/resources" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600">Resources</Link>
-              <Link to="/about" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600">About Dr. Janet</Link>
-              <Link to="/contact" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600">Contact</Link>
-              <a href={`tel:${config.contact.phone}`} className="block px-3 py-2 text-base font-medium text-primary-600">{config.contact.phone}</a>
+          <div className="lg:hidden border-t border-border">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-gray-50 rounded-md mt-2">
+              <Link 
+                to="/" 
+                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-white rounded-md"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Home
+              </Link>
+              
+              <div className="px-3 py-2">
+                <div className="text-sm font-semibold text-gray-900 mb-2">Buying</div>
+                <div className="pl-4 space-y-1">
+                  <Link to="/buying" className="block px-3 py-2 text-sm text-gray-700 hover:text-primary-600 hover:bg-white rounded-md">Buying a New Home</Link>
+                  <Link to="/buying/new-home" className="block px-3 py-2 text-sm text-gray-700 hover:text-primary-600 hover:bg-white rounded-md">New Construction</Link>
+                  <Link to="/buying/military-veterans" className="block px-3 py-2 text-sm text-gray-700 hover:text-primary-600 hover:bg-white rounded-md">Military & Veterans</Link>
+                </div>
+              </div>
+              
+              <div className="px-3 py-2">
+                <div className="text-sm font-semibold text-gray-900 mb-2">Communities</div>
+                <div className="pl-4 space-y-1">
+                  <Link to="/communities/monument-at-reverence" className="block px-3 py-2 text-sm text-gray-700 hover:text-primary-600 hover:bg-white rounded-md">
+                    <div className="flex items-center gap-2">
+                      <Star className="w-4 h-4 text-primary-600" />
+                      <span>Monument at Reverence</span>
+                    </div>
+                  </Link>
+                  <Link to="/communities" className="block px-3 py-2 text-sm text-gray-700 hover:text-primary-600 hover:bg-white rounded-md">All Communities</Link>
+                </div>
+              </div>
+              
+              <Link to="/relocate" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-white rounded-md">Relocate</Link>
+              <Link to="/resources" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-white rounded-md">Resources</Link>
+              <Link to="/about" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-white rounded-md">About</Link>
+              <Link to="/contact" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-white rounded-md">Contact</Link>
+              
+              <div className="pt-4 border-t border-border">
+                <div className="flex flex-col gap-2">
+                  <Button className="w-full" asChild>
+                    <Link to="/contact">Contact Dr. Janet</Link>
+                  </Button>
+                  <Button variant="outline" className="w-full" asChild>
+                    <Link to="/valuation">Get Home Value</Link>
+                  </Button>
+                </div>
+                <div className="mt-4 text-center">
+                  <a 
+                    href={`tel:${config.contact.phone}`}
+                    className="text-primary-600 font-medium hover:text-primary-700"
+                  >
+                    {config.contact.phone}
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         )}
