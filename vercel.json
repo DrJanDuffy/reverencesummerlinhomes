@@ -4,11 +4,6 @@
   "framework": "react-router",
   "installCommand": "npm ci",
   "devCommand": "npx react-router dev",
-  "functions": {
-    "app/routes/**/*.tsx": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "headers": [
     {
       "source": "/assets/(.*)",
