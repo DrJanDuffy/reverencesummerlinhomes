@@ -11,6 +11,7 @@ load_dotenv('.env.local')
 
 # Get Cloudflare credentials from Vercel env vars
 CF_API_TOKEN = os.getenv('CLOUDFLARE_API_TOKEN') or os.getenv('CF_API_TOKEN')
+CF_API_KEY = os.getenv('CLOUDFLARE_API_KEY') or os.getenv('CF_API_KEY')
 CF_EMAIL = os.getenv('CLOUDFLARE_EMAIL') or os.getenv('CF_EMAIL')
 CF_ACCOUNT_ID = os.getenv('CLOUDFLARE_ACCOUNT_ID') or os.getenv('CF_ACCOUNT_ID')
 
@@ -42,10 +43,10 @@ def get_headers():
             "Authorization": f"Bearer {CF_API_TOKEN}",
             "Content-Type": "application/json"
         }
-    elif CF_EMAIL and os.getenv('CLOUDFLARE_API_KEY'):
+    elif CF_EMAIL and CF_API_KEY:
         return {
             "X-Auth-Email": CF_EMAIL,
-            "X-Auth-Key": os.getenv('CLOUDFLARE_API_KEY'),
+            "X-Auth-Key": CF_API_KEY,
             "Content-Type": "application/json"
         }
     else:
@@ -58,13 +59,17 @@ def verify_credentials():
     if not CF_API_TOKEN and not CF_EMAIL:
         print("ERROR: No Cloudflare credentials found in environment variables!")
         print("\nLooking for these variables:")
-        print("   • CLOUDFLARE_API_TOKEN or CF_API_TOKEN")
-        print("   • CLOUDFLARE_EMAIL or CF_EMAIL")
+        print("   • CLOUDFLARE_API_TOKEN or CF_API_TOKEN (API Token)")
+        print("   • CLOUDFLARE_API_KEY or CF_API_KEY (Global API Key)")
+        print("   • CLOUDFLARE_EMAIL or CF_EMAIL (required for API Key)")
         print("\nTo fix:")
         print("   1. Create .env.local file in project root")
         print("   2. Add: CLOUDFLARE_API_TOKEN=your_token_here")
         print("   OR")
-        print("   3. Pull from Vercel: vercel env pull .env.local")
+        print("   3. Add: CLOUDFLARE_API_KEY=your_key_here")
+        print("   4. Add: CLOUDFLARE_EMAIL=your_email@example.com")
+        print("   OR")
+        print("   5. Pull from Vercel: vercel env pull .env.local")
         return False
     
     headers = get_headers()

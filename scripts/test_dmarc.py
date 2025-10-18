@@ -13,6 +13,7 @@ load_dotenv('.env.local')
 
 # Get credentials
 CF_API_TOKEN = os.getenv('CLOUDFLARE_API_TOKEN')
+CF_API_KEY = os.getenv('CLOUDFLARE_API_KEY')
 CF_EMAIL = os.getenv('CLOUDFLARE_EMAIL')
 
 def test_credentials():
@@ -22,12 +23,20 @@ def test_credentials():
     if not CF_API_TOKEN and not CF_EMAIL:
         print("ERROR: No Cloudflare credentials found!")
         print("Add CLOUDFLARE_API_TOKEN to .env.local file")
+        print("OR add CLOUDFLARE_API_KEY and CLOUDFLARE_EMAIL")
         return False
     
-    headers = {
-        "Authorization": f"Bearer {CF_API_TOKEN}",
-        "Content-Type": "application/json"
-    }
+    if CF_API_TOKEN:
+        headers = {
+            "Authorization": f"Bearer {CF_API_TOKEN}",
+            "Content-Type": "application/json"
+        }
+    else:
+        headers = {
+            "X-Auth-Email": CF_EMAIL,
+            "X-Auth-Key": CF_API_KEY,
+            "Content-Type": "application/json"
+        }
     
     response = requests.get("https://api.cloudflare.com/client/v4/user/tokens/verify", headers=headers)
     
@@ -43,10 +52,17 @@ def show_domains():
     """Show all domains in Cloudflare account"""
     print("\nFetching domains...")
     
-    headers = {
-        "Authorization": f"Bearer {CF_API_TOKEN}",
-        "Content-Type": "application/json"
-    }
+    if CF_API_TOKEN:
+        headers = {
+            "Authorization": f"Bearer {CF_API_TOKEN}",
+            "Content-Type": "application/json"
+        }
+    else:
+        headers = {
+            "X-Auth-Email": CF_EMAIL,
+            "X-Auth-Key": CF_API_KEY,
+            "Content-Type": "application/json"
+        }
     
     response = requests.get("https://api.cloudflare.com/client/v4/zones", headers=headers)
     
@@ -70,10 +86,17 @@ def check_dmarc(zone_name):
     """Check if DMARC record exists for a domain"""
     print(f"\nChecking DMARC for {zone_name}...")
     
-    headers = {
-        "Authorization": f"Bearer {CF_API_TOKEN}",
-        "Content-Type": "application/json"
-    }
+    if CF_API_TOKEN:
+        headers = {
+            "Authorization": f"Bearer {CF_API_TOKEN}",
+            "Content-Type": "application/json"
+        }
+    else:
+        headers = {
+            "X-Auth-Email": CF_EMAIL,
+            "X-Auth-Key": CF_API_KEY,
+            "Content-Type": "application/json"
+        }
     
     # Get zone ID first
     zone_response = requests.get(f"https://api.cloudflare.com/client/v4/zones?name={zone_name}", headers=headers)

@@ -9,7 +9,8 @@
 
 ## Next Steps Required
 
-### 1. Get Cloudflare API Token
+### 1. Get Cloudflare API Credentials
+**Option A: API Token (Recommended)**
 1. Go to: https://dash.cloudflare.com/profile/api-tokens
 2. Click "Create Token"
 3. Use "Custom token" template
@@ -19,10 +20,22 @@
 5. Zone Resources: Include All zones
 6. Copy the generated token
 
-### 2. Add Token to .env.local
-Add this line to your .env.local file:
+**Option B: Global API Key (Legacy)**
+1. Go to: https://dash.cloudflare.com/profile/api-tokens
+2. Find "Global API Key" section
+3. Click "View" and copy the key
+4. Note your account email address
+
+### 2. Add Credentials to .env.local
+**For API Token:**
 ```
 CLOUDFLARE_API_TOKEN=your_actual_token_here
+```
+
+**For Global API Key:**
+```
+CLOUDFLARE_API_KEY=your_global_api_key_here
+CLOUDFLARE_EMAIL=your_email@example.com
 ```
 
 ### 3. Run DMARC Script
@@ -84,11 +97,13 @@ Update DMARC_POLICY in script to:
 ## Troubleshooting
 
 **"No credentials found"**
-- Add CLOUDFLARE_API_TOKEN to .env.local
+- Add CLOUDFLARE_API_TOKEN to .env.local (API Token method)
+- OR add CLOUDFLARE_API_KEY and CLOUDFLARE_EMAIL (Global API Key method)
 
 **"Credential verification failed"**
 - Check token permissions (Zone:Read, DNS:Edit)
 - Verify token is active in Cloudflare dashboard
+- For Global API Key: verify email matches your Cloudflare account
 
 **"No zones found"**
 - Ensure token has access to domains
