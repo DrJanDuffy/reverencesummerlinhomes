@@ -30,12 +30,13 @@ import type { Route } from "./+types/home";
 export function meta() {
   return [
     { title: `${config.seo.siteName} | ${config.agent.name}` },
-    { name: "description", content: config.seo.description },
-    { name: "keywords", content: config.seo.keywords.join(", ") },
+    { name: "description", content: `${config.seo.description} Find your dream home in Las Vegas and Summerlin with expert guidance from Dr. Janet Duffy.` },
     { property: "og:title", content: `${config.seo.siteName} | ${config.agent.name}` },
-    { property: "og:description", content: config.seo.description },
+    { property: "og:description", content: `${config.seo.description} Find your dream home in Las Vegas and Summerlin with expert guidance from Dr. Janet Duffy.` },
+    { property: "og:url", content: `${config.seo.siteUrl}/` },
     { property: "og:type", content: "website" },
-    { property: "og:url", content: config.seo.siteUrl },
+    { name: "twitter:title", content: `${config.seo.siteName} | ${config.agent.name}` },
+    { name: "twitter:description", content: `${config.seo.description} Find your dream home in Las Vegas and Summerlin with expert guidance from Dr. Janet Duffy.` },
   ];
 }
 
