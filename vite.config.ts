@@ -16,15 +16,7 @@ export default defineConfig({
   build: {
     target: "es2022",
     minify: "esbuild",
-    sourcemap: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ["react", "react-dom"],
-          router: ["react-router"],
-        },
-      },
-    },
+    sourcemap: false, // Disable sourcemaps in production
   },
   
   // Development optimizations
