@@ -20,7 +20,7 @@ import {
   Users,
   Award,
   Shield,
-  Golf,
+  Circle,
   TreePine
 } from "lucide-react";
 
@@ -47,7 +47,7 @@ export default function RedRockCountryClub() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
             <Badge className="mb-4 bg-white/20 text-white border-white/30">
-              <Golf className="w-4 h-4 mr-2" />
+              <Circle className="w-4 h-4 mr-2" />
               Championship Golf Living
             </Badge>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
@@ -86,7 +86,7 @@ export default function RedRockCountryClub() {
             <Card className="border-0 shadow-lg">
               <CardHeader>
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <Golf className="w-6 h-6 text-green-600" />
+                  <Circle className="w-6 h-6 text-green-600" />
                 </div>
                 <CardTitle>Championship Golf</CardTitle>
                 <CardDescription>
@@ -300,7 +300,7 @@ export default function RedRockCountryClub() {
             <Card className="border-0 shadow-lg">
               <CardHeader>
                 <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
-                  <Golf className="w-6 h-6 text-emerald-600" />
+                  <Circle className="w-6 h-6 text-emerald-600" />
                 </div>
                 <CardTitle>Golf Privileges</CardTitle>
               </CardHeader>
