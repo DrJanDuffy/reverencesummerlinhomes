@@ -1,8 +1,8 @@
-# Real Estate Development Rules for Dr. Janet Duffy - Las Vegas Market
+# Real Estate Website Development Rules for Dr. Janet Duffy - Las Vegas Market
 
 ## Project Context
 - **Agent**: Dr. Janet Duffy
-- **Market**: Las Vegas, Nevada
+- **Market**: Las Vegas, Nevada (Summerlin focus)
 - **Tech Stack**: React Router v7 + Vercel + RealScout + Follow Up Boss + Homebot
 - **Focus**: Lead generation, property valuations, market insights
 
