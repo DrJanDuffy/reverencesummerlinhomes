@@ -282,6 +282,125 @@ export default function SummerlinWest() {
         </div>
       </section>
 
+      {/* Market Insights */}
+      <section className="py-16 bg-gradient-to-r from-green-50 to-emerald-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Summerlin West Market Insights
+            </h2>
+            <p className="text-xl text-gray-600">
+              Current market trends and investment opportunities in Las Vegas's premier community
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <Card className="border-0 shadow-lg bg-white">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-green-600">$1.2M</span>
+                </div>
+                <CardTitle className="text-lg">Median Home Price</CardTitle>
+                <CardDescription>Up 8.5% from last year</CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-0 shadow-lg bg-white">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-blue-600">12</span>
+                </div>
+                <CardTitle className="text-lg">Days on Market</CardTitle>
+                <CardDescription>Fast-moving luxury market</CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-0 shadow-lg bg-white">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-purple-600">98%</span>
+                </div>
+                <CardTitle className="text-lg">List-to-Sale Ratio</CardTitle>
+                <CardDescription>Strong seller's market</CardDescription>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-0 shadow-lg bg-white">
+              <CardHeader className="text-center">
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold text-orange-600">+15%</span>
+                </div>
+                <CardTitle className="text-lg">Price Appreciation</CardTitle>
+                <CardDescription>5-year average growth</CardDescription>
+              </CardHeader>
+            </Card>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Summerlin West is Hot</h3>
+              <div className="space-y-4">
+                <div className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Limited Inventory</h4>
+                    <p className="text-gray-600">Only 45 homes currently available in the entire community</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Red Rock Views Premium</h4>
+                    <p className="text-gray-600">Homes with mountain views command 20-30% higher prices</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Golf Course Access</h4>
+                    <p className="text-gray-600">Properties backing to golf courses see strongest appreciation</p>
+                  </div>
+                </div>
+                <div className="flex items-start">
+                  <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-gray-900">New Construction Demand</h4>
+                    <p className="text-gray-600">Buyers willing to pay premium for move-in ready homes</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Investment Outlook</h3>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between py-2 border-b border-gray-100">
+                  <span className="text-gray-700">Rental Yield:</span>
+                  <span className="font-semibold text-green-600">4.2%</span>
+                </div>
+                <div className="flex items-center justify-between py-2 border-b border-gray-100">
+                  <span className="text-gray-700">Price per Sq Ft:</span>
+                  <span className="font-semibold text-blue-600">$285</span>
+                </div>
+                <div className="flex items-center justify-between py-2 border-b border-gray-100">
+                  <span className="text-gray-700">Luxury Market Share:</span>
+                  <span className="font-semibold text-purple-600">35%</span>
+                </div>
+                <div className="flex items-center justify-between py-2">
+                  <span className="text-gray-700">Forecast Growth:</span>
+                  <span className="font-semibold text-orange-600">+12%</span>
+                </div>
+              </div>
+              <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+                <p className="text-sm text-blue-800">
+                  <strong>Expert Insight:</strong> Summerlin West continues to outperform the broader Las Vegas market due to its unique combination of natural beauty, luxury amenities, and limited supply.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Schools & Education */}
       <section className="py-16 bg-gradient-to-r from-blue-50 to-primary-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
