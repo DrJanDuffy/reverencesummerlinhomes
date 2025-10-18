@@ -20,116 +20,118 @@ import {
   Users,
   Award,
   Shield,
-  Golf,
-  TreePine
+  TreePine,
+  Waves,
+  Building,
+  Zap
 } from "lucide-react";
 
 export function meta() {
   return [
-    { title: "Red Rock Country Club Homes | Golf Course Living in Las Vegas | Dr. Janet Duffy" },
-    { name: "description", content: "Discover luxury golf course homes in Red Rock Country Club, Las Vegas. Dr. Janet Duffy specializes in Red Rock Country Club real estate with championship golf, mountain views, and resort amenities." },
-    { name: "keywords", content: "Red Rock Country Club homes, golf course homes Las Vegas, championship golf, mountain views, Dr. Janet Duffy" },
-    { property: "og:title", content: "Red Rock Country Club Homes | Golf Course Living in Las Vegas" },
-    { property: "og:description", content: "Luxury golf course homes in Red Rock Country Club with championship golf, mountain views, and resort amenities. Expert real estate guidance from Dr. Janet Duffy." },
+    { title: "Boulder City Homes for Sale | Historic Small Town Living | Dr. Janet Duffy" },
+    { name: "description", content: "Discover homes for sale in Boulder City, Nevada. Dr. Janet Duffy specializes in Boulder City real estate with historic charm, outdoor recreation, and small-town living." },
+    { name: "keywords", content: "Boulder City homes for sale, Boulder City Nevada real estate, historic homes, outdoor recreation, small town living, Dr. Janet Duffy" },
+    { property: "og:title", content: "Boulder City Homes for Sale | Historic Small Town Living" },
+    { property: "og:description", content: "Homes for sale in Boulder City, Nevada with historic charm, outdoor recreation, and small-town living. Expert real estate guidance from Dr. Janet Duffy." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Red Rock Country Club Homes | Dr. Janet Duffy" },
-    { name: "twitter:description", content: "Luxury golf course homes in Red Rock Country Club with championship golf and mountain views." }
+    { name: "twitter:title", content: "Boulder City Homes for Sale | Dr. Janet Duffy" },
+    { name: "twitter:description", content: "Homes for sale in Boulder City, Nevada with historic charm and outdoor recreation." }
   ];
 }
 
-export default function RedRockCountryClub() {
+export default function BoulderCity() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-green-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-amber-50">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-green-600 via-green-700 to-green-800 text-white overflow-hidden">
+      <section className="relative bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
             <Badge className="mb-4 bg-white/20 text-white border-white/30">
-              <Golf className="w-4 h-4 mr-2" />
-              Championship Golf Living
+              <TreePine className="w-4 h-4 mr-2" />
+              Historic Small Town Living
             </Badge>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Red Rock Country Club
+              Boulder City Homes
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-green-100 max-w-3xl mx-auto">
-              Experience luxury golf course living with championship golf, stunning mountain views, and resort-style amenities in Las Vegas's premier golf community
+            <p className="text-xl md:text-2xl mb-8 text-amber-100 max-w-3xl mx-auto">
+              Discover historic charm and outdoor recreation in Boulder City, Nevada with small-town living and natural beauty
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-green-600 hover:bg-green-50">
+              <Button size="lg" className="bg-white text-amber-600 hover:bg-amber-50">
                 <Home className="w-5 h-5 mr-2" />
-                View Golf Course Homes
+                View Boulder City Homes
               </Button>
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                 <Phone className="w-5 h-5 mr-2" />
-                Schedule Golf Tour
+                Schedule Tour
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Community Overview */}
+      {/* Boulder City Overview */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Championship Golf Living
+              Discover Boulder City Living
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Red Rock Country Club offers the ultimate in golf course living with a championship course, luxury amenities, and breathtaking mountain views in an exclusive gated community.
+              Boulder City offers a unique blend of historic charm and outdoor recreation, with a small-town atmosphere, beautiful desert landscapes, and proximity to Lake Mead National Recreation Area.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="border-0 shadow-lg">
               <CardHeader>
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <Golf className="w-6 h-6 text-green-600" />
+                <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+                  <Building className="w-6 h-6 text-amber-600" />
                 </div>
-                <CardTitle>Championship Golf</CardTitle>
+                <CardTitle>Historic Charm</CardTitle>
                 <CardDescription>
-                  Arnold Palmer designed course
+                  Rich history and character
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Play on the Arnold Palmer-designed championship course with stunning mountain backdrops and challenging play for all skill levels.
+                  Boulder City was built in the 1930s to house Hoover Dam workers and maintains its historic character with preserved architecture.
                 </p>
               </CardContent>
             </Card>
 
             <Card className="border-0 shadow-lg">
               <CardHeader>
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <Mountain className="w-6 h-6 text-green-600" />
+                <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+                  <TreePine className="w-6 h-6 text-amber-600" />
                 </div>
-                <CardTitle>Mountain Views</CardTitle>
+                <CardTitle>Outdoor Recreation</CardTitle>
                 <CardDescription>
-                  Breathtaking Red Rock vistas
+                  Natural beauty and activities
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Enjoy panoramic views of Red Rock Canyon and the Spring Mountains from your golf course home.
+                  Enjoy hiking, biking, boating, and fishing at Lake Mead National Recreation Area and surrounding desert landscapes.
                 </p>
               </CardContent>
             </Card>
 
             <Card className="border-0 shadow-lg">
               <CardHeader>
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <TreePine className="w-6 h-6 text-green-600" />
+                <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+                  <Users className="w-6 h-6 text-amber-600" />
                 </div>
-                <CardTitle>Resort Amenities</CardTitle>
+                <CardTitle>Small Town Living</CardTitle>
                 <CardDescription>
-                  World-class facilities and services
+                  Close-knit community
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Enjoy resort-style pools, tennis courts, fitness center, fine dining, and exclusive member privileges.
+                  Experience a tight-knit community with friendly neighbors, local events, and a slower pace of life away from city hustle.
                 </p>
               </CardContent>
             </Card>
@@ -137,82 +139,82 @@ export default function RedRockCountryClub() {
         </div>
       </section>
 
-      {/* Golf & Amenities */}
-      <section className="py-16 bg-gradient-to-r from-green-50 to-emerald-50">
+      {/* Boulder City Features */}
+      <section className="py-16 bg-gradient-to-r from-amber-50 to-orange-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Golf & Resort Amenities
+              Boulder City Lifestyle & Amenities
             </h2>
             <p className="text-xl text-gray-600">
-              Experience world-class golf and resort-style amenities in an exclusive setting
+              Experience the best of historic small-town living with outdoor recreation
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Golf Course Features</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Community Features</h3>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Arnold Palmer Design</h4>
-                    <p className="text-gray-600">Championship course designed by golf legend Arnold Palmer</p>
+                    <h4 className="font-semibold text-gray-900">Historic Downtown</h4>
+                    <p className="text-gray-600">Charming downtown with local shops, restaurants, and historic buildings</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Mountain Backdrops</h4>
-                    <p className="text-gray-600">Stunning views of Red Rock Canyon and Spring Mountains</p>
+                    <h4 className="font-semibold text-gray-900">Lake Mead Access</h4>
+                    <p className="text-gray-600">Direct access to Lake Mead National Recreation Area for water activities</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Practice Facilities</h4>
-                    <p className="text-gray-600">Driving range, putting greens, and short game area</p>
+                    <h4 className="font-semibold text-gray-900">Hoover Dam</h4>
+                    <p className="text-gray-600">Minutes from the iconic Hoover Dam and visitor center</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Golf Shop & Lessons</h4>
-                    <p className="text-gray-600">Professional instruction and premium equipment</p>
+                    <h4 className="font-semibold text-gray-900">No Gambling</h4>
+                    <p className="text-gray-600">One of Nevada's few cities without gambling, maintaining family values</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Tournament Play</h4>
-                    <p className="text-gray-600">Member tournaments and competitive events</p>
+                    <h4 className="font-semibold text-gray-900">Desert Landscapes</h4>
+                    <p className="text-gray-600">Beautiful desert scenery with hiking trails and outdoor recreation</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Resort Amenities</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Prime Location</h3>
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <MapPin className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">Resort-style pool complex</span>
+                  <MapPin className="w-5 h-5 text-amber-600 mr-3" />
+                  <span className="text-gray-700">Hoover Dam - 5 minutes</span>
                 </div>
                 <div className="flex items-center">
-                  <MapPin className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">Tennis and pickleball courts</span>
+                  <MapPin className="w-5 h-5 text-amber-600 mr-3" />
+                  <span className="text-gray-700">Lake Mead - 10 minutes</span>
                 </div>
                 <div className="flex items-center">
-                  <MapPin className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">State-of-the-art fitness center</span>
+                  <MapPin className="w-5 h-5 text-amber-600 mr-3" />
+                  <span className="text-gray-700">Las Vegas Strip - 30 minutes</span>
                 </div>
                 <div className="flex items-center">
-                  <MapPin className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">Fine dining restaurant</span>
+                  <MapPin className="w-5 h-5 text-amber-600 mr-3" />
+                  <span className="text-gray-700">McCarran Airport - 35 minutes</span>
                 </div>
                 <div className="flex items-center">
-                  <MapPin className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">Concierge services</span>
+                  <MapPin className="w-5 h-5 text-amber-600 mr-3" />
+                  <span className="text-gray-700">Downtown Las Vegas - 40 minutes</span>
                 </div>
               </div>
             </div>
@@ -220,63 +222,63 @@ export default function RedRockCountryClub() {
         </div>
       </section>
 
-      {/* Home Types */}
+      {/* Boulder City Communities */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Golf Course Home Collection
+              Boulder City Neighborhoods
             </h2>
             <p className="text-xl text-gray-600">
-              From elegant villas to luxury estates, find your perfect golf course residence
+              Discover the diverse neighborhoods and historic areas in Boulder City
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
-                <CardTitle className="text-xl">Golf Villas</CardTitle>
-                <CardDescription>Starting from $800,000</CardDescription>
+                <CardTitle className="text-xl">Historic District</CardTitle>
+                <CardDescription>Original 1930s homes</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• 2,500 - 3,500 sq ft</li>
-                  <li>• 3-4 bedrooms</li>
-                  <li>• 3-4 bathrooms</li>
-                  <li>• 2-3 car garage</li>
-                  <li>• Golf course views</li>
+                  <li>• Original Hoover Dam worker homes</li>
+                  <li>• Historic architecture</li>
+                  <li>• Mature landscaping</li>
+                  <li>• Walking distance to downtown</li>
+                  <li>• Character and charm</li>
                 </ul>
               </CardContent>
             </Card>
 
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
-                <CardTitle className="text-xl">Luxury Estates</CardTitle>
-                <CardDescription>Starting from $1.2M</CardDescription>
+                <CardTitle className="text-xl">Eldorado Valley</CardTitle>
+                <CardDescription>Modern desert living</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• 3,500 - 5,000 sq ft</li>
-                  <li>• 4-5 bedrooms</li>
-                  <li>• 4-5 bathrooms</li>
-                  <li>• 3+ car garage</li>
-                  <li>• Premium golf views</li>
+                  <li>• Newer construction</li>
+                  <li>• Desert views</li>
+                  <li>• Larger lots</li>
+                  <li>• Modern amenities</li>
+                  <li>• Privacy and space</li>
                 </ul>
               </CardContent>
             </Card>
 
             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader>
-                <CardTitle className="text-xl">Custom Masterpieces</CardTitle>
-                <CardDescription>Starting from $2M</CardDescription>
+                <CardTitle className="text-xl">Downtown Area</CardTitle>
+                <CardDescription>Walkable community</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• 5,000+ sq ft</li>
-                  <li>• 5+ bedrooms</li>
-                  <li>• 5+ bathrooms</li>
-                  <li>• 4+ car garage</li>
-                  <li>• Panoramic views</li>
+                  <li>• Close to shops & restaurants</li>
+                  <li>• Community events</li>
+                  <li>• Historic charm</li>
+                  <li>• Small-town feel</li>
+                  <li>• Local amenities</li>
                 </ul>
               </CardContent>
             </Card>
@@ -284,66 +286,69 @@ export default function RedRockCountryClub() {
         </div>
       </section>
 
-      {/* Membership Benefits */}
-      <section className="py-16 bg-gradient-to-r from-emerald-50 to-green-50">
+      {/* Outdoor Recreation */}
+      <section className="py-16 bg-gradient-to-r from-orange-50 to-amber-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Country Club Membership
+              Outdoor Recreation
             </h2>
             <p className="text-xl text-gray-600">
-              Exclusive membership benefits and privileges at Red Rock Country Club
+              Endless opportunities for outdoor adventure and recreation
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="border-0 shadow-lg">
               <CardHeader>
-                <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-4">
-                  <Golf className="w-6 h-6 text-emerald-600" />
+                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                  <Waves className="w-6 h-6 text-orange-600" />
                 </div>
-                <CardTitle>Golf Privileges</CardTitle>
+                <CardTitle>Lake Mead</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• Unlimited golf access</li>
-                  <li>• Preferred tee times</li>
-                  <li>• Guest privileges</li>
-                  <li>• Tournament participation</li>
+                  <li>• Boating and fishing</li>
+                  <li>• Swimming beaches</li>
+                  <li>• Hiking trails</li>
+                  <li>• Camping areas</li>
+                  <li>• Water sports</li>
                 </ul>
               </CardContent>
             </Card>
 
             <Card className="border-0 shadow-lg">
               <CardHeader>
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6 text-green-600" />
+                <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+                  <Mountain className="w-6 h-6 text-amber-600" />
                 </div>
-                <CardTitle>Social Benefits</CardTitle>
+                <CardTitle>Desert Hiking</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• Fine dining access</li>
-                  <li>• Social events</li>
-                  <li>• Member networking</li>
-                  <li>• Family activities</li>
+                  <li>• Desert trails</li>
+                  <li>• Scenic overlooks</li>
+                  <li>• Wildlife viewing</li>
+                  <li>• Photography opportunities</li>
+                  <li>• Nature exploration</li>
                 </ul>
               </CardContent>
             </Card>
 
             <Card className="border-0 shadow-lg">
               <CardHeader>
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <Award className="w-6 h-6 text-blue-600" />
+                <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                  <Zap className="w-6 h-6 text-yellow-600" />
                 </div>
-                <CardTitle>Exclusive Access</CardTitle>
+                <CardTitle>Hoover Dam</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• Private facilities</li>
-                  <li>• Concierge services</li>
-                  <li>• Reciprocal privileges</li>
-                  <li>• VIP treatment</li>
+                  <li>• Dam tours</li>
+                  <li>• Visitor center</li>
+                  <li>• Historic exhibits</li>
+                  <li>• Scenic viewpoints</li>
+                  <li>• Engineering marvel</li>
                 </ul>
               </CardContent>
             </Card>
@@ -356,18 +361,18 @@ export default function RedRockCountryClub() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Your Golf Course Real Estate Expert
+              Your Boulder City Real Estate Expert
             </h2>
             <p className="text-xl text-gray-600">
-              Dr. Janet Duffy brings unmatched expertise in golf course real estate
+              Dr. Janet Duffy brings unmatched expertise in Boulder City real estate
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mr-4">
-                  <Award className="w-8 h-8 text-green-600" />
+                <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mr-4">
+                  <Award className="w-8 h-8 text-amber-600" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">{config.agent.name}</h3>
@@ -379,28 +384,28 @@ export default function RedRockCountryClub() {
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Golf Course Specialist</h4>
-                    <p className="text-gray-600">Expertise in Red Rock Country Club and golf course properties</p>
+                    <h4 className="font-semibold text-gray-900">Boulder City Specialist</h4>
+                    <p className="text-gray-600">Expertise in Boulder City communities and historic properties</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Membership Knowledge</h4>
-                    <p className="text-gray-600">Understanding of country club membership and benefits</p>
+                    <h4 className="font-semibold text-gray-900">Historic Property Expert</h4>
+                    <p className="text-gray-600">Understanding of historic homes and preservation requirements</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Luxury Market Expert</h4>
-                    <p className="text-gray-600">Specialized in high-end golf course properties</p>
+                    <h4 className="font-semibold text-gray-900">Outdoor Recreation Focus</h4>
+                    <p className="text-gray-600">Knowledge of outdoor recreation opportunities and lifestyle</p>
                   </div>
                 </div>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-green-600 hover:bg-green-700">
+                <Button size="lg" className="bg-amber-600 hover:bg-amber-700">
                   <Phone className="w-5 h-5 mr-2" />
                   Call {config.contact.phone}
                 </Button>
@@ -411,24 +416,24 @@ export default function RedRockCountryClub() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Janet Duffy?</h3>
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <Shield className="w-6 h-6 text-green-600 mr-3" />
+                  <Shield className="w-6 h-6 text-amber-600 mr-3" />
                   <span className="text-gray-700">Licensed Nevada Real Estate Agent</span>
                 </div>
                 <div className="flex items-center">
-                  <Users className="w-6 h-6 text-green-600 mr-3" />
-                  <span className="text-gray-700">Golf course real estate expert</span>
+                  <Users className="w-6 h-6 text-amber-600 mr-3" />
+                  <span className="text-gray-700">Boulder City real estate expert</span>
                 </div>
                 <div className="flex items-center">
-                  <Award className="w-6 h-6 text-green-600 mr-3" />
+                  <Award className="w-6 h-6 text-amber-600 mr-3" />
                   <span className="text-gray-700">Top 1% of Las Vegas agents</span>
                 </div>
                 <div className="flex items-center">
-                  <Star className="w-6 h-6 text-green-600 mr-3" />
-                  <span className="text-gray-700">5-star golf course client reviews</span>
+                  <Star className="w-6 h-6 text-amber-600 mr-3" />
+                  <span className="text-gray-700">5-star Boulder City client reviews</span>
                 </div>
               </div>
             </div>
@@ -437,18 +442,18 @@ export default function RedRockCountryClub() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-16 bg-gradient-to-r from-green-600 to-green-700 text-white">
+      <section className="py-16 bg-gradient-to-r from-amber-600 to-amber-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-4">
-            Ready for Golf Course Living?
+            Ready to Find Your Boulder City Home?
           </h2>
-          <p className="text-xl mb-8 text-green-100 max-w-2xl mx-auto">
-            Let Dr. Janet Duffy guide you through Red Rock Country Club's luxury golf course real estate market with personalized service and local expertise.
+          <p className="text-xl mb-8 text-amber-100 max-w-2xl mx-auto">
+            Let Dr. Janet Duffy guide you through Boulder City's real estate market with personalized service and local expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-green-600 hover:bg-green-50">
+            <Button size="lg" className="bg-white text-amber-600 hover:bg-amber-50">
               <Calendar className="w-5 h-5 mr-2" />
-              Schedule Golf Tour
+              Schedule Consultation
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
               <ArrowRight className="w-5 h-5 mr-2" />
