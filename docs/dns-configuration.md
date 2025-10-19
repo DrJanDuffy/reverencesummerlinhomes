@@ -1,180 +1,144 @@
-# DNS Configuration Documentation
-## ReverenceSummerlinHomes.com
+# Current DNS Configuration - reverencesummerlinhomes.com
 
-### Overview
-This document outlines the current DNS configuration for Dr. Janet Duffy's real estate website, including domain management, email setup, and security configurations.
+## Overview
+This document outlines the current DNS configuration for reverencesummerlinhomes.com, managed through Cloudflare with Vercel hosting.
 
-### Domain Information
-- **Primary Domain**: `reverencesummerlinhomes.com`
-- **WWW Domain**: `www.reverencesummerlinhomes.com`
-- **DNS Provider**: Cloudflare
-- **Registrar**: [To be documented]
-- **SSL Certificate**: Managed by Cloudflare (Auto-renewal enabled)
+## Domain Details
+- **Primary Domain**: reverencesummerlinhomes.com
+- **WWW Domain**: www.reverencesummerlinhomes.com
+- **DNS Provider**: Cloudflare (Free Plan)
+- **Hosting Provider**: Vercel
+- **Email Provider**: Cloudflare Email Routing
 
-### Current DNS Records
+## DNS Records Configuration
 
-#### A Records (IPv4)
-```
-reverencesummerlinhomes.com    A    76.76.19.61    (Vercel)
-www.reverencesummerlinhomes.com A   76.76.19.61    (Vercel)
-```
+### A Records
+| Name | Type | Content | Proxy Status | Purpose |
+|------|------|---------|--------------|---------|
+| @ | A | 216.150.1.1 | DNS Only | Cloudflare placeholder (not proxied) |
 
-#### AAAA Records (IPv6)
-```
-reverencesummerlinhomes.com    AAAA 2600:1f18:2c4c:8c01:76:76:19:61  (Vercel)
-www.reverencesummerlinhomes.com AAAA 2600:1f18:2c4c:8c01:76:76:19:61  (Vercel)
-```
+### CNAME Records
+| Name | Type | Content | Proxy Status | Purpose |
+|------|------|---------|--------------|---------|
+| www | CNAME | d7a3f12a565e535d.vercel-dns-016.com | DNS Only | Vercel hosting (not proxied) |
 
-#### CNAME Records
-```
-www    CNAME    reverencesummerlinhomes.com
-```
+### MX Records (Email Routing)
+| Priority | Type | Content | Proxy Status | Purpose |
+|----------|------|---------|--------------|---------|
+| 1 | MX | route1.mx.cloudflare.net | DNS Only | Cloudflare Email Routing |
+| 2 | MX | route2.mx.cloudflare.net | DNS Only | Cloudflare Email Routing |
+| 3 | MX | route3.mx.cloudflare.net | DNS Only | Cloudflare Email Routing |
 
-#### MX Records (Email)
-```
-reverencesummerlinhomes.com    MX    10    mail.reverencesummerlinhomes.com
-reverencesummerlinhomes.com    MX    20    mail2.reverencesummerlinhomes.com
-```
+### TXT Records (Email Authentication)
+| Name | Type | Content | Proxy Status | Purpose |
+|------|------|---------|--------------|---------|
+| @ | TXT | v=spf1 include:_spf.google.com include:mailgun.org ~all | DNS Only | SPF record for email authentication |
+| google._domainkey | TXT | [DKIM Key] | DNS Only | DKIM signature for Google services |
+| _dmarc | TXT | v=DMARC1; p=none; rua=mailto:DrJanSells@ReverenceSummerlinHomes.com; ruf=mailto:DrJanSells@ReverenceSummerlinHomes.com; fo=1 | DNS Only | DMARC policy (monitor mode) |
 
-#### TXT Records
-```
-reverencesummerlinhomes.com    TXT   "v=spf1 include:_spf.google.com include:mailgun.org ~all"
-_dmarc.reverencesummerlinhomes.com TXT "v=DMARC1; p=none; rua=mailto:DrJanSells@ReverenceSummerlinHomes.com; sp=none; pct=100"
-```
+## Proxy Status Strategy
 
-#### CAA Records (Certificate Authority Authorization)
-```
-reverencesummerlinhomes.com    CAA   0 issue "letsencrypt.org"
-reverencesummerlinhomes.com    CAA   0 issue "cloudflare.com"
-```
+### Why "DNS Only" (Not Proxied)?
+- **Avoids Vercel Domain Charges**: Vercel charges for custom domains when proxied through Cloudflare
+- **Direct Vercel Integration**: CNAME points directly to Vercel's DNS
+- **Email Routing**: Cloudflare Email Routing works with DNS-only MX records
+- **Cost Optimization**: Maintains free hosting while using Cloudflare's DNS management
 
-### Email Configuration
+### Benefits of Current Setup
+- ✅ **Free Hosting**: No Vercel domain charges
+- ✅ **Reliable DNS**: Cloudflare's global DNS network
+- ✅ **Email Routing**: Professional email addresses
+- ✅ **Easy Management**: Single DNS provider for all records
+- ✅ **Security**: SPF, DKIM, and DMARC configured
 
-#### Primary Email Addresses
-- **Main Contact**: `DrJanSells@ReverenceSummerlinHomes.com`
-- **DMARC Reports**: `DrJanSells@ReverenceSummerlinHomes.com`
-- **Support**: `support@reverencesummerlinhomes.com`
+## Email Configuration
 
-#### Email Security (DMARC Policy)
-- **Current Policy**: `p=none` (Monitor mode)
-- **Report Email**: `DrJanSells@ReverenceSummerlinHomes.com`
-- **Subdomain Policy**: `sp=none`
-- **Percentage**: `pct=100`
+### Email Addresses
+- **Primary**: DrJanSells@ReverenceSummerlinHomes.com
+- **DMARC Reports**: DrJanSells@ReverenceSummerlinHomes.com
+- **Routing**: Handled by Cloudflare Email Routing
 
-#### SPF Record
-```
-v=spf1 include:_spf.google.com include:mailgun.org ~all
-```
+### Email Authentication Status
+- ✅ **SPF**: Configured and passing
+- ✅ **DKIM**: Configured and passing
+- ✅ **DMARC**: Configured in monitor mode
+- ✅ **Email Routing**: Active and functional
 
-### Cloudflare Settings
+## Redirect Configuration
 
-#### Security Features
-- **Proxy Status**: Enabled (Orange Cloud)
-- **SSL/TLS**: Full (Strict)
-- **Always Use HTTPS**: Enabled
-- **HTTP Strict Transport Security (HSTS)**: Enabled
-- **Minimum TLS Version**: TLS 1.2
+### Apex to WWW Redirect
+- **Source**: reverencesummerlinhomes.com
+- **Target**: https://www.reverencesummerlinhomes.com
+- **Type**: 301 Permanent Redirect
+- **Method**: Cloudflare Page Rules (if needed)
 
-#### Performance Features
-- **Auto Minify**: HTML, CSS, JS
-- **Brotli Compression**: Enabled
-- **Rocket Loader**: Disabled (for React Router v7 compatibility)
-- **Mirage**: Disabled
-- **Polish**: Lossless
+## Security Features
 
-#### Caching
-- **Browser Cache TTL**: 4 hours
-- **Edge Cache TTL**: 1 month
-- **Cache Level**: Standard
+### SSL/TLS
+- **Status**: Enabled via Vercel
+- **Certificate**: Automatic Let's Encrypt
+- **HTTPS**: Enforced for all traffic
 
-### Vercel Configuration
+### DNS Security
+- **DNSSEC**: Available but not enabled (optional)
+- **DNS Filtering**: Available through Cloudflare (optional)
 
-#### Domain Settings
-- **Primary Domain**: `reverencesummerlinhomes.com`
-- **Redirects**: `www.reverencesummerlinhomes.com` → `reverencesummerlinhomes.com`
-- **SSL**: Managed by Vercel (Let's Encrypt)
+## Monitoring and Maintenance
 
-#### Build Settings
-- **Framework**: React Router v7
-- **Build Command**: `npm run build`
-- **Output Directory**: `build`
-- **Node.js Version**: 18.x
+### Regular Checks
+- [ ] DNS propagation status
+- [ ] Email deliverability
+- [ ] DMARC report analysis
+- [ ] SSL certificate status
+- [ ] Website uptime
 
-### Security Headers
+### Tools for Monitoring
+- **DNS**: dig, nslookup, Cloudflare dashboard
+- **Email**: DMARC analyzers, SPF checkers
+- **SSL**: SSL Labs, Vercel dashboard
+- **Uptime**: UptimeRobot, Pingdom
 
-#### Cloudflare Security Headers
-```
-X-Frame-Options: DENY
-X-Content-Type-Options: nosniff
-X-XSS-Protection: 1; mode=block
-Referrer-Policy: strict-origin-when-cross-origin
-Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com;
-```
+## Backup and Recovery
 
-### Monitoring & Analytics
+### DNS Backup
+- Export DNS records from Cloudflare dashboard
+- Document all custom configurations
+- Keep record of API tokens and access
 
-#### Google Analytics
-- **Tracking ID**: `G-9HKNXWWHTR`
-- **Stream ID**: `12314420289`
-- **Measurement ID**: `G-9HKNXWWHTR`
-- **Enhanced Measurement**: Enabled
+### Recovery Procedures
+- Restore DNS records from backup
+- Verify email authentication
+- Test website functionality
+- Monitor for 24-48 hours
 
-#### Uptime Monitoring
-- **Service**: Cloudflare Analytics
-- **Monitoring**: 24/7 availability tracking
-- **Alerting**: Email notifications for downtime
+## Future Considerations
 
-### Backup & Recovery
+### Potential Upgrades
+- **Cloudflare Pro**: Enhanced security features
+- **DNSSEC**: Additional DNS security
+- **Advanced Email**: Custom email hosting
+- **CDN**: Cloudflare's content delivery network
 
-#### DNS Backup
-- **Cloudflare**: Automatic DNS record backup
-- **Export Format**: JSON/CSV available
-- **Retention**: 30 days of change history
+### Migration Planning
+- Document all dependencies
+- Plan maintenance windows
+- Test in staging environment
+- Have rollback procedures ready
 
-#### Domain Backup
-- **Registrar**: [To be documented]
-- **Auto-renewal**: Enabled
-- **Lock Status**: Enabled (prevents unauthorized transfers)
+## Contact Information
 
-### Maintenance Schedule
+### Technical Support
+- **Cloudflare**: Support through dashboard
+- **Vercel**: Support through dashboard
+- **Domain Registrar**: Contact registrar for domain-level issues
 
-#### Regular Tasks
-- **Monthly**: Review DNS records and security settings
-- **Quarterly**: Update SSL certificates and security headers
-- **Annually**: Review domain registration and renewal
-
-#### Emergency Procedures
-- **DNS Issues**: Contact Cloudflare support
-- **Domain Issues**: Contact registrar support
-- **Email Issues**: Check MX records and SPF/DKIM/DMARC
-
-### Contact Information
-
-#### Technical Contacts
-- **DNS Provider**: Cloudflare Support
-- **Hosting Provider**: Vercel Support
-- **Domain Registrar**: [To be documented]
-
-#### Business Contacts
-- **Primary Contact**: Dr. Janet Duffy
-- **Email**: DrJanSells@ReverenceSummerlinHomes.com
-- **Phone**: [From config]
-
-### Change Log
-
-#### Recent Changes
-- **2025-01-18**: Added Google Analytics tracking (G-9HKNXWWHTR)
-- **2025-01-18**: Configured DMARC policy (monitor mode)
-- **2025-01-18**: Set up comprehensive sitemap system
-- **2025-01-18**: Implemented SSL/TLS security headers
-
-#### Planned Changes
-- **TBD**: Configure apex to www redirect rule
-- **TBD**: Set up additional email security (DKIM)
-- **TBD**: Implement advanced caching strategies
+### Documentation References
+- Cloudflare DNS documentation
+- Vercel custom domains guide
+- DMARC implementation guide
+- Email authentication best practices
 
 ---
 
-**Last Updated**: January 18, 2025
-**Document Version**: 1.0
-**Next Review**: February 18, 2025
+**Last Updated**: January 2025
+**Next Review**: Quarterly or when changes are made

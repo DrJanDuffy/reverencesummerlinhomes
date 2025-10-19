@@ -11,12 +11,11 @@ load_dotenv('.env.local')
 
 # Get Cloudflare credentials from Vercel env vars
 CF_API_TOKEN = os.getenv('CLOUDFLARE_API_TOKEN') or os.getenv('CF_API_TOKEN')
-CF_API_KEY = os.getenv('CLOUDFLARE_API_KEY') or os.getenv('CF_API_KEY')
 CF_EMAIL = os.getenv('CLOUDFLARE_EMAIL') or os.getenv('CF_EMAIL')
 CF_ACCOUNT_ID = os.getenv('CLOUDFLARE_ACCOUNT_ID') or os.getenv('CF_ACCOUNT_ID')
 
 # DMARC Configuration
-DMARC_EMAIL = "DrJanSells@ReverenceSummerlinHomes.com"  # Updated for Dr. Janet Duffy
+DMARC_EMAIL = "DrJanSells@ReverenceSummerlinHomes.com"  # Updated from dmarc@702re.com
 
 # ============ DMARC POLICY STAGES ============
 # Uncomment the stage you want to use:
@@ -43,10 +42,10 @@ def get_headers():
             "Authorization": f"Bearer {CF_API_TOKEN}",
             "Content-Type": "application/json"
         }
-    elif CF_EMAIL and CF_API_KEY:
+    elif CF_EMAIL and os.getenv('CLOUDFLARE_API_KEY'):
         return {
             "X-Auth-Email": CF_EMAIL,
-            "X-Auth-Key": CF_API_KEY,
+            "X-Auth-Key": os.getenv('CLOUDFLARE_API_KEY'),
             "Content-Type": "application/json"
         }
     else:
@@ -57,33 +56,30 @@ def verify_credentials():
     print("Checking Cloudflare credentials...")
     
     if not CF_API_TOKEN and not CF_EMAIL:
-        print("ERROR: No Cloudflare credentials found in environment variables!")
+        print("No Cloudflare credentials found in environment variables!")
         print("\nLooking for these variables:")
-        print("   • CLOUDFLARE_API_TOKEN or CF_API_TOKEN (API Token)")
-        print("   • CLOUDFLARE_API_KEY or CF_API_KEY (Global API Key)")
-        print("   • CLOUDFLARE_EMAIL or CF_EMAIL (required for API Key)")
+        print("   • CLOUDFLARE_API_TOKEN or CF_API_TOKEN")
+        print("   • CLOUDFLARE_EMAIL or CF_EMAIL")
         print("\nTo fix:")
         print("   1. Create .env.local file in project root")
         print("   2. Add: CLOUDFLARE_API_TOKEN=your_token_here")
         print("   OR")
-        print("   3. Add: CLOUDFLARE_API_KEY=your_key_here")
-        print("   4. Add: CLOUDFLARE_EMAIL=your_email@example.com")
-        print("   OR")
-        print("   5. Pull from Vercel: vercel env pull .env.local")
+        print("   3. Pull from Vercel: vercel env pull .env.local")
         return False
     
     headers = get_headers()
-    # Use different endpoint for Global API Key vs API Token
+    
+    # Use different endpoints for API tokens vs API keys
     if CF_API_TOKEN:
         response = requests.get(f"{BASE_URL}/user/tokens/verify", headers=headers)
     else:
         response = requests.get(f"{BASE_URL}/user", headers=headers)
     
     if response.status_code == 200:
-        print("SUCCESS: Credentials verified successfully!")
+        print("Credentials verified successfully!")
         return True
     else:
-        print(f"ERROR: Credential verification failed: {response.status_code}")
+        print(f"Credential verification failed: {response.status_code}")
         print(f"   Response: {response.text}")
         return False
 
@@ -105,12 +101,12 @@ def get_all_zones() -> List[Dict]:
         )
         
         if response.status_code != 200:
-            print(f"ERROR: Error fetching zones: {response.text}")
+            print(f"Error fetching zones: {response.text}")
             break
             
         data = response.json()
         if not data.get("success"):
-            print(f"ERROR: API Error: {data.get('errors', 'Unknown error')}")
+            print(f"API Error: {data.get('errors', 'Unknown error')}")
             break
             
         zones.extend(data["result"])
@@ -175,31 +171,31 @@ def create_dmarc_record(zone_id: str, zone_name: str) -> bool:
 
 def main():
     """Main execution function"""
-    print("\nCloudflare DMARC Bulk Updater for Dr. Janet Duffy Real Estate")
-    print("=" * 70)
+    print("\nCloudflare DMARC Bulk Updater for Vegas Real Estate")
+    print("=" * 60)
     
     # Verify credentials first
     if not verify_credentials():
         print("\nQuick Fix Options:")
         print("   A) Run: vercel env pull .env.local")
-        print("   B) Copy from Vercel dashboard -> Settings -> Environment Variables")
+        print("   B) Copy from Vercel dashboard → Settings → Environment Variables")
         print("   C) Create .env.local manually with your API token")
         return
     
     print(f"\nDMARC Reports will go to: {DMARC_EMAIL}")
     print(f"Policy to apply: {DMARC_POLICY[:60]}...")
-    print("=" * 70)
+    print("=" * 60)
     
     # Get all zones
     print("\nFetching all domains from Cloudflare...")
     zones = get_all_zones()
     
     if not zones:
-        print("ERROR: No zones found!")
+        print("No zones found!")
         print("   Check if your API token has Zone:Read and DNS:Edit permissions")
         return
     
-    print(f"SUCCESS: Found {len(zones)} domains\n")
+    print(f"Found {len(zones)} domains\n")
     
     # Show domains that will be updated
     print("Domains to update:")
@@ -246,23 +242,23 @@ def main():
             if existing:
                 # Update existing record
                 if update_dmarc_record(zone_id, existing["id"], zone_name):
-                    print("SUCCESS: Updated")
+                    print("Updated")
                     updated += 1
                 else:
-                    print("ERROR: Failed to update")
+                    print("Failed to update")
                     failed += 1
                     failed_domains.append(zone_name)
             else:
                 # Create new record
                 if create_dmarc_record(zone_id, zone_name):
-                    print("SUCCESS: Created")
+                    print("Created")
                     created += 1
                 else:
-                    print("ERROR: Failed to create")
+                    print("Failed to create")
                     failed += 1
                     failed_domains.append(zone_name)
         except Exception as e:
-            print(f"ERROR: {str(e)}")
+            print(f"Error: {str(e)}")
             failed += 1
             failed_domains.append(zone_name)
         
@@ -270,7 +266,7 @@ def main():
         time.sleep(0.5)
     
     # Summary
-    print("\n" + "=" * 70)
+    print("\n" + "=" * 60)
     print("DMARC Update Summary:")
     print(f"   Created: {created} new records")
     print(f"   Updated: {updated} existing records")
@@ -282,10 +278,10 @@ def main():
         for domain in failed_domains:
             print(f"   • {domain}")
     
-    print("=" * 70)
+    print("=" * 60)
     
     if created + updated > 0:
-        print("\nSUCCESS: DMARC policies successfully applied!")
+        print("\nDMARC policies successfully applied!")
         print(f"DMARC reports will be sent to: {DMARC_EMAIL}")
         print("\nNext Steps:")
         print("1. Monitor reports for 1-2 weeks at", DMARC_EMAIL)
@@ -293,10 +289,6 @@ def main():
         print("3. Move to Stage 2 (quarantine 25%) after monitoring")
         print("4. Gradually increase to full protection")
         print("\nPro Tip: Use DMARC analyzer tools to interpret reports easily")
-        print("\nTesting Tools:")
-        print("   • DMARC Check: https://mxtoolbox.com/dmarc.aspx")
-        print("   • SPF Check: https://mxtoolbox.com/spf.aspx")
-        print("   • DNS Lookup: dig TXT _dmarc.reverencesummerlinhomes.com")
 
 if __name__ == "__main__":
     main()

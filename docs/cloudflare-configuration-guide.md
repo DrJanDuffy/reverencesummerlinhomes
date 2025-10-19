@@ -1,345 +1,305 @@
-# Cloudflare Configuration Guide
-## ReverenceSummerlinHomes.com Setup
+# Cloudflare Configuration Guide for reverencesummerlinhomes.com
 
-### Overview
-This guide provides step-by-step instructions for configuring Cloudflare settings for Dr. Janet Duffy's real estate website, including DNS management, security settings, and performance optimization.
+## Overview
+This guide provides step-by-step instructions for configuring Cloudflare for reverencesummerlinhomes.com, including DNS management, SSL/TLS, caching, and security features.
 
-### Prerequisites
-- Cloudflare account with domain added
-- Access to Cloudflare dashboard
-- Domain registrar access (if needed)
-- Vercel deployment ready
+## Prerequisites
+- Cloudflare account (free plan sufficient)
+- Domain registered and pointing to Cloudflare nameservers
+- Access to domain registrar's control panel
 
-### Step 1: DNS Configuration
+## Step 1: Add Domain to Cloudflare
 
-#### 1.1 Add DNS Records
-Navigate to **DNS** → **Records** in Cloudflare dashboard:
+### 1.1 Add Domain
+1. Log into Cloudflare dashboard
+2. Click "Add a Site"
+3. Enter: `reverencesummerlinhomes.com`
+4. Select "Free" plan
+5. Click "Continue"
 
-**A Records:**
-```
-Type: A
-Name: @
-IPv4 address: 76.76.19.61
-Proxy status: Proxied (Orange Cloud)
-TTL: Auto
-```
+### 1.2 DNS Scan
+1. Cloudflare will scan existing DNS records
+2. Review detected records
+3. Ensure all necessary records are present
+4. Click "Continue"
 
-```
-Type: A
-Name: www
-IPv4 address: 76.76.19.61
-Proxy status: Proxied (Orange Cloud)
-TTL: Auto
-```
+### 1.3 Nameserver Update
+1. Copy Cloudflare nameservers:
+   - `alex.ns.cloudflare.com`
+   - `maya.ns.cloudflare.com`
+2. Update nameservers at domain registrar
+3. Wait for propagation (up to 24 hours)
 
-**CNAME Record:**
-```
-Type: CNAME
-Name: www
-Target: reverencesummerlinhomes.com
-Proxy status: Proxied (Orange Cloud)
-TTL: Auto
-```
+## Step 2: DNS Configuration
 
-#### 1.2 Email Configuration (MX Records)
-```
-Type: MX
-Name: @
-Mail server: mail.reverencesummerlinhomes.com
-Priority: 10
-TTL: Auto
-```
+### 2.1 Core DNS Records
+Configure these essential records in Cloudflare DNS:
 
-```
-Type: MX
-Name: @
-Mail server: mail2.reverencesummerlinhomes.com
-Priority: 20
-TTL: Auto
-```
+#### A Record (Apex Domain)
+- **Name**: @
+- **Type**: A
+- **Content**: 216.150.1.1
+- **Proxy Status**: DNS Only (gray cloud)
+- **TTL**: Auto
 
-#### 1.3 Security Records (TXT)
-**SPF Record:**
-```
-Type: TXT
-Name: @
-Content: v=spf1 include:_spf.google.com include:mailgun.org ~all
-TTL: Auto
-```
+#### CNAME Record (WWW)
+- **Name**: www
+- **Type**: CNAME
+- **Content**: d7a3f12a565e535d.vercel-dns-016.com
+- **Proxy Status**: DNS Only (gray cloud)
+- **TTL**: Auto
 
-**DMARC Record:**
-```
-Type: TXT
-Name: _dmarc
-Content: v=DMARC1; p=none; rua=mailto:DrJanSells@ReverenceSummerlinHomes.com; sp=none; pct=100
-TTL: Auto
-```
+### 2.2 Email Configuration
 
-**CAA Records:**
-```
-Type: CAA
-Name: @
-Tag: issue
-Value: letsencrypt.org
-TTL: Auto
-```
+#### MX Records
+- **Priority**: 1, 2, 3
+- **Type**: MX
+- **Content**: 
+  - route1.mx.cloudflare.net
+  - route2.mx.cloudflare.net
+  - route3.mx.cloudflare.net
+- **Proxy Status**: DNS Only (gray cloud)
 
-```
-Type: CAA
-Name: @
-Tag: issue
-Value: cloudflare.com
-TTL: Auto
-```
+#### SPF Record
+- **Name**: @
+- **Type**: TXT
+- **Content**: `v=spf1 include:_spf.google.com include:mailgun.org ~all`
+- **Proxy Status**: DNS Only (gray cloud)
 
-### Step 2: SSL/TLS Configuration
+#### DKIM Record
+- **Name**: google._domainkey
+- **Type**: TXT
+- **Content**: [Your DKIM key from Google]
+- **Proxy Status**: DNS Only (gray cloud)
 
-#### 2.1 SSL/TLS Settings
-Navigate to **SSL/TLS** → **Overview**:
+#### DMARC Record
+- **Name**: _dmarc
+- **Type**: TXT
+- **Content**: `v=DMARC1; p=none; rua=mailto:DrJanSells@ReverenceSummerlinHomes.com; ruf=mailto:DrJanSells@ReverenceSummerlinHomes.com; fo=1`
+- **Proxy Status**: DNS Only (gray cloud)
 
-**Encryption Mode:**
-- Select: **Full (Strict)**
-- This ensures end-to-end encryption between Cloudflare and Vercel
+### 2.3 Important: Proxy Status
+**Keep all records as "DNS Only" (gray cloud) to avoid Vercel domain charges.**
 
-#### 2.2 Edge Certificates
-Navigate to **SSL/TLS** → **Edge Certificates**:
+## Step 3: SSL/TLS Configuration
 
-**Enable:**
-- ✅ Always Use HTTPS
-- ✅ HTTP Strict Transport Security (HSTS)
-- ✅ Minimum TLS Version: TLS 1.2
-- ✅ Opportunistic Encryption
-- ✅ TLS 1.3
+### 3.1 SSL/TLS Settings
+1. Go to SSL/TLS → Overview
+2. Set encryption mode to "Full (strict)"
+3. Enable "Always Use HTTPS"
+4. Enable "HTTP Strict Transport Security (HSTS)"
 
-**Disable:**
-- ❌ Automatic HTTPS Rewrites (handled by Vercel)
+### 3.2 Edge Certificates
+1. Go to SSL/TLS → Edge Certificates
+2. Enable "Always Use HTTPS"
+3. Enable "HTTP Strict Transport Security (HSTS)"
+4. Set HSTS Max Age to 6 months minimum
 
-#### 2.3 Origin Server
-Navigate to **SSL/TLS** → **Origin Server**:
+## Step 4: Caching Configuration
 
-**Settings:**
-- ✅ Authenticated Origin Pulls
-- ✅ Origin Server Certificate: Cloudflare Origin Certificate
+### 4.1 Caching Settings
+1. Go to Caching → Configuration
+2. Set Caching Level to "Standard"
+3. Set Browser Cache TTL to "4 hours"
+4. Enable "Development Mode" only when needed
 
-### Step 3: Security Configuration
+### 4.2 Page Rules (Optional)
+Create page rules for specific caching:
 
-#### 3.1 Security Level
-Navigate to **Security** → **Settings**:
+#### Static Assets
+- **URL**: `www.reverencesummerlinhomes.com/assets/*`
+- **Settings**: Cache Level: Cache Everything, Edge Cache TTL: 1 month
 
-**Security Level:**
-- Set to: **Medium**
-- This provides good protection without blocking legitimate traffic
+#### Images
+- **URL**: `www.reverencesummerlinhomes.com/images/*`
+- **Settings**: Cache Level: Cache Everything, Edge Cache TTL: 1 week
 
-#### 3.2 Bot Fight Mode
-Navigate to **Security** → **Bots**:
+## Step 5: Security Configuration
 
-**Enable:**
-- ✅ Bot Fight Mode
-- ✅ Super Bot Fight Mode (if available)
+### 5.1 Security Level
+1. Go to Security → Settings
+2. Set Security Level to "Medium"
+3. Enable "Challenge Passage" for 30 minutes
 
-#### 3.3 Rate Limiting
-Navigate to **Security** → **WAF** → **Rate limiting rules**:
+### 5.2 Bot Fight Mode
+1. Go to Security → Bots
+2. Enable "Bot Fight Mode" (free)
+3. Configure bot score thresholds
 
-**Create Rule:**
-```
-Rule name: Contact Form Protection
-If: URI Path equals "/contact"
-Then: Rate limit to 5 requests per minute per IP
-Action: Block for 1 hour
-```
+### 5.3 Firewall Rules (Optional)
+Create basic firewall rules:
 
-#### 3.4 Security Headers
-Navigate to **Security** → **WAF** → **Custom rules**:
+#### Block Bad Bots
+- **Expression**: `(http.user_agent contains "bot" and not http.user_agent contains "googlebot")`
+- **Action**: Block
 
-**Create Header Rule:**
-```
-Rule name: Security Headers
-Expression: true
-Action: Set static header
-Header: X-Frame-Options
-Value: DENY
-```
+#### Rate Limiting
+- **Expression**: `(http.host eq "www.reverencesummerlinhomes.com")`
+- **Action**: Rate limit to 100 requests per minute
 
-**Additional Headers:**
-```
-X-Content-Type-Options: nosniff
-X-XSS-Protection: 1; mode=block
-Referrer-Policy: strict-origin-when-cross-origin
-```
+## Step 6: Performance Optimization
 
-### Step 4: Performance Optimization
+### 6.1 Speed Settings
+1. Go to Speed → Optimization
+2. Enable "Auto Minify" for HTML, CSS, JS
+3. Enable "Brotli" compression
+4. Enable "Rocket Loader" (optional)
 
-#### 4.1 Caching Configuration
-Navigate to **Caching** → **Configuration**:
+### 6.2 Image Optimization
+1. Go to Speed → Optimization
+2. Enable "Polish" (free tier: lossless)
+3. Enable "WebP" conversion
 
-**Caching Level:**
-- Set to: **Standard**
+## Step 7: Analytics and Monitoring
 
-**Browser Cache TTL:**
-- Set to: **4 hours**
+### 7.1 Web Analytics
+1. Go to Analytics → Web Analytics
+2. Enable "Web Analytics" (free)
+3. Add tracking code to website if needed
 
-**Edge Cache TTL:**
-- Set to: **1 month**
+### 7.2 Security Events
+1. Go to Security → Events
+2. Monitor blocked requests
+3. Review security threats
 
-#### 4.2 Speed Optimizations
-Navigate to **Speed** → **Optimization**:
+## Step 8: Email Routing Setup
 
-**Enable:**
-- ✅ Auto Minify: HTML, CSS, JavaScript
-- ✅ Brotli Compression
-- ✅ Early Hints
+### 8.1 Enable Email Routing
+1. Go to Email → Email Routing
+2. Click "Get Started"
+3. Verify domain ownership
+4. Configure email addresses
 
-**Disable:**
-- ❌ Rocket Loader (conflicts with React Router v7)
-- ❌ Mirage (not needed for modern sites)
-- ❌ Polish (handled by Vercel)
+### 8.2 Email Addresses
+- **Primary**: DrJanSells@ReverenceSummerlinHomes.com
+- **DMARC Reports**: DrJanSells@ReverenceSummerlinHomes.com
+- **Catch-all**: Configure as needed
 
-#### 4.3 Image Optimization
-Navigate to **Speed** → **Optimization**:
+## Step 9: Redirect Rules
 
-**Polish:**
-- Set to: **Lossless**
+### 9.1 Apex to WWW Redirect
+1. Go to Rules → Redirect Rules
+2. Create new redirect rule:
+   - **Source**: `reverencesummerlinhomes.com`
+   - **Target**: `https://www.reverencesummerlinhomes.com`
+   - **Type**: 301 Permanent Redirect
 
-**WebP:**
-- Enable: **On**
+### 9.2 HTTP to HTTPS Redirect
+1. Create redirect rule:
+   - **Source**: `http://www.reverencesummerlinhomes.com/*`
+   - **Target**: `https://www.reverencesummerlinhomes.com/$1`
+   - **Type**: 301 Permanent Redirect
 
-### Step 5: Page Rules (Optional)
+## Step 10: Testing and Verification
 
-#### 5.1 Cache Everything Rule
-Navigate to **Rules** → **Page Rules**:
+### 10.1 DNS Testing
+```bash
+# Test DNS resolution
+dig reverencesummerlinhomes.com
+dig www.reverencesummerlinhomes.com
 
-**Create Rule:**
-```
-URL: reverencesummerlinhomes.com/*
-Settings:
-- Cache Level: Cache Everything
-- Edge Cache TTL: 1 month
-- Browser Cache TTL: 4 hours
+# Test MX records
+dig MX reverencesummerlinhomes.com
+
+# Test DMARC
+dig TXT _dmarc.reverencesummerlinhomes.com
 ```
 
-#### 5.2 API Routes Rule
-```
-URL: reverencesummerlinhomes.com/api/*
-Settings:
-- Cache Level: Bypass
-- Disable Apps
-```
+### 10.2 Website Testing
+- [ ] Test apex domain redirect
+- [ ] Test www domain functionality
+- [ ] Verify SSL certificate
+- [ ] Test page load speeds
+- [ ] Check mobile responsiveness
 
-### Step 6: Analytics & Monitoring
+### 10.3 Email Testing
+- [ ] Send test email to DrJanSells@ReverenceSummerlinHomes.com
+- [ ] Verify SPF record
+- [ ] Check DKIM signature
+- [ ] Test DMARC reports
 
-#### 6.1 Cloudflare Analytics
-Navigate to **Analytics** → **Web Analytics**:
+## Step 11: Monitoring and Maintenance
 
-**Enable:**
-- ✅ Web Analytics
-- ✅ Real User Monitoring (RUM)
+### 11.1 Regular Monitoring
+- **Daily**: Check website uptime
+- **Weekly**: Review security events
+- **Monthly**: Analyze performance metrics
+- **Quarterly**: Review DNS configuration
 
-#### 6.2 Notifications
-Navigate to **Notifications**:
+### 11.2 Tools for Monitoring
+- **Uptime**: UptimeRobot, Pingdom
+- **Performance**: GTmetrix, PageSpeed Insights
+- **Security**: Cloudflare Security Center
+- **DNS**: DNS checker tools
 
-**Set up alerts for:**
-- High error rate
-- High bandwidth usage
-- Security events
-- SSL certificate expiration
+## Troubleshooting Common Issues
 
-### Step 7: Advanced Features
+### Issue: Website Not Loading
+**Solutions:**
+1. Check DNS propagation
+2. Verify nameservers
+3. Check SSL certificate status
+4. Review firewall rules
 
-#### 7.1 Workers (Optional)
-For advanced functionality, consider Cloudflare Workers:
+### Issue: Email Not Working
+**Solutions:**
+1. Verify MX records
+2. Check SPF/DKIM configuration
+3. Test email routing
+4. Review DMARC policy
 
-**Use cases:**
-- A/B testing
-- Custom redirects
-- Advanced caching logic
-- Security enhancements
+### Issue: SSL Certificate Errors
+**Solutions:**
+1. Check SSL/TLS settings
+2. Verify domain verification
+3. Wait for certificate propagation
+4. Contact support if needed
 
-#### 7.2 Argo Smart Routing
-Navigate to **Traffic** → **Argo**:
+## Security Best Practices
 
-**Enable:**
-- ✅ Argo Smart Routing (if available)
-- This optimizes routing for better performance
+### 1. Regular Updates
+- Keep Cloudflare settings current
+- Monitor security advisories
+- Update firewall rules as needed
 
-### Step 8: Testing & Verification
+### 2. Access Control
+- Use strong passwords
+- Enable 2FA
+- Limit admin access
+- Regular access reviews
 
-#### 8.1 DNS Propagation Check
-Use tools to verify DNS propagation:
-- `dig reverencesummerlinhomes.com`
-- `nslookup reverencesummerlinhomes.com`
-- Online DNS checker tools
+### 3. Monitoring
+- Set up alerts for security events
+- Monitor unusual traffic patterns
+- Review blocked requests regularly
 
-#### 8.2 SSL Certificate Verification
-- Check SSL Labs: `https://www.ssllabs.com/ssltest/`
-- Verify certificate chain
-- Test HTTPS redirects
+## Cost Optimization
 
-#### 8.3 Performance Testing
-- Google PageSpeed Insights
-- GTmetrix
-- WebPageTest
+### Free Plan Features
+- ✅ DNS management
+- ✅ Basic SSL/TLS
+- ✅ Basic security
+- ✅ Email routing
+- ✅ Basic analytics
 
-### Step 9: Monitoring & Maintenance
+### Paid Plan Considerations
+- **Pro Plan**: Enhanced security, advanced caching
+- **Business Plan**: Advanced features, priority support
+- **Enterprise Plan**: Custom solutions, SLA
 
-#### 9.1 Regular Monitoring
-**Weekly checks:**
-- DNS record status
-- SSL certificate validity
-- Security event logs
-- Performance metrics
+## Support Resources
 
-#### 9.2 Monthly Reviews
-- Update security rules
-- Review caching policies
-- Check for new Cloudflare features
-- Analyze traffic patterns
-
-#### 9.3 Quarterly Updates
-- Review and update SSL/TLS settings
-- Optimize caching rules
-- Update security headers
-- Review rate limiting rules
-
-### Troubleshooting
-
-#### Common Issues
-
-**DNS Not Propagating:**
-- Check nameservers are set to Cloudflare
-- Verify DNS records are correct
-- Wait for propagation (up to 24 hours)
-
-**SSL Certificate Issues:**
-- Ensure Full (Strict) mode is enabled
-- Check origin server certificate
-- Verify domain validation
-
-**Performance Issues:**
-- Check caching settings
-- Review page rules
-- Monitor bandwidth usage
-- Test with different locations
-
-**Security Blocks:**
-- Review security level settings
-- Check WAF rules
-- Review rate limiting rules
-- Check bot fight mode settings
-
-### Support Resources
-
-#### Cloudflare Support
+### Cloudflare Support
 - **Documentation**: https://developers.cloudflare.com/
 - **Community**: https://community.cloudflare.com/
-- **Support**: Available through Cloudflare dashboard
+- **Support**: Available through dashboard
 
-#### Additional Tools
+### Additional Resources
 - **DNS Checker**: https://dnschecker.org/
-- **SSL Labs**: https://www.ssllabs.com/ssltest/
-- **PageSpeed Insights**: https://pagespeed.web.dev/
+- **SSL Labs**: https://ssllabs.com/ssltest/
+- **DMARC Analyzer**: https://mxtoolbox.com/dmarc.aspx
 
 ---
 
-**Last Updated**: January 18, 2025
-**Guide Version**: 1.0
-**Next Review**: February 18, 2025
+**Last Updated**: January 2025
+**Next Review**: Quarterly or when changes are made
