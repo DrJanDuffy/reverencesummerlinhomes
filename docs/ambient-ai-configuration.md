@@ -36,12 +36,12 @@ All API routes in `app/routes/api/**/*.{tsx,ts}` are configured with:
 
 ### Specifications
 
-| Setting | Value | Rationale |
-|---------|-------|-----------|
-| **Memory** | 3008 MB | Maximum for Pro/Enterprise plans - essential for high-context token processing |
-| **Timeout** | 300 seconds (5 minutes) | Maximum for Pro plan - allows for complex AI operations |
-| **Runtime** | Node.js 20.x | Latest LTS with optimal performance for AI workloads |
-| **Region** | `iad1` (US East) | Low latency for US-based users, can be adjusted as needed |
+| Setting     | Value                   | Rationale                                                                      |
+| ----------- | ----------------------- | ------------------------------------------------------------------------------ |
+| **Memory**  | 3008 MB                 | Maximum for Pro/Enterprise plans - essential for high-context token processing |
+| **Timeout** | 300 seconds (5 minutes) | Maximum for Pro plan - allows for complex AI operations                        |
+| **Runtime** | Node.js 20.x            | Latest LTS with optimal performance for AI workloads                           |
+| **Region**  | `iad1` (US East)        | Low latency for US-based users, can be adjusted as needed                      |
 
 ### Plan Requirements
 
@@ -78,7 +78,7 @@ The `ReviewableAction` component implements the **"Seatbelt Mindset"** security 
 ✅ **Audit Logging**: Automatic logging of approvals/rejections  
 ✅ **Error Handling**: Graceful error handling with callbacks  
 ✅ **Type-Safe**: Full TypeScript support  
-✅ **Accessible**: Built on Radix UI primitives  
+✅ **Accessible**: Built on Radix UI primitives
 
 ### Quick Start
 
@@ -108,7 +108,7 @@ function MyComponent() {
           after: newContent,
           field: 'Hero Text',
         }}
-        onApproved={(result) => console.log('Approved:', result)}
+        onApproved={result => console.log('Approved:', result)}
         onRejected={() => console.log('Rejected')}
       />
     </>
@@ -124,7 +124,7 @@ When building AI-powered features, follow this flow:
 async function handleAISuggestion() {
   // 1. AI generates proposal (high-context processing)
   const suggestion = await ai.generateSuggestion(currentContent)
-  
+
   // 2. Show review dialog (Seatbelt Mindset)
   requestApproval(
     async () => {
@@ -150,6 +150,7 @@ async function handleAISuggestion() {
 ### Change Types
 
 #### Text Changes
+
 ```tsx
 proposedChanges={{
   type: 'text',
@@ -160,6 +161,7 @@ proposedChanges={{
 ```
 
 #### File Operations
+
 ```tsx
 proposedChanges={{
   type: 'file',
@@ -170,6 +172,7 @@ proposedChanges={{
 ```
 
 #### Data Updates
+
 ```tsx
 proposedChanges={{
   type: 'data',
@@ -180,6 +183,7 @@ proposedChanges={{
 ```
 
 #### Batch Operations
+
 ```tsx
 proposedChanges={{
   type: 'batch',
@@ -201,13 +205,12 @@ function MyComponent() {
   const { requestApproval, ReviewableActionDialog } = useReviewableAction()
 
   const handleAI = () => {
-    requestApproval(
-      async () => await executeAction(),
-      {
-        actionDescription: 'Apply AI suggestion',
-        proposedChanges: { /* ... */ },
-      }
-    )
+    requestApproval(async () => await executeAction(), {
+      actionDescription: 'Apply AI suggestion',
+      proposedChanges: {
+        /* ... */
+      },
+    })
   }
 
   return (
@@ -311,7 +314,7 @@ npm run dev
 ✅ **ReviewableAction Component**: Seatbelt Mindset security pattern  
 ✅ **Documentation**: Complete API docs and examples  
 ✅ **Type Safety**: Full TypeScript support  
-✅ **Accessibility**: ARIA labels and keyboard navigation  
+✅ **Accessibility**: ARIA labels and keyboard navigation
 
 The infrastructure is now ready for Ambient AI workloads with proper safety mechanisms in place.
 

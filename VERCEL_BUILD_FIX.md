@@ -8,9 +8,11 @@
 ## ✅ **FIX APPLIED**
 
 ### Problem
+
 The `vercel.json` file had an invalid `runtime` format: `"runtime": "nodejs20.x"` which caused the build to fail.
 
 ### Solution
+
 For React Router v7 with `@vercel/react-router`, the Vercel preset automatically handles the runtime configuration. We removed the `runtime` field from the functions configuration and kept only `memory` and `maxDuration`.
 
 ### Changes Made
@@ -47,6 +49,7 @@ For React Router v7 with `@vercel/react-router`, the Vercel preset automatically
 ## ✅ **VERIFICATION**
 
 The build should now succeed because:
+
 - ✅ No invalid runtime format in vercel.json
 - ✅ React Router v7 preset handles runtime automatically
 - ✅ Memory and timeout settings are preserved

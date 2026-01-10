@@ -1,4 +1,5 @@
 import { Form, useActionData, useNavigation } from 'react-router'
+import { useFormStatus } from 'react'
 import { Button } from '~/components/ui/button'
 import {
   Card,
@@ -72,8 +73,39 @@ export async function action({ request }: Route.ActionArgs) {
   const message = formData.get('message')
   const service = formData.get('service')
 
+  // Enhanced validation with React Router 7.12 improvements
+  const errors: Record<string, string> = {}
+  
+  if (!name || String(name).trim().length < 2) {
+    errors.name = 'Please enter your full name'
+  }
+  
+  if (!email || !String(email).includes('@')) {
+    errors.email = 'Please enter a valid email address'
+  }
+  
+  if (phone && String(phone).length > 0) {
+    const phoneRegex = /^[\d\s\-\(\)]+$/
+    if (!phoneRegex.test(String(phone))) {
+      errors.phone = 'Please enter a valid phone number'
+    }
+  }
+  
+  if (!message || String(message).trim().length < 10) {
+    errors.message = 'Please provide a message with at least 10 characters'
+  }
+
+  // Return validation errors immediately (React Router 7.12 pattern)
+  if (Object.keys(errors).length > 0) {
+    return {
+      success: false,
+      message: 'Please correct the errors below',
+      errors,
+    }
+  }
+
   // Track AI-driven form processing with full provenance
-  const result = await trackAIFeature<{ success: boolean; message: string }>(
+  const result = await trackAIFeature<{ success: boolean; message: string; errors?: Record<string, string> }>(
     'form_processing' as AIFeatureType,
     request,
     async () => {
@@ -124,10 +156,37 @@ export async function action({ request }: Route.ActionArgs) {
   return result
 }
 
+/**
+ * Submit Button Component using React 19's useFormStatus
+ * Automatically shows loading state during form submission
+ */
+function SubmitButton() {
+  const { pending } = useFormStatus()
+
+  return (
+    <Button
+      type="submit"
+      disabled={pending}
+      className="w-full"
+      size="lg"
+    >
+      {pending ? (
+        <>
+          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+          Sending...
+        </>
+      ) : (
+        <>
+          <Send className="w-4 h-4 mr-2" />
+          Send Message
+        </>
+      )}
+    </Button>
+  )
+}
+
 export default function Contact() {
   const actionData = useActionData<typeof action>()
-  const navigation = useNavigation()
-  const isSubmitting = navigation.state === 'submitting'
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100">
@@ -327,18 +386,40 @@ export default function Contact() {
           </div>
         </section>
 
-        {/* Success Message */}
-        {actionData?.success && (
-          <Card className="mb-8 bg-green-50 border-green-200">
+        {/* Success/Error Messages */}
+        {actionData && (
+          <Card
+            className={`mb-8 ${
+              actionData.success
+                ? 'bg-green-50 border-green-200'
+                : 'bg-red-50 border-red-200'
+            }`}
+          >
             <CardContent className="p-6">
               <div className="flex items-center">
-                <CheckCircle className="w-6 h-6 text-green-600 mr-3" />
-                <div>
-                  <h3 className="text-lg font-semibold text-green-800">
-                    Message Sent Successfully!
-                  </h3>
-                  <p className="text-green-700">{actionData.message}</p>
-                </div>
+                {actionData.success ? (
+                  <>
+                    <CheckCircle className="w-6 h-6 text-green-600 mr-3" />
+                    <div>
+                      <h3 className="text-lg font-semibold text-green-800">
+                        Message Sent Successfully!
+                      </h3>
+                      <p className="text-green-700">{actionData.message}</p>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="w-6 h-6 text-red-600 mr-3 flex items-center justify-center">
+                      ✕
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-red-800">
+                        Please correct the following errors:
+                      </h3>
+                      <p className="text-red-700">{actionData.message}</p>
+                    </div>
+                  </>
+                )}
               </div>
             </CardContent>
           </Card>
@@ -382,7 +463,15 @@ export default function Contact() {
                       name="name"
                       required
                       placeholder="Your full name"
+                      aria-invalid={actionData?.errors?.name ? 'true' : 'false'}
+                      aria-describedby={actionData?.errors?.name ? 'name-error' : undefined}
+                      className={actionData?.errors?.name ? 'border-red-500' : ''}
                     />
+                    {actionData?.errors?.name && (
+                      <p id="name-error" className="text-sm text-red-600" role="alert">
+                        {actionData.errors.name}
+                      </p>
+                    )}
                   </div>
 
                   <div className="space-y-2">
@@ -393,7 +482,15 @@ export default function Contact() {
                       type="email"
                       required
                       placeholder="your@email.com"
+                      aria-invalid={actionData?.errors?.email ? 'true' : 'false'}
+                      aria-describedby={actionData?.errors?.email ? 'email-error' : undefined}
+                      className={actionData?.errors?.email ? 'border-red-500' : ''}
                     />
+                    {actionData?.errors?.email && (
+                      <p id="email-error" className="text-sm text-red-600" role="alert">
+                        {actionData.errors.email}
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -405,7 +502,15 @@ export default function Contact() {
                       name="phone"
                       type="tel"
                       placeholder="(702) 555-0123"
+                      aria-invalid={actionData?.errors?.phone ? 'true' : 'false'}
+                      aria-describedby={actionData?.errors?.phone ? 'phone-error' : undefined}
+                      className={actionData?.errors?.phone ? 'border-red-500' : ''}
                     />
+                    {actionData?.errors?.phone && (
+                      <p id="phone-error" className="text-sm text-red-600" role="alert">
+                        {actionData.errors.phone}
+                      </p>
+                    )}
                   </div>
 
                   <div className="space-y-2">
@@ -413,7 +518,11 @@ export default function Contact() {
                     <select
                       id="service"
                       name="service"
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+                      className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 ${
+                        actionData?.errors?.service ? 'border-red-500' : 'border-gray-300'
+                      }`}
+                      aria-invalid={actionData?.errors?.service ? 'true' : 'false'}
+                      aria-describedby={actionData?.errors?.service ? 'service-error' : undefined}
                     >
                       <option value="">Select a service</option>
                       <option value="buying">Buying a Home</option>
@@ -424,6 +533,11 @@ export default function Contact() {
                       <option value="monument">Monument at Reverence</option>
                       <option value="other">Other</option>
                     </select>
+                    {actionData?.errors?.service && (
+                      <p id="service-error" className="text-sm text-red-600" role="alert">
+                        {actionData.errors.service}
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -468,29 +582,21 @@ export default function Contact() {
                     name="message"
                     rows={4}
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+                    className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 ${
+                      actionData?.errors?.message ? 'border-red-500' : 'border-gray-300'
+                    }`}
                     placeholder="Tell me about your real estate needs, preferred neighborhoods, or any questions you have..."
+                    aria-invalid={actionData?.errors?.message ? 'true' : 'false'}
+                    aria-describedby={actionData?.errors?.message ? 'message-error' : undefined}
                   />
+                  {actionData?.errors?.message && (
+                    <p id="message-error" className="text-sm text-red-600" role="alert">
+                      {actionData.errors.message}
+                    </p>
+                  )}
                 </div>
 
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full"
-                  size="lg"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4 mr-2" />
-                      Send Message
-                    </>
-                  )}
-                </Button>
+                <SubmitButton />
               </Form>
             </CardContent>
           </Card>

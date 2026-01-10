@@ -63,9 +63,9 @@ export default function RelocateLosAngeles() {
           <p className="text-gray-700 mb-4">
             Many Los Angeles residents are discovering the benefits of
             relocating to Las Vegas: no state income tax, significantly lower
-            cost of living, affordable housing (get more for your money), shorter
-            commutes, and a thriving economy. Contact Dr. Jan Duffy to learn
-            more about making Las Vegas your new home.
+            cost of living, affordable housing (get more for your money),
+            shorter commutes, and a thriving economy. Contact Dr. Jan Duffy to
+            learn more about making Las Vegas your new home.
           </p>
           <p className="text-gray-700">
             I specialize in helping LA families relocate to Las Vegas and

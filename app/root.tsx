@@ -203,14 +203,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 }
               }
               
-              /* Home Value Widget Styles - Brand Colors */
+              /* Home Value Widget Styles - RealScout Configuration */
               realscout-home-value {
                 --rs-hvw-background-color: #ffffff;
-                --rs-hvw-title-color: #1e3a5f;
+                --rs-hvw-title-color: #000000;
                 --rs-hvw-subtitle-color: rgba(28, 30, 38, 0.5);
                 --rs-hvw-primary-button-text-color: #ffffff;
-                --rs-hvw-primary-button-color: #e85d04;
-                --rs-hvw-secondary-button-text-color: #1e3a5f;
+                --rs-hvw-primary-button-color: rgb(35, 93, 137);
+                --rs-hvw-secondary-button-text-color: rgb(35, 93, 137);
                 --rs-hvw-secondary-button-color: #ffffff;
                 --rs-hvw-widget-width: auto;
               }

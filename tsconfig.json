@@ -43,6 +43,9 @@
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "strictPropertyInitialization": true,
-    "strictBindCallApply": true
+    "strictBindCallApply": true,
+    // TypeScript 5.9 improvements
+    "noPropertyAccessFromIndexSignature": true,
+    "allowArbitraryExtensions": true
   }
 }

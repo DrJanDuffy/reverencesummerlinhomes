@@ -57,8 +57,8 @@ export default function RelocateChicago() {
           <p className="text-gray-700 mb-4">
             Many Chicago residents are discovering the benefits of relocating to
             Las Vegas: no state income tax, lower cost of living, affordable
-            housing, year-round sunshine, and a thriving economy. Contact Dr. Jan
-            Duffy to learn more about making Las Vegas your new home.
+            housing, year-round sunshine, and a thriving economy. Contact Dr.
+            Jan Duffy to learn more about making Las Vegas your new home.
           </p>
           <p className="text-gray-700">
             I specialize in helping Chicago families relocate to Las Vegas and
