@@ -76,6 +76,7 @@ test -f public/sitemap.xml && echo "✅ Sitemap exists" || echo "❌ Missing sit
 ## ⚡ Troubleshooting
 
 **Scripts not working on Windows?**
+
 ```powershell
 # Use PowerShell version
 powershell -ExecutionPolicy Bypass -File scripts/quality-gates/pre-merge.ps1
@@ -84,6 +85,7 @@ powershell -ExecutionPolicy Bypass -File scripts/quality-gates/pre-merge.ps1
 ```
 
 **Want to bypass hooks temporarily?**
+
 ```bash
 git commit --no-verify  # Not recommended!
 ```

@@ -1,63 +1,71 @@
-import { useEffect, useRef } from "react";
-import { generateRealScoutWidgetHTML } from "~/lib/mcp/utils";
-import type { RealScoutListingsOptions } from "~/lib/mcp";
+import { useEffect, useRef } from 'react'
+import {
+  generateRealScoutWidgetHTML,
+  type RealScoutListingsOptions,
+} from '~/lib/mcp'
 
 interface RealScoutListingsWidgetProps {
   /**
    * Sort order for listings
    * @default "NEWEST"
    */
-  sortOrder?: "NEWEST" | "PRICE_LOW_TO_HIGH" | "PRICE_HIGH_TO_LOW" | "SQUARE_FEET" | "BEDS" | "BATHS";
-  
+  sortOrder?:
+    | 'NEWEST'
+    | 'PRICE_LOW_TO_HIGH'
+    | 'PRICE_HIGH_TO_LOW'
+    | 'SQUARE_FEET'
+    | 'BEDS'
+    | 'BATHS'
+
   /**
    * Listing statuses to display (comma-separated)
    * @default "For Sale"
    */
-  listingStatus?: string;
-  
+  listingStatus?: string
+
   /**
    * Property types (comma-separated, e.g., ",SFR" for Single Family Residence)
    * @default ",SFR"
    */
-  propertyTypes?: string;
-  
+  propertyTypes?: string
+
   /**
    * Minimum price filter
    */
-  priceMin?: number;
-  
+  priceMin?: number
+
   /**
    * Maximum price filter
    */
-  priceMax?: number;
-  
+  priceMax?: number
+
   /**
    * Custom CSS class name
    */
-  className?: string;
-  
+  className?: string
+
   /**
    * Title to display above the widget
    */
-  title?: string;
-  
+  title?: string
+
   /**
    * Subtitle to display above the widget
    */
-  subtitle?: string;
-  
+  subtitle?: string
+
   /**
    * Agent encoded ID (optional, will use MCP config if not provided)
    */
-  agentEncodedId?: string;
+  agentEncodedId?: string
 }
 
 /**
  * RealScout Office Listings Widget Component
- * 
+ *
  * Displays active property listings from RealScout.
  * The script is loaded once in root.tsx, so this component only renders the widget element.
- * 
+ *
  * For maximum conversion, place this widget:
  * - Homepage: After hero section
  * - Properties page: Main content area
@@ -66,20 +74,20 @@ interface RealScoutListingsWidgetProps {
  * - Contact/Valuation pages: To show inventory and create urgency
  */
 export function RealScoutListingsWidget({
-  sortOrder = "NEWEST",
-  listingStatus = "For Sale",
-  propertyTypes = ",SFR",
+  sortOrder = 'NEWEST',
+  listingStatus = 'For Sale',
+  propertyTypes = ',SFR',
   priceMin,
   priceMax,
-  className = "",
+  className = '',
   title,
   subtitle,
   agentEncodedId,
 }: RealScoutListingsWidgetProps) {
-  const widgetRef = useRef<HTMLDivElement>(null);
+  const widgetRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!widgetRef.current) return;
+    if (!widgetRef.current) return
 
     // Use MCP utility to generate widget HTML with managed configuration
     const widgetOptions: RealScoutListingsOptions = {
@@ -89,16 +97,23 @@ export function RealScoutListingsWidget({
       propertyTypes,
       priceMin,
       priceMax,
-    };
+    }
 
-    const widgetHTML = generateRealScoutWidgetHTML(widgetOptions);
+    const widgetHTML = generateRealScoutWidgetHTML(widgetOptions)
 
     // Clear and set HTML
-    widgetRef.current.innerHTML = widgetHTML;
+    widgetRef.current.innerHTML = widgetHTML
 
     // Web components will hydrate once the script loads
     // No need to manually create elements - the script handles it
-  }, [sortOrder, listingStatus, propertyTypes, priceMin, priceMax, agentEncodedId]);
+  }, [
+    sortOrder,
+    listingStatus,
+    propertyTypes,
+    priceMin,
+    priceMax,
+    agentEncodedId,
+  ])
 
   return (
     <div className={`realscout-listings-widget py-8 ${className}`}>
@@ -116,8 +131,8 @@ export function RealScoutListingsWidget({
           )}
         </div>
       )}
-      
+
       <div ref={widgetRef} className="w-full" />
     </div>
-  );
+  )
 }

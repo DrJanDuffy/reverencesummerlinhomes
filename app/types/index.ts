@@ -128,7 +128,12 @@ export interface BlogPost {
   publishedAt: string
   updatedAt: string
   tags: string[]
-  category: 'market-update' | 'neighborhood-spotlight' | 'buying-guide' | 'selling-guide' | 'investment'
+  category:
+    | 'market-update'
+    | 'neighborhood-spotlight'
+    | 'buying-guide'
+    | 'selling-guide'
+    | 'investment'
   featuredImage?: PropertyImage
   seoTitle?: string
   seoDescription?: string
@@ -203,4 +208,3 @@ export interface SearchResult<T> {
   filters: PropertySearchFilters
   suggestions?: string[]
 }
-

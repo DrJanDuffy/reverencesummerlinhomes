@@ -1,5 +1,5 @@
-import { Link } from "react-router";
-import { config } from "~/lib/config";
+import { Link } from 'react-router'
+import { config } from '~/lib/config'
 
 export function HeroSection() {
   return (
@@ -12,21 +12,28 @@ export function HeroSection() {
             Welcome to Summerlin and the Las Vegas Valley!
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-accent-light">
-            Interested in Summerlin Real Estate? Let's Talk - {config.contact.phone}
+            Interested in Summerlin Real Estate? Let's Talk -{' '}
+            {config.contact.phone}
           </p>
-          
+
           {/* Trust Badges */}
           <div className="flex justify-center items-center space-x-8 mb-8 flex-wrap gap-4">
             <div className="text-center">
-              <div className="text-sm font-semibold mb-2 text-white">HGTV House Hunter</div>
+              <div className="text-sm font-semibold mb-2 text-white">
+                HGTV House Hunter
+              </div>
               <div className="text-xs text-white/80">Featured Agent</div>
             </div>
             <div className="text-center">
-              <div className="text-sm font-semibold mb-2 text-white">Las Vegas Review Journal</div>
+              <div className="text-sm font-semibold mb-2 text-white">
+                Las Vegas Review Journal
+              </div>
               <div className="text-xs text-white/80">Readers Choice</div>
             </div>
             <div className="text-center">
-              <div className="text-sm font-semibold mb-2 text-white">People Magazine</div>
+              <div className="text-sm font-semibold mb-2 text-white">
+                People Magazine
+              </div>
               <div className="text-xs text-white/80">Featured Realtor</div>
             </div>
           </div>
@@ -48,6 +55,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }
-

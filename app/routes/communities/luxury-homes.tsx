@@ -1,10 +1,18 @@
-import type { Route } from "./+types/communities";
-import { Link } from "react-router";
-import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
-import { Badge } from "~/components/ui/badge";
-import { Separator } from "~/components/ui/separator";
-import { config } from "~/lib/config";
+import type { Route } from './+types/communities'
+import { Link } from 'react-router'
+import { Button } from '~/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '~/components/ui/card'
+import { Badge } from '~/components/ui/badge'
+import { Separator } from '~/components/ui/separator'
+import { config } from '~/lib/config'
+import { RealScoutAdvancedSearch } from '~/components/RealScoutAdvancedSearch'
+import { RealScoutListingsWidget } from '~/components/RealScoutListingsWidget'
 import {
   Home,
   MapPin,
@@ -21,21 +29,46 @@ import {
   Award,
   Shield,
   Crown,
-  Gem
-} from "lucide-react";
+  Gem,
+} from 'lucide-react'
 
 export function meta() {
   return [
-    { title: "Luxury Homes Las Vegas | Ultra-Luxury Real Estate | Dr. Jan Duffy" },
-    { name: "description", content: "Discover ultra-luxury homes in Las Vegas. Dr. Jan Duffy specializes in luxury real estate with custom estates, resort amenities, and exclusive communities." },
-    { name: "keywords", content: "luxury homes Las Vegas, ultra-luxury real estate, custom estates, luxury communities, Dr. Jan Duffy" },
-    { property: "og:title", content: "Luxury Homes Las Vegas | Ultra-Luxury Real Estate" },
-    { property: "og:description", content: "Ultra-luxury homes in Las Vegas with custom estates, resort amenities, and exclusive communities. Expert real estate guidance from Dr. Jan Duffy." },
-    { property: "og:type", content: "website" },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Luxury Homes Las Vegas | Dr. Jan Duffy" },
-    { name: "twitter:description", content: "Ultra-luxury homes in Las Vegas with custom estates and resort amenities." }
-  ];
+    {
+      title:
+        'Luxury Homes Las Vegas | Ultra-Luxury Real Estate | Dr. Jan Duffy',
+    },
+    {
+      name: 'description',
+      content:
+        'Discover ultra-luxury homes in Las Vegas. Dr. Jan Duffy specializes in luxury real estate with custom estates, resort amenities, and exclusive communities.',
+    },
+    {
+      name: 'keywords',
+      content:
+        'luxury homes Las Vegas, ultra-luxury real estate, custom estates, luxury communities, Dr. Jan Duffy',
+    },
+    {
+      property: 'og:title',
+      content: 'Luxury Homes Las Vegas | Ultra-Luxury Real Estate',
+    },
+    {
+      property: 'og:description',
+      content:
+        'Ultra-luxury homes in Las Vegas with custom estates, resort amenities, and exclusive communities. Expert real estate guidance from Dr. Jan Duffy.',
+    },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    {
+      name: 'twitter:title',
+      content: 'Luxury Homes Las Vegas | Dr. Jan Duffy',
+    },
+    {
+      name: 'twitter:description',
+      content:
+        'Ultra-luxury homes in Las Vegas with custom estates and resort amenities.',
+    },
+  ]
 }
 
 export default function LuxuryHomes() {
@@ -54,19 +87,45 @@ export default function LuxuryHomes() {
               Luxury Homes Las Vegas
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-amber-100 max-w-3xl mx-auto">
-              Discover the finest in ultra-luxury living with custom estates, resort-style amenities, and exclusive communities in Las Vegas
+              Discover the finest in ultra-luxury living with custom estates,
+              resort-style amenities, and exclusive communities in Las Vegas
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-amber-600 hover:bg-amber-50">
+              <Button
+                size="lg"
+                className="bg-white text-amber-600 hover:bg-amber-50"
+              >
                 <Home className="w-5 h-5 mr-2" />
                 View Luxury Collection
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10"
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 Private Consultation
               </Button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Advanced Search Widget - Perfect for Luxury Buyers */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Card className="shadow-xl border-4 border-accent-500">
+            <CardContent className="p-8">
+              <RealScoutAdvancedSearch
+                buttonTextColor="#ffffff"
+                backgroundColor="#ffffff"
+                searchButtonColor="#e85d04"
+                width={600}
+                title="Search Luxury Properties in Las Vegas"
+                subtitle="Find ultra-luxury homes, custom estates, and exclusive properties. Filter by neighborhood, city, beds, baths, and price range."
+              />
+            </CardContent>
+          </Card>
         </div>
       </section>
 
@@ -78,7 +137,9 @@ export default function LuxuryHomes() {
               Ultra-Luxury Living
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Experience the pinnacle of luxury living with custom-designed estates, world-class amenities, and exclusive communities that define sophisticated living.
+              Experience the pinnacle of luxury living with custom-designed
+              estates, world-class amenities, and exclusive communities that
+              define sophisticated living.
             </p>
           </div>
 
@@ -95,7 +156,8 @@ export default function LuxuryHomes() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Custom-built estates featuring unique architecture, premium materials, and personalized design elements.
+                  Custom-built estates featuring unique architecture, premium
+                  materials, and personalized design elements.
                 </p>
               </CardContent>
             </Card>
@@ -112,7 +174,8 @@ export default function LuxuryHomes() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Enjoy resort-style pools, spas, fitness centers, concierge services, and exclusive member privileges.
+                  Enjoy resort-style pools, spas, fitness centers, concierge
+                  services, and exclusive member privileges.
                 </p>
               </CardContent>
             </Card>
@@ -123,13 +186,12 @@ export default function LuxuryHomes() {
                   <Shield className="w-6 h-6 text-amber-600" />
                 </div>
                 <CardTitle>Exclusive Communities</CardTitle>
-                <CardDescription>
-                  Gated and private enclaves
-                </CardDescription>
+                <CardDescription>Gated and private enclaves</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Live in exclusive gated communities with 24/7 security, private amenities, and selective membership.
+                  Live in exclusive gated communities with 24/7 security,
+                  private amenities, and selective membership.
                 </p>
               </CardContent>
             </Card>
@@ -145,74 +207,109 @@ export default function LuxuryHomes() {
               Luxury Features & Amenities
             </h2>
             <p className="text-xl text-gray-600">
-              Experience the finest in luxury living with unparalleled amenities and services
+              Experience the finest in luxury living with unparalleled amenities
+              and services
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Premium Features</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Premium Features
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Custom Architecture</h4>
-                    <p className="text-gray-600">Unique designs by renowned architects and builders</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Custom Architecture
+                    </h4>
+                    <p className="text-gray-600">
+                      Unique designs by renowned architects and builders
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Premium Materials</h4>
-                    <p className="text-gray-600">Marble, granite, hardwood, and imported finishes</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Premium Materials
+                    </h4>
+                    <p className="text-gray-600">
+                      Marble, granite, hardwood, and imported finishes
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Smart Home Technology</h4>
-                    <p className="text-gray-600">Integrated automation, security, and entertainment systems</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Smart Home Technology
+                    </h4>
+                    <p className="text-gray-600">
+                      Integrated automation, security, and entertainment systems
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Wine Cellars & Theaters</h4>
-                    <p className="text-gray-600">Private wine cellars and home theaters</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Wine Cellars & Theaters
+                    </h4>
+                    <p className="text-gray-600">
+                      Private wine cellars and home theaters
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Resort-Style Backyards</h4>
-                    <p className="text-gray-600">Infinity pools, outdoor kitchens, and entertainment areas</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Resort-Style Backyards
+                    </h4>
+                    <p className="text-gray-600">
+                      Infinity pools, outdoor kitchens, and entertainment areas
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Exclusive Communities</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Exclusive Communities
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-amber-600 mr-3" />
-                  <span className="text-gray-700">The Ridges - Ultra-luxury mountain living</span>
+                  <span className="text-gray-700">
+                    The Ridges - Ultra-luxury mountain living
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-amber-600 mr-3" />
-                  <span className="text-gray-700">Red Rock Country Club - Golf course estates</span>
+                  <span className="text-gray-700">
+                    Red Rock Country Club - Golf course estates
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-amber-600 mr-3" />
-                  <span className="text-gray-700">Summerlin West - Luxury suburban</span>
+                  <span className="text-gray-700">
+                    Summerlin West - Luxury suburban
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-amber-600 mr-3" />
-                  <span className="text-gray-700">Custom Estate Areas - Private enclaves</span>
+                  <span className="text-gray-700">
+                    Custom Estate Areas - Private enclaves
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-amber-600 mr-3" />
-                  <span className="text-gray-700">Golf Course Communities - Championship courses</span>
+                  <span className="text-gray-700">
+                    Golf Course Communities - Championship courses
+                  </span>
                 </div>
               </div>
             </div>
@@ -228,7 +325,8 @@ export default function LuxuryHomes() {
               Luxury Price Ranges
             </h2>
             <p className="text-xl text-gray-600">
-              From elegant estates to ultra-luxury masterpieces, find your perfect luxury home
+              From elegant estates to ultra-luxury masterpieces, find your
+              perfect luxury home
             </p>
           </div>
 
@@ -292,7 +390,8 @@ export default function LuxuryHomes() {
               Your Luxury Real Estate Expert
             </h2>
             <p className="text-xl text-gray-600">
-              Dr. Jan Duffy brings unmatched expertise in ultra-luxury real estate
+              Dr. Jan Duffy brings unmatched expertise in ultra-luxury real
+              estate
             </p>
           </div>
 
@@ -303,7 +402,9 @@ export default function LuxuryHomes() {
                   <Award className="w-8 h-8 text-amber-600" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">{config.agent.name}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    {config.agent.name}
+                  </h3>
                   <p className="text-lg text-gray-600">{config.agent.title}</p>
                 </div>
               </div>
@@ -312,22 +413,37 @@ export default function LuxuryHomes() {
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Luxury Market Specialist</h4>
-                    <p className="text-gray-600">Expertise in ultra-luxury properties and exclusive communities</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Luxury Market Specialist
+                    </h4>
+                    <p className="text-gray-600">
+                      Expertise in ultra-luxury properties and exclusive
+                      communities
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Exclusive Access</h4>
-                    <p className="text-gray-600">Access to off-market properties and pre-construction opportunities</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Exclusive Access
+                    </h4>
+                    <p className="text-gray-600">
+                      Access to off-market properties and pre-construction
+                      opportunities
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Discrete Service</h4>
-                    <p className="text-gray-600">Confidential and professional service for high-profile clients</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Discrete Service
+                    </h4>
+                    <p className="text-gray-600">
+                      Confidential and professional service for high-profile
+                      clients
+                    </p>
                   </div>
                 </div>
               </div>
@@ -345,11 +461,15 @@ export default function LuxuryHomes() {
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Why Choose Dr. Jan Duffy?
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-amber-600 mr-3" />
-                  <span className="text-gray-700">Licensed Nevada Real Estate Agent</span>
+                  <span className="text-gray-700">
+                    Licensed Nevada Real Estate Agent
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Users className="w-6 h-6 text-amber-600 mr-3" />
@@ -357,11 +477,15 @@ export default function LuxuryHomes() {
                 </div>
                 <div className="flex items-center">
                   <Award className="w-6 h-6 text-amber-600 mr-3" />
-                  <span className="text-gray-700">Top 1% of Las Vegas agents</span>
+                  <span className="text-gray-700">
+                    Top 1% of Las Vegas agents
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Star className="w-6 h-6 text-amber-600 mr-3" />
-                  <span className="text-gray-700">5-star luxury client reviews</span>
+                  <span className="text-gray-700">
+                    5-star luxury client reviews
+                  </span>
                 </div>
               </div>
             </div>
@@ -372,24 +496,45 @@ export default function LuxuryHomes() {
       {/* Contact CTA */}
       <section className="py-16 bg-gradient-to-r from-amber-600 to-amber-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-4">
-            Ready for Luxury Living?
-          </h2>
+          <h2 className="text-4xl font-bold mb-4">Ready for Luxury Living?</h2>
           <p className="text-xl mb-8 text-amber-100 max-w-2xl mx-auto">
-            Let Dr. Jan Duffy guide you through Las Vegas' ultra-luxury real estate market with personalized service and exclusive access.
+            Let Dr. Jan Duffy guide you through Las Vegas' ultra-luxury real
+            estate market with personalized service and exclusive access.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-amber-600 hover:bg-amber-50">
+            <Button
+              size="lg"
+              className="bg-white text-amber-600 hover:bg-amber-50"
+            >
               <Calendar className="w-5 h-5 mr-2" />
               Private Consultation
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white/10"
+            >
               <ArrowRight className="w-5 h-5 mr-2" />
               View All Communities
             </Button>
           </div>
         </div>
       </section>
+
+      {/* Featured Luxury Properties */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <RealScoutListingsWidget
+            sortOrder="NEWEST"
+            listingStatus="For Sale"
+            propertyTypes=",SFR"
+            priceMin={800000}
+            priceMax={10000000}
+            title="Luxury Properties in Las Vegas & Summerlin"
+            subtitle="Explore ultra-luxury homes, custom estates, and exclusive properties. Find your perfect luxury home today."
+          />
+        </div>
+      </section>
     </div>
-  );
+  )
 }

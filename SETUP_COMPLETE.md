@@ -96,15 +96,19 @@ SETUP_COMPLETE.md              # This file
 ### Immediate Actions
 
 1. **Format existing code** (optional but recommended):
+
    ```bash
    npm run format
    ```
+
    This will format all files according to Prettier rules. The format check is non-blocking in pre-commit but good practice.
 
 2. **Test quality gates**:
+
    ```bash
    npm run quality:pre-merge
    ```
+
    This runs all quality checks. Fix any blocking issues.
 
 3. **Install Graphite CLI** (optional):
@@ -114,11 +118,13 @@ SETUP_COMPLETE.md              # This file
 ### Before Your Next Commit
 
 The pre-commit hook is already installed and will automatically run:
+
 - Format check (warning only)
 - Lint check (blocking)
 - Type check (blocking)
 
 To test it:
+
 ```bash
 git add .
 git commit -m "Test: verify pre-commit hooks work"
@@ -127,6 +133,7 @@ git commit -m "Test: verify pre-commit hooks work"
 ### Before Merging PRs
 
 Run the comprehensive pre-merge checklist:
+
 ```bash
 npm run quality:pre-merge
 ```
@@ -138,11 +145,13 @@ Or manually review [PRE_MERGE_CHECKLIST.md](./PRE_MERGE_CHECKLIST.md).
 ## 📋 What Each Quality Gate Does
 
 ### Pre-Commit (Automatic)
+
 - ✅ Format check (warning only - doesn't block)
 - ✅ Lint check (blocking - must pass)
 - ✅ Type check (blocking - must pass)
 
 ### Pre-Merge (Manual)
+
 - ✅ Format check (warning only)
 - ✅ Lint check (blocking)
 - ✅ Type check (blocking)
@@ -156,6 +165,7 @@ Or manually review [PRE_MERGE_CHECKLIST.md](./PRE_MERGE_CHECKLIST.md).
 When reviewing code for merge, follow this workflow:
 
 1. **Run automated checks**:
+
    ```bash
    npm run quality:pre-merge
    ```
@@ -171,26 +181,30 @@ When reviewing code for merge, follow this workflow:
 3. **Report findings**:
    - ✅ Passed checks
    - ❌ Blocking issues (must fix)
-   - ⚠️  Warnings (should fix but won't block)
+   - ⚠️ Warnings (should fix but won't block)
 
 ---
 
 ## 🔧 Troubleshooting
 
 ### Scripts not executable (Unix-like)
+
 ```bash
 chmod +x scripts/quality-gates/*.sh
 ```
 
 ### PowerShell execution policy (Windows)
+
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
 ### Bash not found (Windows)
+
 The npm scripts will automatically fall back to npm commands if bash is unavailable.
 
 ### Git hook not running
+
 ```bash
 # Reinstall hooks
 npm run prepare
@@ -200,6 +214,7 @@ node scripts/setup-git-hooks.js
 ```
 
 ### Format check failing
+
 ```bash
 # Auto-format all files
 npm run format
@@ -246,7 +261,7 @@ You now have:
 ✅ **Git hooks** that enforce quality standards  
 ✅ **Graphite configuration** ready for stacked PR workflows  
 ✅ **Cross-platform scripts** (Bash + PowerShell)  
-✅ **Complete documentation** for all tools and processes  
+✅ **Complete documentation** for all tools and processes
 
 **Your project is now review-ready!** 🚀
 

@@ -1,10 +1,16 @@
-import type { Route } from "./+types/communities";
-import { Link } from "react-router";
-import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
-import { Badge } from "~/components/ui/badge";
-import { Separator } from "~/components/ui/separator";
-import { config } from "~/lib/config";
+import type { Route } from './+types/communities'
+import { Link } from 'react-router'
+import { Button } from '~/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '~/components/ui/card'
+import { Badge } from '~/components/ui/badge'
+import { Separator } from '~/components/ui/separator'
+import { config } from '~/lib/config'
 import {
   Home,
   MapPin,
@@ -21,21 +27,46 @@ import {
   Award,
   Shield,
   Circle,
-  TreePine
-} from "lucide-react";
+  TreePine,
+} from 'lucide-react'
 
 export function meta() {
   return [
-    { title: "Red Rock Country Club Homes | Golf Course Living in Las Vegas | Dr. Jan Duffy" },
-    { name: "description", content: "Discover luxury golf course homes in Red Rock Country Club, Las Vegas. Dr. Jan Duffy specializes in Red Rock Country Club real estate with championship golf, mountain views, and resort amenities." },
-    { name: "keywords", content: "Red Rock Country Club homes, golf course homes Las Vegas, championship golf, mountain views, Dr. Jan Duffy" },
-    { property: "og:title", content: "Red Rock Country Club Homes | Golf Course Living in Las Vegas" },
-    { property: "og:description", content: "Luxury golf course homes in Red Rock Country Club with championship golf, mountain views, and resort amenities. Expert real estate guidance from Dr. Jan Duffy." },
-    { property: "og:type", content: "website" },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Red Rock Country Club Homes | Dr. Jan Duffy" },
-    { name: "twitter:description", content: "Luxury golf course homes in Red Rock Country Club with championship golf and mountain views." }
-  ];
+    {
+      title:
+        'Red Rock Country Club Homes | Golf Course Living in Las Vegas | Dr. Jan Duffy',
+    },
+    {
+      name: 'description',
+      content:
+        'Discover luxury golf course homes in Red Rock Country Club, Las Vegas. Dr. Jan Duffy specializes in Red Rock Country Club real estate with championship golf, mountain views, and resort amenities.',
+    },
+    {
+      name: 'keywords',
+      content:
+        'Red Rock Country Club homes, golf course homes Las Vegas, championship golf, mountain views, Dr. Jan Duffy',
+    },
+    {
+      property: 'og:title',
+      content: 'Red Rock Country Club Homes | Golf Course Living in Las Vegas',
+    },
+    {
+      property: 'og:description',
+      content:
+        'Luxury golf course homes in Red Rock Country Club with championship golf, mountain views, and resort amenities. Expert real estate guidance from Dr. Jan Duffy.',
+    },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    {
+      name: 'twitter:title',
+      content: 'Red Rock Country Club Homes | Dr. Jan Duffy',
+    },
+    {
+      name: 'twitter:description',
+      content:
+        'Luxury golf course homes in Red Rock Country Club with championship golf and mountain views.',
+    },
+  ]
 }
 
 export default function RedRockCountryClub() {
@@ -54,14 +85,23 @@ export default function RedRockCountryClub() {
               Red Rock Country Club
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-green-100 max-w-3xl mx-auto">
-              Experience luxury golf course living with championship golf, stunning mountain views, and resort-style amenities in Las Vegas's premier golf community
+              Experience luxury golf course living with championship golf,
+              stunning mountain views, and resort-style amenities in Las Vegas's
+              premier golf community
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-green-600 hover:bg-green-50">
+              <Button
+                size="lg"
+                className="bg-white text-green-600 hover:bg-green-50"
+              >
                 <Home className="w-5 h-5 mr-2" />
                 View Golf Course Homes
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10"
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 Schedule Golf Tour
               </Button>
@@ -78,7 +118,9 @@ export default function RedRockCountryClub() {
               Championship Golf Living
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Red Rock Country Club offers the ultimate in golf course living with a championship course, luxury amenities, and breathtaking mountain views in an exclusive gated community.
+              Red Rock Country Club offers the ultimate in golf course living
+              with a championship course, luxury amenities, and breathtaking
+              mountain views in an exclusive gated community.
             </p>
           </div>
 
@@ -89,13 +131,13 @@ export default function RedRockCountryClub() {
                   <Circle className="w-6 h-6 text-green-600" />
                 </div>
                 <CardTitle>Championship Golf</CardTitle>
-                <CardDescription>
-                  Arnold Palmer designed course
-                </CardDescription>
+                <CardDescription>Arnold Palmer designed course</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Play on the Arnold Palmer-designed championship course with stunning mountain backdrops and challenging play for all skill levels.
+                  Play on the Arnold Palmer-designed championship course with
+                  stunning mountain backdrops and challenging play for all skill
+                  levels.
                 </p>
               </CardContent>
             </Card>
@@ -106,13 +148,12 @@ export default function RedRockCountryClub() {
                   <Mountain className="w-6 h-6 text-green-600" />
                 </div>
                 <CardTitle>Mountain Views</CardTitle>
-                <CardDescription>
-                  Breathtaking Red Rock vistas
-                </CardDescription>
+                <CardDescription>Breathtaking Red Rock vistas</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Enjoy panoramic views of Red Rock Canyon and the Spring Mountains from your golf course home.
+                  Enjoy panoramic views of Red Rock Canyon and the Spring
+                  Mountains from your golf course home.
                 </p>
               </CardContent>
             </Card>
@@ -129,7 +170,8 @@ export default function RedRockCountryClub() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Enjoy resort-style pools, tennis courts, fitness center, fine dining, and exclusive member privileges.
+                  Enjoy resort-style pools, tennis courts, fitness center, fine
+                  dining, and exclusive member privileges.
                 </p>
               </CardContent>
             </Card>
@@ -145,66 +187,97 @@ export default function RedRockCountryClub() {
               Golf & Resort Amenities
             </h2>
             <p className="text-xl text-gray-600">
-              Experience world-class golf and resort-style amenities in an exclusive setting
+              Experience world-class golf and resort-style amenities in an
+              exclusive setting
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Golf Course Features</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Golf Course Features
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Arnold Palmer Design</h4>
-                    <p className="text-gray-600">Championship course designed by golf legend Arnold Palmer</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Arnold Palmer Design
+                    </h4>
+                    <p className="text-gray-600">
+                      Championship course designed by golf legend Arnold Palmer
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Mountain Backdrops</h4>
-                    <p className="text-gray-600">Stunning views of Red Rock Canyon and Spring Mountains</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Mountain Backdrops
+                    </h4>
+                    <p className="text-gray-600">
+                      Stunning views of Red Rock Canyon and Spring Mountains
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Practice Facilities</h4>
-                    <p className="text-gray-600">Driving range, putting greens, and short game area</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Practice Facilities
+                    </h4>
+                    <p className="text-gray-600">
+                      Driving range, putting greens, and short game area
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Golf Shop & Lessons</h4>
-                    <p className="text-gray-600">Professional instruction and premium equipment</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Golf Shop & Lessons
+                    </h4>
+                    <p className="text-gray-600">
+                      Professional instruction and premium equipment
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Tournament Play</h4>
-                    <p className="text-gray-600">Member tournaments and competitive events</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Tournament Play
+                    </h4>
+                    <p className="text-gray-600">
+                      Member tournaments and competitive events
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Resort Amenities</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Resort Amenities
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">Resort-style pool complex</span>
+                  <span className="text-gray-700">
+                    Resort-style pool complex
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">Tennis and pickleball courts</span>
+                  <span className="text-gray-700">
+                    Tennis and pickleball courts
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-green-600 mr-3" />
-                  <span className="text-gray-700">State-of-the-art fitness center</span>
+                  <span className="text-gray-700">
+                    State-of-the-art fitness center
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-green-600 mr-3" />
@@ -228,7 +301,8 @@ export default function RedRockCountryClub() {
               Golf Course Home Collection
             </h2>
             <p className="text-xl text-gray-600">
-              From elegant villas to luxury estates, find your perfect golf course residence
+              From elegant villas to luxury estates, find your perfect golf
+              course residence
             </p>
           </div>
 
@@ -292,7 +366,8 @@ export default function RedRockCountryClub() {
               Country Club Membership
             </h2>
             <p className="text-xl text-gray-600">
-              Exclusive membership benefits and privileges at Red Rock Country Club
+              Exclusive membership benefits and privileges at Red Rock Country
+              Club
             </p>
           </div>
 
@@ -359,7 +434,8 @@ export default function RedRockCountryClub() {
               Your Golf Course Real Estate Expert
             </h2>
             <p className="text-xl text-gray-600">
-              Dr. Jan Duffy brings unmatched expertise in golf course real estate
+              Dr. Jan Duffy brings unmatched expertise in golf course real
+              estate
             </p>
           </div>
 
@@ -370,7 +446,9 @@ export default function RedRockCountryClub() {
                   <Award className="w-8 h-8 text-green-600" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">{config.agent.name}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    {config.agent.name}
+                  </h3>
                   <p className="text-lg text-gray-600">{config.agent.title}</p>
                 </div>
               </div>
@@ -379,22 +457,35 @@ export default function RedRockCountryClub() {
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Golf Course Specialist</h4>
-                    <p className="text-gray-600">Expertise in Red Rock Country Club and golf course properties</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Golf Course Specialist
+                    </h4>
+                    <p className="text-gray-600">
+                      Expertise in Red Rock Country Club and golf course
+                      properties
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Membership Knowledge</h4>
-                    <p className="text-gray-600">Understanding of country club membership and benefits</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Membership Knowledge
+                    </h4>
+                    <p className="text-gray-600">
+                      Understanding of country club membership and benefits
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Luxury Market Expert</h4>
-                    <p className="text-gray-600">Specialized in high-end golf course properties</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Luxury Market Expert
+                    </h4>
+                    <p className="text-gray-600">
+                      Specialized in high-end golf course properties
+                    </p>
                   </div>
                 </div>
               </div>
@@ -412,23 +503,33 @@ export default function RedRockCountryClub() {
             </div>
 
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Why Choose Dr. Jan Duffy?
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-green-600 mr-3" />
-                  <span className="text-gray-700">Licensed Nevada Real Estate Agent</span>
+                  <span className="text-gray-700">
+                    Licensed Nevada Real Estate Agent
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Users className="w-6 h-6 text-green-600 mr-3" />
-                  <span className="text-gray-700">Golf course real estate expert</span>
+                  <span className="text-gray-700">
+                    Golf course real estate expert
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Award className="w-6 h-6 text-green-600 mr-3" />
-                  <span className="text-gray-700">Top 1% of Las Vegas agents</span>
+                  <span className="text-gray-700">
+                    Top 1% of Las Vegas agents
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Star className="w-6 h-6 text-green-600 mr-3" />
-                  <span className="text-gray-700">5-star golf course client reviews</span>
+                  <span className="text-gray-700">
+                    5-star golf course client reviews
+                  </span>
                 </div>
               </div>
             </div>
@@ -443,14 +544,23 @@ export default function RedRockCountryClub() {
             Ready for Golf Course Living?
           </h2>
           <p className="text-xl mb-8 text-green-100 max-w-2xl mx-auto">
-            Let Dr. Jan Duffy guide you through Red Rock Country Club's luxury golf course real estate market with personalized service and local expertise.
+            Let Dr. Jan Duffy guide you through Red Rock Country Club's luxury
+            golf course real estate market with personalized service and local
+            expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-green-600 hover:bg-green-50">
+            <Button
+              size="lg"
+              className="bg-white text-green-600 hover:bg-green-50"
+            >
               <Calendar className="w-5 h-5 mr-2" />
               Schedule Golf Tour
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white/10"
+            >
               <ArrowRight className="w-5 h-5 mr-2" />
               View All Communities
             </Button>
@@ -458,5 +568,5 @@ export default function RedRockCountryClub() {
         </div>
       </section>
     </div>
-  );
+  )
 }

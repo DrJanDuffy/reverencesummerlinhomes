@@ -1,10 +1,16 @@
-import type { Route } from "./+types/communities";
-import { Link } from "react-router";
-import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
-import { Badge } from "~/components/ui/badge";
-import { Separator } from "~/components/ui/separator";
-import { config } from "~/lib/config";
+import type { Route } from './+types/communities'
+import { Link } from 'react-router'
+import { Button } from '~/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '~/components/ui/card'
+import { Badge } from '~/components/ui/badge'
+import { Separator } from '~/components/ui/separator'
+import { config } from '~/lib/config'
 import {
   Home,
   MapPin,
@@ -24,21 +30,46 @@ import {
   Waves,
   Building,
   Zap,
-  Car
-} from "lucide-react";
+  Car,
+} from 'lucide-react'
 
 export function meta() {
   return [
-    { title: "Skye Canyon Homes for Sale | Master-Planned Community | Dr. Jan Duffy" },
-    { name: "description", content: "Discover homes for sale in Skye Canyon, Las Vegas. Dr. Jan Duffy specializes in Skye Canyon real estate with modern amenities, outdoor recreation, and family-friendly living." },
-    { name: "keywords", content: "Skye Canyon homes for sale, Skye Canyon Las Vegas real estate, master-planned community, outdoor recreation, family-friendly, Dr. Jan Duffy" },
-    { property: "og:title", content: "Skye Canyon Homes for Sale | Master-Planned Community" },
-    { property: "og:description", content: "Homes for sale in Skye Canyon, Las Vegas with modern amenities, outdoor recreation, and family-friendly living. Expert real estate guidance from Dr. Jan Duffy." },
-    { property: "og:type", content: "website" },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Skye Canyon Homes for Sale | Dr. Jan Duffy" },
-    { name: "twitter:description", content: "Homes for sale in Skye Canyon, Las Vegas with modern amenities and outdoor recreation." }
-  ];
+    {
+      title:
+        'Skye Canyon Homes for Sale | Master-Planned Community | Dr. Jan Duffy',
+    },
+    {
+      name: 'description',
+      content:
+        'Discover homes for sale in Skye Canyon, Las Vegas. Dr. Jan Duffy specializes in Skye Canyon real estate with modern amenities, outdoor recreation, and family-friendly living.',
+    },
+    {
+      name: 'keywords',
+      content:
+        'Skye Canyon homes for sale, Skye Canyon Las Vegas real estate, master-planned community, outdoor recreation, family-friendly, Dr. Jan Duffy',
+    },
+    {
+      property: 'og:title',
+      content: 'Skye Canyon Homes for Sale | Master-Planned Community',
+    },
+    {
+      property: 'og:description',
+      content:
+        'Homes for sale in Skye Canyon, Las Vegas with modern amenities, outdoor recreation, and family-friendly living. Expert real estate guidance from Dr. Jan Duffy.',
+    },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    {
+      name: 'twitter:title',
+      content: 'Skye Canyon Homes for Sale | Dr. Jan Duffy',
+    },
+    {
+      name: 'twitter:description',
+      content:
+        'Homes for sale in Skye Canyon, Las Vegas with modern amenities and outdoor recreation.',
+    },
+  ]
 }
 
 export default function SkyeCanyon() {
@@ -57,14 +88,23 @@ export default function SkyeCanyon() {
               Skye Canyon Homes
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
-              Discover modern living in Skye Canyon, Las Vegas with outdoor recreation, family amenities, and master-planned community features
+              Discover modern living in Skye Canyon, Las Vegas with outdoor
+              recreation, family amenities, and master-planned community
+              features
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
+              <Button
+                size="lg"
+                className="bg-white text-blue-600 hover:bg-blue-50"
+              >
                 <Home className="w-5 h-5 mr-2" />
                 View Skye Canyon Homes
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10"
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 Schedule Tour
               </Button>
@@ -81,7 +121,9 @@ export default function SkyeCanyon() {
               Discover Skye Canyon Living
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Skye Canyon offers a perfect blend of modern amenities and outdoor recreation, with master-planned community features, hiking trails, and family-friendly activities in northwest Las Vegas.
+              Skye Canyon offers a perfect blend of modern amenities and outdoor
+              recreation, with master-planned community features, hiking trails,
+              and family-friendly activities in northwest Las Vegas.
             </p>
           </div>
 
@@ -98,7 +140,8 @@ export default function SkyeCanyon() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Enjoy miles of hiking trails, parks, and outdoor recreation areas with stunning mountain views and desert landscapes.
+                  Enjoy miles of hiking trails, parks, and outdoor recreation
+                  areas with stunning mountain views and desert landscapes.
                 </p>
               </CardContent>
             </Card>
@@ -115,7 +158,8 @@ export default function SkyeCanyon() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Live in a carefully planned community with modern amenities, community centers, and well-designed neighborhoods.
+                  Live in a carefully planned community with modern amenities,
+                  community centers, and well-designed neighborhoods.
                 </p>
               </CardContent>
             </Card>
@@ -126,13 +170,12 @@ export default function SkyeCanyon() {
                   <Users className="w-6 h-6 text-blue-600" />
                 </div>
                 <CardTitle>Family-Friendly</CardTitle>
-                <CardDescription>
-                  Perfect for families
-                </CardDescription>
+                <CardDescription>Perfect for families</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Designed with families in mind, featuring parks, playgrounds, community events, and safe neighborhoods.
+                  Designed with families in mind, featuring parks, playgrounds,
+                  community events, and safe neighborhoods.
                 </p>
               </CardContent>
             </Card>
@@ -148,74 +191,114 @@ export default function SkyeCanyon() {
               Skye Canyon Lifestyle & Amenities
             </h2>
             <p className="text-xl text-gray-600">
-              Experience the best of modern community living with outdoor recreation
+              Experience the best of modern community living with outdoor
+              recreation
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Community Features</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Community Features
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Hiking Trails</h4>
-                    <p className="text-gray-600">Miles of scenic hiking trails with mountain views and desert landscapes</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Hiking Trails
+                    </h4>
+                    <p className="text-gray-600">
+                      Miles of scenic hiking trails with mountain views and
+                      desert landscapes
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Community Centers</h4>
-                    <p className="text-gray-600">Modern community centers with pools, fitness facilities, and event spaces</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Community Centers
+                    </h4>
+                    <p className="text-gray-600">
+                      Modern community centers with pools, fitness facilities,
+                      and event spaces
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Parks & Playgrounds</h4>
-                    <p className="text-gray-600">Multiple parks and playgrounds for families and outdoor activities</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Parks & Playgrounds
+                    </h4>
+                    <p className="text-gray-600">
+                      Multiple parks and playgrounds for families and outdoor
+                      activities
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Modern Homes</h4>
-                    <p className="text-gray-600">Contemporary home designs with energy-efficient features and modern amenities</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Modern Homes
+                    </h4>
+                    <p className="text-gray-600">
+                      Contemporary home designs with energy-efficient features
+                      and modern amenities
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Community Events</h4>
-                    <p className="text-gray-600">Regular community events, festivals, and social activities for residents</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Community Events
+                    </h4>
+                    <p className="text-gray-600">
+                      Regular community events, festivals, and social activities
+                      for residents
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Prime Location</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Prime Location
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700">Las Vegas Strip - 25 minutes</span>
+                  <span className="text-gray-700">
+                    Las Vegas Strip - 25 minutes
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700">McCarran Airport - 30 minutes</span>
+                  <span className="text-gray-700">
+                    McCarran Airport - 30 minutes
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700">Downtown Las Vegas - 35 minutes</span>
+                  <span className="text-gray-700">
+                    Downtown Las Vegas - 35 minutes
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700">Red Rock Canyon - 15 minutes</span>
+                  <span className="text-gray-700">
+                    Red Rock Canyon - 15 minutes
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-blue-600 mr-3" />
-                  <span className="text-gray-700">Mount Charleston - 45 minutes</span>
+                  <span className="text-gray-700">
+                    Mount Charleston - 45 minutes
+                  </span>
                 </div>
               </div>
             </div>
@@ -365,7 +448,8 @@ export default function SkyeCanyon() {
               Your Skye Canyon Real Estate Expert
             </h2>
             <p className="text-xl text-gray-600">
-              Dr. Jan Duffy brings unmatched expertise in Skye Canyon real estate
+              Dr. Jan Duffy brings unmatched expertise in Skye Canyon real
+              estate
             </p>
           </div>
 
@@ -376,7 +460,9 @@ export default function SkyeCanyon() {
                   <Award className="w-8 h-8 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">{config.agent.name}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    {config.agent.name}
+                  </h3>
                   <p className="text-lg text-gray-600">{config.agent.title}</p>
                 </div>
               </div>
@@ -385,22 +471,37 @@ export default function SkyeCanyon() {
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Skye Canyon Specialist</h4>
-                    <p className="text-gray-600">Expertise in Skye Canyon communities and master-planned living</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Skye Canyon Specialist
+                    </h4>
+                    <p className="text-gray-600">
+                      Expertise in Skye Canyon communities and master-planned
+                      living
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Outdoor Recreation Focus</h4>
-                    <p className="text-gray-600">Understanding of outdoor lifestyle and recreation opportunities</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Outdoor Recreation Focus
+                    </h4>
+                    <p className="text-gray-600">
+                      Understanding of outdoor lifestyle and recreation
+                      opportunities
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Family Community Expert</h4>
-                    <p className="text-gray-600">Knowledge of family-friendly amenities and community features</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Family Community Expert
+                    </h4>
+                    <p className="text-gray-600">
+                      Knowledge of family-friendly amenities and community
+                      features
+                    </p>
                   </div>
                 </div>
               </div>
@@ -418,23 +519,33 @@ export default function SkyeCanyon() {
             </div>
 
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Why Choose Dr. Jan Duffy?
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-blue-600 mr-3" />
-                  <span className="text-gray-700">Licensed Nevada Real Estate Agent</span>
+                  <span className="text-gray-700">
+                    Licensed Nevada Real Estate Agent
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Users className="w-6 h-6 text-blue-600 mr-3" />
-                  <span className="text-gray-700">Skye Canyon real estate expert</span>
+                  <span className="text-gray-700">
+                    Skye Canyon real estate expert
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Award className="w-6 h-6 text-blue-600 mr-3" />
-                  <span className="text-gray-700">Top 1% of Las Vegas agents</span>
+                  <span className="text-gray-700">
+                    Top 1% of Las Vegas agents
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Star className="w-6 h-6 text-blue-600 mr-3" />
-                  <span className="text-gray-700">5-star Skye Canyon client reviews</span>
+                  <span className="text-gray-700">
+                    5-star Skye Canyon client reviews
+                  </span>
                 </div>
               </div>
             </div>
@@ -449,14 +560,22 @@ export default function SkyeCanyon() {
             Ready to Find Your Skye Canyon Home?
           </h2>
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-            Let Dr. Jan Duffy guide you through Skye Canyon's real estate market with personalized service and local expertise.
+            Let Dr. Jan Duffy guide you through Skye Canyon's real estate market
+            with personalized service and local expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">
+            <Button
+              size="lg"
+              className="bg-white text-blue-600 hover:bg-blue-50"
+            >
               <Calendar className="w-5 h-5 mr-2" />
               Schedule Consultation
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white/10"
+            >
               <ArrowRight className="w-5 h-5 mr-2" />
               View All Communities
             </Button>
@@ -464,5 +583,5 @@ export default function SkyeCanyon() {
         </div>
       </section>
     </div>
-  );
+  )
 }

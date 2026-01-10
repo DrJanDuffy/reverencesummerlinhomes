@@ -40,9 +40,10 @@ export const meta: MetaFunction = () => [
   { property: 'og:title', content: config.seo.siteName },
   { property: 'og:description', content: config.seo.description },
   { property: 'og:url', content: config.seo.siteUrl },
+  // Note: Using PNG for better compatibility. SVG works for Facebook but PNG is universally supported
   {
     property: 'og:image',
-    content: `${config.seo.siteUrl}/images/og-image.svg`,
+    content: `${config.seo.siteUrl}/images/og-image.png`,
   },
   { property: 'og:image:width', content: '1200' },
   { property: 'og:image:height', content: '630' },
@@ -53,6 +54,7 @@ export const meta: MetaFunction = () => [
   { property: 'og:locale', content: 'en_US' },
 
   // Twitter Card meta tags
+  // Note: Twitter requires PNG, JPG, WEBP, or GIF - SVG is NOT supported
   { name: 'twitter:card', content: 'summary_large_image' },
   { name: 'twitter:site', content: '@drjanduffy' },
   { name: 'twitter:creator', content: '@drjanduffy' },
@@ -60,7 +62,7 @@ export const meta: MetaFunction = () => [
   { name: 'twitter:description', content: config.seo.description },
   {
     name: 'twitter:image',
-    content: `${config.seo.siteUrl}/images/twitter-image.svg`,
+    content: `${config.seo.siteUrl}/images/twitter-image.png`,
   },
   {
     name: 'twitter:image:alt',

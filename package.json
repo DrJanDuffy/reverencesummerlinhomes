@@ -2,6 +2,9 @@
   "name": "react-router",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
@@ -66,6 +69,6 @@
     "vite-tsconfig-paths": "^5.1.4"
   },
   "optionalDependencies": {
-    "@rollup/rollup-win32-x64-msvc": "^4.55.1"
+    "@rollup/rollup-win32-x64-msvc": "4.55.1"
   }
 }

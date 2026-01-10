@@ -1,10 +1,16 @@
-import type { Route } from "./+types/communities";
-import { Link } from "react-router";
-import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
-import { Badge } from "~/components/ui/badge";
-import { Separator } from "~/components/ui/separator";
-import { config } from "~/lib/config";
+import type { Route } from './+types/communities'
+import { Link } from 'react-router'
+import { Button } from '~/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '~/components/ui/card'
+import { Badge } from '~/components/ui/badge'
+import { Separator } from '~/components/ui/separator'
+import { config } from '~/lib/config'
 import {
   Home,
   MapPin,
@@ -22,21 +28,46 @@ import {
   Shield,
   TreePine,
   Waves,
-  Building
-} from "lucide-react";
+  Building,
+} from 'lucide-react'
 
 export function meta() {
   return [
-    { title: "Henderson Homes for Sale | Family-Friendly Living in Nevada | Dr. Jan Duffy" },
-    { name: "description", content: "Discover homes for sale in Henderson, Nevada. Dr. Jan Duffy specializes in Henderson real estate with family-friendly communities, excellent schools, and outdoor recreation." },
-    { name: "keywords", content: "Henderson homes for sale, Henderson Nevada real estate, family-friendly communities, excellent schools, Dr. Jan Duffy" },
-    { property: "og:title", content: "Henderson Homes for Sale | Family-Friendly Living in Nevada" },
-    { property: "og:description", content: "Homes for sale in Henderson, Nevada with family-friendly communities, excellent schools, and outdoor recreation. Expert real estate guidance from Dr. Jan Duffy." },
-    { property: "og:type", content: "website" },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Henderson Homes for Sale | Dr. Jan Duffy" },
-    { name: "twitter:description", content: "Homes for sale in Henderson, Nevada with family-friendly communities and excellent schools." }
-  ];
+    {
+      title:
+        'Henderson Homes for Sale | Family-Friendly Living in Nevada | Dr. Jan Duffy',
+    },
+    {
+      name: 'description',
+      content:
+        'Discover homes for sale in Henderson, Nevada. Dr. Jan Duffy specializes in Henderson real estate with family-friendly communities, excellent schools, and outdoor recreation.',
+    },
+    {
+      name: 'keywords',
+      content:
+        'Henderson homes for sale, Henderson Nevada real estate, family-friendly communities, excellent schools, Dr. Jan Duffy',
+    },
+    {
+      property: 'og:title',
+      content: 'Henderson Homes for Sale | Family-Friendly Living in Nevada',
+    },
+    {
+      property: 'og:description',
+      content:
+        'Homes for sale in Henderson, Nevada with family-friendly communities, excellent schools, and outdoor recreation. Expert real estate guidance from Dr. Jan Duffy.',
+    },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    {
+      name: 'twitter:title',
+      content: 'Henderson Homes for Sale | Dr. Jan Duffy',
+    },
+    {
+      name: 'twitter:description',
+      content:
+        'Homes for sale in Henderson, Nevada with family-friendly communities and excellent schools.',
+    },
+  ]
 }
 
 export default function Henderson() {
@@ -55,14 +86,23 @@ export default function Henderson() {
               Henderson Homes
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-teal-100 max-w-3xl mx-auto">
-              Discover family-friendly living in Henderson, Nevada with excellent schools, outdoor recreation, and master-planned communities
+              Discover family-friendly living in Henderson, Nevada with
+              excellent schools, outdoor recreation, and master-planned
+              communities
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-teal-600 hover:bg-teal-50">
+              <Button
+                size="lg"
+                className="bg-white text-teal-600 hover:bg-teal-50"
+              >
                 <Home className="w-5 h-5 mr-2" />
                 View Henderson Homes
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10"
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 Schedule Tour
               </Button>
@@ -79,7 +119,10 @@ export default function Henderson() {
               Discover Henderson Living
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Henderson offers the perfect blend of suburban comfort and urban convenience, with top-rated schools, beautiful parks, and master-planned communities that cater to families and professionals alike.
+              Henderson offers the perfect blend of suburban comfort and urban
+              convenience, with top-rated schools, beautiful parks, and
+              master-planned communities that cater to families and
+              professionals alike.
             </p>
           </div>
 
@@ -96,7 +139,9 @@ export default function Henderson() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Henderson is home to some of Nevada's top-rated schools, including Green Valley High School and Advanced Technologies Academy.
+                  Henderson is home to some of Nevada's top-rated schools,
+                  including Green Valley High School and Advanced Technologies
+                  Academy.
                 </p>
               </CardContent>
             </Card>
@@ -113,7 +158,8 @@ export default function Henderson() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Enjoy numerous parks, hiking trails, and outdoor activities including Lake Mead National Recreation Area nearby.
+                  Enjoy numerous parks, hiking trails, and outdoor activities
+                  including Lake Mead National Recreation Area nearby.
                 </p>
               </CardContent>
             </Card>
@@ -124,13 +170,12 @@ export default function Henderson() {
                   <Building className="w-6 h-6 text-teal-600" />
                 </div>
                 <CardTitle>Master-Planned Communities</CardTitle>
-                <CardDescription>
-                  Well-designed neighborhoods
-                </CardDescription>
+                <CardDescription>Well-designed neighborhoods</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Live in thoughtfully designed communities like Green Valley, Anthem, and Inspirada with amenities and services.
+                  Live in thoughtfully designed communities like Green Valley,
+                  Anthem, and Inspirada with amenities and services.
                 </p>
               </CardContent>
             </Card>
@@ -152,56 +197,86 @@ export default function Henderson() {
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Community Features</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Community Features
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Top-Rated Schools</h4>
-                    <p className="text-gray-600">Clark County School District with excellent ratings</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Top-Rated Schools
+                    </h4>
+                    <p className="text-gray-600">
+                      Clark County School District with excellent ratings
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Parks & Recreation</h4>
-                    <p className="text-gray-600">Numerous parks, trails, and recreational facilities</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Parks & Recreation
+                    </h4>
+                    <p className="text-gray-600">
+                      Numerous parks, trails, and recreational facilities
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Shopping & Dining</h4>
-                    <p className="text-gray-600">Green Valley Ranch, Galleria at Sunset, and local restaurants</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Shopping & Dining
+                    </h4>
+                    <p className="text-gray-600">
+                      Green Valley Ranch, Galleria at Sunset, and local
+                      restaurants
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Low Crime Rate</h4>
-                    <p className="text-gray-600">One of Nevada's safest cities with excellent safety ratings</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Low Crime Rate
+                    </h4>
+                    <p className="text-gray-600">
+                      One of Nevada's safest cities with excellent safety
+                      ratings
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Family-Friendly</h4>
-                    <p className="text-gray-600">Perfect for families with children and young professionals</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Family-Friendly
+                    </h4>
+                    <p className="text-gray-600">
+                      Perfect for families with children and young professionals
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Prime Location</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Prime Location
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-teal-600 mr-3" />
-                  <span className="text-gray-700">Las Vegas Strip - 15 minutes</span>
+                  <span className="text-gray-700">
+                    Las Vegas Strip - 15 minutes
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-teal-600 mr-3" />
-                  <span className="text-gray-700">McCarran Airport - 20 minutes</span>
+                  <span className="text-gray-700">
+                    McCarran Airport - 20 minutes
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-teal-600 mr-3" />
@@ -209,7 +284,9 @@ export default function Henderson() {
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-teal-600 mr-3" />
-                  <span className="text-gray-700">Downtown Las Vegas - 25 minutes</span>
+                  <span className="text-gray-700">
+                    Downtown Las Vegas - 25 minutes
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-teal-600 mr-3" />
@@ -229,7 +306,8 @@ export default function Henderson() {
               Henderson Communities
             </h2>
             <p className="text-xl text-gray-600">
-              Discover the diverse neighborhoods and master-planned communities in Henderson
+              Discover the diverse neighborhoods and master-planned communities
+              in Henderson
             </p>
           </div>
 
@@ -371,7 +449,9 @@ export default function Henderson() {
                   <Award className="w-8 h-8 text-teal-600" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">{config.agent.name}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    {config.agent.name}
+                  </h3>
                   <p className="text-lg text-gray-600">{config.agent.title}</p>
                 </div>
               </div>
@@ -380,22 +460,34 @@ export default function Henderson() {
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Henderson Specialist</h4>
-                    <p className="text-gray-600">Expertise in Henderson communities and market trends</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Henderson Specialist
+                    </h4>
+                    <p className="text-gray-600">
+                      Expertise in Henderson communities and market trends
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Family-Focused</h4>
-                    <p className="text-gray-600">Understanding of family needs and school districts</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Family-Focused
+                    </h4>
+                    <p className="text-gray-600">
+                      Understanding of family needs and school districts
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Community Knowledge</h4>
-                    <p className="text-gray-600">Deep knowledge of Henderson neighborhoods and amenities</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Community Knowledge
+                    </h4>
+                    <p className="text-gray-600">
+                      Deep knowledge of Henderson neighborhoods and amenities
+                    </p>
                   </div>
                 </div>
               </div>
@@ -413,23 +505,33 @@ export default function Henderson() {
             </div>
 
             <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Why Choose Dr. Jan Duffy?
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-teal-600 mr-3" />
-                  <span className="text-gray-700">Licensed Nevada Real Estate Agent</span>
+                  <span className="text-gray-700">
+                    Licensed Nevada Real Estate Agent
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Users className="w-6 h-6 text-teal-600 mr-3" />
-                  <span className="text-gray-700">Henderson real estate expert</span>
+                  <span className="text-gray-700">
+                    Henderson real estate expert
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Award className="w-6 h-6 text-teal-600 mr-3" />
-                  <span className="text-gray-700">Top 1% of Las Vegas agents</span>
+                  <span className="text-gray-700">
+                    Top 1% of Las Vegas agents
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Star className="w-6 h-6 text-teal-600 mr-3" />
-                  <span className="text-gray-700">5-star Henderson client reviews</span>
+                  <span className="text-gray-700">
+                    5-star Henderson client reviews
+                  </span>
                 </div>
               </div>
             </div>
@@ -444,14 +546,22 @@ export default function Henderson() {
             Ready to Find Your Henderson Home?
           </h2>
           <p className="text-xl mb-8 text-teal-100 max-w-2xl mx-auto">
-            Let Dr. Jan Duffy guide you through Henderson's real estate market with personalized service and local expertise.
+            Let Dr. Jan Duffy guide you through Henderson's real estate market
+            with personalized service and local expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-teal-600 hover:bg-teal-50">
+            <Button
+              size="lg"
+              className="bg-white text-teal-600 hover:bg-teal-50"
+            >
               <Calendar className="w-5 h-5 mr-2" />
               Schedule Consultation
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white/10"
+            >
               <ArrowRight className="w-5 h-5 mr-2" />
               View All Communities
             </Button>
@@ -459,5 +569,5 @@ export default function Henderson() {
         </div>
       </section>
     </div>
-  );
+  )
 }

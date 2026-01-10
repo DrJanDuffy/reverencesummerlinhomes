@@ -7,13 +7,11 @@
   "functions": {
     "app/routes/api/**/*.tsx": {
       "memory": 3008,
-      "maxDuration": 300,
-      "runtime": "nodejs20.x"
+      "maxDuration": 300
     },
     "app/routes/api/**/*.ts": {
       "memory": 3008,
-      "maxDuration": 300,
-      "runtime": "nodejs20.x"
+      "maxDuration": 300
     }
   },
   "regions": ["iad1"],

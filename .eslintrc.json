@@ -11,17 +11,16 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended"
   ],
-  "ignorePatterns": [
-    "dist",
-    ".eslintrc.cjs",
-    "build",
-    ".react-router"
-  ],
+  "ignorePatterns": ["dist", ".eslintrc.cjs", "build", ".react-router"],
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "react-refresh",
-    "@typescript-eslint"
-  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["react-refresh", "@typescript-eslint"],
   "rules": {
     "react-refresh/only-export-components": [
       "warn",

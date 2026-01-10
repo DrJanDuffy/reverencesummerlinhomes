@@ -14,6 +14,7 @@ Graphite can be installed via npm (if available) or by downloading directly from
 ### Configuration
 
 The `repo_config.json` file defines:
+
 - **GitHub Integration**: Automatic PR checks and branch syncing
 - **Merge Strategy**: Default to squash merges
 - **Quality Gates**: Pre-merge and pre-commit checks

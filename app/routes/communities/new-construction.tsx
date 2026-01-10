@@ -1,10 +1,18 @@
-import type { Route } from "./+types/communities";
-import { Link } from "react-router";
-import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
-import { Badge } from "~/components/ui/badge";
-import { Separator } from "~/components/ui/separator";
-import { config } from "~/lib/config";
+import type { Route } from './+types/communities'
+import { Link } from 'react-router'
+import { Button } from '~/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '~/components/ui/card'
+import { Badge } from '~/components/ui/badge'
+import { Separator } from '~/components/ui/separator'
+import { config } from '~/lib/config'
+import { RealScoutAdvancedSearch } from '~/components/RealScoutAdvancedSearch'
+import { RealScoutListingsWidget } from '~/components/RealScoutListingsWidget'
 import {
   Home,
   MapPin,
@@ -22,21 +30,46 @@ import {
   Shield,
   Hammer,
   Wrench,
-  Zap
-} from "lucide-react";
+  Zap,
+} from 'lucide-react'
 
 export function meta() {
   return [
-    { title: "New Construction Homes Las Vegas | Brand New Builds | Dr. Jan Duffy" },
-    { name: "description", content: "Discover new construction homes in Las Vegas. Dr. Jan Duffy specializes in new build homes with modern features, energy efficiency, and customization options." },
-    { name: "keywords", content: "new construction homes Las Vegas, new build homes, custom homes, energy efficient homes, Dr. Jan Duffy" },
-    { property: "og:title", content: "New Construction Homes Las Vegas | Brand New Builds" },
-    { property: "og:description", content: "New construction homes in Las Vegas with modern features, energy efficiency, and customization options. Expert real estate guidance from Dr. Jan Duffy." },
-    { property: "og:type", content: "website" },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "New Construction Homes Las Vegas | Dr. Jan Duffy" },
-    { name: "twitter:description", content: "New construction homes in Las Vegas with modern features and energy efficiency." }
-  ];
+    {
+      title:
+        'New Construction Homes Las Vegas | Brand New Builds | Dr. Jan Duffy',
+    },
+    {
+      name: 'description',
+      content:
+        'Discover new construction homes in Las Vegas. Dr. Jan Duffy specializes in new build homes with modern features, energy efficiency, and customization options.',
+    },
+    {
+      name: 'keywords',
+      content:
+        'new construction homes Las Vegas, new build homes, custom homes, energy efficient homes, Dr. Jan Duffy',
+    },
+    {
+      property: 'og:title',
+      content: 'New Construction Homes Las Vegas | Brand New Builds',
+    },
+    {
+      property: 'og:description',
+      content:
+        'New construction homes in Las Vegas with modern features, energy efficiency, and customization options. Expert real estate guidance from Dr. Jan Duffy.',
+    },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    {
+      name: 'twitter:title',
+      content: 'New Construction Homes Las Vegas | Dr. Jan Duffy',
+    },
+    {
+      name: 'twitter:description',
+      content:
+        'New construction homes in Las Vegas with modern features and energy efficiency.',
+    },
+  ]
 }
 
 export default function NewConstruction() {
@@ -55,19 +88,46 @@ export default function NewConstruction() {
               New Construction Las Vegas
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-orange-100 max-w-3xl mx-auto">
-              Discover brand new construction homes with modern features, energy efficiency, smart home technology, and customization options throughout Las Vegas
+              Discover brand new construction homes with modern features, energy
+              efficiency, smart home technology, and customization options
+              throughout Las Vegas
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50">
+              <Button
+                size="lg"
+                className="bg-white text-orange-600 hover:bg-orange-50"
+              >
                 <Home className="w-5 h-5 mr-2" />
                 View New Builds
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10"
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 Schedule Tour
               </Button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Advanced Search Widget - Perfect for New Construction Buyers */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Card className="shadow-xl border-4 border-accent-500">
+            <CardContent className="p-8">
+              <RealScoutAdvancedSearch
+                buttonTextColor="#ffffff"
+                backgroundColor="#ffffff"
+                searchButtonColor="#e85d04"
+                width={600}
+                title="Search New Construction & Existing Homes"
+                subtitle="Find brand new construction homes and similar existing properties. Filter by neighborhood, city, beds, baths, and price."
+              />
+            </CardContent>
+          </Card>
         </div>
       </section>
 
@@ -79,7 +139,9 @@ export default function NewConstruction() {
               Brand New Construction Homes
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Experience the benefits of new construction with modern design, energy efficiency, smart home technology, and the ability to customize your dream home from the ground up.
+              Experience the benefits of new construction with modern design,
+              energy efficiency, smart home technology, and the ability to
+              customize your dream home from the ground up.
             </p>
           </div>
 
@@ -96,7 +158,8 @@ export default function NewConstruction() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Enjoy the latest in home technology, modern floor plans, and contemporary design elements built to today's standards.
+                  Enjoy the latest in home technology, modern floor plans, and
+                  contemporary design elements built to today's standards.
                 </p>
               </CardContent>
             </Card>
@@ -107,13 +170,12 @@ export default function NewConstruction() {
                   <Wrench className="w-6 h-6 text-orange-600" />
                 </div>
                 <CardTitle>Customization Options</CardTitle>
-                <CardDescription>
-                  Personalize your new home
-                </CardDescription>
+                <CardDescription>Personalize your new home</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Choose from various floor plans, finishes, colors, and upgrades to create your perfect home.
+                  Choose from various floor plans, finishes, colors, and
+                  upgrades to create your perfect home.
                 </p>
               </CardContent>
             </Card>
@@ -130,7 +192,8 @@ export default function NewConstruction() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Enjoy peace of mind with comprehensive builder warranties covering structural elements and major systems.
+                  Enjoy peace of mind with comprehensive builder warranties
+                  covering structural elements and major systems.
                 </p>
               </CardContent>
             </Card>
@@ -146,74 +209,110 @@ export default function NewConstruction() {
               Benefits of New Construction
             </h2>
             <p className="text-xl text-gray-600">
-              Discover why new construction homes offer superior value and peace of mind
+              Discover why new construction homes offer superior value and peace
+              of mind
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose New Construction?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Why Choose New Construction?
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Energy Efficiency</h4>
-                    <p className="text-gray-600">Latest insulation, windows, and HVAC systems for lower utility bills</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Energy Efficiency
+                    </h4>
+                    <p className="text-gray-600">
+                      Latest insulation, windows, and HVAC systems for lower
+                      utility bills
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Smart Home Ready</h4>
-                    <p className="text-gray-600">Pre-wired for smart home technology and automation</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Smart Home Ready
+                    </h4>
+                    <p className="text-gray-600">
+                      Pre-wired for smart home technology and automation
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Modern Floor Plans</h4>
-                    <p className="text-gray-600">Open concept designs and contemporary layouts</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Modern Floor Plans
+                    </h4>
+                    <p className="text-gray-600">
+                      Open concept designs and contemporary layouts
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Low Maintenance</h4>
-                    <p className="text-gray-600">Everything is new and under warranty</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Low Maintenance
+                    </h4>
+                    <p className="text-gray-600">
+                      Everything is new and under warranty
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Customization</h4>
-                    <p className="text-gray-600">Choose finishes, colors, and upgrades to match your style</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Customization
+                    </h4>
+                    <p className="text-gray-600">
+                      Choose finishes, colors, and upgrades to match your style
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Popular Communities</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Popular Communities
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-orange-600 mr-3" />
-                  <span className="text-gray-700">Summerlin - Master-planned community</span>
+                  <span className="text-gray-700">
+                    Summerlin - Master-planned community
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-orange-600 mr-3" />
-                  <span className="text-gray-700">Henderson - Family-friendly neighborhoods</span>
+                  <span className="text-gray-700">
+                    Henderson - Family-friendly neighborhoods
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-orange-600 mr-3" />
-                  <span className="text-gray-700">North Las Vegas - Affordable new builds</span>
+                  <span className="text-gray-700">
+                    North Las Vegas - Affordable new builds
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-orange-600 mr-3" />
-                  <span className="text-gray-700">Southwest Las Vegas - Growing communities</span>
+                  <span className="text-gray-700">
+                    Southwest Las Vegas - Growing communities
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-orange-600 mr-3" />
-                  <span className="text-gray-700">Inspirada - Modern master-planned</span>
+                  <span className="text-gray-700">
+                    Inspirada - Modern master-planned
+                  </span>
                 </div>
               </div>
             </div>
@@ -229,7 +328,8 @@ export default function NewConstruction() {
               New Construction Options
             </h2>
             <p className="text-xl text-gray-600">
-              From starter homes to luxury estates, find your perfect new construction home
+              From starter homes to luxury estates, find your perfect new
+              construction home
             </p>
           </div>
 
@@ -363,7 +463,8 @@ export default function NewConstruction() {
               Your New Construction Expert
             </h2>
             <p className="text-xl text-gray-600">
-              Dr. Jan Duffy brings unmatched expertise in new construction real estate
+              Dr. Jan Duffy brings unmatched expertise in new construction real
+              estate
             </p>
           </div>
 
@@ -374,7 +475,9 @@ export default function NewConstruction() {
                   <Award className="w-8 h-8 text-orange-600" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">{config.agent.name}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    {config.agent.name}
+                  </h3>
                   <p className="text-lg text-gray-600">{config.agent.title}</p>
                 </div>
               </div>
@@ -383,22 +486,34 @@ export default function NewConstruction() {
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">New Construction Specialist</h4>
-                    <p className="text-gray-600">Expertise in new build homes and builder relationships</p>
+                    <h4 className="font-semibold text-gray-900">
+                      New Construction Specialist
+                    </h4>
+                    <p className="text-gray-600">
+                      Expertise in new build homes and builder relationships
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Builder Partnerships</h4>
-                    <p className="text-gray-600">Strong relationships with top Las Vegas builders</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Builder Partnerships
+                    </h4>
+                    <p className="text-gray-600">
+                      Strong relationships with top Las Vegas builders
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Customization Guidance</h4>
-                    <p className="text-gray-600">Help you choose the right upgrades and finishes</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Customization Guidance
+                    </h4>
+                    <p className="text-gray-600">
+                      Help you choose the right upgrades and finishes
+                    </p>
                   </div>
                 </div>
               </div>
@@ -416,23 +531,33 @@ export default function NewConstruction() {
             </div>
 
             <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Why Choose Dr. Jan Duffy?
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-orange-600 mr-3" />
-                  <span className="text-gray-700">Licensed Nevada Real Estate Agent</span>
+                  <span className="text-gray-700">
+                    Licensed Nevada Real Estate Agent
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Users className="w-6 h-6 text-orange-600 mr-3" />
-                  <span className="text-gray-700">New construction specialist</span>
+                  <span className="text-gray-700">
+                    New construction specialist
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Award className="w-6 h-6 text-orange-600 mr-3" />
-                  <span className="text-gray-700">Top 1% of Las Vegas agents</span>
+                  <span className="text-gray-700">
+                    Top 1% of Las Vegas agents
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Star className="w-6 h-6 text-orange-600 mr-3" />
-                  <span className="text-gray-700">5-star new construction reviews</span>
+                  <span className="text-gray-700">
+                    5-star new construction reviews
+                  </span>
                 </div>
               </div>
             </div>
@@ -447,20 +572,43 @@ export default function NewConstruction() {
             Ready to Build Your Dream Home?
           </h2>
           <p className="text-xl mb-8 text-orange-100 max-w-2xl mx-auto">
-            Let Dr. Jan Duffy guide you through Las Vegas's new construction market with personalized service and builder partnerships.
+            Let Dr. Jan Duffy guide you through Las Vegas's new construction
+            market with personalized service and builder partnerships.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50">
+            <Button
+              size="lg"
+              className="bg-white text-orange-600 hover:bg-orange-50"
+            >
               <Calendar className="w-5 h-5 mr-2" />
               Schedule Builder Tour
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white/10"
+            >
               <ArrowRight className="w-5 h-5 mr-2" />
               View All Communities
             </Button>
           </div>
         </div>
       </section>
+
+      {/* Featured New Construction Properties */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <RealScoutListingsWidget
+            sortOrder="NEWEST"
+            listingStatus="For Sale"
+            propertyTypes=",SFR,,TOWNHOUSE"
+            priceMin={400000}
+            priceMax={1200000}
+            title="Available New Construction & Similar Properties"
+            subtitle="Explore new construction opportunities and similar existing homes in Las Vegas and Summerlin. Find your perfect home today."
+          />
+        </div>
+      </section>
     </div>
-  );
+  )
 }

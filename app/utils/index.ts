@@ -37,7 +37,10 @@ export function formatSquareFeet(sqft: number): string {
 /**
  * Calculate price per square foot
  */
-export function calculatePricePerSqFt(price: number, squareFeet: number): number {
+export function calculatePricePerSqFt(
+  price: number,
+  squareFeet: number
+): number {
   return Math.round(price / squareFeet)
 }
 
@@ -51,16 +54,18 @@ export function formatPricePerSqFt(pricePerSqFt: number): string {
 /**
  * Generate property slug from address
  */
-export function generatePropertySlug(property: Pick<Property, 'address' | 'city' | 'state'>): string {
+export function generatePropertySlug(
+  property: Pick<Property, 'address' | 'city' | 'state'>
+): string {
   const address = property.address
     .toLowerCase()
     .replace(/[^a-z0-9\s]/g, '')
     .replace(/\s+/g, '-')
     .trim()
-  
+
   const city = property.city.toLowerCase().replace(/\s+/g, '-')
   const state = property.state.toLowerCase()
-  
+
   return `${address}-${city}-${state}`
 }
 
@@ -112,7 +117,10 @@ export function generatePropertyMetaDescription(property: Property): string {
 /**
  * Generate meta description for neighborhood
  */
-export function generateNeighborhoodMetaDescription(name: string, averagePrice: number): string {
+export function generateNeighborhoodMetaDescription(
+  name: string,
+  averagePrice: number
+): string {
   return `Discover ${name} neighborhood in Las Vegas. Average home price: ${formatCurrency(averagePrice)}. Find homes, schools, amenities, and market trends.`
 }
 
@@ -184,7 +192,7 @@ export function formatRelativeTime(date: string | Date): string {
   const now = new Date()
   const diffTime = Math.abs(now.getTime() - d.getTime())
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
-  
+
   if (diffDays === 1) return '1 day ago'
   if (diffDays < 7) return `${diffDays} days ago`
   if (diffDays < 30) return `${Math.ceil(diffDays / 7)} weeks ago`
@@ -197,25 +205,25 @@ export function formatRelativeTime(date: string | Date): string {
  */
 export function validateContactForm(form: ContactForm): string[] {
   const errors: string[] = []
-  
+
   if (!form.name.trim()) {
     errors.push('Name is required')
   }
-  
+
   if (!form.email.trim()) {
     errors.push('Email is required')
   } else if (!isValidEmail(form.email)) {
     errors.push('Please enter a valid email address')
   }
-  
+
   if (form.phone && !isValidPhone(form.phone)) {
     errors.push('Please enter a valid phone number')
   }
-  
+
   if (!form.message.trim()) {
     errors.push('Message is required')
   }
-  
+
   return errors
 }
 
@@ -224,35 +232,34 @@ export function validateContactForm(form: ContactForm): string[] {
  */
 export function validateValuationRequest(request: ValuationRequest): string[] {
   const errors: string[] = []
-  
+
   if (!request.address.trim()) {
     errors.push('Address is required')
   }
-  
+
   if (!request.city.trim()) {
     errors.push('City is required')
   }
-  
+
   if (!request.state.trim()) {
     errors.push('State is required')
   }
-  
+
   if (!request.zipCode.trim()) {
     errors.push('ZIP code is required')
   }
-  
+
   if (request.bedrooms < 0) {
     errors.push('Number of bedrooms must be 0 or greater')
   }
-  
+
   if (request.bathrooms < 0) {
     errors.push('Number of bathrooms must be 0 or greater')
   }
-  
+
   if (request.squareFeet <= 0) {
     errors.push('Square footage must be greater than 0')
   }
-  
+
   return errors
 }
-

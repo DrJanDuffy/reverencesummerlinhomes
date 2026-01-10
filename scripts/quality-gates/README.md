@@ -5,24 +5,30 @@ Automated quality checks to ensure code quality before commits and merges.
 ## Available Scripts
 
 ### Pre-commit (`pre-commit.sh`)
+
 Runs lightweight checks before each commit:
+
 - Format check (warning only)
 - Lint check
 - Type check
 
 **Usage:**
+
 ```bash
 ./scripts/quality-gates/pre-commit.sh
 ```
 
 ### Pre-merge (`pre-merge.sh`)
+
 Runs comprehensive checks before merging:
+
 - Format check (warning only)
 - Lint check
 - Type check
 - Build check
 
 **Usage:**
+
 ```bash
 ./scripts/quality-gates/pre-merge.sh
 ```
@@ -30,15 +36,19 @@ Runs comprehensive checks before merging:
 ### Individual Checks
 
 #### Lint Check (`lint-check.sh`)
+
 Runs ESLint on all TypeScript/TSX files.
 
 #### Type Check (`typecheck.sh`)
+
 Runs TypeScript compiler check.
 
 #### Build Check (`build-check.sh`)
+
 Verifies the project builds successfully and outputs are correct.
 
 #### Format Check (`format-check.sh`)
+
 Checks if code is properly formatted (non-blocking).
 
 ## Integration with Git Hooks

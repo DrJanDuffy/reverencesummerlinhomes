@@ -1,10 +1,16 @@
-import type { Route } from "./+types/communities";
-import { Link } from "react-router";
-import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
-import { Badge } from "~/components/ui/badge";
-import { Separator } from "~/components/ui/separator";
-import { config } from "~/lib/config";
+import type { Route } from './+types/communities'
+import { Link } from 'react-router'
+import { Button } from '~/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '~/components/ui/card'
+import { Badge } from '~/components/ui/badge'
+import { Separator } from '~/components/ui/separator'
+import { config } from '~/lib/config'
 import {
   Home,
   MapPin,
@@ -26,21 +32,46 @@ import {
   Zap,
   Car,
   Sun,
-  Bird
-} from "lucide-react";
+  Bird,
+} from 'lucide-react'
 
 export function meta() {
   return [
-    { title: "Kestrel Homes for Sale | Luxury Living & Natural Beauty | Dr. Jan Duffy" },
-    { name: "description", content: "Discover homes for sale in Kestrel, Las Vegas. Dr. Jan Duffy specializes in Kestrel real estate with luxury amenities, natural beauty, and exclusive living." },
-    { name: "keywords", content: "Kestrel homes for sale, Kestrel Las Vegas real estate, luxury living, natural beauty, exclusive community, Dr. Jan Duffy" },
-    { property: "og:title", content: "Kestrel Homes for Sale | Luxury Living & Natural Beauty" },
-    { property: "og:description", content: "Homes for sale in Kestrel, Las Vegas with luxury amenities, natural beauty, and exclusive living. Expert real estate guidance from Dr. Jan Duffy." },
-    { property: "og:type", content: "website" },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Kestrel Homes for Sale | Dr. Jan Duffy" },
-    { name: "twitter:description", content: "Homes for sale in Kestrel, Las Vegas with luxury amenities and natural beauty." }
-  ];
+    {
+      title:
+        'Kestrel Homes for Sale | Luxury Living & Natural Beauty | Dr. Jan Duffy',
+    },
+    {
+      name: 'description',
+      content:
+        'Discover homes for sale in Kestrel, Las Vegas. Dr. Jan Duffy specializes in Kestrel real estate with luxury amenities, natural beauty, and exclusive living.',
+    },
+    {
+      name: 'keywords',
+      content:
+        'Kestrel homes for sale, Kestrel Las Vegas real estate, luxury living, natural beauty, exclusive community, Dr. Jan Duffy',
+    },
+    {
+      property: 'og:title',
+      content: 'Kestrel Homes for Sale | Luxury Living & Natural Beauty',
+    },
+    {
+      property: 'og:description',
+      content:
+        'Homes for sale in Kestrel, Las Vegas with luxury amenities, natural beauty, and exclusive living. Expert real estate guidance from Dr. Jan Duffy.',
+    },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    {
+      name: 'twitter:title',
+      content: 'Kestrel Homes for Sale | Dr. Jan Duffy',
+    },
+    {
+      name: 'twitter:description',
+      content:
+        'Homes for sale in Kestrel, Las Vegas with luxury amenities and natural beauty.',
+    },
+  ]
 }
 
 export default function Kestrel() {
@@ -59,14 +90,22 @@ export default function Kestrel() {
               Kestrel Homes
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-purple-100 max-w-3xl mx-auto">
-              Discover exclusive living in Kestrel, Las Vegas with luxury amenities, natural beauty, and sophisticated desert landscapes
+              Discover exclusive living in Kestrel, Las Vegas with luxury
+              amenities, natural beauty, and sophisticated desert landscapes
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50">
+              <Button
+                size="lg"
+                className="bg-white text-purple-600 hover:bg-purple-50"
+              >
                 <Home className="w-5 h-5 mr-2" />
                 View Kestrel Homes
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10"
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 Schedule Tour
               </Button>
@@ -83,7 +122,9 @@ export default function Kestrel() {
               Discover Kestrel Living
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Kestrel offers an exclusive lifestyle with luxury amenities, natural beauty, and sophisticated desert living that combines elegance with the serenity of the Las Vegas landscape.
+              Kestrel offers an exclusive lifestyle with luxury amenities,
+              natural beauty, and sophisticated desert living that combines
+              elegance with the serenity of the Las Vegas landscape.
             </p>
           </div>
 
@@ -100,7 +141,9 @@ export default function Kestrel() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Experience luxury living with premium amenities, high-end finishes, and exclusive community features designed for discerning homeowners.
+                  Experience luxury living with premium amenities, high-end
+                  finishes, and exclusive community features designed for
+                  discerning homeowners.
                 </p>
               </CardContent>
             </Card>
@@ -111,13 +154,13 @@ export default function Kestrel() {
                   <TreePine className="w-6 h-6 text-purple-600" />
                 </div>
                 <CardTitle>Natural Beauty</CardTitle>
-                <CardDescription>
-                  Scenic desert landscapes
-                </CardDescription>
+                <CardDescription>Scenic desert landscapes</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Enjoy the natural beauty of the desert with carefully preserved landscapes, native plants, and stunning views of the surrounding mountains.
+                  Enjoy the natural beauty of the desert with carefully
+                  preserved landscapes, native plants, and stunning views of the
+                  surrounding mountains.
                 </p>
               </CardContent>
             </Card>
@@ -128,13 +171,12 @@ export default function Kestrel() {
                   <Shield className="w-6 h-6 text-purple-600" />
                 </div>
                 <CardTitle>Exclusive Community</CardTitle>
-                <CardDescription>
-                  Private and secure living
-                </CardDescription>
+                <CardDescription>Private and secure living</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Live in an exclusive, gated community with privacy, security, and a sense of belonging among like-minded residents.
+                  Live in an exclusive, gated community with privacy, security,
+                  and a sense of belonging among like-minded residents.
                 </p>
               </CardContent>
             </Card>
@@ -150,74 +192,114 @@ export default function Kestrel() {
               Kestrel Lifestyle & Amenities
             </h2>
             <p className="text-xl text-gray-600">
-              Experience the pinnacle of luxury desert living with exclusive amenities
+              Experience the pinnacle of luxury desert living with exclusive
+              amenities
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Community Features</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Community Features
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Luxury Amenities</h4>
-                    <p className="text-gray-600">Premium community amenities including pools, fitness centers, and social spaces</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Luxury Amenities
+                    </h4>
+                    <p className="text-gray-600">
+                      Premium community amenities including pools, fitness
+                      centers, and social spaces
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Natural Landscaping</h4>
-                    <p className="text-gray-600">Carefully designed desert landscaping with native plants and water features</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Natural Landscaping
+                    </h4>
+                    <p className="text-gray-600">
+                      Carefully designed desert landscaping with native plants
+                      and water features
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Gated Security</h4>
-                    <p className="text-gray-600">24/7 security and controlled access for peace of mind and privacy</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Gated Security
+                    </h4>
+                    <p className="text-gray-600">
+                      24/7 security and controlled access for peace of mind and
+                      privacy
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Exclusive Events</h4>
-                    <p className="text-gray-600">Private community events and social gatherings for residents</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Exclusive Events
+                    </h4>
+                    <p className="text-gray-600">
+                      Private community events and social gatherings for
+                      residents
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Concierge Services</h4>
-                    <p className="text-gray-600">Premium concierge services for residents' convenience and lifestyle</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Concierge Services
+                    </h4>
+                    <p className="text-gray-600">
+                      Premium concierge services for residents' convenience and
+                      lifestyle
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Prime Location</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Prime Location
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-purple-600 mr-3" />
-                  <span className="text-gray-700">Las Vegas Strip - 15 minutes</span>
+                  <span className="text-gray-700">
+                    Las Vegas Strip - 15 minutes
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-purple-600 mr-3" />
-                  <span className="text-gray-700">McCarran Airport - 20 minutes</span>
+                  <span className="text-gray-700">
+                    McCarran Airport - 20 minutes
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-purple-600 mr-3" />
-                  <span className="text-gray-700">Downtown Las Vegas - 25 minutes</span>
+                  <span className="text-gray-700">
+                    Downtown Las Vegas - 25 minutes
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-purple-600 mr-3" />
-                  <span className="text-gray-700">Red Rock Canyon - 5 minutes</span>
+                  <span className="text-gray-700">
+                    Red Rock Canyon - 5 minutes
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-purple-600 mr-3" />
-                  <span className="text-gray-700">Mount Charleston - 35 minutes</span>
+                  <span className="text-gray-700">
+                    Mount Charleston - 35 minutes
+                  </span>
                 </div>
               </div>
             </div>
@@ -233,7 +315,8 @@ export default function Kestrel() {
               Kestrel Neighborhoods
             </h2>
             <p className="text-xl text-gray-600">
-              Discover the exclusive neighborhoods and luxury home styles in Kestrel
+              Discover the exclusive neighborhoods and luxury home styles in
+              Kestrel
             </p>
           </div>
 
@@ -378,7 +461,9 @@ export default function Kestrel() {
                   <Award className="w-8 h-8 text-purple-600" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">{config.agent.name}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    {config.agent.name}
+                  </h3>
                   <p className="text-lg text-gray-600">{config.agent.title}</p>
                 </div>
               </div>
@@ -387,22 +472,35 @@ export default function Kestrel() {
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Kestrel Specialist</h4>
-                    <p className="text-gray-600">Expertise in Kestrel communities and luxury properties</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Kestrel Specialist
+                    </h4>
+                    <p className="text-gray-600">
+                      Expertise in Kestrel communities and luxury properties
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Luxury Market Expert</h4>
-                    <p className="text-gray-600">Understanding of luxury real estate market and exclusive communities</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Luxury Market Expert
+                    </h4>
+                    <p className="text-gray-600">
+                      Understanding of luxury real estate market and exclusive
+                      communities
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Exclusive Properties</h4>
-                    <p className="text-gray-600">Knowledge of exclusive properties and luxury amenities</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Exclusive Properties
+                    </h4>
+                    <p className="text-gray-600">
+                      Knowledge of exclusive properties and luxury amenities
+                    </p>
                   </div>
                 </div>
               </div>
@@ -420,23 +518,33 @@ export default function Kestrel() {
             </div>
 
             <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Why Choose Dr. Jan Duffy?
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-purple-600 mr-3" />
-                  <span className="text-gray-700">Licensed Nevada Real Estate Agent</span>
+                  <span className="text-gray-700">
+                    Licensed Nevada Real Estate Agent
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Users className="w-6 h-6 text-purple-600 mr-3" />
-                  <span className="text-gray-700">Kestrel real estate expert</span>
+                  <span className="text-gray-700">
+                    Kestrel real estate expert
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Award className="w-6 h-6 text-purple-600 mr-3" />
-                  <span className="text-gray-700">Top 1% of Las Vegas agents</span>
+                  <span className="text-gray-700">
+                    Top 1% of Las Vegas agents
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Star className="w-6 h-6 text-purple-600 mr-3" />
-                  <span className="text-gray-700">5-star Kestrel client reviews</span>
+                  <span className="text-gray-700">
+                    5-star Kestrel client reviews
+                  </span>
                 </div>
               </div>
             </div>
@@ -451,14 +559,22 @@ export default function Kestrel() {
             Ready to Find Your Kestrel Home?
           </h2>
           <p className="text-xl mb-8 text-purple-100 max-w-2xl mx-auto">
-            Let Dr. Jan Duffy guide you through Kestrel's exclusive real estate market with personalized service and local expertise.
+            Let Dr. Jan Duffy guide you through Kestrel's exclusive real estate
+            market with personalized service and local expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50">
+            <Button
+              size="lg"
+              className="bg-white text-purple-600 hover:bg-purple-50"
+            >
               <Calendar className="w-5 h-5 mr-2" />
               Schedule Consultation
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white/10"
+            >
               <ArrowRight className="w-5 h-5 mr-2" />
               View All Communities
             </Button>
@@ -466,5 +582,5 @@ export default function Kestrel() {
         </div>
       </section>
     </div>
-  );
+  )
 }

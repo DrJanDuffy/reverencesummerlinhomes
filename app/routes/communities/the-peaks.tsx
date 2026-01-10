@@ -1,10 +1,14 @@
-import type { Route } from "./+types/communities";
+import type { Route } from './+types/communities'
 
 export function meta() {
   return [
-    { title: "The Peaks | Dr. Jan Duffy" },
-    { name: "description", content: "The Peaks homes for sale. Dr. Jan Duffy helps you find homes in The Peaks." },
-  ];
+    { title: 'The Peaks | Dr. Jan Duffy' },
+    {
+      name: 'description',
+      content:
+        'The Peaks homes for sale. Dr. Jan Duffy helps you find homes in The Peaks.',
+    },
+  ]
 }
 
 export default function ThePeaks() {
@@ -15,5 +19,5 @@ export default function ThePeaks() {
         <p className="text-xl text-gray-600">Homes in The Peaks.</p>
       </div>
     </div>
-  );
+  )
 }

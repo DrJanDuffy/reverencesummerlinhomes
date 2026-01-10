@@ -1,6 +1,6 @@
 /**
  * Model Context Protocol (MCP) - Public API
- * 
+ *
  * Main entry point for MCP functionality
  * Export all public types, classes, and utilities
  */
@@ -14,26 +14,26 @@ export type {
   MCPResponse,
   HealthCheckResult,
   MCPConnector,
-} from "./types";
+} from './types'
 
-export { MCPError } from "./types";
+export { MCPError } from './types'
 
 // Base client
-export { BaseMCPClient } from "./client";
+export { BaseMCPClient } from './client'
 
 // Connectors
-export { HTTPMCPClient } from "./connectors/http-client";
-export { RealScoutConnector } from "./connectors/realscout";
+export { HTTPMCPClient } from './connectors/http-client'
+export { RealScoutConnector } from './connectors/realscout'
 export type {
   RealScoutListingsOptions,
   RealScoutListing,
-} from "./connectors/realscout";
-export { FollowUpBossConnector } from "./connectors/followupboss";
+} from './connectors/realscout'
+export { FollowUpBossConnector } from './connectors/followupboss'
 export type {
   FollowUpBossLead,
   FollowUpBossContact,
   FollowUpBossProperty,
-} from "./connectors/followupboss";
+} from './connectors/followupboss'
 
 // Manager and configuration
 export {
@@ -46,7 +46,7 @@ export {
   getCloudflareConfig,
   getEndpointConfig,
   getAllEndpointConfigs,
-} from "./manager";
+} from './manager'
 
 // Utilities
 export {
@@ -54,4 +54,4 @@ export {
   getRealScoutWidgetScriptUrl,
   buildRealScoutWidgetAttributes,
   generateRealScoutWidgetHTML,
-} from "./utils";
+} from './utils'

@@ -1,6 +1,6 @@
 /**
  * Model Context Protocol (MCP) - Type Definitions
- * 
+ *
  * Standardized types for managing external tool connections
  * (databases, APIs, third-party services)
  */
@@ -8,23 +8,23 @@
 /**
  * Connection status for an MCP endpoint
  */
-export type ConnectionStatus = 
-  | "disconnected"
-  | "connecting"
-  | "connected"
-  | "error"
-  | "reconnecting";
+export type ConnectionStatus =
+  | 'disconnected'
+  | 'connecting'
+  | 'connected'
+  | 'error'
+  | 'reconnecting'
 
 /**
  * Authentication method for MCP connections
  */
-export type AuthMethod = 
-  | "api_key"
-  | "bearer_token"
-  | "oauth2"
-  | "basic_auth"
-  | "custom_headers"
-  | "none";
+export type AuthMethod =
+  | 'api_key'
+  | 'bearer_token'
+  | 'oauth2'
+  | 'basic_auth'
+  | 'custom_headers'
+  | 'none'
 
 /**
  * MCP Endpoint Configuration
@@ -32,48 +32,48 @@ export type AuthMethod =
  */
 export interface MCPEndpointConfig {
   /** Unique identifier for this endpoint */
-  id: string;
-  
+  id: string
+
   /** Human-readable name */
-  name: string;
-  
+  name: string
+
   /** Service provider name (e.g., "RealScout", "Follow Up Boss") */
-  provider: string;
-  
+  provider: string
+
   /** Base URL for API endpoints */
-  baseUrl: string;
-  
+  baseUrl: string
+
   /** Authentication method */
-  authMethod: AuthMethod;
-  
+  authMethod: AuthMethod
+
   /** Authentication credentials (encrypted/stored securely) */
   credentials: {
-    apiKey?: string;
-    bearerToken?: string;
-    username?: string;
-    password?: string;
-    clientId?: string;
-    clientSecret?: string;
-    customHeaders?: Record<string, string>;
-  };
-  
+    apiKey?: string
+    bearerToken?: string
+    username?: string
+    password?: string
+    clientId?: string
+    clientSecret?: string
+    customHeaders?: Record<string, string>
+  }
+
   /** Timeout in milliseconds (default: 30000) */
-  timeout?: number;
-  
+  timeout?: number
+
   /** Maximum retry attempts (default: 3) */
-  maxRetries?: number;
-  
+  maxRetries?: number
+
   /** Retry delay in milliseconds (default: 1000) */
-  retryDelay?: number;
-  
+  retryDelay?: number
+
   /** Additional configuration specific to the provider */
-  providerConfig?: Record<string, unknown>;
-  
+  providerConfig?: Record<string, unknown>
+
   /** Whether this endpoint is enabled */
-  enabled?: boolean;
-  
+  enabled?: boolean
+
   /** Environment where this endpoint is active */
-  environment?: "development" | "staging" | "production";
+  environment?: 'development' | 'staging' | 'production'
 }
 
 /**
@@ -81,28 +81,28 @@ export interface MCPEndpointConfig {
  */
 export interface MCPRequestOptions {
   /** HTTP method */
-  method?: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
-  
+  method?: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'
+
   /** Request path (appended to baseUrl) */
-  path: string;
-  
+  path: string
+
   /** Query parameters */
-  query?: Record<string, string | number | boolean>;
-  
+  query?: Record<string, string | number | boolean>
+
   /** Request body */
-  body?: unknown;
-  
+  body?: unknown
+
   /** Custom headers */
-  headers?: Record<string, string>;
-  
+  headers?: Record<string, string>
+
   /** Request timeout override */
-  timeout?: number;
-  
+  timeout?: number
+
   /** Whether to retry on failure */
-  retry?: boolean;
-  
+  retry?: boolean
+
   /** Response cache TTL in seconds */
-  cacheTtl?: number;
+  cacheTtl?: number
 }
 
 /**
@@ -110,27 +110,27 @@ export interface MCPRequestOptions {
  */
 export interface MCPResponse<T = unknown> {
   /** Response data */
-  data: T;
-  
+  data: T
+
   /** HTTP status code */
-  status: number;
-  
+  status: number
+
   /** Response headers */
-  headers: Record<string, string>;
-  
+  headers: Record<string, string>
+
   /** Whether request was successful */
-  success: boolean;
-  
+  success: boolean
+
   /** Error message if request failed */
-  error?: string;
-  
+  error?: string
+
   /** Request metadata */
   metadata?: {
-    requestId?: string;
-    duration?: number;
-    cached?: boolean;
-    retries?: number;
-  };
+    requestId?: string
+    duration?: number
+    cached?: boolean
+    retries?: number
+  }
 }
 
 /**
@@ -143,8 +143,8 @@ export class MCPError extends Error {
     public readonly endpointId?: string,
     public readonly originalError?: Error
   ) {
-    super(message);
-    this.name = "MCPError";
+    super(message)
+    this.name = 'MCPError'
   }
 }
 
@@ -152,13 +152,13 @@ export class MCPError extends Error {
  * Connection Health Check Result
  */
 export interface HealthCheckResult {
-  endpointId: string;
-  status: ConnectionStatus;
-  healthy: boolean;
-  latency?: number;
-  error?: string;
-  lastChecked: Date;
-  metadata?: Record<string, unknown>;
+  endpointId: string
+  status: ConnectionStatus
+  healthy: boolean
+  latency?: number
+  error?: string
+  lastChecked: Date
+  metadata?: Record<string, unknown>
 }
 
 /**
@@ -167,31 +167,31 @@ export interface HealthCheckResult {
  */
 export interface MCPConnector {
   /** Unique connector identifier */
-  readonly id: string;
-  
+  readonly id: string
+
   /** Connector name */
-  readonly name: string;
-  
+  readonly name: string
+
   /** Current connection status */
-  readonly status: ConnectionStatus;
-  
+  readonly status: ConnectionStatus
+
   /**
    * Initialize the connector with endpoint configuration
    */
-  initialize(config: MCPEndpointConfig): Promise<void>;
-  
+  initialize(config: MCPEndpointConfig): Promise<void>
+
   /**
    * Execute a request through the connector
    */
-  request<T = unknown>(options: MCPRequestOptions): Promise<MCPResponse<T>>;
-  
+  request<T = unknown>(options: MCPRequestOptions): Promise<MCPResponse<T>>
+
   /**
    * Test the connection
    */
-  healthCheck(): Promise<HealthCheckResult>;
-  
+  healthCheck(): Promise<HealthCheckResult>
+
   /**
    * Disconnect and cleanup
    */
-  disconnect(): Promise<void>;
+  disconnect(): Promise<void>
 }

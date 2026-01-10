@@ -11,15 +11,8 @@
   },
   "qualityGates": {
     "enabled": true,
-    "preMergeChecks": [
-      "typecheck",
-      "lint",
-      "build"
-    ],
-    "preCommitChecks": [
-      "lint",
-      "typecheck"
-    ]
+    "preMergeChecks": ["typecheck", "lint", "build"],
+    "preCommitChecks": ["lint", "typecheck"]
   },
   "commitMessages": {
     "autoFormat": true,

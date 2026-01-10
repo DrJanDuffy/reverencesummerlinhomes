@@ -1,16 +1,16 @@
 /**
  * ReviewableAction Component
- * 
+ *
  * Implements the "Seatbelt Mindset" pattern for agent security, allowing users
  * to review and approve AI-generated changes before they are committed.
- * 
+ *
  * This component provides a safety mechanism for AI actions by:
  * - Displaying a clear preview of proposed changes
  * - Requiring explicit user approval before execution
  * - Showing a diff/comparison view when applicable
  * - Providing undo capabilities where possible
  * - Logging all approvals/rejections for audit trails
- * 
+ *
  * @example
  * ```tsx
  * <ReviewableAction
@@ -27,8 +27,14 @@
  * ```
  */
 
-import * as React from "react"
-import { AlertTriangle, CheckCircle2, XCircle, Eye, GitCompare } from "lucide-react"
+import * as React from 'react'
+import {
+  AlertTriangle,
+  CheckCircle2,
+  XCircle,
+  Eye,
+  GitCompare,
+} from 'lucide-react'
 import {
   Dialog,
   DialogContent,
@@ -36,36 +42,42 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from "~/components/ui/dialog"
-import { Button } from "~/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card"
-import { cn } from "~/lib/utils"
+} from '~/components/ui/dialog'
+import { Button } from '~/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '~/components/ui/card'
+import { cn } from '~/lib/utils'
 
 /**
  * Types for proposed changes that can be reviewed
  */
 export type ProposedChange =
   | {
-      type: "text"
+      type: 'text'
       before: string
       after: string
       field?: string
     }
   | {
-      type: "file"
+      type: 'file'
       path: string
-      operation: "create" | "update" | "delete"
+      operation: 'create' | 'update' | 'delete'
       content?: string
       diff?: string
     }
   | {
-      type: "data"
+      type: 'data'
       before: unknown
       after: unknown
       field?: string
     }
   | {
-      type: "batch"
+      type: 'batch'
       changes: ProposedChange[]
     }
 
@@ -139,19 +151,27 @@ export interface ReviewableActionProps {
 /**
  * Simple text diff component (side-by-side comparison)
  */
-function TextDiff({ before, after, field }: { before: string; after: string; field?: string }) {
+function TextDiff({
+  before,
+  after,
+  field,
+}: {
+  before: string
+  after: string
+  field?: string
+}) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <Card>
         <CardHeader>
           <CardTitle className="text-sm flex items-center gap-2">
             <XCircle className="h-4 w-4 text-destructive" />
-            {field ? `Current: ${field}` : "Current"}
+            {field ? `Current: ${field}` : 'Current'}
           </CardTitle>
         </CardHeader>
         <CardContent>
           <pre className="text-xs bg-muted p-3 rounded-md overflow-auto max-h-64 whitespace-pre-wrap break-words">
-            {before || "(empty)"}
+            {before || '(empty)'}
           </pre>
         </CardContent>
       </Card>
@@ -159,12 +179,12 @@ function TextDiff({ before, after, field }: { before: string; after: string; fie
         <CardHeader>
           <CardTitle className="text-sm flex items-center gap-2">
             <CheckCircle2 className="h-4 w-4 text-ctaSecondary-500" />
-            {field ? `Proposed: ${field}` : "Proposed"}
+            {field ? `Proposed: ${field}` : 'Proposed'}
           </CardTitle>
         </CardHeader>
         <CardContent>
           <pre className="text-xs bg-muted p-3 rounded-md overflow-auto max-h-64 whitespace-pre-wrap break-words border-2 border-ctaSecondary-200">
-            {after || "(empty)"}
+            {after || '(empty)'}
           </pre>
         </CardContent>
       </Card>
@@ -175,7 +195,11 @@ function TextDiff({ before, after, field }: { before: string; after: string; fie
 /**
  * File operation preview component
  */
-function FileChangePreview({ change }: { change: Extract<ProposedChange, { type: "file" }> }) {
+function FileChangePreview({
+  change,
+}: {
+  change: Extract<ProposedChange, { type: 'file' }>
+}) {
   const { path, operation, content, diff } = change
 
   return (
@@ -186,7 +210,8 @@ function FileChangePreview({ change }: { change: Extract<ProposedChange, { type:
           File: {path}
         </CardTitle>
         <CardDescription>
-          Operation: <span className="font-semibold capitalize">{operation}</span>
+          Operation:{' '}
+          <span className="font-semibold capitalize">{operation}</span>
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -199,7 +224,9 @@ function FileChangePreview({ change }: { change: Extract<ProposedChange, { type:
             {content}
           </pre>
         ) : (
-          <p className="text-sm text-muted-foreground">No content preview available</p>
+          <p className="text-sm text-muted-foreground">
+            No content preview available
+          </p>
         )}
       </CardContent>
     </Card>
@@ -213,7 +240,8 @@ function BatchChangesPreview({ changes }: { changes: ProposedChange[] }) {
   return (
     <div className="space-y-4">
       <p className="text-sm text-muted-foreground">
-        This action will make <span className="font-semibold">{changes.length}</span> changes:
+        This action will make{' '}
+        <span className="font-semibold">{changes.length}</span> changes:
       </p>
       <div className="space-y-3 max-h-96 overflow-auto">
         {changes.map((change, index) => (
@@ -222,14 +250,20 @@ function BatchChangesPreview({ changes }: { changes: ProposedChange[] }) {
               <CardTitle className="text-sm">Change {index + 1}</CardTitle>
             </CardHeader>
             <CardContent>
-              {change.type === "text" && (
-                <TextDiff before={change.before} after={change.after} field={change.field} />
+              {change.type === 'text' && (
+                <TextDiff
+                  before={change.before}
+                  after={change.after}
+                  field={change.field}
+                />
               )}
-              {change.type === "file" && <FileChangePreview change={change} />}
-              {change.type === "data" && (
+              {change.type === 'file' && <FileChangePreview change={change} />}
+              {change.type === 'data' && (
                 <div className="space-y-2">
                   {change.field && (
-                    <p className="text-xs font-semibold">Field: {change.field}</p>
+                    <p className="text-xs font-semibold">
+                      Field: {change.field}
+                    </p>
                   )}
                   <div className="grid grid-cols-2 gap-2 text-xs">
                     <div>
@@ -268,8 +302,8 @@ export function ReviewableAction({
   open: controlledOpen,
   onOpenChange,
   warnings = [],
-  approveButtonText = "Approve & Execute",
-  rejectButtonText = "Reject",
+  approveButtonText = 'Approve & Execute',
+  rejectButtonText = 'Reject',
   showDiff = true,
   requiresExtraConfirmation = false,
 }: ReviewableActionProps) {
@@ -293,10 +327,14 @@ export function ReviewableAction({
       setOpen(false)
       setExtraConfirmOpen(false)
       onApproved?.(result)
-      
-      // Log approval for audit trail
-      if (typeof window !== "undefined" && window.console) {
-        console.log("[ReviewableAction] Approved:", {
+
+      // Log approval for audit trail (development only)
+      if (
+        typeof window !== 'undefined' &&
+        process.env.NODE_ENV === 'development'
+      ) {
+        // eslint-disable-next-line no-console
+        console.info('[ReviewableAction] Approved:', {
           description: actionDescription,
           timestamp: new Date().toISOString(),
           result,
@@ -305,7 +343,7 @@ export function ReviewableAction({
     } catch (error) {
       const errorObj = error instanceof Error ? error : new Error(String(error))
       onError?.(errorObj)
-      console.error("[ReviewableAction] Execution error:", errorObj)
+      console.error('[ReviewableAction] Execution error:', errorObj)
     } finally {
       setIsExecuting(false)
     }
@@ -323,10 +361,14 @@ export function ReviewableAction({
     setOpen(false)
     setExtraConfirmOpen(false)
     onRejected?.()
-    
-    // Log rejection for audit trail
-    if (typeof window !== "undefined" && window.console) {
-      console.log("[ReviewableAction] Rejected:", {
+
+    // Log rejection for audit trail (development only)
+    if (
+      typeof window !== 'undefined' &&
+      process.env.NODE_ENV === 'development'
+    ) {
+      // eslint-disable-next-line no-console
+      console.info('[ReviewableAction] Rejected:', {
         description: actionDescription,
         timestamp: new Date().toISOString(),
       })
@@ -335,7 +377,7 @@ export function ReviewableAction({
 
   const renderChangePreview = () => {
     switch (proposedChanges.type) {
-      case "text":
+      case 'text':
         return showDiff ? (
           <TextDiff
             before={proposedChanges.before}
@@ -352,14 +394,16 @@ export function ReviewableAction({
           </Card>
         )
 
-      case "file":
+      case 'file':
         return <FileChangePreview change={proposedChanges} />
 
-      case "data":
+      case 'data':
         return (
           <div className="space-y-2">
             {proposedChanges.field && (
-              <p className="text-sm font-semibold">Field: {proposedChanges.field}</p>
+              <p className="text-sm font-semibold">
+                Field: {proposedChanges.field}
+              </p>
             )}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Card>
@@ -386,7 +430,7 @@ export function ReviewableAction({
           </div>
         )
 
-      case "batch":
+      case 'batch':
         return <BatchChangesPreview changes={proposedChanges.changes} />
 
       default:
@@ -443,8 +487,9 @@ export function ReviewableAction({
               <p className="text-sm text-muted-foreground flex items-start gap-2">
                 <AlertTriangle className="h-4 w-4 mt-0.5 text-primary flex-shrink-0" />
                 <span>
-                  <strong>Safety Check:</strong> Please review the proposed changes carefully
-                  before approving. This action cannot be automatically undone.
+                  <strong>Safety Check:</strong> Please review the proposed
+                  changes carefully before approving. This action cannot be
+                  automatically undone.
                 </span>
               </p>
             </CardContent>
@@ -460,12 +505,12 @@ export function ReviewableAction({
               {rejectButtonText}
             </Button>
             <Button
-              variant={requiresExtraConfirmation ? "secondary" : "default"}
+              variant={requiresExtraConfirmation ? 'secondary' : 'default'}
               onClick={handleApprove}
               disabled={isExecuting}
               className="flex-1 sm:flex-initial"
             >
-              {isExecuting ? "Executing..." : approveButtonText}
+              {isExecuting ? 'Executing...' : approveButtonText}
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -481,16 +526,23 @@ export function ReviewableAction({
                 Final Confirmation Required
               </DialogTitle>
               <DialogDescription>
-                This action may have significant consequences. Are you absolutely sure you want to
-                proceed?
+                This action may have significant consequences. Are you
+                absolutely sure you want to proceed?
               </DialogDescription>
             </DialogHeader>
             <DialogFooter>
-              <Button variant="outline" onClick={() => setExtraConfirmOpen(false)}>
+              <Button
+                variant="outline"
+                onClick={() => setExtraConfirmOpen(false)}
+              >
                 Cancel
               </Button>
-              <Button variant="destructive" onClick={handleApprove} disabled={isExecuting}>
-                {isExecuting ? "Executing..." : "Yes, Proceed"}
+              <Button
+                variant="destructive"
+                onClick={handleApprove}
+                disabled={isExecuting}
+              >
+                {isExecuting ? 'Executing...' : 'Yes, Proceed'}
               </Button>
             </DialogFooter>
           </DialogContent>
@@ -507,13 +559,13 @@ export function useReviewableAction() {
   const [isOpen, setIsOpen] = React.useState(false)
   const [pendingAction, setPendingAction] = React.useState<{
     action: () => Promise<unknown>
-    props: Omit<ReviewableActionProps, "action" | "open" | "onOpenChange">
+    props: Omit<ReviewableActionProps, 'action' | 'open' | 'onOpenChange'>
   } | null>(null)
 
   const requestApproval = React.useCallback(
     (
       action: () => Promise<unknown>,
-      props: Omit<ReviewableActionProps, "action" | "open" | "onOpenChange">
+      props: Omit<ReviewableActionProps, 'action' | 'open' | 'onOpenChange'>
     ) => {
       setPendingAction({ action, props })
       setIsOpen(true)
@@ -529,7 +581,7 @@ export function useReviewableAction() {
         {...pendingAction.props}
         action={pendingAction.action}
         open={isOpen}
-        onOpenChange={(open) => {
+        onOpenChange={open => {
           setIsOpen(open)
           if (!open) {
             // Reset after animation completes

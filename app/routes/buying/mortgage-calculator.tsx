@@ -1,58 +1,78 @@
-import { useState } from "react";
-import { Link } from "react-router";
-import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
-import { Input } from "~/components/ui/input";
-import { Label } from "~/components/ui/label";
-import { Badge } from "~/components/ui/badge";
-import { 
-  Calculator, 
-  DollarSign, 
-  Home, 
-  TrendingUp, 
-  Shield, 
+import { useState } from 'react'
+import { Link } from 'react-router'
+import { Button } from '~/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '~/components/ui/card'
+import { Input } from '~/components/ui/input'
+import { Label } from '~/components/ui/label'
+import { Badge } from '~/components/ui/badge'
+import {
+  Calculator,
+  DollarSign,
+  Home,
+  TrendingUp,
+  Shield,
   Users,
   Phone,
-  Mail
-} from "lucide-react";
-import type { Route } from "./+types/buying-mortgage-calculator";
+  Mail,
+} from 'lucide-react'
+import type { Route } from './+types/buying-mortgage-calculator'
 
 export function meta() {
   return [
-    { title: "Mortgage Calculator | Dr. Jan Duffy" },
-    { name: "description", content: "Calculate your monthly mortgage payments for Las Vegas homes. Dr. Jan Duffy's mortgage calculator helps you understand financing options and budget for your new home." },
-    { name: "keywords", content: "mortgage calculator Las Vegas, home loan calculator, mortgage payment calculator, Las Vegas mortgage rates" },
-    { property: "og:title", content: "Mortgage Calculator | Dr. Jan Duffy" },
-    { property: "og:description", content: "Calculate your monthly mortgage payments for Las Vegas homes. Dr. Jan Duffy's mortgage calculator helps you understand financing options and budget for your new home." },
-  ];
+    { title: 'Mortgage Calculator | Dr. Jan Duffy' },
+    {
+      name: 'description',
+      content:
+        "Calculate your monthly mortgage payments for Las Vegas homes. Dr. Jan Duffy's mortgage calculator helps you understand financing options and budget for your new home.",
+    },
+    {
+      name: 'keywords',
+      content:
+        'mortgage calculator Las Vegas, home loan calculator, mortgage payment calculator, Las Vegas mortgage rates',
+    },
+    { property: 'og:title', content: 'Mortgage Calculator | Dr. Jan Duffy' },
+    {
+      property: 'og:description',
+      content:
+        "Calculate your monthly mortgage payments for Las Vegas homes. Dr. Jan Duffy's mortgage calculator helps you understand financing options and budget for your new home.",
+    },
+  ]
 }
 
 export default function MortgageCalculator() {
-  const [homePrice, setHomePrice] = useState(500000);
-  const [downPayment, setDownPayment] = useState(100000);
-  const [interestRate, setInterestRate] = useState(6.5);
-  const [loanTerm, setLoanTerm] = useState(30);
+  const [homePrice, setHomePrice] = useState(500000)
+  const [downPayment, setDownPayment] = useState(100000)
+  const [interestRate, setInterestRate] = useState(6.5)
+  const [loanTerm, setLoanTerm] = useState(30)
 
   const calculatePayment = () => {
-    const principal = homePrice - downPayment;
-    const monthlyRate = interestRate / 100 / 12;
-    const numPayments = loanTerm * 12;
-    
-    if (monthlyRate === 0) {
-      return principal / numPayments;
-    }
-    
-    const monthlyPayment = principal * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / 
-                          (Math.pow(1 + monthlyRate, numPayments) - 1);
-    
-    return monthlyPayment;
-  };
+    const principal = homePrice - downPayment
+    const monthlyRate = interestRate / 100 / 12
+    const numPayments = loanTerm * 12
 
-  const monthlyPayment = calculatePayment();
-  const totalInterest = (monthlyPayment * loanTerm * 12) - (homePrice - downPayment);
-  const propertyTax = homePrice * 0.01 / 12; // 1% annual property tax
-  const insurance = 150; // Average monthly insurance
-  const totalMonthlyPayment = monthlyPayment + propertyTax + insurance;
+    if (monthlyRate === 0) {
+      return principal / numPayments
+    }
+
+    const monthlyPayment =
+      (principal * (monthlyRate * Math.pow(1 + monthlyRate, numPayments))) /
+      (Math.pow(1 + monthlyRate, numPayments) - 1)
+
+    return monthlyPayment
+  }
+
+  const monthlyPayment = calculatePayment()
+  const totalInterest =
+    monthlyPayment * loanTerm * 12 - (homePrice - downPayment)
+  const propertyTax = (homePrice * 0.01) / 12 // 1% annual property tax
+  const insurance = 150 // Average monthly insurance
+  const totalMonthlyPayment = monthlyPayment + propertyTax + insurance
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100">
@@ -65,7 +85,8 @@ export default function MortgageCalculator() {
             </h1>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Calculate your monthly mortgage payments and explore different financing options to find the perfect home within your budget.
+            Calculate your monthly mortgage payments and explore different
+            financing options to find the perfect home within your budget.
           </p>
         </div>
 
@@ -89,13 +110,13 @@ export default function MortgageCalculator() {
                     id="homePrice"
                     type="number"
                     value={homePrice}
-                    onChange={(e) => setHomePrice(Number(e.target.value))}
+                    onChange={e => setHomePrice(Number(e.target.value))}
                     className="pl-10"
                     placeholder="500,000"
                   />
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="downPayment">Down Payment</Label>
                 <div className="relative">
@@ -104,16 +125,17 @@ export default function MortgageCalculator() {
                     id="downPayment"
                     type="number"
                     value={downPayment}
-                    onChange={(e) => setDownPayment(Number(e.target.value))}
+                    onChange={e => setDownPayment(Number(e.target.value))}
                     className="pl-10"
                     placeholder="100,000"
                   />
                 </div>
                 <p className="text-sm text-gray-500">
-                  Down payment percentage: {((downPayment / homePrice) * 100).toFixed(1)}%
+                  Down payment percentage:{' '}
+                  {((downPayment / homePrice) * 100).toFixed(1)}%
                 </p>
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="interestRate">Interest Rate (%)</Label>
                 <div className="relative">
@@ -123,19 +145,19 @@ export default function MortgageCalculator() {
                     type="number"
                     step="0.01"
                     value={interestRate}
-                    onChange={(e) => setInterestRate(Number(e.target.value))}
+                    onChange={e => setInterestRate(Number(e.target.value))}
                     className="pl-10"
                     placeholder="6.5"
                   />
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="loanTerm">Loan Term</Label>
                 <select
                   id="loanTerm"
                   value={loanTerm}
-                  onChange={(e) => setLoanTerm(Number(e.target.value))}
+                  onChange={e => setLoanTerm(Number(e.target.value))}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
                 >
                   <option value={30}>30 years</option>
@@ -145,38 +167,54 @@ export default function MortgageCalculator() {
               </div>
             </CardContent>
           </Card>
-          
+
           <Card className="shadow-xl">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <DollarSign className="w-6 h-6 text-primary-600" />
                 Payment Breakdown
               </CardTitle>
-              <CardDescription>
-                Your estimated monthly costs
-              </CardDescription>
+              <CardDescription>Your estimated monthly costs</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="bg-primary-50 p-4 rounded-lg">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-lg font-medium">Total Monthly Payment:</span>
+                  <span className="text-lg font-medium">
+                    Total Monthly Payment:
+                  </span>
                   <span className="text-2xl font-bold text-primary-600">
-                    ${totalMonthlyPayment.toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                    $
+                    {totalMonthlyPayment.toLocaleString('en-US', {
+                      maximumFractionDigits: 0,
+                    })}
                   </span>
                 </div>
                 <Badge variant="secondary" className="text-xs">
-                  Principal & Interest: ${monthlyPayment.toLocaleString('en-US', { maximumFractionDigits: 0 })}
+                  Principal & Interest: $
+                  {monthlyPayment.toLocaleString('en-US', {
+                    maximumFractionDigits: 0,
+                  })}
                 </Badge>
               </div>
-              
+
               <div className="space-y-3">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Principal & Interest:</span>
-                  <span className="font-semibold">${monthlyPayment.toLocaleString('en-US', { maximumFractionDigits: 0 })}</span>
+                  <span className="font-semibold">
+                    $
+                    {monthlyPayment.toLocaleString('en-US', {
+                      maximumFractionDigits: 0,
+                    })}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Property Taxes:</span>
-                  <span className="font-semibold">${propertyTax.toLocaleString('en-US', { maximumFractionDigits: 0 })}</span>
+                  <span className="font-semibold">
+                    $
+                    {propertyTax.toLocaleString('en-US', {
+                      maximumFractionDigits: 0,
+                    })}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Insurance:</span>
@@ -184,11 +222,18 @@ export default function MortgageCalculator() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Loan Amount:</span>
-                  <span className="font-semibold">${(homePrice - downPayment).toLocaleString('en-US')}</span>
+                  <span className="font-semibold">
+                    ${(homePrice - downPayment).toLocaleString('en-US')}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Total Interest:</span>
-                  <span className="font-semibold">${totalInterest.toLocaleString('en-US', { maximumFractionDigits: 0 })}</span>
+                  <span className="font-semibold">
+                    $
+                    {totalInterest.toLocaleString('en-US', {
+                      maximumFractionDigits: 0,
+                    })}
+                  </span>
                 </div>
               </div>
             </CardContent>
@@ -211,9 +256,12 @@ export default function MortgageCalculator() {
                 <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Home className="w-6 h-6 text-primary-600" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">Conventional Loans</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  Conventional Loans
+                </h3>
                 <p className="text-gray-600 mb-4">
-                  Traditional financing with competitive rates and flexible terms for qualified buyers.
+                  Traditional financing with competitive rates and flexible
+                  terms for qualified buyers.
                 </p>
                 <ul className="text-sm text-gray-600 space-y-1 text-left">
                   <li>• 3-20% down payment</li>
@@ -222,14 +270,17 @@ export default function MortgageCalculator() {
                   <li>• PMI required if &lt;20% down</li>
                 </ul>
               </div>
-              
+
               <div className="text-center p-6 border rounded-lg hover:shadow-md transition-shadow">
                 <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="w-6 h-6 text-primary-600" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">VA Loans</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  VA Loans
+                </h3>
                 <p className="text-gray-600 mb-4">
-                  Special benefits for military veterans and active-duty personnel with zero down payment options.
+                  Special benefits for military veterans and active-duty
+                  personnel with zero down payment options.
                 </p>
                 <ul className="text-sm text-gray-600 space-y-1 text-left">
                   <li>• Zero down payment</li>
@@ -238,14 +289,17 @@ export default function MortgageCalculator() {
                   <li>• Flexible credit requirements</li>
                 </ul>
               </div>
-              
+
               <div className="text-center p-6 border rounded-lg hover:shadow-md transition-shadow">
                 <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Shield className="w-6 h-6 text-primary-600" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">FHA Loans</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                  FHA Loans
+                </h3>
                 <p className="text-gray-600 mb-4">
-                  Government-backed loans with lower down payment requirements for first-time buyers.
+                  Government-backed loans with lower down payment requirements
+                  for first-time buyers.
                 </p>
                 <ul className="text-sm text-gray-600 space-y-1 text-left">
                   <li>• 3.5% down payment</li>
@@ -260,16 +314,26 @@ export default function MortgageCalculator() {
 
         <Card className="shadow-xl bg-gradient-to-r from-primary-600 to-primary-700 text-white">
           <CardContent className="p-8 text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Get Pre-Approved?</h2>
+            <h2 className="text-3xl font-bold mb-4">
+              Ready to Get Pre-Approved?
+            </h2>
             <p className="text-xl text-primary-100 mb-8">
-              Let Dr. Jan Duffy connect you with trusted lenders to get pre-approved for your Las Vegas home.
+              Let Dr. Jan Duffy connect you with trusted lenders to get
+              pre-approved for your Las Vegas home.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-primary-700 hover:bg-primary-50">
+              <Button
+                size="lg"
+                className="bg-white text-primary-700 hover:bg-primary-50"
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 Call {config.contact.phone}
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary-700">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-primary-700"
+              >
                 <Mail className="w-5 h-5 mr-2" />
                 Get Pre-Approved
               </Button>
@@ -278,22 +342,26 @@ export default function MortgageCalculator() {
         </Card>
       </div>
     </div>
-  );
+  )
 }
 
 export function ErrorBoundary() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="text-center">
-        <h1 className="text-2xl font-bold text-gray-900 mb-4">Something went wrong</h1>
-        <p className="text-gray-600 mb-6">We're sorry, but there was an error loading this page.</p>
-        <a 
-          href="/buying" 
+        <h1 className="text-2xl font-bold text-gray-900 mb-4">
+          Something went wrong
+        </h1>
+        <p className="text-gray-600 mb-6">
+          We're sorry, but there was an error loading this page.
+        </p>
+        <a
+          href="/buying"
           className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
         >
           Return to Buying Guide
         </a>
       </div>
     </div>
-  );
+  )
 }

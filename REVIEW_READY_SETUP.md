@@ -87,6 +87,7 @@ Runs automatically before each commit (via git hooks):
 - ✅ Type check (blocking)
 
 **Bypass (not recommended):**
+
 ```bash
 git commit --no-verify
 ```
@@ -101,6 +102,7 @@ Run before creating PRs or merging:
 - ✅ Build check (blocking)
 
 **Run manually:**
+
 ```bash
 npm run quality:pre-merge
 ```
@@ -131,6 +133,7 @@ This checklist is designed for AI agents to follow systematically.
 ### ESLint (`.eslintrc.json`)
 
 Enhanced with stricter rules:
+
 - No `any` types (warn)
 - No unused variables
 - No console.log (warn, except error/warn)
@@ -140,6 +143,7 @@ Enhanced with stricter rules:
 ### Prettier (`.prettierrc.json`)
 
 Standardized formatting:
+
 - 2-space indentation
 - Semicolons required
 - Single quotes: false
@@ -148,6 +152,7 @@ Standardized formatting:
 ### Graphite (`.graphite/repo_config.json`)
 
 Stacked PR workflow configuration:
+
 - Quality gates enabled
 - Pre-merge checks defined
 - Merge strategy: squash
@@ -301,6 +306,7 @@ The quality gates scripts are designed to work in CI/CD pipelines.
 ### Vercel Deployment
 
 The existing GitHub Actions workflow (`.github/workflows/deploy-production.yml`) already includes:
+
 - Type check
 - Lint check
 - Build verification
@@ -332,6 +338,7 @@ powershell -ExecutionPolicy Bypass -File scripts/quality-gates/pre-merge.ps1
 The npm scripts will fall back to running npm commands directly if bash is not available.
 
 Alternatively, install:
+
 - **Git Bash** (comes with Git for Windows)
 - **WSL** (Windows Subsystem for Linux)
 - **Cygwin**
@@ -357,7 +364,7 @@ Your project is now **review-ready** with:
 ✅ Git hooks for pre-commit checks  
 ✅ Graphite configuration (when CLI available)  
 ✅ Cross-platform script support  
-✅ AI-agent-friendly documentation  
+✅ AI-agent-friendly documentation
 
 **Next Steps:**
 

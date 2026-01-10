@@ -1,10 +1,16 @@
-import type { Route } from "./+types/communities";
-import { Link } from "react-router";
-import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
-import { Badge } from "~/components/ui/badge";
-import { Separator } from "~/components/ui/separator";
-import { config } from "~/lib/config";
+import type { Route } from './+types/communities'
+import { Link } from 'react-router'
+import { Button } from '~/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '~/components/ui/card'
+import { Badge } from '~/components/ui/badge'
+import { Separator } from '~/components/ui/separator'
+import { config } from '~/lib/config'
 import {
   Home,
   MapPin,
@@ -23,21 +29,46 @@ import {
   TreePine,
   Waves,
   Building,
-  Zap
-} from "lucide-react";
+  Zap,
+} from 'lucide-react'
 
 export function meta() {
   return [
-    { title: "Boulder City Homes for Sale | Historic Small Town Living | Dr. Jan Duffy" },
-    { name: "description", content: "Discover homes for sale in Boulder City, Nevada. Dr. Jan Duffy specializes in Boulder City real estate with historic charm, outdoor recreation, and small-town living." },
-    { name: "keywords", content: "Boulder City homes for sale, Boulder City Nevada real estate, historic homes, outdoor recreation, small town living, Dr. Jan Duffy" },
-    { property: "og:title", content: "Boulder City Homes for Sale | Historic Small Town Living" },
-    { property: "og:description", content: "Homes for sale in Boulder City, Nevada with historic charm, outdoor recreation, and small-town living. Expert real estate guidance from Dr. Jan Duffy." },
-    { property: "og:type", content: "website" },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Boulder City Homes for Sale | Dr. Jan Duffy" },
-    { name: "twitter:description", content: "Homes for sale in Boulder City, Nevada with historic charm and outdoor recreation." }
-  ];
+    {
+      title:
+        'Boulder City Homes for Sale | Historic Small Town Living | Dr. Jan Duffy',
+    },
+    {
+      name: 'description',
+      content:
+        'Discover homes for sale in Boulder City, Nevada. Dr. Jan Duffy specializes in Boulder City real estate with historic charm, outdoor recreation, and small-town living.',
+    },
+    {
+      name: 'keywords',
+      content:
+        'Boulder City homes for sale, Boulder City Nevada real estate, historic homes, outdoor recreation, small town living, Dr. Jan Duffy',
+    },
+    {
+      property: 'og:title',
+      content: 'Boulder City Homes for Sale | Historic Small Town Living',
+    },
+    {
+      property: 'og:description',
+      content:
+        'Homes for sale in Boulder City, Nevada with historic charm, outdoor recreation, and small-town living. Expert real estate guidance from Dr. Jan Duffy.',
+    },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    {
+      name: 'twitter:title',
+      content: 'Boulder City Homes for Sale | Dr. Jan Duffy',
+    },
+    {
+      name: 'twitter:description',
+      content:
+        'Homes for sale in Boulder City, Nevada with historic charm and outdoor recreation.',
+    },
+  ]
 }
 
 export default function BoulderCity() {
@@ -56,14 +87,22 @@ export default function BoulderCity() {
               Boulder City Homes
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-amber-100 max-w-3xl mx-auto">
-              Discover historic charm and outdoor recreation in Boulder City, Nevada with small-town living and natural beauty
+              Discover historic charm and outdoor recreation in Boulder City,
+              Nevada with small-town living and natural beauty
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-amber-600 hover:bg-amber-50">
+              <Button
+                size="lg"
+                className="bg-white text-amber-600 hover:bg-amber-50"
+              >
                 <Home className="w-5 h-5 mr-2" />
                 View Boulder City Homes
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10"
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 Schedule Tour
               </Button>
@@ -80,7 +119,9 @@ export default function BoulderCity() {
               Discover Boulder City Living
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Boulder City offers a unique blend of historic charm and outdoor recreation, with a small-town atmosphere, beautiful desert landscapes, and proximity to Lake Mead National Recreation Area.
+              Boulder City offers a unique blend of historic charm and outdoor
+              recreation, with a small-town atmosphere, beautiful desert
+              landscapes, and proximity to Lake Mead National Recreation Area.
             </p>
           </div>
 
@@ -91,13 +132,13 @@ export default function BoulderCity() {
                   <Building className="w-6 h-6 text-amber-600" />
                 </div>
                 <CardTitle>Historic Charm</CardTitle>
-                <CardDescription>
-                  Rich history and character
-                </CardDescription>
+                <CardDescription>Rich history and character</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Boulder City was built in the 1930s to house Hoover Dam workers and maintains its historic character with preserved architecture.
+                  Boulder City was built in the 1930s to house Hoover Dam
+                  workers and maintains its historic character with preserved
+                  architecture.
                 </p>
               </CardContent>
             </Card>
@@ -108,13 +149,12 @@ export default function BoulderCity() {
                   <TreePine className="w-6 h-6 text-amber-600" />
                 </div>
                 <CardTitle>Outdoor Recreation</CardTitle>
-                <CardDescription>
-                  Natural beauty and activities
-                </CardDescription>
+                <CardDescription>Natural beauty and activities</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Enjoy hiking, biking, boating, and fishing at Lake Mead National Recreation Area and surrounding desert landscapes.
+                  Enjoy hiking, biking, boating, and fishing at Lake Mead
+                  National Recreation Area and surrounding desert landscapes.
                 </p>
               </CardContent>
             </Card>
@@ -125,13 +165,12 @@ export default function BoulderCity() {
                   <Users className="w-6 h-6 text-amber-600" />
                 </div>
                 <CardTitle>Small Town Living</CardTitle>
-                <CardDescription>
-                  Close-knit community
-                </CardDescription>
+                <CardDescription>Close-knit community</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Experience a tight-knit community with friendly neighbors, local events, and a slower pace of life away from city hustle.
+                  Experience a tight-knit community with friendly neighbors,
+                  local events, and a slower pace of life away from city hustle.
                 </p>
               </CardContent>
             </Card>
@@ -147,54 +186,79 @@ export default function BoulderCity() {
               Boulder City Lifestyle & Amenities
             </h2>
             <p className="text-xl text-gray-600">
-              Experience the best of historic small-town living with outdoor recreation
+              Experience the best of historic small-town living with outdoor
+              recreation
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Community Features</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Community Features
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Historic Downtown</h4>
-                    <p className="text-gray-600">Charming downtown with local shops, restaurants, and historic buildings</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Historic Downtown
+                    </h4>
+                    <p className="text-gray-600">
+                      Charming downtown with local shops, restaurants, and
+                      historic buildings
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Lake Mead Access</h4>
-                    <p className="text-gray-600">Direct access to Lake Mead National Recreation Area for water activities</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Lake Mead Access
+                    </h4>
+                    <p className="text-gray-600">
+                      Direct access to Lake Mead National Recreation Area for
+                      water activities
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">Hoover Dam</h4>
-                    <p className="text-gray-600">Minutes from the iconic Hoover Dam and visitor center</p>
+                    <p className="text-gray-600">
+                      Minutes from the iconic Hoover Dam and visitor center
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">No Gambling</h4>
-                    <p className="text-gray-600">One of Nevada's few cities without gambling, maintaining family values</p>
+                    <p className="text-gray-600">
+                      One of Nevada's few cities without gambling, maintaining
+                      family values
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Desert Landscapes</h4>
-                    <p className="text-gray-600">Beautiful desert scenery with hiking trails and outdoor recreation</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Desert Landscapes
+                    </h4>
+                    <p className="text-gray-600">
+                      Beautiful desert scenery with hiking trails and outdoor
+                      recreation
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Prime Location</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Prime Location
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-amber-600 mr-3" />
@@ -206,15 +270,21 @@ export default function BoulderCity() {
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-amber-600 mr-3" />
-                  <span className="text-gray-700">Las Vegas Strip - 30 minutes</span>
+                  <span className="text-gray-700">
+                    Las Vegas Strip - 30 minutes
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-amber-600 mr-3" />
-                  <span className="text-gray-700">McCarran Airport - 35 minutes</span>
+                  <span className="text-gray-700">
+                    McCarran Airport - 35 minutes
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-amber-600 mr-3" />
-                  <span className="text-gray-700">Downtown Las Vegas - 40 minutes</span>
+                  <span className="text-gray-700">
+                    Downtown Las Vegas - 40 minutes
+                  </span>
                 </div>
               </div>
             </div>
@@ -230,7 +300,8 @@ export default function BoulderCity() {
               Boulder City Neighborhoods
             </h2>
             <p className="text-xl text-gray-600">
-              Discover the diverse neighborhoods and historic areas in Boulder City
+              Discover the diverse neighborhoods and historic areas in Boulder
+              City
             </p>
           </div>
 
@@ -364,7 +435,8 @@ export default function BoulderCity() {
               Your Boulder City Real Estate Expert
             </h2>
             <p className="text-xl text-gray-600">
-              Dr. Jan Duffy brings unmatched expertise in Boulder City real estate
+              Dr. Jan Duffy brings unmatched expertise in Boulder City real
+              estate
             </p>
           </div>
 
@@ -375,7 +447,9 @@ export default function BoulderCity() {
                   <Award className="w-8 h-8 text-amber-600" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">{config.agent.name}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    {config.agent.name}
+                  </h3>
                   <p className="text-lg text-gray-600">{config.agent.title}</p>
                 </div>
               </div>
@@ -384,22 +458,37 @@ export default function BoulderCity() {
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Boulder City Specialist</h4>
-                    <p className="text-gray-600">Expertise in Boulder City communities and historic properties</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Boulder City Specialist
+                    </h4>
+                    <p className="text-gray-600">
+                      Expertise in Boulder City communities and historic
+                      properties
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Historic Property Expert</h4>
-                    <p className="text-gray-600">Understanding of historic homes and preservation requirements</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Historic Property Expert
+                    </h4>
+                    <p className="text-gray-600">
+                      Understanding of historic homes and preservation
+                      requirements
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Outdoor Recreation Focus</h4>
-                    <p className="text-gray-600">Knowledge of outdoor recreation opportunities and lifestyle</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Outdoor Recreation Focus
+                    </h4>
+                    <p className="text-gray-600">
+                      Knowledge of outdoor recreation opportunities and
+                      lifestyle
+                    </p>
                   </div>
                 </div>
               </div>
@@ -417,23 +506,33 @@ export default function BoulderCity() {
             </div>
 
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Why Choose Dr. Jan Duffy?
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-amber-600 mr-3" />
-                  <span className="text-gray-700">Licensed Nevada Real Estate Agent</span>
+                  <span className="text-gray-700">
+                    Licensed Nevada Real Estate Agent
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Users className="w-6 h-6 text-amber-600 mr-3" />
-                  <span className="text-gray-700">Boulder City real estate expert</span>
+                  <span className="text-gray-700">
+                    Boulder City real estate expert
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Award className="w-6 h-6 text-amber-600 mr-3" />
-                  <span className="text-gray-700">Top 1% of Las Vegas agents</span>
+                  <span className="text-gray-700">
+                    Top 1% of Las Vegas agents
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Star className="w-6 h-6 text-amber-600 mr-3" />
-                  <span className="text-gray-700">5-star Boulder City client reviews</span>
+                  <span className="text-gray-700">
+                    5-star Boulder City client reviews
+                  </span>
                 </div>
               </div>
             </div>
@@ -448,14 +547,22 @@ export default function BoulderCity() {
             Ready to Find Your Boulder City Home?
           </h2>
           <p className="text-xl mb-8 text-amber-100 max-w-2xl mx-auto">
-            Let Dr. Jan Duffy guide you through Boulder City's real estate market with personalized service and local expertise.
+            Let Dr. Jan Duffy guide you through Boulder City's real estate
+            market with personalized service and local expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-amber-600 hover:bg-amber-50">
+            <Button
+              size="lg"
+              className="bg-white text-amber-600 hover:bg-amber-50"
+            >
               <Calendar className="w-5 h-5 mr-2" />
               Schedule Consultation
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white/10"
+            >
               <ArrowRight className="w-5 h-5 mr-2" />
               View All Communities
             </Button>
@@ -463,5 +570,5 @@ export default function BoulderCity() {
         </div>
       </section>
     </div>
-  );
+  )
 }

@@ -5,6 +5,7 @@ Standardized foundation for managing external tool connections (databases, APIs,
 ## Overview
 
 The MCP foundation provides:
+
 - **Centralized Configuration**: All endpoint configurations managed in one place
 - **Connection Management**: Automatic retry, health checks, and error handling
 - **Type Safety**: Full TypeScript support with strict typing
@@ -32,63 +33,60 @@ app/lib/mcp/
 ### Using the Manager
 
 ```typescript
-import { getRealScout, getFollowUpBoss } from "~/lib/mcp";
+import { getRealScout, getFollowUpBoss } from '~/lib/mcp'
 
 // Get a connector instance (auto-initializes)
-const realscout = await getRealScout();
+const realscout = await getRealScout()
 
 // Use the connector
 const widgetHTML = realscout.generateWidgetHTML({
-  sortOrder: "NEWEST",
+  sortOrder: 'NEWEST',
   priceMin: 300000,
   priceMax: 500000,
-});
+})
 ```
 
 ### Submitting a Lead to Follow Up Boss
 
 ```typescript
-import { getFollowUpBoss } from "~/lib/mcp";
+import { getFollowUpBoss } from '~/lib/mcp'
 
 // In a server action or route handler
 export async function action({ request }: ActionArgs) {
-  const formData = await request.formData();
-  
-  const followupboss = await getFollowUpBoss();
-  
+  const formData = await request.formData()
+
+  const followupboss = await getFollowUpBoss()
+
   const result = await followupboss.submitLead({
-    firstName: formData.get("firstName"),
-    lastName: formData.get("lastName"),
-    email: formData.get("email"),
-    phone: formData.get("phone"),
-    source: "Website Contact Form",
-    message: formData.get("message"),
-  });
-  
+    firstName: formData.get('firstName'),
+    lastName: formData.get('lastName'),
+    email: formData.get('email'),
+    phone: formData.get('phone'),
+    source: 'Website Contact Form',
+    message: formData.get('message'),
+  })
+
   if (result.success) {
-    return { success: true, contactId: result.data.id };
+    return { success: true, contactId: result.data.id }
   }
-  
-  return { success: false, error: result.error };
+
+  return { success: false, error: result.error }
 }
 ```
 
 ### Using Utility Functions (Client-Side Compatible)
 
 ```typescript
-import { 
-  getRealScoutAgentId, 
-  generateRealScoutWidgetHTML 
-} from "~/lib/mcp";
+import { getRealScoutAgentId, generateRealScoutWidgetHTML } from '~/lib/mcp'
 
 // Get agent ID from configuration
-const agentId = getRealScoutAgentId();
+const agentId = getRealScoutAgentId()
 
 // Generate widget HTML
 const widgetHTML = generateRealScoutWidgetHTML({
-  sortOrder: "PRICE_LOW_TO_HIGH",
-  listingStatus: "For Sale",
-});
+  sortOrder: 'PRICE_LOW_TO_HIGH',
+  listingStatus: 'For Sale',
+})
 ```
 
 ## Configuration
@@ -161,24 +159,24 @@ If environment variables are not set, the system uses sensible defaults:
 Manages RealScout listing widgets and API interactions.
 
 ```typescript
-import { getRealScout } from "~/lib/mcp";
+import { getRealScout } from '~/lib/mcp'
 
-const realscout = await getRealScout();
+const realscout = await getRealScout()
 
 // Generate widget HTML
 const html = realscout.generateWidgetHTML({
-  sortOrder: "NEWEST",
-  listingStatus: "For Sale",
-  propertyTypes: ",SFR",
+  sortOrder: 'NEWEST',
+  listingStatus: 'For Sale',
+  propertyTypes: ',SFR',
   priceMin: 300000,
   priceMax: 600000,
-});
+})
 
 // Get widget script URL
-const scriptUrl = realscout.getWidgetScriptUrl();
+const scriptUrl = realscout.getWidgetScriptUrl()
 
 // Health check
-const health = await realscout.healthCheck();
+const health = await realscout.healthCheck()
 ```
 
 ### Follow Up Boss Connector
@@ -186,25 +184,25 @@ const health = await realscout.healthCheck();
 Manages CRM operations (leads, contacts, properties).
 
 ```typescript
-import { getFollowUpBoss } from "~/lib/mcp";
+import { getFollowUpBoss } from '~/lib/mcp'
 
-const followupboss = await getFollowUpBoss();
+const followupboss = await getFollowUpBoss()
 
 // Submit a lead
 const result = await followupboss.submitLead({
-  firstName: "John",
-  lastName: "Doe",
-  email: "john@example.com",
-  phone: "702-555-1234",
-  source: "Website",
-  message: "Interested in Summerlin homes",
-});
+  firstName: 'John',
+  lastName: 'Doe',
+  email: 'john@example.com',
+  phone: '702-555-1234',
+  source: 'Website',
+  message: 'Interested in Summerlin homes',
+})
 
 // Search contacts
-const contacts = await followupboss.searchContacts("john@example.com");
+const contacts = await followupboss.searchContacts('john@example.com')
 
 // Add a note
-await followupboss.addNote(contactId, "Follow up about pricing");
+await followupboss.addNote(contactId, 'Follow up about pricing')
 ```
 
 ### HTTP Client (Generic)
@@ -212,17 +210,17 @@ await followupboss.addNote(contactId, "Follow up about pricing");
 Base HTTP client for REST APIs. Can be used directly or extended.
 
 ```typescript
-import { getCloudflare } from "~/lib/mcp";
-import type { HTTPMCPClient } from "~/lib/mcp";
+import { getCloudflare } from '~/lib/mcp'
+import type { HTTPMCPClient } from '~/lib/mcp'
 
-const client = await getCloudflare();
+const client = await getCloudflare()
 
 // Make a request
 const response = await client.request({
-  method: "GET",
-  path: "/zones",
+  method: 'GET',
+  path: '/zones',
   query: { per_page: 50 },
-});
+})
 ```
 
 ## Creating a New Connector
@@ -231,18 +229,18 @@ const response = await client.request({
 
 ```typescript
 // app/lib/mcp/connectors/my-service.ts
-import { HTTPMCPClient } from "./http-client";
-import type { MCPRequestOptions, MCPResponse } from "../types";
+import { HTTPMCPClient } from './http-client'
+import type { MCPRequestOptions, MCPResponse } from '../types'
 
 export class MyServiceConnector extends HTTPMCPClient {
-  readonly id = "myservice";
-  readonly name = "My Service Connector";
+  readonly id = 'myservice'
+  readonly name = 'My Service Connector'
 
   async getData(): Promise<MCPResponse<MyData>> {
     return this.request({
-      method: "GET",
-      path: "/api/data",
-    });
+      method: 'GET',
+      path: '/api/data',
+    })
   }
 }
 ```
@@ -251,16 +249,16 @@ export class MyServiceConnector extends HTTPMCPClient {
 
 ```typescript
 export function getMyServiceConfig(): MCPEndpointConfig {
-  return loadEndpointConfig("MYSERVICE", {
-    id: "myservice",
-    name: "My Service API",
-    provider: "My Service",
-    baseUrl: "https://api.myservice.com",
-    authMethod: "api_key",
+  return loadEndpointConfig('MYSERVICE', {
+    id: 'myservice',
+    name: 'My Service API',
+    provider: 'My Service',
+    baseUrl: 'https://api.myservice.com',
+    authMethod: 'api_key',
     credentials: {
       apiKey: process.env.MCP_MYSERVICE_API_KEY,
     },
-  });
+  })
 }
 ```
 
@@ -274,7 +272,7 @@ case "myservice":
 4. **Export in index.ts**:
 
 ```typescript
-export { MyServiceConnector } from "./connectors/my-service";
+export { MyServiceConnector } from './connectors/my-service'
 ```
 
 ## Health Checks
@@ -282,16 +280,16 @@ export { MyServiceConnector } from "./connectors/my-service";
 All connectors support health checks:
 
 ```typescript
-import { getMCPManager } from "~/lib/mcp";
+import { getMCPManager } from '~/lib/mcp'
 
-const manager = getMCPManager();
+const manager = getMCPManager()
 
 // Check health of all connectors
-const healthStatus = await manager.getHealthStatus();
+const healthStatus = await manager.getHealthStatus()
 
 // Check individual connector
-const realscout = await getRealScout();
-const health = await realscout.healthCheck();
+const realscout = await getRealScout()
+const health = await realscout.healthCheck()
 ```
 
 ## Error Handling
@@ -299,15 +297,15 @@ const health = await realscout.healthCheck();
 The MCP foundation provides structured error handling:
 
 ```typescript
-import { MCPError } from "~/lib/mcp";
+import { MCPError } from '~/lib/mcp'
 
 try {
-  const result = await connector.request({ path: "/api/data" });
+  const result = await connector.request({ path: '/api/data' })
 } catch (error) {
   if (error instanceof MCPError) {
-    console.error(`MCP Error: ${error.message}`);
-    console.error(`Status: ${error.statusCode}`);
-    console.error(`Endpoint: ${error.endpointId}`);
+    console.error(`MCP Error: ${error.message}`)
+    console.error(`Status: ${error.statusCode}`)
+    console.error(`Endpoint: ${error.endpointId}`)
   }
 }
 ```
@@ -331,19 +329,19 @@ try {
 ### Before (Hardcoded)
 
 ```typescript
-const agentId = "QWdlbnQtMjI1MDUw";
-const widgetHTML = `<realscout-office-listings agent-encoded-id="${agentId}"></realscout-office-listings>`;
+const agentId = 'QWdlbnQtMjI1MDUw'
+const widgetHTML = `<realscout-office-listings agent-encoded-id="${agentId}"></realscout-office-listings>`
 ```
 
 ### After (MCP Managed)
 
 ```typescript
-import { generateRealScoutWidgetHTML } from "~/lib/mcp";
+import { generateRealScoutWidgetHTML } from '~/lib/mcp'
 
 const widgetHTML = generateRealScoutWidgetHTML({
   // Agent ID comes from MCP configuration
-  sortOrder: "NEWEST",
-});
+  sortOrder: 'NEWEST',
+})
 ```
 
 ## Testing
@@ -352,15 +350,15 @@ Test connectors using the health check functionality:
 
 ```typescript
 // In a test file
-import { getRealScout } from "~/lib/mcp";
+import { getRealScout } from '~/lib/mcp'
 
-test("RealScout connector health check", async () => {
-  const connector = await getRealScout();
-  const health = await connector.healthCheck();
-  
-  expect(health.healthy).toBe(true);
-  expect(health.status).toBe("connected");
-});
+test('RealScout connector health check', async () => {
+  const connector = await getRealScout()
+  const health = await connector.healthCheck()
+
+  expect(health.healthy).toBe(true)
+  expect(health.status).toBe('connected')
+})
 ```
 
 ## Troubleshooting

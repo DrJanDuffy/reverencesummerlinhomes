@@ -1,9 +1,9 @@
-import type { Route } from "./+types/sitemap-index";
-import { config } from "~/lib/config";
+import type { Route } from './+types/sitemap-index'
+import { config } from '~/lib/config'
 
 export async function loader() {
-  const baseUrl = config.seo.siteUrl;
-  const currentDate = new Date().toISOString();
+  const baseUrl = config.seo.siteUrl
+  const currentDate = new Date().toISOString()
 
   const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -23,12 +23,12 @@ export async function loader() {
     <loc>${baseUrl}/sitemap-images.xml</loc>
     <lastmod>${currentDate}</lastmod>
   </sitemap>
-</sitemapindex>`;
+</sitemapindex>`
 
   return new Response(sitemapIndex, {
     headers: {
-      "Content-Type": "application/xml",
-      "Cache-Control": "public, max-age=86400"
-    }
-  });
+      'Content-Type': 'application/xml',
+      'Cache-Control': 'public, max-age=86400',
+    },
+  })
 }

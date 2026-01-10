@@ -27,13 +27,13 @@ When building AI-powered features, especially with high-context token processing
 ## Basic Usage
 
 ```tsx
-import { ReviewableAction } from "~/components/ReviewableAction"
-import { Button } from "~/components/ui/button"
-import { useState } from "react"
+import { ReviewableAction } from '~/components/ReviewableAction'
+import { Button } from '~/components/ui/button'
+import { useState } from 'react'
 
 function MyComponent() {
   const [isOpen, setIsOpen] = useState(false)
-  const [content, setContent] = useState("Original text")
+  const [content, setContent] = useState('Original text')
 
   const handleUpdate = async () => {
     // Your action here
@@ -52,13 +52,13 @@ function MyComponent() {
         action={handleUpdate}
         actionDescription="Update homepage hero text"
         proposedChanges={{
-          type: "text",
+          type: 'text',
           before: content,
-          after: "New AI-suggested text",
-          field: "Hero Text",
+          after: 'New AI-suggested text',
+          field: 'Hero Text',
         }}
-        onApproved={(result) => console.log("Approved:", result)}
-        onRejected={() => console.log("Rejected")}
+        onApproved={result => console.log('Approved:', result)}
+        onRejected={() => console.log('Rejected')}
       />
     </>
   )
@@ -70,7 +70,7 @@ function MyComponent() {
 For programmatic access, use the `useReviewableAction` hook:
 
 ```tsx
-import { useReviewableAction } from "~/components/ReviewableAction"
+import { useReviewableAction } from '~/components/ReviewableAction'
 
 function MyComponent() {
   const { requestApproval, ReviewableActionDialog } = useReviewableAction()
@@ -82,13 +82,13 @@ function MyComponent() {
         return { success: true }
       },
       {
-        actionDescription: "Apply AI-suggested changes",
+        actionDescription: 'Apply AI-suggested changes',
         proposedChanges: {
-          type: "text",
+          type: 'text',
           before: oldContent,
           after: newContent,
         },
-        onApproved: (result) => console.log("Approved:", result),
+        onApproved: result => console.log('Approved:', result),
       }
     )
   }
@@ -153,21 +153,21 @@ proposedChanges={{
 
 ## Props
 
-| Prop | Type | Description |
-|------|------|-------------|
-| `action` | `() => Promise<unknown>` | The action to execute when approved |
-| `actionDescription` | `string` | Human-readable description of the action |
-| `proposedChanges` | `ProposedChange` | The changes to review |
-| `onApproved` | `(result: unknown) => void` | Callback when approved |
-| `onRejected` | `() => void` | Callback when rejected |
-| `onError` | `(error: Error) => void` | Callback on execution error |
-| `open` | `boolean` | Whether dialog is open (controlled) |
-| `onOpenChange` | `(open: boolean) => void` | Dialog open state change handler |
-| `warnings` | `string[]` | Array of warning messages |
-| `approveButtonText` | `string` | Custom approve button text (default: "Approve & Execute") |
-| `rejectButtonText` | `string` | Custom reject button text (default: "Reject") |
-| `showDiff` | `boolean` | Show diff view for text changes (default: `true`) |
-| `requiresExtraConfirmation` | `boolean` | Require extra confirmation for destructive actions |
+| Prop                        | Type                        | Description                                               |
+| --------------------------- | --------------------------- | --------------------------------------------------------- |
+| `action`                    | `() => Promise<unknown>`    | The action to execute when approved                       |
+| `actionDescription`         | `string`                    | Human-readable description of the action                  |
+| `proposedChanges`           | `ProposedChange`            | The changes to review                                     |
+| `onApproved`                | `(result: unknown) => void` | Callback when approved                                    |
+| `onRejected`                | `() => void`                | Callback when rejected                                    |
+| `onError`                   | `(error: Error) => void`    | Callback on execution error                               |
+| `open`                      | `boolean`                   | Whether dialog is open (controlled)                       |
+| `onOpenChange`              | `(open: boolean) => void`   | Dialog open state change handler                          |
+| `warnings`                  | `string[]`                  | Array of warning messages                                 |
+| `approveButtonText`         | `string`                    | Custom approve button text (default: "Approve & Execute") |
+| `rejectButtonText`          | `string`                    | Custom reject button text (default: "Reject")             |
+| `showDiff`                  | `boolean`                   | Show diff view for text changes (default: `true`)         |
+| `requiresExtraConfirmation` | `boolean`                   | Require extra confirmation for destructive actions        |
 
 ## Advanced Features
 
@@ -179,9 +179,9 @@ For actions that cannot be undone, use `requiresExtraConfirmation`:
 <ReviewableAction
   action={handleDelete}
   actionDescription="Delete this file"
-  proposedChanges={{ type: "file", path: "...", operation: "delete" }}
+  proposedChanges={{ type: 'file', path: '...', operation: 'delete' }}
   requiresExtraConfirmation={true}
-  warnings={["This action cannot be undone"]}
+  warnings={['This action cannot be undone']}
   approveButtonText="Yes, Delete"
 />
 ```
@@ -193,9 +193,9 @@ Display safety warnings to users:
 ```tsx
 <ReviewableAction
   warnings={[
-    "This will update 5 pages",
-    "Search engine indexing may take 24-48 hours",
-    "All users will see the changes immediately",
+    'This will update 5 pages',
+    'Search engine indexing may take 24-48 hours',
+    'All users will see the changes immediately',
   ]}
   // ... other props
 />
@@ -208,11 +208,11 @@ Handle execution errors gracefully:
 ```tsx
 <ReviewableAction
   action={async () => {
-    const response = await fetch("/api/update")
-    if (!response.ok) throw new Error("Update failed")
+    const response = await fetch('/api/update')
+    if (!response.ok) throw new Error('Update failed')
     return response.json()
   }}
-  onError={(error) => {
+  onError={error => {
     toast.error(`Action failed: ${error.message}`)
   }}
   // ... other props
@@ -235,7 +235,7 @@ Example flow:
 async function handleAISuggestion() {
   // 1. AI generates suggestion
   const suggestion = await ai.generateSuggestion(currentContent)
-  
+
   // 2. Show review dialog
   requestApproval(
     async () => {
@@ -243,9 +243,9 @@ async function handleAISuggestion() {
       return await applyChanges(suggestion)
     },
     {
-      actionDescription: "Apply AI-suggested content optimization",
+      actionDescription: 'Apply AI-suggested content optimization',
       proposedChanges: {
-        type: "text",
+        type: 'text',
         before: currentContent,
         after: suggestion.newContent,
       },
@@ -266,6 +266,7 @@ async function handleAISuggestion() {
 ## Examples
 
 See `ReviewableAction.example.tsx` for complete examples including:
+
 - Text updates
 - File operations
 - Batch changes
@@ -276,6 +277,7 @@ See `ReviewableAction.example.tsx` for complete examples including:
 ## Accessibility
 
 The component is built on Radix UI primitives and includes:
+
 - Keyboard navigation
 - Screen reader support
 - Focus management
