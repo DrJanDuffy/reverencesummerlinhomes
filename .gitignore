@@ -35,3 +35,10 @@ tmp/
 temp/
 .vercel
 .env*.local
+
+# Graphite
+.graphite/state.json
+.graphite/logs/
+
+# Quality gate temporary files
+/tmp/quality-check-*.log

@@ -16,7 +16,7 @@ CF_EMAIL = os.getenv('CLOUDFLARE_EMAIL') or os.getenv('CF_EMAIL')
 CF_ACCOUNT_ID = os.getenv('CLOUDFLARE_ACCOUNT_ID') or os.getenv('CF_ACCOUNT_ID')
 
 # DMARC Configuration
-DMARC_EMAIL = "DrJanSells@ReverenceSummerlinHomes.com"  # Updated for Dr. Janet Duffy
+DMARC_EMAIL = "DrJanSells@ReverenceSummerlinHomes.com"  # Updated for Dr. Jan Duffy
 
 # ============ DMARC POLICY STAGES ============
 # Uncomment the stage you want to use:
@@ -175,7 +175,7 @@ def create_dmarc_record(zone_id: str, zone_name: str) -> bool:
 
 def main():
     """Main execution function"""
-    print("\nCloudflare DMARC Bulk Updater for Dr. Janet Duffy Real Estate")
+    print("\nCloudflare DMARC Bulk Updater for Dr. Jan Duffy Real Estate")
     print("=" * 70)
     
     # Verify credentials first

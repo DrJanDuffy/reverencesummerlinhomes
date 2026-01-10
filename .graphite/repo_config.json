@@ -1,0 +1,32 @@
+{
+  "$schema": "https://app.graphite.dev/graphite-cli-config-schema.json",
+  "github": {
+    "enablePullRequestChecks": true,
+    "autoSyncBranches": true,
+    "syncWithRemoteBranches": true
+  },
+  "mergeStrategy": "squash",
+  "stackBehavior": {
+    "default": "stack"
+  },
+  "qualityGates": {
+    "enabled": true,
+    "preMergeChecks": [
+      "typecheck",
+      "lint",
+      "build"
+    ],
+    "preCommitChecks": [
+      "lint",
+      "typecheck"
+    ]
+  },
+  "commitMessages": {
+    "autoFormat": true,
+    "template": "{{title}}\n\n{{body}}"
+  },
+  "branchNaming": {
+    "template": "{{author}}/{{title}}",
+    "maxLength": 100
+  }
+}

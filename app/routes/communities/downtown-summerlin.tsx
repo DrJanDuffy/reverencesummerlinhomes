@@ -1,10 +1,17 @@
-import type { Route } from "./+types/communities";
-import { Link } from "react-router";
-import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
-import { Badge } from "~/components/ui/badge";
-import { Separator } from "~/components/ui/separator";
-import { config } from "~/lib/config";
+import type { Route } from './+types/communities'
+import { Link } from 'react-router'
+import { Button } from '~/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '~/components/ui/card'
+import { Badge } from '~/components/ui/badge'
+import { Separator } from '~/components/ui/separator'
+import { config } from '~/lib/config'
+import { RealScoutAdvancedSearch } from '~/components/RealScoutAdvancedSearch'
 import {
   Home,
   MapPin,
@@ -21,28 +28,59 @@ import {
   Shield,
   Building,
   Coffee,
-  Utensils
-} from "lucide-react";
+  Utensils,
+} from 'lucide-react'
 
 export function links() {
   return [
-    { rel: "canonical", href: `${config.seo.siteUrl}/communities/downtown-summerlin` },
-  ];
+    {
+      rel: 'canonical',
+      href: `${config.seo.siteUrl}/communities/downtown-summerlin`,
+    },
+  ]
 }
 
 export function meta() {
   return [
-    { title: "Downtown Summerlin Homes | Urban Living in Las Vegas | Dr. Jan Duffy" },
-    { name: "description", content: "Discover urban living in Downtown Summerlin, Las Vegas. Dr. Jan Duffy specializes in Downtown Summerlin real estate with shopping, dining, entertainment, and modern amenities." },
-    { name: "keywords", content: "Downtown Summerlin homes, Las Vegas urban real estate, shopping district homes, Downtown Summerlin realtor, Dr. Jan Duffy" },
-    { property: "og:title", content: "Downtown Summerlin Homes | Urban Living in Las Vegas" },
-    { property: "og:description", content: "Urban living in Downtown Summerlin with shopping, dining, entertainment, and modern amenities. Expert real estate guidance from Dr. Jan Duffy." },
-    { property: "og:type", content: "website" },
-    { property: "og:url", content: `${config.seo.siteUrl}/communities/downtown-summerlin` },
-    { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Downtown Summerlin Homes | Dr. Jan Duffy" },
-    { name: "twitter:description", content: "Urban living in Downtown Summerlin with shopping, dining, and entertainment." }
-  ];
+    {
+      title:
+        'Downtown Summerlin Homes | Urban Living in Las Vegas | Dr. Jan Duffy',
+    },
+    {
+      name: 'description',
+      content:
+        'Discover urban living in Downtown Summerlin, Las Vegas. Dr. Jan Duffy specializes in Downtown Summerlin real estate with shopping, dining, entertainment, and modern amenities.',
+    },
+    {
+      name: 'keywords',
+      content:
+        'Downtown Summerlin homes, Las Vegas urban real estate, shopping district homes, Downtown Summerlin realtor, Dr. Jan Duffy',
+    },
+    {
+      property: 'og:title',
+      content: 'Downtown Summerlin Homes | Urban Living in Las Vegas',
+    },
+    {
+      property: 'og:description',
+      content:
+        'Urban living in Downtown Summerlin with shopping, dining, entertainment, and modern amenities. Expert real estate guidance from Dr. Jan Duffy.',
+    },
+    { property: 'og:type', content: 'website' },
+    {
+      property: 'og:url',
+      content: `${config.seo.siteUrl}/communities/downtown-summerlin`,
+    },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    {
+      name: 'twitter:title',
+      content: 'Downtown Summerlin Homes | Dr. Jan Duffy',
+    },
+    {
+      name: 'twitter:description',
+      content:
+        'Urban living in Downtown Summerlin with shopping, dining, and entertainment.',
+    },
+  ]
 }
 
 export default function DowntownSummerlin() {
@@ -61,19 +99,46 @@ export default function DowntownSummerlin() {
               Downtown Summerlin
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-purple-100 max-w-3xl mx-auto">
-              Experience the best of urban living with world-class shopping, dining, entertainment, and modern amenities in the heart of Summerlin
+              Experience the best of urban living with world-class shopping,
+              dining, entertainment, and modern amenities in the heart of
+              Summerlin
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50">
+              <Button
+                size="lg"
+                className="bg-white text-purple-600 hover:bg-purple-50"
+              >
                 <Home className="w-5 h-5 mr-2" />
                 View Urban Homes
               </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white/10"
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 Schedule Tour
               </Button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Advanced Search Widget - Find Properties in Downtown Summerlin */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Card className="shadow-xl border-4 border-accent-500 mb-12">
+            <CardContent className="p-8">
+              <RealScoutAdvancedSearch
+                buttonTextColor="#ffffff"
+                backgroundColor="#ffffff"
+                searchButtonColor="#e85d04"
+                width={600}
+                title="Search Downtown Summerlin Properties"
+                subtitle="Find your perfect urban home in Downtown Summerlin. Search by neighborhood, city, school, beds, baths, and price range."
+              />
+            </CardContent>
+          </Card>
         </div>
       </section>
 
@@ -85,7 +150,9 @@ export default function DowntownSummerlin() {
               Downtown Summerlin Living
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Downtown Summerlin offers the perfect blend of urban convenience and suburban comfort, with world-class shopping, dining, entertainment, and modern residential options.
+              Downtown Summerlin offers the perfect blend of urban convenience
+              and suburban comfort, with world-class shopping, dining,
+              entertainment, and modern residential options.
             </p>
           </div>
 
@@ -102,7 +169,8 @@ export default function DowntownSummerlin() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Shop at over 125 stores including Nordstrom, Apple, and luxury boutiques, plus enjoy fine dining and casual restaurants.
+                  Shop at over 125 stores including Nordstrom, Apple, and luxury
+                  boutiques, plus enjoy fine dining and casual restaurants.
                 </p>
               </CardContent>
             </Card>
@@ -119,7 +187,8 @@ export default function DowntownSummerlin() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Live in modern condominiums and townhomes with luxury finishes, smart home features, and resort-style amenities.
+                  Live in modern condominiums and townhomes with luxury
+                  finishes, smart home features, and resort-style amenities.
                 </p>
               </CardContent>
             </Card>
@@ -136,7 +205,8 @@ export default function DowntownSummerlin() {
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Enjoy everything from fine dining to casual eateries, plus entertainment venues, movie theaters, and community events.
+                  Enjoy everything from fine dining to casual eateries, plus
+                  entertainment venues, movie theaters, and community events.
                 </p>
               </CardContent>
             </Card>
@@ -152,74 +222,108 @@ export default function DowntownSummerlin() {
               Urban Lifestyle & Amenities
             </h2>
             <p className="text-xl text-gray-600">
-              Experience the convenience and excitement of urban living with world-class amenities
+              Experience the convenience and excitement of urban living with
+              world-class amenities
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Downtown Features</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Downtown Features
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Shopping District</h4>
-                    <p className="text-gray-600">125+ stores including Nordstrom, Apple, and luxury boutiques</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Shopping District
+                    </h4>
+                    <p className="text-gray-600">
+                      125+ stores including Nordstrom, Apple, and luxury
+                      boutiques
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Dining Scene</h4>
-                    <p className="text-gray-600">From fine dining to casual eateries and food courts</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Dining Scene
+                    </h4>
+                    <p className="text-gray-600">
+                      From fine dining to casual eateries and food courts
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Entertainment</h4>
-                    <p className="text-gray-600">Movie theaters, live music, and community events</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Entertainment
+                    </h4>
+                    <p className="text-gray-600">
+                      Movie theaters, live music, and community events
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-900">Walkability</h4>
-                    <p className="text-gray-600">Pedestrian-friendly streets and outdoor spaces</p>
+                    <p className="text-gray-600">
+                      Pedestrian-friendly streets and outdoor spaces
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Modern Amenities</h4>
-                    <p className="text-gray-600">Fitness centers, pools, and concierge services</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Modern Amenities
+                    </h4>
+                    <p className="text-gray-600">
+                      Fitness centers, pools, and concierge services
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Prime Location</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Prime Location
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-purple-600 mr-3" />
-                  <span className="text-gray-700">Downtown Summerlin - Walking distance</span>
+                  <span className="text-gray-700">
+                    Downtown Summerlin - Walking distance
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-purple-600 mr-3" />
-                  <span className="text-gray-700">Las Vegas Strip - 15 minutes</span>
+                  <span className="text-gray-700">
+                    Las Vegas Strip - 15 minutes
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-purple-600 mr-3" />
-                  <span className="text-gray-700">McCarran Airport - 20 minutes</span>
+                  <span className="text-gray-700">
+                    McCarran Airport - 20 minutes
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-purple-600 mr-3" />
-                  <span className="text-gray-700">Red Rock Canyon - 10 minutes</span>
+                  <span className="text-gray-700">
+                    Red Rock Canyon - 10 minutes
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-purple-600 mr-3" />
-                  <span className="text-gray-700">Downtown Las Vegas - 25 minutes</span>
+                  <span className="text-gray-700">
+                    Downtown Las Vegas - 25 minutes
+                  </span>
                 </div>
               </div>
             </div>
@@ -235,7 +339,8 @@ export default function DowntownSummerlin() {
               Modern Living Options
             </h2>
             <p className="text-xl text-gray-600">
-              From luxury condos to modern townhomes, find your perfect Downtown Summerlin residence
+              From luxury condos to modern townhomes, find your perfect Downtown
+              Summerlin residence
             </p>
           </div>
 
@@ -299,7 +404,8 @@ export default function DowntownSummerlin() {
               Shopping & Dining Scene
             </h2>
             <p className="text-xl text-gray-600">
-              Discover the vibrant shopping and dining options in Downtown Summerlin
+              Discover the vibrant shopping and dining options in Downtown
+              Summerlin
             </p>
           </div>
 
@@ -380,7 +486,9 @@ export default function DowntownSummerlin() {
                   <Award className="w-8 h-8 text-purple-600" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900">{config.agent.name}</h3>
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    {config.agent.name}
+                  </h3>
                   <p className="text-lg text-gray-600">{config.agent.title}</p>
                 </div>
               </div>
@@ -389,22 +497,34 @@ export default function DowntownSummerlin() {
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Urban Living Specialist</h4>
-                    <p className="text-gray-600">Expertise in Downtown Summerlin and urban market trends</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Urban Living Specialist
+                    </h4>
+                    <p className="text-gray-600">
+                      Expertise in Downtown Summerlin and urban market trends
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Modern Amenities Expert</h4>
-                    <p className="text-gray-600">Knowledge of condo and townhome amenities and features</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Modern Amenities Expert
+                    </h4>
+                    <p className="text-gray-600">
+                      Knowledge of condo and townhome amenities and features
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <CheckCircle className="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Lifestyle Consultant</h4>
-                    <p className="text-gray-600">Help you find the perfect urban lifestyle match</p>
+                    <h4 className="font-semibold text-gray-900">
+                      Lifestyle Consultant
+                    </h4>
+                    <p className="text-gray-600">
+                      Help you find the perfect urban lifestyle match
+                    </p>
                   </div>
                 </div>
               </div>
@@ -422,11 +542,15 @@ export default function DowntownSummerlin() {
             </div>
 
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Why Choose Dr. Jan Duffy?
+              </h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-purple-600 mr-3" />
-                  <span className="text-gray-700">Licensed Nevada Real Estate Agent</span>
+                  <span className="text-gray-700">
+                    Licensed Nevada Real Estate Agent
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Users className="w-6 h-6 text-purple-600 mr-3" />
@@ -434,11 +558,15 @@ export default function DowntownSummerlin() {
                 </div>
                 <div className="flex items-center">
                   <Award className="w-6 h-6 text-purple-600 mr-3" />
-                  <span className="text-gray-700">Top 1% of Las Vegas agents</span>
+                  <span className="text-gray-700">
+                    Top 1% of Las Vegas agents
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <Star className="w-6 h-6 text-purple-600 mr-3" />
-                  <span className="text-gray-700">5-star urban client reviews</span>
+                  <span className="text-gray-700">
+                    5-star urban client reviews
+                  </span>
                 </div>
               </div>
             </div>
@@ -449,18 +577,24 @@ export default function DowntownSummerlin() {
       {/* Contact CTA */}
       <section className="py-16 bg-gradient-to-r from-purple-600 to-purple-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-4">
-            Ready for Urban Living?
-          </h2>
+          <h2 className="text-4xl font-bold mb-4">Ready for Urban Living?</h2>
           <p className="text-xl mb-8 text-purple-100 max-w-2xl mx-auto">
-            Let Dr. Jan Duffy guide you through Downtown Summerlin's urban real estate market with personalized service and local expertise.
+            Let Dr. Jan Duffy guide you through Downtown Summerlin's urban real
+            estate market with personalized service and local expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50">
+            <Button
+              size="lg"
+              className="bg-white text-purple-600 hover:bg-purple-50"
+            >
               <Calendar className="w-5 h-5 mr-2" />
               Schedule Consultation
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white/10"
+            >
               <ArrowRight className="w-5 h-5 mr-2" />
               View All Communities
             </Button>
@@ -468,5 +602,5 @@ export default function DowntownSummerlin() {
         </div>
       </section>
     </div>
-  );
+  )
 }

@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "react";
+import { generateRealScoutWidgetHTML } from "~/lib/mcp/utils";
+import type { RealScoutListingsOptions } from "~/lib/mcp";
 
 interface RealScoutListingsWidgetProps {
   /**
@@ -43,6 +45,11 @@ interface RealScoutListingsWidgetProps {
    * Subtitle to display above the widget
    */
   subtitle?: string;
+  
+  /**
+   * Agent encoded ID (optional, will use MCP config if not provided)
+   */
+  agentEncodedId?: string;
 }
 
 /**
@@ -67,37 +74,31 @@ export function RealScoutListingsWidget({
   className = "",
   title,
   subtitle,
+  agentEncodedId,
 }: RealScoutListingsWidgetProps) {
   const widgetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!widgetRef.current) return;
 
-    // Build attributes string
-    const attrs: string[] = [
-      'agent-encoded-id="QWdlbnQtMjI1MDUw"',
-      `sort-order="${sortOrder}"`,
-      `listing-status="${listingStatus}"`,
-      `property-types="${propertyTypes}"`,
-    ];
+    // Use MCP utility to generate widget HTML with managed configuration
+    const widgetOptions: RealScoutListingsOptions = {
+      agentEncodedId,
+      sortOrder,
+      listingStatus,
+      propertyTypes,
+      priceMin,
+      priceMax,
+    };
 
-    if (priceMin !== undefined) {
-      attrs.push(`price-min="${priceMin}"`);
-    }
-
-    if (priceMax !== undefined) {
-      attrs.push(`price-max="${priceMax}"`);
-    }
-
-    const attrsString = attrs.join(" ");
-    const widgetHTML = `<realscout-office-listings ${attrsString}></realscout-office-listings>`;
+    const widgetHTML = generateRealScoutWidgetHTML(widgetOptions);
 
     // Clear and set HTML
     widgetRef.current.innerHTML = widgetHTML;
 
     // Web components will hydrate once the script loads
     // No need to manually create elements - the script handles it
-  }, [sortOrder, listingStatus, propertyTypes, priceMin, priceMax]);
+  }, [sortOrder, listingStatus, propertyTypes, priceMin, priceMax, agentEncodedId]);
 
   return (
     <div className={`realscout-listings-widget py-8 ${className}`}>

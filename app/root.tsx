@@ -1,65 +1,91 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
-import type { LinksFunction, MetaFunction } from "react-router";
-import { config } from "~/lib/config";
-import "./app.css";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router'
+import type { LinksFunction, MetaFunction } from 'react-router'
+import { config } from '~/lib/config'
+import { getRealScoutWidgetScriptUrl } from '~/lib/mcp'
+import './app.css'
 
 export const links: LinksFunction = () => [
   // Preconnect to external origins for faster resource loading (critical path)
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-  { rel: "preconnect", href: "https://www.googletagmanager.com" },
-  { rel: "dns-prefetch", href: "https://www.google-analytics.com" },
+  { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+  {
+    rel: 'preconnect',
+    href: 'https://fonts.gstatic.com',
+    crossOrigin: 'anonymous',
+  },
+  { rel: 'preconnect', href: 'https://www.googletagmanager.com' },
+  { rel: 'dns-prefetch', href: 'https://www.google-analytics.com' },
   // Load fonts asynchronously with font-display: swap (already in URL)
   // Using only essential font weights to reduce payload (400, 600, 700)
-  { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" },
-  { rel: "icon", href: "/favicon.ico" },
-  { rel: "apple-touch-icon", href: "/favicon.ico" },
-];
+  {
+    rel: 'stylesheet',
+    href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap',
+  },
+  { rel: 'icon', href: '/favicon.ico' },
+  { rel: 'apple-touch-icon', href: '/favicon.ico' },
+]
 
 export const meta: MetaFunction = () => [
   // Basic meta tags
   { title: config.seo.siteName },
-  { name: "description", content: config.seo.description },
-  { name: "keywords", content: config.seo.keywords.join(", ") },
-  { name: "author", content: config.agent.name },
-  { name: "robots", content: "index, follow" },
-  { name: "language", content: "en-US" },
-  { name: "revisit-after", content: "7 days" },
-  
+  { name: 'description', content: config.seo.description },
+  { name: 'keywords', content: config.seo.keywords.join(', ') },
+  { name: 'author', content: config.agent.name },
+  { name: 'robots', content: 'index, follow' },
+  { name: 'language', content: 'en-US' },
+  { name: 'revisit-after', content: '7 days' },
+
   // Open Graph meta tags
-  { property: "og:type", content: "website" },
-  { property: "og:site_name", content: config.seo.siteName },
-  { property: "og:title", content: config.seo.siteName },
-  { property: "og:description", content: config.seo.description },
-  { property: "og:url", content: config.seo.siteUrl },
-  { property: "og:image", content: `${config.seo.siteUrl}/images/og-image.svg` },
-  { property: "og:image:width", content: "1200" },
-  { property: "og:image:height", content: "630" },
-  { property: "og:image:alt", content: `${config.agent.name} - Las Vegas Real Estate Expert` },
-  { property: "og:locale", content: "en_US" },
-  
+  { property: 'og:type', content: 'website' },
+  { property: 'og:site_name', content: config.seo.siteName },
+  { property: 'og:title', content: config.seo.siteName },
+  { property: 'og:description', content: config.seo.description },
+  { property: 'og:url', content: config.seo.siteUrl },
+  {
+    property: 'og:image',
+    content: `${config.seo.siteUrl}/images/og-image.svg`,
+  },
+  { property: 'og:image:width', content: '1200' },
+  { property: 'og:image:height', content: '630' },
+  {
+    property: 'og:image:alt',
+    content: `${config.agent.name} - Las Vegas Real Estate Expert`,
+  },
+  { property: 'og:locale', content: 'en_US' },
+
   // Twitter Card meta tags
-  { name: "twitter:card", content: "summary_large_image" },
-  { name: "twitter:site", content: "@drjanetduffy" },
-  { name: "twitter:creator", content: "@drjanetduffy" },
-  { name: "twitter:title", content: config.seo.siteName },
-  { name: "twitter:description", content: config.seo.description },
-  { name: "twitter:image", content: `${config.seo.siteUrl}/images/twitter-image.svg` },
-  { name: "twitter:image:alt", content: `${config.agent.name} - Las Vegas Real Estate Expert` },
-  
+  { name: 'twitter:card', content: 'summary_large_image' },
+  { name: 'twitter:site', content: '@drjanduffy' },
+  { name: 'twitter:creator', content: '@drjanduffy' },
+  { name: 'twitter:title', content: config.seo.siteName },
+  { name: 'twitter:description', content: config.seo.description },
+  {
+    name: 'twitter:image',
+    content: `${config.seo.siteUrl}/images/twitter-image.svg`,
+  },
+  {
+    name: 'twitter:image:alt',
+    content: `${config.agent.name} - Las Vegas Real Estate Expert`,
+  },
+
   // Additional SEO meta tags
-  { name: "geo.region", content: "US-NV" },
-  { name: "geo.placename", content: "Las Vegas" },
-  { name: "geo.position", content: "36.1699;-115.1398" },
-  { name: "ICBM", content: "36.1699, -115.1398" },
-  
+  { name: 'geo.region', content: 'US-NV' },
+  { name: 'geo.placename', content: 'Las Vegas' },
+  { name: 'geo.position', content: '36.1699;-115.1398' },
+  { name: 'ICBM', content: '36.1699, -115.1398' },
+
   // Business/Local SEO
-  { name: "business:contact_data:street_address", content: config.agent.office.address },
-  { name: "business:contact_data:locality", content: config.agent.office.city },
-  { name: "business:contact_data:region", content: config.agent.office.state },
-  { name: "business:contact_data:postal_code", content: config.agent.office.zip },
-  { name: "business:contact_data:country_name", content: "United States" },
-];
+  {
+    name: 'business:contact_data:street_address',
+    content: config.agent.office.address,
+  },
+  { name: 'business:contact_data:locality', content: config.agent.office.city },
+  { name: 'business:contact_data:region', content: config.agent.office.state },
+  {
+    name: 'business:contact_data:postal_code',
+    content: config.agent.office.zip,
+  },
+  { name: 'business:contact_data:country_name', content: 'United States' },
+]
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -69,85 +95,83 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        
+
         {/* Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "RealEstateAgent",
-              "name": config.agent.name,
-              "description": config.seo.description,
-              "url": config.seo.siteUrl,
-              "telephone": config.contact.phone,
-              "email": config.contact.email,
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": config.agent.office.address,
-                "addressLocality": config.agent.office.city,
-                "addressRegion": config.agent.office.state,
-                "postalCode": config.agent.office.zip,
-                "addressCountry": "US"
+              '@context': 'https://schema.org',
+              '@type': 'RealEstateAgent',
+              name: config.agent.name,
+              description: config.seo.description,
+              url: config.seo.siteUrl,
+              telephone: config.contact.phone,
+              email: config.contact.email,
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: config.agent.office.address,
+                addressLocality: config.agent.office.city,
+                addressRegion: config.agent.office.state,
+                postalCode: config.agent.office.zip,
+                addressCountry: 'US',
               },
-              "areaServed": [
+              areaServed: [
                 {
-                  "@type": "City",
-                  "name": "Las Vegas",
-                  "containedInPlace": {
-                    "@type": "State",
-                    "name": "Nevada"
-                  }
+                  '@type': 'City',
+                  name: 'Las Vegas',
+                  containedInPlace: {
+                    '@type': 'State',
+                    name: 'Nevada',
+                  },
                 },
                 {
-                  "@type": "City",
-                  "name": "Summerlin",
-                  "containedInPlace": {
-                    "@type": "State",
-                    "name": "Nevada"
-                  }
-                }
+                  '@type': 'City',
+                  name: 'Summerlin',
+                  containedInPlace: {
+                    '@type': 'State',
+                    name: 'Nevada',
+                  },
+                },
               ],
-              "hasCredential": [
+              hasCredential: [
                 {
-                  "@type": "EducationalOccupationalCredential",
-                  "name": "Certified Summerlin Specialist"
+                  '@type': 'EducationalOccupationalCredential',
+                  name: 'Certified Summerlin Specialist',
                 },
                 {
-                  "@type": "EducationalOccupationalCredential",
-                  "name": "Featured Pulte Homes Agent"
-                }
+                  '@type': 'EducationalOccupationalCredential',
+                  name: 'Featured Pulte Homes Agent',
+                },
               ],
-              "knowsAbout": [
-                "Las Vegas Real Estate",
-                "Summerlin Real Estate",
-                "New Construction",
-                "Home Buying",
-                "Home Selling",
-                "Relocation Services"
+              knowsAbout: [
+                'Las Vegas Real Estate',
+                'Summerlin Real Estate',
+                'New Construction',
+                'Home Buying',
+                'Home Selling',
+                'Relocation Services',
               ],
-              "image": `${config.seo.siteUrl}/images/dr-janet-duffy.svg`,
-              "sameAs": [
+              image: `${config.seo.siteUrl}/images/dr-jan-duffy.svg`,
+              sameAs: [
                 config.social.facebook,
                 config.social.instagram,
                 config.social.linkedin,
-                config.social.youtube
-              ]
-            })
+                config.social.youtube,
+              ],
+            }),
           }}
         />
-        
+
         {/* RealScout Office Listings Widget Script - Load once for all widgets */}
-        <script
-          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
-          type="module"
-          async
-        />
-        
+        {/* Script URL is managed via MCP configuration */}
+        <script src={getRealScoutWidgetScriptUrl()} type="module" async />
+
         {/* RealScout Widget Styles */}
         <style
           dangerouslySetInnerHTML={{
             __html: `
+              /* Office Listings Widget Styles */
               realscout-office-listings {
                 --rs-listing-divider-color: #0e64c8;
                 width: 100%;
@@ -157,10 +181,29 @@ export function Layout({ children }: { children: React.ReactNode }) {
               realscout-office-listings * {
                 box-sizing: border-box;
               }
+              
+              /* Advanced Search Widget Styles */
+              realscout-advanced-search {
+                --rs-as-button-text-color: #ffffff;
+                --rs-as-background-color: #ffffff;
+                --rs-as-button-color: #e85d04;
+                --rs-as-widget-width: 100% !important;
+              }
+              
+              /* Ensure advanced search widget is responsive */
+              realscout-advanced-search * {
+                box-sizing: border-box;
+              }
+              
+              @media (max-width: 768px) {
+                realscout-advanced-search {
+                  --rs-as-widget-width: 100% !important;
+                }
+              }
             `,
           }}
         />
-        
+
         {/* Google Analytics - Deferred to improve LCP and reduce main thread blocking */}
         <script
           dangerouslySetInnerHTML={{
@@ -201,7 +244,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   });
                 };
               }
-            `
+            `,
           }}
         />
       </head>
@@ -211,9 +254,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Scripts />
       </body>
     </html>
-  );
+  )
 }
 
 export default function App() {
-  return <Outlet />;
+  return <Outlet />
 }

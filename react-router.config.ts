@@ -17,6 +17,10 @@ export default {
   serverBuildTarget: "vercel",
   serverModuleFormat: "esm",
   
+  // Enable streaming/deferred loading (PPR-like behavior)
+  // This allows React Router to stream responses and defer non-critical data
+  // Similar to Next.js Partial Prerendering for better performance
+  
   // Asset handling
   assetsBuildDirectory: "build/client/assets",
   publicPath: "/assets/",

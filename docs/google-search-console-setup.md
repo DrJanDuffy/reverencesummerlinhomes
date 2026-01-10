@@ -1,4 +1,4 @@
-# Google Search Console Setup Guide for Dr. Janet Duffy Real Estate
+# Google Search Console Setup Guide for Dr. Jan Duffy Real Estate
 
 ## Overview
 This guide provides step-by-step instructions for setting up Google Search Console for reverencesummerlinhomes.com with comprehensive sitemap coverage.
@@ -72,7 +72,7 @@ This guide provides step-by-step instructions for setting up Google Search Conso
 - ✅ **Community focus** - Monument at Reverence prioritized
 - ✅ **Location targeting** - Las Vegas, Summerlin keywords
 - ✅ **Property listings** - Dynamic property sitemaps
-- ✅ **Agent branding** - Dr. Janet Duffy professional images
+- ✅ **Agent branding** - Dr. Jan Duffy professional images
 
 ### Technical Benefits
 - ✅ **Modular structure** - Easy to maintain and update
@@ -136,7 +136,7 @@ This guide provides step-by-step instructions for setting up Google Search Conso
 ### Real Estate Specific Metrics
 - **Community page rankings** - Monument at Reverence visibility
 - **Location-based searches** - Las Vegas, Summerlin queries
-- **Agent name searches** - Dr. Janet Duffy brand visibility
+- **Agent name searches** - Dr. Jan Duffy brand visibility
 - **Property-related queries** - Home buying/selling searches
 
 ## Advanced Features
@@ -170,7 +170,7 @@ This guide provides step-by-step instructions for setting up Google Search Conso
 
 ---
 
-**Created for:** Dr. Janet Duffy Real Estate  
+**Created for:** Dr. Jan Duffy Real Estate  
 **Domain:** reverencesummerlinhomes.com  
 **Focus:** Las Vegas & Summerlin Real Estate  
 **Last Updated:** January 18, 2025

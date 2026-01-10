@@ -1,7 +1,7 @@
 # DMARC Policy Recommendations for reverencesummerlinhomes.com
 
 ## Overview
-DMARC (Domain-based Message Authentication, Reporting, and Conformance) is an email authentication protocol that helps protect against email spoofing and phishing attacks. This guide provides recommendations for implementing DMARC policies for Dr. Janet Duffy's real estate business.
+DMARC (Domain-based Message Authentication, Reporting, and Conformance) is an email authentication protocol that helps protect against email spoofing and phishing attacks. This guide provides recommendations for implementing DMARC policies for Dr. Jan Duffy's real estate business.
 
 ## Current Configuration
 - **Domain**: reverencesummerlinhomes.com

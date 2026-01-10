@@ -545,7 +545,7 @@ export default function PropertyDetail({ loaderData }: Route.ComponentProps) {
                     </Link>
                   </Button>
                   <Button asChild variant="outline" className="w-full border-white text-white hover:bg-white/10">
-                    <a href={`tel:${config.contact.phone}`}>
+                    <a href={`tel:+1${config.contact.phone.replace(/\D/g, '')}`} aria-label={`Call ${config.contact.phone}`}>
                       <Phone className="w-4 h-4 mr-2" />
                       Call {config.contact.phone}
                     </a>

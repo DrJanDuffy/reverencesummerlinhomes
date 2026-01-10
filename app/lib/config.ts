@@ -23,10 +23,10 @@ export const config = {
     calendly: "https://calendly.com/dr-jan-duffy",
   },
   social: {
-    facebook: "https://facebook.com/drjanetduffy",
-    instagram: "https://instagram.com/drjanetduffy",
-    linkedin: "https://linkedin.com/in/drjanetduffy",
-    youtube: "https://youtube.com/@drjanetduffy",
+    facebook: "https://facebook.com/drjanduffy",
+    instagram: "https://instagram.com/drjanduffy",
+    linkedin: "https://linkedin.com/in/drjanduffy",
+    youtube: "https://youtube.com/@drjanduffy",
   },
   seo: {
     siteUrl: "https://www.reverencesummerlinhomes.com",

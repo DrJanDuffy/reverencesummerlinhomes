@@ -13,7 +13,8 @@ export function ContactSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
-    console.log("Form submitted:", formData);
+    // TODO: Submit form data to API endpoint
+    // Form submission will be handled by API route
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -69,7 +70,7 @@ export function ContactSection() {
                 Prefer to schedule a call? Use the calendar below to book a convenient time.
               </p>
               <a
-                href="https://calendly.com/dr-janet-duffy"
+                href={config.contact.calendly}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block bg-white text-primary-600 px-6 py-3 rounded-md font-semibold hover:bg-gray-100 transition-colors"

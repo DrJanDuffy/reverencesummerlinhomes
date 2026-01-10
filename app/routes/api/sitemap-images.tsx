@@ -18,7 +18,7 @@ export async function loader() {
       caption: "Expert real estate services in Las Vegas, Summerlin, and Monument at Reverence"
     },
     {
-      loc: `${baseUrl}/images/dr-janet-duffy.svg`,
+      loc: `${baseUrl}/images/dr-jan-duffy.svg`,
       title: "Dr. Jan Duffy Professional Headshot",
       caption: "Dr. Jan Duffy, Licensed Real Estate Agent serving Las Vegas and Summerlin"
     },
@@ -65,7 +65,7 @@ export async function loader() {
       <image:caption>Expert real estate services in Las Vegas, Summerlin, and Monument at Reverence</image:caption>
     </image:image>
     <image:image>
-      <image:loc>${baseUrl}/images/dr-janet-duffy.svg</image:loc>
+      <image:loc>${baseUrl}/images/dr-jan-duffy.svg</image:loc>
       <image:title>Dr. Jan Duffy Professional Headshot</image:title>
       <image:caption>Dr. Jan Duffy, Licensed Real Estate Agent serving Las Vegas and Summerlin</image:caption>
     </image:image>

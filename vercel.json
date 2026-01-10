@@ -4,6 +4,19 @@
   "framework": "react-router",
   "installCommand": "npm ci",
   "devCommand": "npx react-router dev",
+  "functions": {
+    "app/routes/api/**/*.tsx": {
+      "memory": 3008,
+      "maxDuration": 300,
+      "runtime": "nodejs20.x"
+    },
+    "app/routes/api/**/*.ts": {
+      "memory": 3008,
+      "maxDuration": 300,
+      "runtime": "nodejs20.x"
+    }
+  },
+  "regions": ["iad1"],
   "headers": [
     {
       "source": "/assets/(.*)",

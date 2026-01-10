@@ -1,1 +1,1 @@
-# Reverence Summerlin Homes - Dr. Janet Duffy Real Estate
+# Reverence Summerlin Homes - Dr. Jan Duffy Real Estate
