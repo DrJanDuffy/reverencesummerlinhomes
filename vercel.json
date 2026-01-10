@@ -62,5 +62,15 @@
       "source": "/sitemap.xml",
       "destination": "/api/sitemap"
     }
-  ]
+  ],
+  "functions": {
+    "app/routes/api/**/*.tsx": {
+      "memory": 1024,
+      "maxDuration": 30
+    },
+    "app/routes/api/**/*.ts": {
+      "memory": 1024,
+      "maxDuration": 30
+    }
+  }
 }

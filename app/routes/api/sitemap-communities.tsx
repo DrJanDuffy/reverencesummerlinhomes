@@ -4,6 +4,14 @@ import { communitiesData } from '~/lib/data'
 
 export async function loader({ request }: Route.LoaderArgs) {
   try {
+    // Safety check for config
+    if (!config?.seo?.siteUrl) {
+      throw new Error('Missing required config.seo.siteUrl')
+    }
+    if (!communitiesData || !Array.isArray(communitiesData)) {
+      throw new Error('Missing or invalid communitiesData')
+    }
+
     const baseUrl = config.seo.siteUrl
     const currentDate = new Date().toISOString()
 
@@ -79,13 +87,30 @@ ${page.images
       },
     })
   } catch (error) {
-    console.error('Sitemap communities generation error:', error)
+    const errorMessage =
+      error instanceof Error ? error.message : 'Unknown error'
+    const errorStack =
+      error instanceof Error && process.env.NODE_ENV === 'development'
+        ? error.stack
+        : undefined
+
+    console.error('Sitemap communities generation error:', {
+      message: errorMessage,
+      stack: errorStack,
+      timestamp: new Date().toISOString(),
+    })
+
     return new Response(
-      '<?xml version="1.0" encoding="UTF-8"?><error>Sitemap generation failed</error>',
+      `<?xml version="1.0" encoding="UTF-8"?>
+<error>
+  <message>Sitemap generation failed</message>
+  ${process.env.NODE_ENV === 'development' ? `<details>${errorMessage}</details>` : ''}
+</error>`,
       {
         status: 500,
         headers: {
           'Content-Type': 'application/xml',
+          'Cache-Control': 'no-cache',
         },
       }
     )
