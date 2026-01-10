@@ -103,36 +103,82 @@ export const links: LinksFunction = () => [
  * Critical data loads immediately, non-critical data streams
  */
 export async function loader({ request }: { request: Request }) {
-  const context = createProvenanceContext(request)
+  try {
+    // Safety checks for required data
+    if (!monumentData) {
+      throw new Error('Missing monumentData')
+    }
+    if (!config) {
+      throw new Error('Missing config')
+    }
+    if (!communitiesData || !Array.isArray(communitiesData)) {
+      throw new Error('Missing or invalid communitiesData')
+    }
 
-  // Critical data: Load immediately for initial render
-  const criticalData = {
-    monument: monumentData,
-    config,
+    const context = createProvenanceContext(request)
+
+    // Critical data: Load immediately for initial render
+    const criticalData = {
+      monument: monumentData,
+      config,
+    }
+
+    // Non-critical data: Defer for streaming (loads after initial render)
+    // This improves perceived performance and reduces initial page load time
+    const deferredData = {
+      communities: Promise.resolve(communitiesData)
+        .then(data => {
+          // Log when deferred data loads
+          logger.debug('Deferred communities data loaded', {
+            operationId: context.operationId,
+            route: '/',
+            count: data.length,
+          })
+          return data
+        })
+        .catch(error => {
+          // Handle deferred data loading errors gracefully
+          logger.error('Failed to load deferred communities data', {
+            operationId: context.operationId,
+            route: '/',
+            error: error instanceof Error ? error.message : 'Unknown error',
+          })
+          return [] // Return empty array as fallback
+        }),
+    }
+
+    // Combine critical and deferred data
+    return createDeferred(
+      {
+        ...criticalData,
+        ...deferredData,
+      },
+      { route: '/' }
+    )
+  } catch (error) {
+    const errorMessage =
+      error instanceof Error ? error.message : 'Unknown error'
+    const errorStack =
+      error instanceof Error && process.env['NODE_ENV'] === 'development'
+        ? error.stack
+        : undefined
+
+    logger.error('Home loader error:', {
+      message: errorMessage,
+      stack: errorStack,
+      timestamp: new Date().toISOString(),
+    })
+
+    // Return fallback data to prevent complete page crash
+    return createDeferred(
+      {
+        monument: monumentData || null,
+        config: config || {},
+        communities: Promise.resolve([]),
+      },
+      { route: '/' }
+    )
   }
-
-  // Non-critical data: Defer for streaming (loads after initial render)
-  // This improves perceived performance and reduces initial page load time
-  const deferredData = {
-    communities: Promise.resolve(communitiesData).then(data => {
-      // Log when deferred data loads
-      logger.debug('Deferred communities data loaded', {
-        operationId: context.operationId,
-        route: '/',
-        count: data.length,
-      })
-      return data
-    }),
-  }
-
-  // Combine critical and deferred data
-  return createDeferred(
-    {
-      ...criticalData,
-      ...deferredData,
-    },
-    { route: '/' }
-  )
 }
 
 export default function Home() {

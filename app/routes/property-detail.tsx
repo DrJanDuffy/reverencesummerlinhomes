@@ -65,38 +65,43 @@ export async function meta({ params }: Route.MetaArgs) {
 }
 
 export async function loader({ params }: Route.LoaderArgs) {
-  // In a real application, you would fetch property data from MLS or database based on slug
-  // For now, we'll return mock data based on the property ID/slug
+  try {
+    // In a real application, you would fetch property data from MLS or database based on slug
+    // For now, we'll return mock data based on the property ID/slug
 
-  const { id } = await params
+    const { id } = await params
 
-  // Mock property data - matches the sitemap property IDs
-  // In a real app, this would be a database query using the slug
-  const mockProperties: Record<
-    string,
-    {
-      id: string
-      slug: string
-      address: string
-      city: string
-      state: string
-      zip: string
-      neighborhood: string
-      price: number
-      bedrooms: number
-      bathrooms: number
-      squareFeet: number
-      lotSize: number
-      yearBuilt: number
-      propertyType: string
-      description: string
-      features: string[]
-      images: string[]
-      status: string
-      mlsNumber: string
-      community?: string
+    if (!id || typeof id !== 'string') {
+      throw new Response('Invalid property ID', { status: 400 })
     }
-  > = {
+
+    // Mock property data - matches the sitemap property IDs
+    // In a real app, this would be a database query using the slug
+    const mockProperties: Record<
+      string,
+      {
+        id: string
+        slug: string
+        address: string
+        city: string
+        state: string
+        zip: string
+        neighborhood: string
+        price: number
+        bedrooms: number
+        bathrooms: number
+        squareFeet: number
+        lotSize: number
+        yearBuilt: number
+        propertyType: string
+        description: string
+        features: string[]
+        images: string[]
+        status: string
+        mlsNumber: string
+        community?: string
+      }
+    > = {
     '1': {
       id: '1',
       slug: '1',
@@ -331,13 +336,35 @@ export async function loader({ params }: Route.LoaderArgs) {
     },
   }
 
-  const property = mockProperties[id]
+    const property = mockProperties[id]
 
-  if (!property) {
-    throw new Response('Property not found', { status: 404 })
+    if (!property) {
+      throw new Response('Property not found', { status: 404 })
+    }
+
+    return { property }
+  } catch (error) {
+    // If it's already a Response (like 404), re-throw it
+    if (error instanceof Response) {
+      throw error
+    }
+
+    const errorMessage =
+      error instanceof Error ? error.message : 'Unknown error'
+    const errorStack =
+      error instanceof Error && process.env['NODE_ENV'] === 'development'
+        ? error.stack
+        : undefined
+
+    console.error('Property detail loader error:', {
+      message: errorMessage,
+      stack: errorStack,
+      timestamp: new Date().toISOString(),
+    })
+
+    // Return 500 error response
+    throw new Response('Failed to load property', { status: 500 })
   }
-
-  return { property }
 }
 
 export default function PropertyDetail({ loaderData }: Route.ComponentProps) {

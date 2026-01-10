@@ -96,7 +96,7 @@ ${properties
     const errorMessage =
       error instanceof Error ? error.message : 'Unknown error'
     const errorStack =
-      error instanceof Error && process.env.NODE_ENV === 'development'
+      error instanceof Error && process.env['NODE_ENV'] === 'development'
         ? error.stack
         : undefined
 
@@ -110,7 +110,7 @@ ${properties
       `<?xml version="1.0" encoding="UTF-8"?>
 <error>
   <message>Sitemap generation failed</message>
-  ${process.env.NODE_ENV === 'development' ? `<details>${errorMessage}</details>` : ''}
+  ${process.env['NODE_ENV'] === 'development' ? `<details>${errorMessage}</details>` : ''}
 </error>`,
       {
         status: 500,
