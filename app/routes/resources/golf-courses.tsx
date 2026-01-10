@@ -14,7 +14,7 @@ import {
   Users,
   Star,
   CheckCircle,
-  Golf,
+  Flag,
   Mountain,
   TreePine
 } from "lucide-react";
@@ -93,7 +93,7 @@ export default function GolfCourses() {
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
-                      <Golf className="w-6 h-6 text-primary-600" />
+                      <Flag className="w-6 h-6 text-primary-600" />
                     </div>
                     <div>
                       <CardTitle className="text-2xl">TPC Las Vegas</CardTitle>
@@ -376,7 +376,7 @@ export default function GolfCourses() {
             </Button>
             <Button size="lg" variant="outline" asChild>
               <Link to="/buying">
-                <Golf className="w-5 h-5 mr-2" />
+                <Flag className="w-5 h-5 mr-2" />
                 Explore Reverence Summerlin Properties
               </Link>
             </Button>

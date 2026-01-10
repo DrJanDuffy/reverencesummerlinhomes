@@ -7,7 +7,7 @@ import { Badge } from "~/components/ui/badge";
 import { 
   MapPin, 
   GraduationCap, 
-  Golf, 
+  Flag, 
   Mountain,
   Waves,
   TreePine,
@@ -90,7 +90,7 @@ export default function ResourcesIndex() {
             <Card className="hover:shadow-lg transition-shadow border-l-4 border-primary-600">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mb-4">
-                  <Golf className="w-6 h-6 text-primary-600" />
+                  <Flag className="w-6 h-6 text-primary-600" />
                 </div>
                 <CardTitle>Premier Golf Courses Near Reverence Summerlin</CardTitle>
               </CardHeader>
@@ -407,7 +407,7 @@ export default function ResourcesIndex() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <Button asChild size="lg" variant="outline">
               <Link to="/resources/golf-courses">
-                <Golf className="w-5 h-5 mr-2" />
+                <Flag className="w-5 h-5 mr-2" />
                 Golf Courses
               </Link>
             </Button>
