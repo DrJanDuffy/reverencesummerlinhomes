@@ -69,15 +69,15 @@ export default function Home() {
                 </Badge>
               </div>
               
-              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white drop-shadow-lg">
                 Your Reverence Summerlin Real Estate Expert
               </h1>
               
-              <p className="text-xl md:text-2xl mb-8 text-primary-100">
+              <p className="text-xl md:text-2xl mb-8 text-white font-semibold">
                 Dr. Jan Duffy - Certified Summerlin Specialist & Featured Monument at Reverence Agent
               </p>
               
-              <p className="text-lg mb-8 text-primary-200">
+              <p className="text-lg mb-8 text-white/95 leading-relaxed">
                 Specializing in Reverence Summerlin communities, Monument at Reverence by Pulte Homes, and helping 
                 families find their perfect home in Las Vegas. Featured Pulte Homes buying agent with deep Reverence Summerlin market knowledge and exclusive access to Monument at Reverence new construction opportunities.
               </p>
@@ -117,13 +117,13 @@ export default function Home() {
                 </Button>
               </div>
               
-              <div className="flex items-center gap-6 text-sm text-primary-200">
+              <div className="flex items-center gap-6 text-sm text-white/90">
                 <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4" />
+                  <Award className="w-4 h-4 text-gold-light" />
                   <span>Certified Summerlin Specialist</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Shield className="w-4 h-4" />
+                  <Shield className="w-4 h-4 text-gold-light" />
                   <span>Featured Pulte Agent</span>
                 </div>
               </div>
@@ -131,8 +131,8 @@ export default function Home() {
             
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <h3 className="text-2xl font-bold mb-6">Get Your Free Home Valuation</h3>
-                <p className="text-primary-100 mb-6">
+                <h3 className="text-2xl font-bold mb-6 text-white">Get Your Free Home Valuation</h3>
+                <p className="text-white/95 mb-6 leading-relaxed">
                   Discover what your Las Vegas home is worth in today's market. 
                   Get instant results and expert insights from Dr. Jan Duffy.
                 </p>
@@ -166,12 +166,12 @@ export default function Home() {
                 </form>
                 
                 <div className="mt-6 pt-6 border-t border-white/20">
-                  <div className="flex items-center gap-2 text-sm text-primary-200 mb-2">
-                    <Shield className="w-4 h-4" />
+                  <div className="flex items-center gap-2 text-sm text-white/90 mb-2">
+                    <Shield className="w-4 h-4 text-gold-light" />
                     <span>Your information is secure and private</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-primary-200">
-                    <CheckCircle className="w-4 h-4" />
+                  <div className="flex items-center gap-2 text-sm text-white/90">
+                    <CheckCircle className="w-4 h-4 text-gold-light" />
                     <span>No obligation, instant results</span>
                   </div>
                 </div>
