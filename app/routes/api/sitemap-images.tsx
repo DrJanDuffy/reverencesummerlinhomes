@@ -2,8 +2,9 @@ import type { Route } from './+types/sitemap-images'
 import { config } from '~/lib/config'
 
 export async function loader() {
-  const baseUrl = config.seo.siteUrl
-  const currentDate = new Date().toISOString()
+  try {
+    const baseUrl = config.seo.siteUrl
+    const currentDate = new Date().toISOString()
 
   // Key images for SEO
   const images = [

@@ -2,8 +2,9 @@ import type { Route } from './+types/sitemap-properties'
 import { config } from '~/lib/config'
 
 export async function loader() {
-  const baseUrl = config.seo.siteUrl
-  const currentDate = new Date().toISOString()
+  try {
+    const baseUrl = config.seo.siteUrl
+    const currentDate = new Date().toISOString()
 
   // Mock property data - in production, this would come from your MLS/API
   const properties = [

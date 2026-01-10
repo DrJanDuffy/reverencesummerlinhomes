@@ -3,8 +3,9 @@ import { config } from '~/lib/config'
 import { communitiesData } from '~/lib/data'
 
 export async function loader() {
-  const baseUrl = config.seo.siteUrl
-  const currentDate = new Date().toISOString()
+  try {
+    const baseUrl = config.seo.siteUrl
+    const currentDate = new Date().toISOString()
 
   // Static pages with enhanced priorities for real estate
   const staticPages = [
@@ -109,10 +110,34 @@ ${allPages
   .join('\n')}
 </urlset>`
 
-  return new Response(sitemap, {
-    headers: {
-      'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=86400',
-    },
-  })
+    return new Response(sitemap, {
+      headers: {
+        'Content-Type': 'application/xml',
+        'Cache-Control': 'public, max-age=86400',
+      },
+    })
+  } catch (error) {
+    console.error('Sitemap generation error:', error)
+    return new Response(
+      '<?xml version="1.0" encoding="UTF-8"?><error>Sitemap generation failed</error>',
+      {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/xml',
+        },
+      }
+    )
+  }
+}
+
+export function ErrorBoundary() {
+  return new Response(
+    '<?xml version="1.0" encoding="UTF-8"?><error>Sitemap unavailable</error>',
+    {
+      status: 500,
+      headers: {
+        'Content-Type': 'application/xml',
+      },
+    }
+  )
 }
