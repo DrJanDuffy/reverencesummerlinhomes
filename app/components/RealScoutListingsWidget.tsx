@@ -71,54 +71,32 @@ export function RealScoutListingsWidget({
   const widgetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Wait for RealScout script to load and then create the widget element
-    const createWidget = () => {
-      if (!widgetRef.current) return;
+    if (!widgetRef.current) return;
 
-      // Clear any existing content
-      widgetRef.current.innerHTML = "";
+    // Build attributes string
+    const attrs: string[] = [
+      'agent-encoded-id="QWdlbnQtMjI1MDUw"',
+      `sort-order="${sortOrder}"`,
+      `listing-status="${listingStatus}"`,
+      `property-types="${propertyTypes}"`,
+    ];
 
-      // Create the web component element
-      const widget = document.createElement("realscout-office-listings");
-      widget.setAttribute("agent-encoded-id", "QWdlbnQtMjI1MDUw");
-      widget.setAttribute("sort-order", sortOrder);
-      widget.setAttribute("listing-status", listingStatus);
-      widget.setAttribute("property-types", propertyTypes);
-
-      if (priceMin !== undefined) {
-        widget.setAttribute("price-min", priceMin.toString());
-      }
-
-      if (priceMax !== undefined) {
-        widget.setAttribute("price-max", priceMax.toString());
-      }
-
-      widgetRef.current.appendChild(widget);
-    };
-
-    // Check if RealScout is already loaded
-    if (customElements.get("realscout-office-listings")) {
-      createWidget();
-    } else {
-      // Wait for the script to load
-      let checkInterval: NodeJS.Timeout | null = setInterval(() => {
-        if (customElements.get("realscout-office-listings")) {
-          if (checkInterval) {
-            clearInterval(checkInterval);
-            checkInterval = null;
-          }
-          createWidget();
-        }
-      }, 100);
-
-      // Timeout after 10 seconds
-      setTimeout(() => {
-        if (checkInterval) {
-          clearInterval(checkInterval);
-          checkInterval = null;
-        }
-      }, 10000);
+    if (priceMin !== undefined) {
+      attrs.push(`price-min="${priceMin}"`);
     }
+
+    if (priceMax !== undefined) {
+      attrs.push(`price-max="${priceMax}"`);
+    }
+
+    const attrsString = attrs.join(" ");
+    const widgetHTML = `<realscout-office-listings ${attrsString}></realscout-office-listings>`;
+
+    // Clear and set HTML
+    widgetRef.current.innerHTML = widgetHTML;
+
+    // Web components will hydrate once the script loads
+    // No need to manually create elements - the script handles it
   }, [sortOrder, listingStatus, propertyTypes, priceMin, priceMax]);
 
   return (
