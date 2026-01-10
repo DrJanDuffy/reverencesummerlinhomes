@@ -81,10 +81,34 @@ ${properties
   .join('\n')}
 </urlset>`
 
-  return new Response(sitemap, {
-    headers: {
-      'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=3600', // Cache for 1 hour since properties change frequently
-    },
-  })
+    return new Response(sitemap, {
+      headers: {
+        'Content-Type': 'application/xml',
+        'Cache-Control': 'public, max-age=3600', // Cache for 1 hour since properties change frequently
+      },
+    })
+  } catch (error) {
+    console.error('Sitemap properties generation error:', error)
+    return new Response(
+      '<?xml version="1.0" encoding="UTF-8"?><error>Sitemap generation failed</error>',
+      {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/xml',
+        },
+      }
+    )
+  }
+}
+
+export function ErrorBoundary() {
+  return new Response(
+    '<?xml version="1.0" encoding="UTF-8"?><error>Sitemap unavailable</error>',
+    {
+      status: 500,
+      headers: {
+        'Content-Type': 'application/xml',
+      },
+    }
+  )
 }

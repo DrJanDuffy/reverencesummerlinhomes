@@ -76,10 +76,34 @@ export async function loader() {
   </url>
 </urlset>`
 
-  return new Response(sitemap, {
-    headers: {
-      'Content-Type': 'application/xml',
-      'Cache-Control': 'public, max-age=86400',
-    },
-  })
+    return new Response(sitemap, {
+      headers: {
+        'Content-Type': 'application/xml',
+        'Cache-Control': 'public, max-age=86400',
+      },
+    })
+  } catch (error) {
+    console.error('Sitemap images generation error:', error)
+    return new Response(
+      '<?xml version="1.0" encoding="UTF-8"?><error>Sitemap generation failed</error>',
+      {
+        status: 500,
+        headers: {
+          'Content-Type': 'application/xml',
+        },
+      }
+    )
+  }
+}
+
+export function ErrorBoundary() {
+  return new Response(
+    '<?xml version="1.0" encoding="UTF-8"?><error>Sitemap unavailable</error>',
+    {
+      status: 500,
+      headers: {
+        'Content-Type': 'application/xml',
+      },
+    }
+  )
 }
