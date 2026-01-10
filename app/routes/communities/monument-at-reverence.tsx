@@ -5,6 +5,7 @@ import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
 import { Badge } from "~/components/ui/badge";
 import { Separator } from "~/components/ui/separator";
+import { RealScoutListingsWidget } from "~/components/RealScoutListingsWidget";
 import { 
   Home, 
   Shield, 
@@ -434,6 +435,21 @@ export default function MonumentAtReverence() {
               Located at {monumentData.location.fullAddress}
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Available Properties - RealScout Widget - Show listings in this price range */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <RealScoutListingsWidget
+            sortOrder="NEWEST"
+            listingStatus="For Sale"
+            propertyTypes=",SFR,,TOWNHOUSE"
+            priceMin={400000}
+            priceMax={700000}
+            title="Similar Properties in Las Vegas & Summerlin"
+            subtitle="Explore other available properties in the Monument at Reverence price range. Perfect for buyers considering their options."
+          />
         </div>
       </section>
     </div>

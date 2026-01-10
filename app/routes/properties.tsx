@@ -4,6 +4,7 @@ import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
 import { Badge } from "~/components/ui/badge";
+import { RealScoutListingsWidget } from "~/components/RealScoutListingsWidget";
 import { 
   Search, 
   Filter, 
@@ -207,6 +208,17 @@ export default function Properties() {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Discover exceptional homes in Las Vegas and Summerlin. Dr. Jan Duffy provides expert guidance to help you find the perfect property that meets your needs and budget.
           </p>
+        </div>
+
+        {/* RealScout Listings Widget - Main Property Listings */}
+        <div className="mb-12">
+          <RealScoutListingsWidget
+            sortOrder="NEWEST"
+            listingStatus="For Sale"
+            propertyTypes=",SFR,,TOWNHOUSE,,CONDO"
+            title="Available Las Vegas Properties"
+            subtitle="Browse our active listings in Las Vegas and Summerlin. Use the filters below to find your perfect home."
+          />
         </div>
 
         {/* Search and Filter Section */}

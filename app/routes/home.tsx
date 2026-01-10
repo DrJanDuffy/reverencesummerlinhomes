@@ -1,4 +1,4 @@
-import { Meta, Links, Link } from "react-router";
+import { Link } from "react-router";
 import type { LinksFunction } from "react-router";
 import { config } from "~/lib/config";
 import { monumentData } from "~/lib/monument-data";
@@ -6,7 +6,7 @@ import { communitiesData } from "~/lib/data";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
 import { Badge } from "~/components/ui/badge";
-import { Separator } from "~/components/ui/separator";
+import { RealScoutListingsWidget } from "~/components/RealScoutListingsWidget";
 import { 
   Home as HomeIcon, 
   MapPin, 
@@ -18,14 +18,9 @@ import {
   Award,
   Shield,
   Zap,
-  Mountain,
-  ShoppingBag,
-  GraduationCap,
   Calendar,
-  ArrowRight,
-  Play
+  ArrowRight
 } from "lucide-react";
-import type { Route } from "./+types/home";
 
 export function meta() {
   return [
@@ -179,6 +174,21 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Featured Listings - RealScout Widget - High Conversion Placement */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <RealScoutListingsWidget
+            sortOrder="NEWEST"
+            listingStatus="For Sale"
+            propertyTypes=",SFR"
+            priceMin={400000}
+            priceMax={700000}
+            title="Featured Las Vegas Properties"
+            subtitle="Explore our latest listings in the Las Vegas and Summerlin area. From luxury homes to family-friendly communities, find your perfect property."
+          />
         </div>
       </section>
 

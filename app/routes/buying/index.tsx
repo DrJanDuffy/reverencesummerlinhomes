@@ -1,5 +1,6 @@
 import type { Route } from "./+types/buying-index";
 import { config } from "~/lib/config";
+import { RealScoutListingsWidget } from "~/components/RealScoutListingsWidget";
 
 export function links() {
   return [
@@ -62,6 +63,19 @@ export default function BuyingIndex() {
               Calculate Now →
             </a>
           </div>
+        </div>
+
+        {/* Featured Properties - RealScout Widget */}
+        <div className="mb-16">
+          <RealScoutListingsWidget
+            sortOrder="NEWEST"
+            listingStatus="For Sale"
+            propertyTypes=",SFR"
+            priceMin={400000}
+            priceMax={1000000}
+            title="Featured Las Vegas Properties"
+            subtitle="Explore our latest listings in Las Vegas and Summerlin. From first-time buyer homes to luxury properties, find your perfect match."
+          />
         </div>
 
         <div className="bg-white rounded-lg shadow-lg p-8">

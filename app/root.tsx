@@ -137,6 +137,30 @@ export function Layout({ children }: { children: React.ReactNode }) {
           }}
         />
         
+        {/* RealScout Office Listings Widget Script - Load once for all widgets */}
+        <script
+          src="https://em.realscout.com/widgets/realscout-web-components.umd.js"
+          type="module"
+          async
+        />
+        
+        {/* RealScout Widget Styles */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              realscout-office-listings {
+                --rs-listing-divider-color: #0e64c8;
+                width: 100%;
+              }
+              
+              /* Ensure widget is responsive */
+              realscout-office-listings * {
+                box-sizing: border-box;
+              }
+            `,
+          }}
+        />
+        
         {/* Google Analytics - Deferred to improve LCP and reduce main thread blocking */}
         <script
           dangerouslySetInnerHTML={{

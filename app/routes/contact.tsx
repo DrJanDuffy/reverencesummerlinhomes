@@ -5,6 +5,7 @@ import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 import { Badge } from "~/components/ui/badge";
 import { config } from "~/lib/config";
+import { RealScoutListingsWidget } from "~/components/RealScoutListingsWidget";
 import { 
   Phone, 
   Mail, 
@@ -436,6 +437,19 @@ export default function Contact() {
                 </div>
               </CardContent>
             </Card>
+          </div>
+          
+          {/* Featured Properties - Show available inventory */}
+          <div className="mt-16">
+            <RealScoutListingsWidget
+              sortOrder="NEWEST"
+              listingStatus="For Sale"
+              propertyTypes=",SFR,,TOWNHOUSE,,CONDO"
+              priceMin={400000}
+              priceMax={700000}
+              title="Available Las Vegas Properties"
+              subtitle="Explore our current listings while you're here. See what's available in Las Vegas and Summerlin right now."
+            />
           </div>
         </div>
       </div>

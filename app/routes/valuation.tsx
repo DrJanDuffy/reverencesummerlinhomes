@@ -1,6 +1,7 @@
 import { Form } from "react-router";
 import type { Route } from "./+types/valuation";
 import { config } from "~/lib/config";
+import { RealScoutListingsWidget } from "~/components/RealScoutListingsWidget";
 
 export function links() {
   return [
@@ -323,6 +324,19 @@ export default function Valuation() {
                 </div>
               </div>
             </div>
+          </div>
+          
+          {/* Featured Listings - Show available inventory to create urgency */}
+          <div className="mt-16">
+            <RealScoutListingsWidget
+              sortOrder="NEWEST"
+              listingStatus="For Sale"
+              propertyTypes=",SFR"
+              priceMin={300000}
+              priceMax={2000000}
+              title="Explore Similar Properties"
+              subtitle="See what's currently available in the Las Vegas and Summerlin market. These listings may help inform your home's value."
+            />
           </div>
         </div>
       </div>
