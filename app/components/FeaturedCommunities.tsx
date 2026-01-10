@@ -61,29 +61,38 @@ export function FeaturedCommunities() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {communities.map((community) => (
-            <div key={community.slug} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-              <div className="aspect-w-16 aspect-h-9">
+            <div key={community.slug} className="community-card bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all cursor-pointer border border-gray-100">
+              <div className="image-container relative h-48 overflow-hidden">
                 <img
                   src={community.image}
                   alt={community.name}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-full object-cover transition-transform duration-300"
                 />
+                <div className="absolute top-3 left-3">
+                  <span className="badge bg-accent-500 text-white px-3 py-1 rounded-md text-xs font-bold uppercase">
+                    Featured
+                  </span>
+                </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-primary mb-2">
                   {community.name}
                 </h3>
-                <p className="text-gray-600 mb-4">
+                <p className="text-gray-600 mb-4 leading-relaxed">
                   {community.description}
                 </p>
-                <div className="text-primary-600 font-semibold mb-4">
+                <div className="price text-primary font-bold text-lg mb-4">
                   {community.priceRange}
                 </div>
                 <Link
                   to={`/communities/${community.slug}`}
-                  className="inline-block bg-primary-600 text-white px-4 py-2 rounded-md hover:bg-primary-700 transition-colors"
+                  className="cta-link inline-flex items-center gap-2 text-accent-500 font-semibold hover:gap-3 transition-all"
+                  aria-label={`Learn more about ${community.name}`}
                 >
-                  Learn More
+                  Learn More About {community.name}
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </Link>
               </div>
             </div>
@@ -93,7 +102,7 @@ export function FeaturedCommunities() {
         <div className="text-center mt-12">
           <Link
             to="/communities"
-            className="inline-block bg-gray-900 text-white px-8 py-3 rounded-md font-semibold hover:bg-gray-800 transition-colors"
+            className="inline-block bg-gradient-to-r from-accent-500 to-accent-600 text-white px-8 py-3 rounded-lg font-bold text-lg uppercase tracking-wide shadow-cta hover:shadow-cta-hover hover:-translate-y-0.5 transition-all"
           >
             View All Communities
           </Link>

@@ -1,5 +1,4 @@
-import { Meta, Links } from "react-router";
-import { Link } from "react-router";
+import { Meta, Links, Link } from "react-router";
 import type { LinksFunction } from "react-router";
 import { config } from "~/lib/config";
 import { monumentData } from "~/lib/monument-data";
@@ -131,7 +130,7 @@ export default function Home() {
             
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <h3 className="text-2xl font-bold mb-6 text-white">Get Your Free Home Valuation</h3>
+                <h2 className="text-2xl font-bold mb-6 text-white">Get Your Free Home Valuation</h2>
                 <p className="text-white/95 mb-6 leading-relaxed">
                   Discover what your Las Vegas home is worth in today's market. 
                   Get instant results and expert insights from Dr. Jan Duffy.
@@ -159,9 +158,11 @@ export default function Home() {
                       className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50"
                     />
                   </div>
-                  <Button className="w-full bg-accent text-white hover:bg-accent-600 hover:shadow-lg">
-                    <Zap className="w-4 h-4 mr-2" />
-                    Get Free Valuation
+                  <Button className="w-full" asChild>
+                    <Link to="/valuation">
+                      <Zap className="w-4 h-4" aria-hidden="true" />
+                      Get Free Valuation
+                    </Link>
                   </Button>
                 </form>
                 
@@ -186,7 +187,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Dr. Jan Duffy?</h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-gray-700">
               Your trusted partner in Las Vegas real estate
             </p>
           </div>
@@ -200,7 +201,7 @@ export default function Home() {
                 <CardTitle>Certified Specialist</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
+                <p className="text-gray-700">
                   Certified Summerlin specialist with deep knowledge of local communities 
                   and market trends.
                 </p>
@@ -215,7 +216,7 @@ export default function Home() {
                 <CardTitle>Featured Pulte Agent</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
+                <p className="text-gray-700">
                   Featured buying agent for Pulte Homes at Monument at Reverence with 
                   exclusive access to new construction.
                 </p>
@@ -230,7 +231,7 @@ export default function Home() {
                 <CardTitle>Client-Focused</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
+                <p className="text-gray-700">
                   Dedicated to providing personalized service and expert guidance 
                   throughout your real estate journey.
                 </p>
@@ -245,7 +246,7 @@ export default function Home() {
                 <CardTitle>Local Expert</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">
+                <p className="text-gray-700">
                   Deep knowledge of Las Vegas neighborhoods, schools, amenities, and 
                   local market conditions.
                 </p>
@@ -260,7 +261,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Communities</h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-gray-700">
               Discover the best neighborhoods in Las Vegas and Summerlin
             </p>
           </div>
@@ -278,7 +279,7 @@ export default function Home() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4">{community.description}</p>
+                  <p className="text-gray-700 mb-4">{community.description}</p>
                   <div className="space-y-2 mb-4">
                     <div className="flex justify-between text-sm">
                       <span>Sq Ft:</span>
@@ -302,8 +303,8 @@ export default function Home() {
                   </div>
                   <Button asChild className="w-full">
                     <Link to={`/communities/${community.id}`}>
-                      Learn More
-                      <ArrowRight className="w-4 h-4 ml-2" />
+                      Learn More About {community.name}
+                      <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
                     </Link>
                   </Button>
                 </CardContent>
@@ -315,7 +316,7 @@ export default function Home() {
             <Button size="lg" variant="outline" asChild>
               <Link to="/communities">
                 View All Communities
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
               </Link>
             </Button>
           </div>
@@ -333,7 +334,7 @@ export default function Home() {
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Monument at Reverence
               </h2>
-              <p className="text-xl mb-6 text-primary-100">
+              <p className="text-xl mb-6 text-white/95 leading-relaxed">
                 {monumentData.description.short}
               </p>
               <div className="space-y-4 mb-8">
@@ -400,7 +401,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Real Estate Services</h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-gray-700">
               Comprehensive services for buyers, sellers, and investors
             </p>
           </div>
@@ -414,17 +415,17 @@ export default function Home() {
                 <CardTitle>Home Buying</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-gray-700 mb-4">
                   Expert guidance through the home buying process, from search to closing.
                 </p>
-                <ul className="text-sm text-muted-foreground space-y-1 mb-6">
+                <ul className="text-sm text-gray-600 space-y-1 mb-6">
                   <li>• New construction expertise</li>
                   <li>• Market analysis</li>
                   <li>• Negotiation support</li>
                   <li>• Financing guidance</li>
                 </ul>
                 <Button asChild className="w-full">
-                  <Link to="/buying">Learn More</Link>
+                  <Link to="/buying">Learn About Home Buying</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -437,17 +438,17 @@ export default function Home() {
                 <CardTitle>Home Selling</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-gray-700 mb-4">
                   Maximize your home's value with professional marketing and pricing strategies.
                 </p>
-                <ul className="text-sm text-muted-foreground space-y-1 mb-6">
+                <ul className="text-sm text-gray-600 space-y-1 mb-6">
                   <li>• Market pricing analysis</li>
                   <li>• Professional marketing</li>
                   <li>• Staging consultation</li>
                   <li>• Negotiation expertise</li>
                 </ul>
                 <Button asChild className="w-full">
-                  <Link to="/selling">Learn More</Link>
+                  <Link to="/selling">Learn About Home Selling</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -460,17 +461,17 @@ export default function Home() {
                 <CardTitle>Relocation</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4">
+                <p className="text-gray-700 mb-4">
                   Smooth relocation services for families moving to Las Vegas.
                 </p>
-                <ul className="text-sm text-muted-foreground space-y-1 mb-6">
+                <ul className="text-sm text-gray-600 space-y-1 mb-6">
                   <li>• Area orientation</li>
                   <li>• School information</li>
                   <li>• Neighborhood tours</li>
                   <li>• Local connections</li>
                 </ul>
                 <Button asChild className="w-full">
-                  <Link to="/relocate">Learn More</Link>
+                  <Link to="/relocate">Learn About Relocation</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -483,7 +484,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">What My Clients Are Saying</h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-gray-700">
               Don't just take my word for it. Here's what my clients have to say about their experience.
             </p>
           </div>
@@ -497,15 +498,15 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold">Sarah Johnson</h3>
-                    <p className="text-sm text-muted-foreground">Summerlin West</p>
+                    <p className="text-sm text-gray-600">Summerlin West</p>
                   </div>
                 </div>
-                <div className="flex mb-4">
+                <div className="flex mb-4" role="img" aria-label="5 stars">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" aria-hidden="true" />
                   ))}
                 </div>
-                <p className="text-muted-foreground italic">
+                <p className="text-gray-700 italic">
                   "Dr. Jan Duffy made our relocation from California seamless. Her knowledge of Summerlin communities and attention to detail helped us find the perfect home."
                 </p>
               </CardContent>
@@ -515,19 +516,19 @@ export default function Home() {
               <CardContent className="pt-6">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
-                    <HomeIcon className="w-6 h-6 text-primary-600" />
+                    <HomeIcon className="w-6 h-6 text-primary-600" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold">Michael Chen</h3>
-                    <p className="text-sm text-muted-foreground">The Ridges</p>
+                    <p className="text-sm text-gray-600">The Ridges</p>
                   </div>
                 </div>
-                <div className="flex mb-4">
+                <div className="flex mb-4" role="img" aria-label="5 stars">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" aria-hidden="true" />
                   ))}
                 </div>
-                <p className="text-muted-foreground italic">
+                <p className="text-gray-700 italic">
                   "As first-time homebuyers, we were nervous about the process. Dr. Jan guided us through every step and helped us understand the Las Vegas market."
                 </p>
               </CardContent>
@@ -537,19 +538,19 @@ export default function Home() {
               <CardContent className="pt-6">
                 <div className="flex items-center mb-4">
                   <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
-                    <Award className="w-6 h-6 text-primary-600" />
+                    <Award className="w-6 h-6 text-primary-600" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold">Jennifer Martinez</h3>
-                    <p className="text-sm text-muted-foreground">Downtown Summerlin</p>
+                    <p className="text-sm text-gray-600">Downtown Summerlin</p>
                   </div>
                 </div>
-                <div className="flex mb-4">
+                <div className="flex mb-4" role="img" aria-label="5 stars">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" aria-hidden="true" />
                   ))}
                 </div>
-                <p className="text-muted-foreground italic">
+                <p className="text-gray-700 italic">
                   "Dr. Jan helped us sell our home quickly and for top dollar. Her marketing strategy and professional network ensured we had multiple offers within days."
                 </p>
               </CardContent>
@@ -560,7 +561,7 @@ export default function Home() {
             <Button size="lg" variant="outline" asChild>
               <Link to="/about/reviews">
                 Read More Reviews
-                <ArrowRight className="w-5 h-5 ml-2" />
+                <ArrowRight className="w-5 h-5 ml-2" aria-hidden="true" />
               </Link>
             </Button>
           </div>
@@ -611,7 +612,7 @@ export default function Home() {
                 <Button asChild className="mt-4">
                   <Link to="/communities/monument-at-reverence">
                     Explore Monument at Reverence
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                    <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
                   </Link>
                 </Button>
               </CardContent>
@@ -635,7 +636,7 @@ export default function Home() {
                 <Button asChild variant="outline" className="mt-4">
                   <Link to="/buying">
                     Explore Reverence Summerlin Properties
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                    <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
                   </Link>
                 </Button>
               </CardContent>
@@ -718,51 +719,56 @@ export default function Home() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-16 bg-primary text-white">
+      <section className="py-16 bg-primary-700 text-white final-cta-section">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Find Your Dream Home in Reverence Summerlin?
           </h2>
-          <p className="text-xl text-primary-100 mb-8">
+          <p className="text-xl text-white/95 mb-8 leading-relaxed">
             Contact Dr. Jan Duffy today for expert guidance in Reverence Summerlin real estate, including Monument at Reverence. 
             Whether you're buying, selling, or relocating to Reverence Summerlin, I'm here to help you achieve your real estate goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
-              className="bg-accent text-white hover:bg-accent-600 hover:shadow-lg hover:-translate-y-0.5"
+              className="w-full sm:w-auto"
               asChild
             >
-              <a href={`tel:${config.contact.phone.replace(/\s|[()]/g, '')}`}>
-                <Phone className="w-5 h-5 mr-2" />
+              <a href={`tel:+1${config.contact.phone.replace(/\D/g, '')}`} aria-label={`Call ${config.contact.phone}`}>
+                <Phone className="w-5 h-5" aria-hidden="true" />
                 Call {config.contact.phone}
               </a>
             </Button>
             <Button 
               size="lg"
-              className="bg-accent-600 text-white hover:bg-accent-700 hover:shadow-lg"
+              variant="secondary"
+              className="bg-ctaSecondary-500 hover:bg-ctaSecondary-600 text-white w-full sm:w-auto"
               asChild
             >
-              <a href={`tel:${config.contact.phoneSecondary.replace(/\s|-/g, '')}`}>
-                <Phone className="w-5 h-5 mr-2" />
+              <a href={`tel:+1${config.contact.phoneSecondary.replace(/\D/g, '')}`} aria-label={`Call urgent line ${config.contact.phoneSecondary}`}>
+                <Phone className="w-5 h-5" aria-hidden="true" />
                 Urgent: {config.contact.phoneSecondary}
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary transition-all">
-              <Mail className="w-5 h-5 mr-2" />
-              Send Email
+            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary transition-all w-full sm:w-auto" asChild>
+              <a href={`mailto:${config.contact.email}`} aria-label={`Email ${config.contact.email}`}>
+                <Mail className="w-5 h-5" aria-hidden="true" />
+                Send Email
+              </a>
             </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary transition-all">
-              <Calendar className="w-5 h-5 mr-2" />
-              Schedule Consultation
+            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary transition-all w-full sm:w-auto" asChild>
+              <a href={config.contact.calendly} target="_blank" rel="noopener noreferrer" aria-label="Schedule a consultation">
+                <Calendar className="w-5 h-5" aria-hidden="true" />
+                Schedule Consultation
+              </a>
             </Button>
           </div>
           <div className="mt-8 p-6 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20">
             <div className="flex items-center justify-center gap-2 mb-2">
-              <MapPin className="w-5 h-5" />
-              <span className="font-semibold">Office Location</span>
+              <MapPin className="w-5 h-5 text-gold-light" aria-hidden="true" />
+              <span className="font-semibold text-white">Office Location</span>
             </div>
-            <p className="text-primary-100">
+            <p className="text-white/95">
               {config.agent.office.fullAddress}
             </p>
           </div>
@@ -777,7 +783,7 @@ export function ErrorBoundary() {
     <div className="min-h-screen flex items-center justify-center bg-background">
       <div className="text-center">
         <h1 className="text-2xl font-bold mb-4">Something went wrong</h1>
-        <p className="text-muted-foreground mb-8">
+        <p className="text-gray-700 mb-8">
           We're having trouble loading the homepage.
         </p>
         <Button onClick={() => window.location.reload()}>

@@ -36,18 +36,22 @@ export function Header() {
             </div>
             <div className="flex items-center gap-4">
               <a 
-                href={`tel:${config.contact.phone}`}
+                href={`tel:+1${config.contact.phone.replace(/\D/g, '')}`}
                 className="flex items-center gap-1 hover:text-accent-light transition-colors"
+                aria-label={`Call ${config.contact.phone}`}
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-4 h-4" aria-hidden="true" />
                 <span className="hidden sm:inline">{config.contact.phone}</span>
+                <span className="sm:hidden">Call</span>
               </a>
               <a 
                 href={`mailto:${config.contact.email}`}
                 className="flex items-center gap-1 hover:text-accent-light transition-colors"
+                aria-label={`Email ${config.contact.email}`}
               >
-                <Mail className="w-4 h-4" />
+                <Mail className="w-4 h-4" aria-hidden="true" />
                 <span className="hidden sm:inline">Email</span>
+                <span className="sm:hidden">Email</span>
               </a>
             </div>
           </div>
@@ -207,8 +211,10 @@ export function Header() {
               size="sm"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-700 hover:text-primary-600"
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMenuOpen}
             >
-              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMenuOpen ? <X className="w-5 h-5" aria-hidden="true" /> : <Menu className="w-5 h-5" aria-hidden="true" />}
             </Button>
           </div>
         </div>
@@ -263,9 +269,11 @@ export function Header() {
                 </div>
                 <div className="mt-4 text-center">
                   <a 
-                    href={`tel:${config.contact.phone}`}
-                    className="text-primary font-medium hover:text-accent transition-colors"
+                    href={`tel:+1${config.contact.phone.replace(/\D/g, '')}`}
+                    className="text-accent-500 font-bold hover:text-accent-600 transition-colors phone-cta"
+                    aria-label={`Call ${config.contact.phone}`}
                   >
+                    <Phone className="w-4 h-4 inline mr-1" aria-hidden="true" />
                     {config.contact.phone}
                   </a>
                 </div>

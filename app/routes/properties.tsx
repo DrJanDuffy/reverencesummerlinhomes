@@ -380,11 +380,27 @@ export default function Properties() {
                         View Details
                       </Link>
                     </Button>
-                    <Button variant="outline" size="sm">
-                      <Phone className="w-4 h-4" />
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      aria-label={`Call about ${property.address}`}
+                      asChild
+                    >
+                      <a href={`tel:+1${config.contact.phone.replace(/\D/g, '')}`}>
+                        <Phone className="w-4 h-4" aria-hidden="true" />
+                        <span className="sr-only">Call about {property.address}</span>
+                      </a>
                     </Button>
-                    <Button variant="outline" size="sm">
-                      <Mail className="w-4 h-4" />
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      aria-label={`Email about ${property.address}`}
+                      asChild
+                    >
+                      <a href={`mailto:${config.contact.email}?subject=Inquiry about ${property.address}`}>
+                        <Mail className="w-4 h-4" aria-hidden="true" />
+                        <span className="sr-only">Email about {property.address}</span>
+                      </a>
                     </Button>
                   </div>
                   
@@ -397,10 +413,11 @@ export default function Properties() {
                           size="sm" 
                           className="flex-1"
                           onClick={() => window.open(property.virtualTour, '_blank')}
+                          aria-label={`View virtual tour for ${property.address}`}
                         >
-                          <Eye className="w-4 h-4 mr-1" />
+                          <Eye className="w-4 h-4 mr-1" aria-hidden="true" />
                           Virtual Tour
-                          <ExternalLink className="w-3 h-3 ml-1" />
+                          <ExternalLink className="w-3 h-3 ml-1" aria-hidden="true" />
                         </Button>
                       )}
                       {property.videoTour && (
@@ -409,10 +426,11 @@ export default function Properties() {
                           size="sm" 
                           className="flex-1"
                           onClick={() => window.open(property.videoTour, '_blank')}
+                          aria-label={`Watch video tour for ${property.address}`}
                         >
-                          <Play className="w-4 h-4 mr-1" />
+                          <Play className="w-4 h-4 mr-1" aria-hidden="true" />
                           Video Tour
-                          <ExternalLink className="w-3 h-3 ml-1" />
+                          <ExternalLink className="w-3 h-3 ml-1" aria-hidden="true" />
                         </Button>
                       )}
                     </div>
