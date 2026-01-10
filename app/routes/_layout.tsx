@@ -1,6 +1,7 @@
 import { Outlet } from "react-router";
 import { Header } from "~/components/Header";
 import { Footer } from "~/components/Footer";
+import { StickyPhoneBar } from "~/components/StickyPhoneBar";
 import type { Route } from "./+types/_layout";
 
 export function meta() {
@@ -21,6 +22,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <StickyPhoneBar />
     </div>
   );
 }

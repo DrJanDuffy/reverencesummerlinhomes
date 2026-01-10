@@ -20,7 +20,7 @@ export const config = {
     phone: "(702) 930-8222",
     phoneSecondary: "702-222-1964", // For urgent/marketing CTAs
     email: "DrJanSells@ReverenceSummerlinHomes.com",
-    calendly: "https://calendly.com/drjanetduffy",
+    calendly: "https://calendly.com/dr-jan-duffy",
   },
   social: {
     facebook: "https://facebook.com/drjanetduffy",

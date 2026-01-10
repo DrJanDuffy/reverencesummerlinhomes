@@ -69,9 +69,15 @@ export default function Valuation() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Property Information</h2>
-            <Form method="post" className="space-y-6">
+          <div className="valuation-form-container relative bg-white rounded-2xl shadow-xl p-8 border-4 border-accent-500">
+            <div className="absolute -top-3 right-6 bg-accent-500 text-white px-4 py-1 rounded-full font-bold text-sm uppercase tracking-wide shadow-cta">
+              FREE
+            </div>
+            <h2 className="text-2xl font-bold text-primary mb-2">Property Information</h2>
+            <p className="text-gray-500 text-sm mb-6 subtitle">
+              Get your free home valuation in minutes
+            </p>
+            <Form method="post" className="space-y-6 valuation-form">
               <div>
                 <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-2">
                   Street Address *
@@ -81,7 +87,7 @@ export default function Valuation() {
                   id="address"
                   name="address"
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all"
                   placeholder="123 Main Street"
                 />
               </div>
@@ -95,7 +101,7 @@ export default function Valuation() {
                     id="city"
                     name="city"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all"
                   >
                     <option value="">Select City</option>
                     <option value="Las Vegas">Las Vegas</option>
@@ -114,7 +120,7 @@ export default function Valuation() {
                     id="zip"
                     name="zip"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all"
                     placeholder="89134"
                   />
                 </div>
@@ -128,7 +134,7 @@ export default function Valuation() {
                   id="propertyType"
                   name="propertyType"
                   required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all"
                 >
                   <option value="">Select Type</option>
                   <option value="single-family">Single Family Home</option>
@@ -148,7 +154,7 @@ export default function Valuation() {
                     id="bedrooms"
                     name="bedrooms"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all"
                   >
                     <option value="">Beds</option>
                     <option value="1">1</option>
@@ -167,7 +173,7 @@ export default function Valuation() {
                     id="bathrooms"
                     name="bathrooms"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all"
                   >
                     <option value="">Baths</option>
                     <option value="1">1</option>
@@ -188,7 +194,7 @@ export default function Valuation() {
                     id="squareFeet"
                     name="squareFeet"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all"
                     placeholder="2000"
                   />
                 </div>
@@ -204,7 +210,7 @@ export default function Valuation() {
                   name="yearBuilt"
                   min="1900"
                   max="2024"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all"
                   placeholder="2010"
                 />
               </div>
@@ -221,7 +227,7 @@ export default function Valuation() {
                       id="ownerName"
                       name="ownerName"
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all"
                     />
                   </div>
                   <div>
@@ -233,7 +239,7 @@ export default function Valuation() {
                       id="email"
                       name="email"
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all"
                     />
                   </div>
                 </div>
@@ -245,14 +251,14 @@ export default function Valuation() {
                     type="tel"
                     id="phone"
                     name="phone"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 transition-all"
                   />
                 </div>
               </div>
               
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 transition-colors font-medium"
+                className="w-full bg-gradient-to-r from-accent-500 via-accent-500 to-accent-light text-white py-4 px-6 rounded-lg hover:from-accent-600 hover:via-accent-600 hover:to-accent-500 hover:-translate-y-0.5 active:translate-y-0 transition-all font-bold text-lg uppercase tracking-wide shadow-cta hover:shadow-cta-hover"
               >
                 Get My Home Valuation
               </button>
@@ -264,28 +270,28 @@ export default function Valuation() {
               <h2 className="text-2xl font-bold text-gray-900 mb-6">What You'll Receive</h2>
               <ul className="space-y-4 text-gray-600">
                 <li className="flex items-start">
-                  <span className="text-blue-600 mr-3 mt-1">✓</span>
+                  <span className="text-accent-500 mr-3 mt-1 font-bold text-xl">✓</span>
                   <div>
                     <h3 className="font-semibold text-gray-900">Accurate Market Value</h3>
                     <p>Professional analysis based on recent comparable sales in your area</p>
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-blue-600 mr-3 mt-1">✓</span>
+                  <span className="text-accent-500 mr-3 mt-1 font-bold text-xl">✓</span>
                   <div>
                     <h3 className="font-semibold text-gray-900">Comparable Sales Report</h3>
                     <p>Detailed analysis of similar properties that have recently sold</p>
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-blue-600 mr-3 mt-1">✓</span>
+                  <span className="text-accent-500 mr-3 mt-1 font-bold text-xl">✓</span>
                   <div>
                     <h3 className="font-semibold text-gray-900">Market Trends</h3>
                     <p>Current market conditions and trends affecting your property value</p>
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <span className="text-blue-600 mr-3 mt-1">✓</span>
+                  <span className="text-accent-500 mr-3 mt-1 font-bold text-xl">✓</span>
                   <div>
                     <h3 className="font-semibold text-gray-900">Selling Recommendations</h3>
                     <p>Tips to maximize your home's value and appeal to buyers</p>

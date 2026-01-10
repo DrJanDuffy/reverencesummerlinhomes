@@ -1,0 +1,192 @@
+---
+name: cursorrules
+description: This is a new rule
+---
+
+# Overview
+
+Insert overview text here. The agent will only see this should they choose to apply the rule.
+# .cursorrules — Reverence Summerlin Homes Website
+
+## PROJECT OVERVIEW
+- **Site:** reverencesummerlinhomes.com
+- **Purpose:** Lead generation for Reverence/Summerlin real estate
+- **Agent:** Dr. Jan Duffy
+- **Tracking Phone:** (702) 930-8222 (dedicated to this site)
+
+---
+
+## CRITICAL CONTACT INFO FOR THIS SITE
+
+| Field | Value |
+|-------|-------|
+| Agent Name | Dr. Jan Duffy |
+| Phone (this site) | (702) 930-8222 |
+| License | S.0197614.LLC |
+| Email | DrJanSells@ReverenceSummerlinHomes.com |
+| Address | 10800 Reverence Pkwy, Las Vegas, NV 89134 |
+
+### ⚠️ COMMON ERRORS TO FIX:
+- "Dr. Janet Duffy" → "Dr. Jan Duffy"
+- "(702) 555-0100" → "(702) 930-8222"
+- "Reference Summerlin" → "Reverence Summerlin"
+- "License #" (empty) → "License #S.0197614.LLC"
+
+---
+
+## COLOR SYSTEM
+
+```css
+:root {
+  /* Primary Brand */
+  --color-navy: #1e3a5f;
+  --color-navy-dark: #152a45;
+  --color-navy-light: #2d5a87;
+  
+  /* Conversion CTAs */
+  --color-cta-primary: #e85d04;       /* Orange */
+  --color-cta-primary-hover: #d54d00;
+  --color-cta-secondary: #10b981;     /* Green */
+  --color-cta-secondary-hover: #059669;
+  
+  /* Neutrals */
+  --color-white: #ffffff;
+  --color-gray-100: #e5e7eb;
+  --color-gray-500: #6b7280;
+  --color-gray-700: #374151;
+  --color-gray-900: #111827;
+  
+  /* Accents */
+  --color-gold: #d4a012;
+  --color-gold-light: #fbbf24;
+}
+```
+
+---
+
+## COMPONENT PATTERNS
+
+### Primary CTA Button
+```css
+.btn-cta-primary {
+  background: linear-gradient(135deg, var(--color-cta-primary) 0%, #ff7b2e 100%);
+  color: white;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(232, 93, 4, 0.4);
+}
+```
+
+### Phone Display
+```css
+.phone-cta {
+  color: var(--color-cta-primary);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+```
+
+### Mobile Sticky Bar
+- Orange gradient background
+- Fixed bottom position
+- Phone icon + clickable number
+- Only visible on screens < 768px
+
+---
+
+## SITE STRUCTURE (Do Not Change)
+
+```
+/
+├── /buying
+│   ├── /new-home
+│   ├── /military-veterans
+│   ├── /mortgage-calculator
+│   └── /financing
+├── /selling
+│   ├── /foreclosure-avoidance
+│   └── /short-sales
+├── /communities
+│   ├── /monument-at-reverence (Featured)
+│   ├── /summerlin-west
+│   ├── /downtown-summerlin
+│   ├── /the-ridges
+│   ├── /luxury-homes
+│   └── /new-construction
+├── /relocate
+│   ├── /summerlin
+│   ├── /california
+│   ├── /seattle
+│   └── /new-york
+├── /resources
+│   ├── /blog
+│   ├── /youtube
+│   ├── /schools
+│   └── /golf-courses
+├── /about
+├── /valuation
+└── /contact
+```
+
+---
+
+## BUILDER CONTEXT
+
+**Reverence is exclusively built by Pulte Homes.**
+
+Key communities:
+- **Monument at Reverence** — Townhomes, $500s+, 1,654-1,869 sq ft
+- **The Heights at Reverence** — Guard-gated luxury, $650K-$1M+
+- **Collections I-VI** — Various single-family, 1,579-4,815 sq ft
+
+Pulte Sales Office: (702) 505-4705
+
+---
+
+## SEO KEYWORDS
+
+Primary:
+- Reverence Summerlin homes
+- Monument at Reverence
+- Pulte Homes Las Vegas
+- Summerlin new construction
+
+Secondary:
+- Guard-gated Summerlin
+- Summerlin West real estate
+- Las Vegas luxury homes
+- 89138 homes for sale
+
+---
+
+## CONVERSION GOALS
+
+1. **Primary:** Schedule consultation / tour
+2. **Secondary:** Get home valuation
+3. **Tertiary:** Phone call
+
+Every page should have at least ONE clear CTA above the fold.
+
+---
+
+## TESTING CHECKLIST
+
+Before any deployment:
+- [ ] All "Janet" → "Jan" 
+- [ ] All phone numbers = (702) 930-8222
+- [ ] License number present in footer
+- [ ] "Reverence" spelled correctly (not "Reference")
+- [ ] Mobile sticky phone bar works
+- [ ] All tel: links clickable
+- [ ] Forms submit correctly
+- [ ] Page speed < 3s on mobile
+
+---
+
+## DO NOT:
+- Use any phone number other than (702) 930-8222 on this site
+- Change "Dr. Jan Duffy" to any other name variation
+- Remove the Monument at Reverence featured section
+- Break existing URL structure
+- Add pop-ups without approval

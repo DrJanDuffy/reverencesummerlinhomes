@@ -85,28 +85,35 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Button 
                   size="lg" 
-                  className="bg-accent text-white hover:bg-accent-600 hover:shadow-lg hover:-translate-y-0.5"
+                  className="w-full sm:w-auto"
                   asChild
                 >
-                  <a href={`tel:${config.contact.phone.replace(/\s|[()]/g, '')}`}>
-                    <Phone className="w-5 h-5 mr-2" />
+                  <a href={`tel:+1${config.contact.phone.replace(/\D/g, '')}`}>
+                    <Phone className="w-5 h-5" />
                     Call {config.contact.phone}
                   </a>
                 </Button>
                 <Button 
                   size="lg" 
                   variant="secondary"
-                  className="bg-white text-primary hover:bg-primary-50"
+                  className="bg-ctaSecondary-500 hover:bg-ctaSecondary-600 text-white w-full sm:w-auto"
                   asChild
                 >
-                  <a href={`tel:${config.contact.phoneSecondary.replace(/\s|-/g, '')}`}>
-                    <Phone className="w-5 h-5 mr-2" />
+                  <a href={`tel:+1${config.contact.phoneSecondary.replace(/\D/g, '')}`}>
+                    <Phone className="w-5 h-5" />
                     Urgent: {config.contact.phoneSecondary}
                   </a>
                 </Button>
-                <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary transition-all">
-                  <Calendar className="w-5 h-5 mr-2" />
-                  Schedule Consultation
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-2 border-white text-white hover:bg-white hover:text-primary transition-all w-full sm:w-auto"
+                  asChild
+                >
+                  <a href={config.contact.calendly} target="_blank" rel="noopener noreferrer">
+                    <Calendar className="w-5 h-5" />
+                    Schedule Consultation
+                  </a>
                 </Button>
               </div>
               
