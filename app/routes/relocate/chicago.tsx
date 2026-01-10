@@ -1,9 +1,17 @@
 import type { Route } from "./+types/relocate";
+import { config } from "~/lib/config";
+
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/relocate/chicago` },
+  ];
+}
 
 export function meta() {
   return [
-    { title: "Relocate from Chicago to Las Vegas | Dr. Janet Duffy" },
-    { name: "description", content: "Moving from Chicago to Las Vegas? Dr. Janet Duffy helps Chicago residents relocate to Las Vegas." },
+    { title: "Relocate from Chicago to Las Vegas | Dr. Jan Duffy" },
+    { name: "description", content: "Moving from Chicago to Las Vegas? Dr. Jan Duffy helps Chicago residents relocate to Las Vegas." },
+    { property: "og:url", content: `${config.seo.siteUrl}/relocate/chicago` },
   ];
 }
 

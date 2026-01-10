@@ -2,8 +2,8 @@ import type { Route } from "./+types/communities";
 
 export function meta() {
   return [
-    { title: "Las Vegas Communities | Dr. Janet Duffy" },
-    { name: "description", content: "Explore Las Vegas's premier communities with Dr. Janet Duffy. From Summerlin to Henderson, find your perfect neighborhood." },
+    { title: "Las Vegas Communities | Dr. Jan Duffy" },
+    { name: "description", content: "Explore Las Vegas's premier communities with Dr. Jan Duffy. From Summerlin to Henderson, find your perfect neighborhood." },
   ];
 }
 

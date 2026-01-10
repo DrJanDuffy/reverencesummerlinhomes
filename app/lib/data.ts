@@ -12,7 +12,7 @@ export const communitiesData = [
     description: "Two-story townhomes in Summerlin's northernmost guard-gated community",
     features: ["24-hour guard-gated", "Energy-efficient", "Modern floor plans"],
     amenities: ["Reverence Park", "Community pool", "Fitness center", "Walking trails"],
-    highlights: ["Featured Pulte Community", "Dr. Janet Duffy On-Site Agent"],
+    highlights: ["Featured Pulte Community", "Dr. Jan Duffy On-Site Agent"],
   },
   {
     id: "summerlin-west",

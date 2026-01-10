@@ -1,4 +1,4 @@
-// Real Estate Domain Types for Reference Summerlin Homes
+// Real Estate Domain Types for Reverence Summerlin Homes
 
 export interface Property {
   id: string

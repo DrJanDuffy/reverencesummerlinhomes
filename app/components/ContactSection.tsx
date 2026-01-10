@@ -24,7 +24,7 @@ export function ContactSection() {
   };
 
   return (
-    <section className="py-16 bg-primary-600 text-white">
+    <section className="py-16 bg-primary text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">
@@ -59,7 +59,7 @@ export function ContactSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span>{config.contact.address}</span>
+                <span>{config.agent.office.fullAddress}</span>
               </div>
             </div>
 
@@ -93,7 +93,7 @@ export function ContactSection() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-md text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600"
+                  className="w-full px-4 py-3 rounded-md text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary"
                   placeholder="Your full name"
                 />
               </div>
@@ -109,7 +109,7 @@ export function ContactSection() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-md text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600"
+                  className="w-full px-4 py-3 rounded-md text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -124,8 +124,8 @@ export function ContactSection() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-md text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600"
-                  placeholder="(702) 555-0123"
+                  className="w-full px-4 py-3 rounded-md text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary"
+                  placeholder="(702) 930-8222"
                 />
               </div>
 
@@ -138,7 +138,7 @@ export function ContactSection() {
                   name="helpType"
                   value={formData.helpType}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-md text-gray-900 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600"
+                  className="w-full px-4 py-3 rounded-md text-gray-900 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary"
                 >
                   <option value="">Select...</option>
                   <option value="buying">Buying</option>
@@ -160,7 +160,7 @@ export function ContactSection() {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-md text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600"
+                  className="w-full px-4 py-3 rounded-md text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary"
                   placeholder="Tell me about your real estate goals..."
                 />
               </div>

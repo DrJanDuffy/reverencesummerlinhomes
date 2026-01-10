@@ -2,8 +2,8 @@ import type { Route } from "./+types/resources";
 
 export function meta() {
   return [
-    { title: "Las Vegas Schools | Dr. Janet Duffy" },
-    { name: "description", content: "Las Vegas schools guide. Dr. Janet Duffy helps you find the best schools in Las Vegas and Summerlin." },
+    { title: "Las Vegas Schools | Dr. Jan Duffy" },
+    { name: "description", content: "Las Vegas schools guide. Dr. Jan Duffy helps you find the best schools in Las Vegas and Summerlin." },
   ];
 }
 

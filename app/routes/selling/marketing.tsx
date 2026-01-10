@@ -2,11 +2,11 @@ import type { Route } from "./+types/selling-marketing";
 
 export function meta() {
   return [
-    { title: "Home Marketing Services | Dr. Janet Duffy" },
-    { name: "description", content: "Professional home marketing services in Las Vegas. Dr. Janet Duffy provides comprehensive marketing strategies including photography, virtual tours, and targeted advertising." },
+    { title: "Home Marketing Services | Dr. Jan Duffy" },
+    { name: "description", content: "Professional home marketing services in Las Vegas. Dr. Jan Duffy provides comprehensive marketing strategies including photography, virtual tours, and targeted advertising." },
     { name: "keywords", content: "home marketing Las Vegas, real estate marketing, home photography, virtual tours Las Vegas" },
-    { property: "og:title", content: "Home Marketing Services | Dr. Janet Duffy" },
-    { property: "og:description", content: "Professional home marketing services in Las Vegas. Dr. Janet Duffy provides comprehensive marketing strategies including photography, virtual tours, and targeted advertising." },
+    { property: "og:title", content: "Home Marketing Services | Dr. Jan Duffy" },
+    { property: "og:description", content: "Professional home marketing services in Las Vegas. Dr. Jan Duffy provides comprehensive marketing strategies including photography, virtual tours, and targeted advertising." },
   ];
 }
 
@@ -19,7 +19,7 @@ export default function Marketing() {
             Professional Home Marketing
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Stand out in the competitive Las Vegas real estate market with Dr. Janet Duffy's comprehensive marketing services. From professional photography to virtual tours and targeted advertising, I'll ensure your home gets maximum exposure to qualified buyers.
+            Stand out in the competitive Las Vegas real estate market with Dr. Jan Duffy's comprehensive marketing services. From professional photography to virtual tours and targeted advertising, I'll ensure your home gets maximum exposure to qualified buyers.
           </p>
         </div>
 

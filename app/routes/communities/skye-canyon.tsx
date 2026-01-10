@@ -29,14 +29,14 @@ import {
 
 export function meta() {
   return [
-    { title: "Skye Canyon Homes for Sale | Master-Planned Community | Dr. Janet Duffy" },
-    { name: "description", content: "Discover homes for sale in Skye Canyon, Las Vegas. Dr. Janet Duffy specializes in Skye Canyon real estate with modern amenities, outdoor recreation, and family-friendly living." },
-    { name: "keywords", content: "Skye Canyon homes for sale, Skye Canyon Las Vegas real estate, master-planned community, outdoor recreation, family-friendly, Dr. Janet Duffy" },
+    { title: "Skye Canyon Homes for Sale | Master-Planned Community | Dr. Jan Duffy" },
+    { name: "description", content: "Discover homes for sale in Skye Canyon, Las Vegas. Dr. Jan Duffy specializes in Skye Canyon real estate with modern amenities, outdoor recreation, and family-friendly living." },
+    { name: "keywords", content: "Skye Canyon homes for sale, Skye Canyon Las Vegas real estate, master-planned community, outdoor recreation, family-friendly, Dr. Jan Duffy" },
     { property: "og:title", content: "Skye Canyon Homes for Sale | Master-Planned Community" },
-    { property: "og:description", content: "Homes for sale in Skye Canyon, Las Vegas with modern amenities, outdoor recreation, and family-friendly living. Expert real estate guidance from Dr. Janet Duffy." },
+    { property: "og:description", content: "Homes for sale in Skye Canyon, Las Vegas with modern amenities, outdoor recreation, and family-friendly living. Expert real estate guidance from Dr. Jan Duffy." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Skye Canyon Homes for Sale | Dr. Janet Duffy" },
+    { name: "twitter:title", content: "Skye Canyon Homes for Sale | Dr. Jan Duffy" },
     { name: "twitter:description", content: "Homes for sale in Skye Canyon, Las Vegas with modern amenities and outdoor recreation." }
   ];
 }
@@ -365,7 +365,7 @@ export default function SkyeCanyon() {
               Your Skye Canyon Real Estate Expert
             </h2>
             <p className="text-xl text-gray-600">
-              Dr. Janet Duffy brings unmatched expertise in Skye Canyon real estate
+              Dr. Jan Duffy brings unmatched expertise in Skye Canyon real estate
             </p>
           </div>
 
@@ -418,7 +418,7 @@ export default function SkyeCanyon() {
             </div>
 
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Janet Duffy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-blue-600 mr-3" />
@@ -449,7 +449,7 @@ export default function SkyeCanyon() {
             Ready to Find Your Skye Canyon Home?
           </h2>
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-            Let Dr. Janet Duffy guide you through Skye Canyon's real estate market with personalized service and local expertise.
+            Let Dr. Jan Duffy guide you through Skye Canyon's real estate market with personalized service and local expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50">

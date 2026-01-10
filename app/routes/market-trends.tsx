@@ -26,10 +26,10 @@ import type { Route } from "./+types/market-trends";
 
 export function meta() {
   return [
-    { title: "Las Vegas Real Estate Market Trends | Dr. Janet Duffy" },
-    { name: "description", content: "Stay informed with the latest Las Vegas real estate market trends, pricing data, and market insights from Dr. Janet Duffy. Make data-driven decisions." },
-    { name: "keywords", content: "Las Vegas real estate trends, Summerlin market data, Las Vegas home prices, real estate market analysis, Dr. Janet Duffy" },
-    { property: "og:title", content: "Las Vegas Real Estate Market Trends | Dr. Janet Duffy" },
+    { title: "Las Vegas Real Estate Market Trends | Dr. Jan Duffy" },
+    { name: "description", content: "Stay informed with the latest Las Vegas real estate market trends, pricing data, and market insights from Dr. Jan Duffy. Make data-driven decisions." },
+    { name: "keywords", content: "Las Vegas real estate trends, Summerlin market data, Las Vegas home prices, real estate market analysis, Dr. Jan Duffy" },
+    { property: "og:title", content: "Las Vegas Real Estate Market Trends | Dr. Jan Duffy" },
     { property: "og:description", content: "Latest Las Vegas real estate market trends and pricing data." },
     { property: "og:type", content: "website" },
     { property: "og:url", content: `${config.seo.siteUrl}/market-trends` },
@@ -503,7 +503,7 @@ export default function MarketTrends() {
                   Expert Market Insights
                 </CardTitle>
                 <CardDescription>
-                  Analysis from Dr. Janet Duffy, Las Vegas Real Estate Expert
+                  Analysis from Dr. Jan Duffy, Las Vegas Real Estate Expert
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -544,7 +544,7 @@ export default function MarketTrends() {
               <h3 className="text-2xl font-bold mb-4">Need Personalized Market Analysis?</h3>
               <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
                 Get a customized market report for your specific neighborhood or property type. 
-                Dr. Janet Duffy provides detailed analysis to help you make informed decisions.
+                Dr. Jan Duffy provides detailed analysis to help you make informed decisions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="bg-white text-primary-600 hover:bg-primary-50">

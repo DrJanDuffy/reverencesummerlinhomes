@@ -27,14 +27,14 @@ import {
 
 export function meta() {
   return [
-    { title: "New Construction Homes Las Vegas | Brand New Builds | Dr. Janet Duffy" },
-    { name: "description", content: "Discover new construction homes in Las Vegas. Dr. Janet Duffy specializes in new build homes with modern features, energy efficiency, and customization options." },
-    { name: "keywords", content: "new construction homes Las Vegas, new build homes, custom homes, energy efficient homes, Dr. Janet Duffy" },
+    { title: "New Construction Homes Las Vegas | Brand New Builds | Dr. Jan Duffy" },
+    { name: "description", content: "Discover new construction homes in Las Vegas. Dr. Jan Duffy specializes in new build homes with modern features, energy efficiency, and customization options." },
+    { name: "keywords", content: "new construction homes Las Vegas, new build homes, custom homes, energy efficient homes, Dr. Jan Duffy" },
     { property: "og:title", content: "New Construction Homes Las Vegas | Brand New Builds" },
-    { property: "og:description", content: "New construction homes in Las Vegas with modern features, energy efficiency, and customization options. Expert real estate guidance from Dr. Janet Duffy." },
+    { property: "og:description", content: "New construction homes in Las Vegas with modern features, energy efficiency, and customization options. Expert real estate guidance from Dr. Jan Duffy." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "New Construction Homes Las Vegas | Dr. Janet Duffy" },
+    { name: "twitter:title", content: "New Construction Homes Las Vegas | Dr. Jan Duffy" },
     { name: "twitter:description", content: "New construction homes in Las Vegas with modern features and energy efficiency." }
   ];
 }
@@ -363,7 +363,7 @@ export default function NewConstruction() {
               Your New Construction Expert
             </h2>
             <p className="text-xl text-gray-600">
-              Dr. Janet Duffy brings unmatched expertise in new construction real estate
+              Dr. Jan Duffy brings unmatched expertise in new construction real estate
             </p>
           </div>
 
@@ -416,7 +416,7 @@ export default function NewConstruction() {
             </div>
 
             <div className="bg-gradient-to-br from-orange-50 to-yellow-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Janet Duffy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-orange-600 mr-3" />
@@ -447,7 +447,7 @@ export default function NewConstruction() {
             Ready to Build Your Dream Home?
           </h2>
           <p className="text-xl mb-8 text-orange-100 max-w-2xl mx-auto">
-            Let Dr. Janet Duffy guide you through Las Vegas's new construction market with personalized service and builder partnerships.
+            Let Dr. Jan Duffy guide you through Las Vegas's new construction market with personalized service and builder partnerships.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50">

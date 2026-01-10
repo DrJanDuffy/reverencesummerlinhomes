@@ -25,11 +25,11 @@ export function meta() {
     { title: `${monumentData.name} | ${config.seo.siteName}` },
     { 
       name: "description", 
-      content: `${monumentData.description.short} Expert guidance from Dr. Janet Duffy, featured Pulte Homes agent. Starting from the $500s.` 
+      content: `${monumentData.description.short} Expert guidance from Dr. Jan Duffy, featured Pulte Homes agent. Starting from the $500s.` 
     },
     { 
       name: "keywords", 
-      content: "Monument at Reverence, Pulte Homes, Summerlin townhomes, new construction Las Vegas, Reverence community, Dr. Janet Duffy" 
+      content: "Monument at Reverence, Pulte Homes, Summerlin townhomes, new construction Las Vegas, Reverence community, Dr. Jan Duffy" 
     },
     { property: "og:title", content: `${monumentData.name} | ${config.seo.siteName}` },
     { property: "og:description", content: monumentData.description.short },
@@ -117,7 +117,7 @@ export default function MonumentAtReverence() {
                 Meet Your On-Site Agent
               </CardTitle>
               <CardDescription className="text-lg">
-                Dr. Janet Duffy - Featured Pulte Homes Buying Agent
+                Dr. Jan Duffy - Featured Pulte Homes Buying Agent
               </CardDescription>
             </CardHeader>
             <CardContent className="text-center">
@@ -131,7 +131,7 @@ export default function MonumentAtReverence() {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button className="bg-primary-600 hover:bg-primary-700">
                     <Phone className="w-4 h-4 mr-2" />
-                    Call Dr. Janet Duffy
+                    Call Dr. Jan Duffy
                   </Button>
                   <Button variant="outline" className="border-primary-600 text-primary-600 hover:bg-primary-50">
                     Schedule Consultation
@@ -410,7 +410,7 @@ export default function MonumentAtReverence() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Make Monument at Reverence Your Home?</h2>
           <p className="text-xl text-muted-foreground mb-8">
-            Contact Dr. Janet Duffy today to schedule your private tour and learn more about 
+            Contact Dr. Jan Duffy today to schedule your private tour and learn more about 
             available homes and special incentives.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

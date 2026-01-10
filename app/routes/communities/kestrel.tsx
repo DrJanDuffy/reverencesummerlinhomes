@@ -31,14 +31,14 @@ import {
 
 export function meta() {
   return [
-    { title: "Kestrel Homes for Sale | Luxury Living & Natural Beauty | Dr. Janet Duffy" },
-    { name: "description", content: "Discover homes for sale in Kestrel, Las Vegas. Dr. Janet Duffy specializes in Kestrel real estate with luxury amenities, natural beauty, and exclusive living." },
-    { name: "keywords", content: "Kestrel homes for sale, Kestrel Las Vegas real estate, luxury living, natural beauty, exclusive community, Dr. Janet Duffy" },
+    { title: "Kestrel Homes for Sale | Luxury Living & Natural Beauty | Dr. Jan Duffy" },
+    { name: "description", content: "Discover homes for sale in Kestrel, Las Vegas. Dr. Jan Duffy specializes in Kestrel real estate with luxury amenities, natural beauty, and exclusive living." },
+    { name: "keywords", content: "Kestrel homes for sale, Kestrel Las Vegas real estate, luxury living, natural beauty, exclusive community, Dr. Jan Duffy" },
     { property: "og:title", content: "Kestrel Homes for Sale | Luxury Living & Natural Beauty" },
-    { property: "og:description", content: "Homes for sale in Kestrel, Las Vegas with luxury amenities, natural beauty, and exclusive living. Expert real estate guidance from Dr. Janet Duffy." },
+    { property: "og:description", content: "Homes for sale in Kestrel, Las Vegas with luxury amenities, natural beauty, and exclusive living. Expert real estate guidance from Dr. Jan Duffy." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Kestrel Homes for Sale | Dr. Janet Duffy" },
+    { name: "twitter:title", content: "Kestrel Homes for Sale | Dr. Jan Duffy" },
     { name: "twitter:description", content: "Homes for sale in Kestrel, Las Vegas with luxury amenities and natural beauty." }
   ];
 }
@@ -367,7 +367,7 @@ export default function Kestrel() {
               Your Kestrel Real Estate Expert
             </h2>
             <p className="text-xl text-gray-600">
-              Dr. Janet Duffy brings unmatched expertise in Kestrel real estate
+              Dr. Jan Duffy brings unmatched expertise in Kestrel real estate
             </p>
           </div>
 
@@ -420,7 +420,7 @@ export default function Kestrel() {
             </div>
 
             <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Janet Duffy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-purple-600 mr-3" />
@@ -451,7 +451,7 @@ export default function Kestrel() {
             Ready to Find Your Kestrel Home?
           </h2>
           <p className="text-xl mb-8 text-purple-100 max-w-2xl mx-auto">
-            Let Dr. Janet Duffy guide you through Kestrel's exclusive real estate market with personalized service and local expertise.
+            Let Dr. Jan Duffy guide you through Kestrel's exclusive real estate market with personalized service and local expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50">

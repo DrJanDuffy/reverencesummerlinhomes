@@ -24,16 +24,23 @@ import {
   Waves
 } from "lucide-react";
 
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/communities/the-ridges` },
+  ];
+}
+
 export function meta() {
   return [
-    { title: "The Ridges Luxury Homes | Ultra-Luxury Living in Summerlin | Dr. Janet Duffy" },
-    { name: "description", content: "Discover ultra-luxury homes in The Ridges, Summerlin's most exclusive community. Dr. Janet Duffy specializes in The Ridges real estate with Red Rock views, championship golf, and resort-style amenities." },
-    { name: "keywords", content: "The Ridges homes, Summerlin luxury real estate, ultra-luxury homes, Red Rock views, championship golf, The Ridges realtor, Dr. Janet Duffy" },
+    { title: "The Ridges Luxury Homes | Ultra-Luxury Living in Summerlin | Dr. Jan Duffy" },
+    { name: "description", content: "Discover ultra-luxury homes in The Ridges, Summerlin's most exclusive community. Dr. Jan Duffy specializes in The Ridges real estate with Red Rock views, championship golf, and resort-style amenities." },
+    { name: "keywords", content: "The Ridges homes, Summerlin luxury real estate, ultra-luxury homes, Red Rock views, championship golf, The Ridges realtor, Dr. Jan Duffy" },
     { property: "og:title", content: "The Ridges Luxury Homes | Ultra-Luxury Living in Summerlin" },
-    { property: "og:description", content: "Ultra-luxury homes in The Ridges with Red Rock views, championship golf, and resort-style amenities. Expert real estate guidance from Dr. Janet Duffy." },
+    { property: "og:description", content: "Ultra-luxury homes in The Ridges with Red Rock views, championship golf, and resort-style amenities. Expert real estate guidance from Dr. Jan Duffy." },
     { property: "og:type", content: "website" },
+    { property: "og:url", content: `${config.seo.siteUrl}/communities/the-ridges` },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "The Ridges Luxury Homes | Dr. Janet Duffy" },
+    { name: "twitter:title", content: "The Ridges Luxury Homes | Dr. Jan Duffy" },
     { name: "twitter:description", content: "Ultra-luxury homes in The Ridges with Red Rock views and championship golf." }
   ];
 }
@@ -359,7 +366,7 @@ export default function TheRidges() {
               Your Ridges Luxury Specialist
             </h2>
             <p className="text-xl text-gray-600">
-              Dr. Janet Duffy brings unmatched expertise in ultra-luxury real estate
+              Dr. Jan Duffy brings unmatched expertise in ultra-luxury real estate
             </p>
           </div>
 
@@ -412,7 +419,7 @@ export default function TheRidges() {
             </div>
 
             <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Janet Duffy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-emerald-600 mr-3" />
@@ -443,7 +450,7 @@ export default function TheRidges() {
             Ready for Ultra-Luxury Living?
           </h2>
           <p className="text-xl mb-8 text-emerald-100 max-w-2xl mx-auto">
-            Let Dr. Janet Duffy guide you through The Ridges ultra-luxury real estate market with personalized service and exclusive access.
+            Let Dr. Jan Duffy guide you through The Ridges ultra-luxury real estate market with personalized service and exclusive access.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-emerald-600 hover:bg-emerald-50">

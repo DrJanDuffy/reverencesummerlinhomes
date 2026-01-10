@@ -1,9 +1,17 @@
 import type { Route } from "./+types/resources";
+import { config } from "~/lib/config";
+
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/resources/tennis-pickleball` },
+  ];
+}
 
 export function meta() {
   return [
-    { title: "Las Vegas Tennis & Pickleball | Dr. Janet Duffy" },
-    { name: "description", content: "Las Vegas tennis and pickleball courts. Dr. Janet Duffy helps you find the best courts in Las Vegas." },
+    { title: "Las Vegas Tennis & Pickleball | Dr. Jan Duffy" },
+    { name: "description", content: "Las Vegas tennis and pickleball courts. Dr. Jan Duffy helps you find the best courts in Las Vegas." },
+    { property: "og:url", content: `${config.seo.siteUrl}/resources/tennis-pickleball` },
   ];
 }
 

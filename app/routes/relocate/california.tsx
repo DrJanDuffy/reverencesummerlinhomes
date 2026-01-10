@@ -2,8 +2,8 @@ import type { Route } from "./+types/relocate";
 
 export function meta() {
   return [
-    { title: "Relocate from California to Las Vegas | Dr. Janet Duffy" },
-    { name: "description", content: "Moving from California to Las Vegas? Dr. Janet Duffy helps California residents relocate to Las Vegas with expert guidance on neighborhoods, taxes, and lifestyle." },
+    { title: "Relocate from California to Las Vegas | Dr. Jan Duffy" },
+    { name: "description", content: "Moving from California to Las Vegas? Dr. Jan Duffy helps California residents relocate to Las Vegas with expert guidance on neighborhoods, taxes, and lifestyle." },
   ];
 }
 

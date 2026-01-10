@@ -26,14 +26,14 @@ import {
 
 export function meta() {
   return [
-    { title: "Red Rock Country Club Homes | Golf Course Living in Las Vegas | Dr. Janet Duffy" },
-    { name: "description", content: "Discover luxury golf course homes in Red Rock Country Club, Las Vegas. Dr. Janet Duffy specializes in Red Rock Country Club real estate with championship golf, mountain views, and resort amenities." },
-    { name: "keywords", content: "Red Rock Country Club homes, golf course homes Las Vegas, championship golf, mountain views, Dr. Janet Duffy" },
+    { title: "Red Rock Country Club Homes | Golf Course Living in Las Vegas | Dr. Jan Duffy" },
+    { name: "description", content: "Discover luxury golf course homes in Red Rock Country Club, Las Vegas. Dr. Jan Duffy specializes in Red Rock Country Club real estate with championship golf, mountain views, and resort amenities." },
+    { name: "keywords", content: "Red Rock Country Club homes, golf course homes Las Vegas, championship golf, mountain views, Dr. Jan Duffy" },
     { property: "og:title", content: "Red Rock Country Club Homes | Golf Course Living in Las Vegas" },
-    { property: "og:description", content: "Luxury golf course homes in Red Rock Country Club with championship golf, mountain views, and resort amenities. Expert real estate guidance from Dr. Janet Duffy." },
+    { property: "og:description", content: "Luxury golf course homes in Red Rock Country Club with championship golf, mountain views, and resort amenities. Expert real estate guidance from Dr. Jan Duffy." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Red Rock Country Club Homes | Dr. Janet Duffy" },
+    { name: "twitter:title", content: "Red Rock Country Club Homes | Dr. Jan Duffy" },
     { name: "twitter:description", content: "Luxury golf course homes in Red Rock Country Club with championship golf and mountain views." }
   ];
 }
@@ -359,7 +359,7 @@ export default function RedRockCountryClub() {
               Your Golf Course Real Estate Expert
             </h2>
             <p className="text-xl text-gray-600">
-              Dr. Janet Duffy brings unmatched expertise in golf course real estate
+              Dr. Jan Duffy brings unmatched expertise in golf course real estate
             </p>
           </div>
 
@@ -412,7 +412,7 @@ export default function RedRockCountryClub() {
             </div>
 
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Janet Duffy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-green-600 mr-3" />
@@ -443,7 +443,7 @@ export default function RedRockCountryClub() {
             Ready for Golf Course Living?
           </h2>
           <p className="text-xl mb-8 text-green-100 max-w-2xl mx-auto">
-            Let Dr. Janet Duffy guide you through Red Rock Country Club's luxury golf course real estate market with personalized service and local expertise.
+            Let Dr. Jan Duffy guide you through Red Rock Country Club's luxury golf course real estate market with personalized service and local expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-green-600 hover:bg-green-50">

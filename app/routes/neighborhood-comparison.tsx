@@ -23,10 +23,10 @@ import type { Route } from "./+types/neighborhood-comparison";
 
 export function meta() {
   return [
-    { title: "Las Vegas Neighborhood Comparison Tool | Dr. Janet Duffy" },
-    { name: "description", content: "Compare Las Vegas neighborhoods side-by-side with detailed market data, amenities, schools, and lifestyle factors. Make informed decisions with Dr. Janet Duffy's expert analysis." },
+    { title: "Las Vegas Neighborhood Comparison Tool | Dr. Jan Duffy" },
+    { name: "description", content: "Compare Las Vegas neighborhoods side-by-side with detailed market data, amenities, schools, and lifestyle factors. Make informed decisions with Dr. Jan Duffy's expert analysis." },
     { name: "keywords", content: "Las Vegas neighborhoods, Summerlin comparison, Henderson vs Summerlin, Las Vegas real estate comparison, neighborhood analysis" },
-    { property: "og:title", content: "Las Vegas Neighborhood Comparison Tool | Dr. Janet Duffy" },
+    { property: "og:title", content: "Las Vegas Neighborhood Comparison Tool | Dr. Jan Duffy" },
     { property: "og:description", content: "Compare Las Vegas neighborhoods with detailed market data and lifestyle factors." },
     { property: "og:type", content: "website" },
     { property: "og:url", content: `${config.seo.siteUrl}/neighborhood-comparison` },
@@ -546,7 +546,7 @@ export default function NeighborhoodComparison() {
             <CardContent className="text-center py-12">
               <h3 className="text-2xl font-bold mb-4">Need Help Choosing?</h3>
               <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
-                Let Dr. Janet Duffy help you find the perfect neighborhood based on your lifestyle, budget, and preferences.
+                Let Dr. Jan Duffy help you find the perfect neighborhood based on your lifestyle, budget, and preferences.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="bg-white text-primary-600 hover:bg-primary-50">

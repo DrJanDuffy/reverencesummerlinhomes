@@ -1,4 +1,4 @@
-// Utility functions for Reference Summerlin Homes
+// Utility functions for Reverence Summerlin Homes
 
 import type { Property, ValuationRequest, ContactForm } from '~/types'
 

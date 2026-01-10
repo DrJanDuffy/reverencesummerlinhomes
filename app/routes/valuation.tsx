@@ -1,13 +1,21 @@
 import { Form } from "react-router";
 import type { Route } from "./+types/valuation";
+import { config } from "~/lib/config";
+
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/valuation` },
+  ];
+}
 
 export function meta() {
   return [
-    { title: "Free Home Valuation | Dr. Janet Duffy" },
-    { name: "description", content: "Get a free, accurate home valuation for your Las Vegas property. Dr. Janet Duffy provides comprehensive market analysis to help you understand your home's current value." },
+    { title: "Free Home Valuation | Dr. Jan Duffy" },
+    { name: "description", content: "Get a free, accurate home valuation for your Las Vegas property. Dr. Jan Duffy provides comprehensive market analysis to help you understand your home's current value." },
     { name: "keywords", content: "home valuation Las Vegas, property value, home appraisal, Las Vegas home prices" },
-    { property: "og:title", content: "Free Home Valuation | Dr. Janet Duffy" },
-    { property: "og:description", content: "Get a free, accurate home valuation for your Las Vegas property. Dr. Janet Duffy provides comprehensive market analysis to help you understand your home's current value." },
+    { property: "og:title", content: "Free Home Valuation | Dr. Jan Duffy" },
+    { property: "og:description", content: "Get a free, accurate home valuation for your Las Vegas property. Dr. Jan Duffy provides comprehensive market analysis to help you understand your home's current value." },
+    { property: "og:url", content: `${config.seo.siteUrl}/valuation` },
   ];
 }
 
@@ -56,7 +64,7 @@ export default function Valuation() {
             Free Home Valuation
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Get an accurate estimate of your home's current market value with Dr. Janet Duffy's comprehensive valuation analysis. Receive a detailed report including comparable sales and market trends.
+            Get an accurate estimate of your home's current market value with Dr. Jan Duffy's comprehensive valuation analysis. Receive a detailed report including comparable sales and market trends.
           </p>
         </div>
 

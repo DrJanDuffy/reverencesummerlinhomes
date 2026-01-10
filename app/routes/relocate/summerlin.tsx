@@ -1,9 +1,17 @@
 import type { Route } from "./+types/relocate";
+import { config } from "~/lib/config";
+
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/relocate/summerlin` },
+  ];
+}
 
 export function meta() {
   return [
-    { title: "Relocate to Summerlin | Dr. Janet Duffy" },
-    { name: "description", content: "Relocating to Summerlin? Dr. Janet Duffy helps families find the perfect home in Summerlin, Las Vegas's premier community." },
+    { title: "Relocate to Summerlin | Dr. Jan Duffy" },
+    { name: "description", content: "Relocating to Summerlin? Dr. Jan Duffy helps families find the perfect home in Summerlin, Las Vegas's premier community." },
+    { property: "og:url", content: `${config.seo.siteUrl}/relocate/summerlin` },
   ];
 }
 

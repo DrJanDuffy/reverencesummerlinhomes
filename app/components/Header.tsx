@@ -21,7 +21,7 @@ export function Header() {
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50 border-b border-border">
       {/* Top Bar with Partnerships */}
-      <div className="bg-primary-600 text-white py-2">
+      <div className="bg-primary text-white py-2">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between text-sm">
             <div className="flex items-center gap-4">
@@ -37,14 +37,14 @@ export function Header() {
             <div className="flex items-center gap-4">
               <a 
                 href={`tel:${config.contact.phone}`}
-                className="flex items-center gap-1 hover:text-primary-200 transition-colors"
+                className="flex items-center gap-1 hover:text-accent-light transition-colors"
               >
                 <Phone className="w-4 h-4" />
                 <span className="hidden sm:inline">{config.contact.phone}</span>
               </a>
               <a 
                 href={`mailto:${config.contact.email}`}
-                className="flex items-center gap-1 hover:text-primary-200 transition-colors"
+                className="flex items-center gap-1 hover:text-accent-light transition-colors"
               >
                 <Mail className="w-4 h-4" />
                 <span className="hidden sm:inline">Email</span>
@@ -60,12 +60,12 @@ export function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
                 <Home className="w-6 h-6 text-white" />
               </div>
               <div>
-                <div className="text-xl font-bold text-primary-600">
-                  Dr. Janet Duffy
+                <div className="text-xl font-bold text-primary">
+                  Dr. Jan Duffy
                 </div>
                 <div className="text-sm text-muted-foreground">
                   Real Estate Expert
@@ -255,7 +255,7 @@ export function Header() {
               <div className="pt-4 border-t border-border">
                 <div className="flex flex-col gap-2">
                   <Button className="w-full" asChild>
-                    <Link to="/contact">Contact Dr. Janet</Link>
+                    <Link to="/contact">Contact Dr. Jan</Link>
                   </Button>
                   <Button variant="outline" className="w-full" asChild>
                     <Link to="/valuation">Get Home Value</Link>
@@ -264,7 +264,7 @@ export function Header() {
                 <div className="mt-4 text-center">
                   <a 
                     href={`tel:${config.contact.phone}`}
-                    className="text-primary-600 font-medium hover:text-primary-700"
+                    className="text-primary font-medium hover:text-accent transition-colors"
                   >
                     {config.contact.phone}
                   </a>

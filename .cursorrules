@@ -10,16 +10,24 @@
 
 ### TypeScript & React Router v7
 - Use strict TypeScript with proper type definitions
-- Prefer `component$()` pattern for Qwik-style components
-- Use `loader$()` for data fetching, `action$()` for mutations
+- Use standard React function components (not Qwik)
+- Use `loader()` or `loader$()` for data fetching, `action()` or `action$()` for mutations
 - Implement proper error boundaries with `ErrorBoundary`
 - Use `useLoaderData()`, `useActionData()` for type-safe data access
+- Export `meta()` function for page metadata
+- Export `links()` function for canonical tags and other link tags
 
-### Component Architecture
-- Create reusable components in `/app/components/`
+### Component Architecture & UI Component Reuse
+- **CRITICAL**: Always reuse existing UI components from `/app/components/ui/` before creating new ones
+- Available UI primitives: Button, Card, Badge, Input, Label, Dialog, Separator, Skeleton
+- Available custom components in `/app/components/`: Header, Footer, FeaturedCommunities, HeroSection, TestimonialsSection, ContactSection, BlogSection, RelocationSection, VideoSection
+- Create new components by orchestrating existing UI components if possible
+- Only create new components when no existing component solves the problem
+- When creating new UI components, add them to `/app/components/ui/` following shadcn/ui patterns
 - Use proper prop interfaces with JSDoc comments
 - Implement responsive design mobile-first
-- Follow atomic design principles (atoms, molecules, organisms)
+- Follow atomic design principles (atoms → molecules → organisms)
+- Check for existing similar components before building new ones
 
 ### Real Estate Domain Rules
 - Always consider fair housing compliance in UI/UX decisions
@@ -83,12 +91,18 @@
 - Include proper privacy policy links
 - Implement proper cookie consent
 
-## Testing
+## Testing & Browser Integration
+- Use Cursor Browser for visual testing and debugging
+- Test components in the browser before finalizing changes
+- Check console logs for errors after making changes
+- Test responsive design across different viewport sizes
+- Verify forms submit correctly and handle validation
+- Test navigation flows between pages
+- Use browser tools to inspect network requests for API calls
 - Write unit tests for utility functions
 - Test component rendering and interactions
 - Test API integration points
-- Test responsive design across devices
-- Test accessibility compliance
+- Test accessibility compliance (ARIA labels, keyboard navigation)
 
 ## Performance Optimization
 - Use React.memo() for expensive components
@@ -103,3 +117,11 @@
 - Use high-quality images
 - Include proper branding elements
 - Maintain professional tone in copy
+
+## Development Workflow
+- Use Chat for initial implementation and bootstrapping
+- Switch to Inline Edit and Tab for fine-tuning and maintaining flow state
+- When working with UI components, always check `/app/components/ui/` first
+- When implementing forms, reuse existing form patterns from contact/valuation pages
+- For SEO changes, ensure canonical tags, meta tags, and Open Graph tags are all updated
+- After making changes, use Cursor Browser to verify the changes work correctly

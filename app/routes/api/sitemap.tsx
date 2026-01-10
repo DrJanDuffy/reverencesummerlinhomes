@@ -35,12 +35,8 @@ export async function loader() {
     { url: "/selling/marketing", priority: "0.7", changefreq: "monthly" },
   ];
 
-  // Community pages with enhanced priorities for Monument at Reverence
-  const communityPages = communitiesData.map(community => ({
-    url: `/communities/${community.id}`,
-    priority: community.id === "monument-at-reverence" ? "0.9" : "0.8",
-    changefreq: "weekly"
-  }));
+  // Note: Community pages are listed in sitemap-communities.xml to avoid duplicates
+  // Community pages should not be included in the main sitemap.xml
 
   // Relocation pages with location-specific priorities
   const relocationPages = [
@@ -76,7 +72,7 @@ export async function loader() {
     ...staticPages, 
     ...buyingPages, 
     ...sellingPages, 
-    ...communityPages, 
+    // Community pages excluded - they're in sitemap-communities.xml
     ...relocationPages, 
     ...resourcePages, 
     ...aboutPages

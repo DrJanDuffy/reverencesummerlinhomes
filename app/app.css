@@ -4,25 +4,123 @@
 
 @layer base {
   :root {
+    /* ============================================
+       Pulte Homes Brand Colors - Direct Hex Format
+       ============================================ */
+    
+    /* Primary Colors */
+    --color-primary: #1a2b4a;           /* Deep Navy - headers, nav, primary buttons */
+    --color-primary-dark: #0f1a2e;      /* Darker Navy - hover states */
+    --color-primary-light: #2d4a7c;     /* Lighter Navy - secondary elements */
+    
+    /* Secondary Colors */
+    --color-white: #ffffff;             /* Clean white - backgrounds */
+    --color-off-white: #f8f9fa;         /* Slight off-white - alternating sections */
+    
+    /* Accent Colors */
+    --color-accent: #c9a227;            /* Warm Gold - CTAs, buttons, highlights */
+    --color-accent-hover: #b8922a;      /* Gold hover state */
+    --color-accent-light: #f5e6b3;      /* Light gold - subtle accents */
+    
+    /* Neutral Colors */
+    --color-text-primary: #1a1a1a;      /* Near black - headings */
+    --color-text-secondary: #4a4a4a;    /* Dark gray - body text */
+    --color-text-muted: #6b7280;        /* Medium gray - captions, meta */
+    --color-border: #e5e7eb;            /* Light gray - borders, dividers */
+    --color-background-alt: #f3f4f6;    /* Light gray - card backgrounds */
+    
+    /* Functional Colors */
+    --color-success: #059669;           /* Green - success states */
+    --color-error: #dc2626;             /* Red - error states */
+    --color-link: #1a2b4a;              /* Navy - links */
+    --color-link-hover: #c9a227;        /* Gold - link hover */
+    
+    /* ============================================
+       Typography Variables
+       ============================================ */
+    --font-primary: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    --font-heading: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --text-xs: 0.75rem;      /* 12px */
+    --text-sm: 0.875rem;     /* 14px */
+    --text-base: 1rem;       /* 16px */
+    --text-lg: 1.125rem;     /* 18px */
+    --text-xl: 1.25rem;      /* 20px */
+    --text-2xl: 1.5rem;      /* 24px */
+    --text-3xl: 1.875rem;    /* 30px */
+    --text-4xl: 2.25rem;     /* 36px */
+    --text-5xl: 3rem;        /* 48px */
+    
+    /* ============================================
+       Spacing Variables
+       ============================================ */
+    --spacing-xs: 0.25rem;   /* 4px */
+    --spacing-sm: 0.5rem;    /* 8px */
+    --spacing-md: 1rem;      /* 16px */
+    --spacing-lg: 1.5rem;    /* 24px */
+    --spacing-xl: 2rem;      /* 32px */
+    --spacing-2xl: 3rem;     /* 48px */
+    --spacing-3xl: 4rem;     /* 64px */
+    
+    /* ============================================
+       Border Radius Variables
+       ============================================ */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-full: 9999px;
+    
+    /* ============================================
+       Shadow Variables
+       ============================================ */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+    --shadow-gold: 0 4px 12px rgba(201, 162, 39, 0.3); /* Gold accent shadow */
+    
+    /* ============================================
+       Tailwind-Compatible HSL Format Variables
+       (For Tailwind CSS integration)
+       ============================================ */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 222.2 30% 9%; /* Near black - headings */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 222.2 30% 9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 199 89% 48%;
-    --primary-foreground: 210 40% 98%;
+    --popover-foreground: 222.2 30% 9%;
+    
+    /* Primary - Deep Navy (#1a2b4a) */
+    --primary: 222 44% 20%; /* Deep Navy - headers, nav, primary buttons */
+    --primary-foreground: 0 0% 98%;
+    
+    /* Secondary - Light Gray */
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
+    
+    /* Muted - Gray for subtle elements */
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    
+    /* Accent - Warm Gold (#c9a227) */
+    --accent: 44 64% 47%; /* Warm Gold - CTAs, buttons, highlights */
+    --accent-foreground: 0 0% 100%;
+    
+    /* Destructive - Error states */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
+    
+    /* Border and Input */
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 199 89% 48%;
+    
+    /* Ring - Focus states */
+    --ring: 222 44% 20%; /* Deep Navy for focus */
+    
+    /* Border Radius (for Tailwind) */
     --radius: 0.5rem;
   }
 
@@ -33,19 +131,42 @@
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 199 89% 48%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 222 44% 25%; /* Slightly lighter navy for dark mode */
+    --primary-foreground: 210 40% 98%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 44 64% 52%; /* Slightly lighter gold for dark mode */
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 199 89% 48%;
+    --ring: 44 64% 52%; /* Gold for focus in dark mode */
+  }
+}
+
+/* Pulte Brand Color Utilities */
+@layer utilities {
+  .text-pulte-navy {
+    color: #1a2b4a;
+  }
+  
+  .bg-pulte-navy {
+    background-color: #1a2b4a;
+  }
+  
+  .text-pulte-gold {
+    color: #c9a227;
+  }
+  
+  .bg-pulte-gold {
+    background-color: #c9a227;
+  }
+  
+  .border-pulte-gold {
+    border-color: #c9a227;
   }
 }
 
@@ -53,7 +174,238 @@
   * {
     @apply border-border;
   }
+  
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-primary);
+    font-weight: var(--font-weight-normal);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--color-text-primary);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    line-height: 1.2;
+  }
+  
+  h1 {
+    font-size: var(--text-4xl);
+  }
+  
+  h2 {
+    font-size: var(--text-3xl);
+  }
+  
+  h3 {
+    font-size: var(--text-2xl);
+  }
+  
+  h4 {
+    font-size: var(--text-xl);
+  }
+  
+  h5 {
+    font-size: var(--text-lg);
+  }
+  
+  h6 {
+    font-size: var(--text-base);
+  }
+  
+  a {
+    color: var(--color-link);
+    transition: color 0.2s ease;
+  }
+  
+  a:hover {
+    color: var(--color-link-hover);
+  }
+}
+
+/* ============================================
+   Component-Specific Styling
+   ============================================ */
+
+@layer components {
+  /* Navigation Bar */
+  .navbar {
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .navbar-brand {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+  }
+  
+  .nav-link {
+    color: var(--color-text-secondary);
+    font-weight: var(--font-weight-medium);
+    transition: color 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: var(--color-primary);
+  }
+  
+  /* Primary Buttons (CTAs) */
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    border: none;
+    font-weight: var(--font-weight-semibold);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-gold);
+  }
+  
+  /* Secondary Buttons */
+  .btn-secondary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    font-weight: var(--font-weight-semibold);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  /* Outline Buttons */
+  .btn-outline {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    font-weight: var(--font-weight-semibold);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+  }
+  
+  .btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+  
+  /* Cards */
+  .card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+  }
+  
+  .card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+  
+  .card-header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-weight: var(--font-weight-semibold);
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: var(--color-white);
+  }
+  
+  .hero-overlay {
+    background: linear-gradient(to bottom, rgba(26, 43, 74, 0.7), rgba(26, 43, 74, 0.9));
+  }
+  
+  .hero h1 {
+    color: var(--color-white);
+    font-weight: var(--font-weight-bold);
+  }
+  
+  .hero .subtitle {
+    color: var(--color-accent-light);
+  }
+  
+  /* Section Headers */
+  .section-header {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+    position: relative;
+  }
+  
+  .section-header::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-accent);
+    margin-top: 0.75rem;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+  
+  .footer a {
+    color: var(--color-accent-light);
+    transition: color 0.2s ease;
+  }
+  
+  .footer a:hover {
+    color: var(--color-accent);
+  }
+  
+  .footer-heading {
+    color: var(--color-white);
+    font-weight: var(--font-weight-semibold);
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Community Cards (specific to real estate listings) */
+  .community-card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+  }
+  
+  .community-card .price {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--text-xl);
+  }
+  
+  .community-card .price-label {
+    color: var(--color-accent);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-medium);
+  }
+  
+  .community-card .feature-badge {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-semibold);
   }
 }

@@ -1,9 +1,17 @@
 import type { Route } from "./+types/resources";
+import { config } from "~/lib/config";
+
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/resources/trails` },
+  ];
+}
 
 export function meta() {
   return [
-    { title: "Las Vegas Trails | Dr. Janet Duffy" },
-    { name: "description", content: "Las Vegas hiking trails guide. Dr. Janet Duffy helps you discover the best trails in Las Vegas." },
+    { title: "Las Vegas Trails | Dr. Jan Duffy" },
+    { name: "description", content: "Las Vegas hiking trails guide. Dr. Jan Duffy helps you discover the best trails in Las Vegas." },
+    { property: "og:url", content: `${config.seo.siteUrl}/resources/trails` },
   ];
 }
 

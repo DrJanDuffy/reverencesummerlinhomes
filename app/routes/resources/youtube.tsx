@@ -1,9 +1,17 @@
 import type { Route } from "./+types/resources";
+import { config } from "~/lib/config";
+
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/resources/youtube` },
+  ];
+}
 
 export function meta() {
   return [
-    { title: "Las Vegas YouTube Channel | Dr. Janet Duffy" },
-    { name: "description", content: "Dr. Janet Duffy's YouTube channel with Las Vegas real estate videos and market updates." },
+    { title: "Las Vegas YouTube Channel | Dr. Jan Duffy" },
+    { name: "description", content: "Dr. Jan Duffy's YouTube channel with Las Vegas real estate videos and market updates." },
+    { property: "og:url", content: `${config.seo.siteUrl}/resources/youtube` },
   ];
 }
 

@@ -1,13 +1,21 @@
 import type { Route } from "./+types/buying-index";
+import { config } from "~/lib/config";
+
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/buying` },
+  ];
+}
 
 export function meta() {
   return [
-    { title: "Buying a Home in Las Vegas | Dr. Janet Duffy" },
-    { name: "description", content: "Expert guidance for buying a home in Las Vegas and Summerlin. Dr. Janet Duffy provides personalized assistance for first-time buyers, military veterans, and relocating families." },
+    { title: "Buying a Home in Las Vegas | Dr. Jan Duffy" },
+    { name: "description", content: "Expert guidance for buying a home in Las Vegas and Summerlin. Dr. Jan Duffy provides personalized assistance for first-time buyers, military veterans, and relocating families." },
     { name: "keywords", content: "buy home Las Vegas, Summerlin real estate, first time home buyer, Las Vegas homes for sale" },
-    { property: "og:title", content: "Buying a Home in Las Vegas | Dr. Janet Duffy" },
-    { property: "og:description", content: "Expert guidance for buying a home in Las Vegas and Summerlin. Dr. Janet Duffy provides personalized assistance for first-time buyers, military veterans, and relocating families." },
+    { property: "og:title", content: "Buying a Home in Las Vegas | Dr. Jan Duffy" },
+    { property: "og:description", content: "Expert guidance for buying a home in Las Vegas and Summerlin. Dr. Jan Duffy provides personalized assistance for first-time buyers, military veterans, and relocating families." },
     { property: "og:type", content: "website" },
+    { property: "og:url", content: `${config.seo.siteUrl}/buying` },
   ];
 }
 
@@ -57,7 +65,7 @@ export default function BuyingIndex() {
         </div>
 
         <div className="bg-white rounded-lg shadow-lg p-8">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Janet Duffy?</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-3">Local Expertise</h3>

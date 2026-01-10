@@ -2,8 +2,8 @@ import type { Route } from "./+types/communities";
 
 export function meta() {
   return [
-    { title: "The Peaks | Dr. Janet Duffy" },
-    { name: "description", content: "The Peaks homes for sale. Dr. Janet Duffy helps you find homes in The Peaks." },
+    { title: "The Peaks | Dr. Jan Duffy" },
+    { name: "description", content: "The Peaks homes for sale. Dr. Jan Duffy helps you find homes in The Peaks." },
   ];
 }
 

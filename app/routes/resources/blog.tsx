@@ -17,13 +17,20 @@ import {
   Award
 } from "lucide-react";
 
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/resources/blog` },
+  ];
+}
+
 export function meta() {
   return [
-    { title: "Las Vegas Real Estate Blog | Market Insights & Tips | Dr. Janet Duffy" },
-    { name: "description", content: "Stay informed with Dr. Janet Duffy's Las Vegas real estate blog. Get market insights, buying tips, selling strategies, and local community updates." },
+    { title: "Las Vegas Real Estate Blog | Market Insights & Tips | Dr. Jan Duffy" },
+    { name: "description", content: "Stay informed with Dr. Jan Duffy's Las Vegas real estate blog. Get market insights, buying tips, selling strategies, and local community updates." },
     { name: "keywords", content: "Las Vegas real estate blog, Summerlin market trends, home buying tips, selling strategies, Las Vegas housing market" },
-    { property: "og:title", content: "Las Vegas Real Estate Blog | Dr. Janet Duffy" },
-    { property: "og:description", content: "Market insights, tips, and local information from Las Vegas real estate expert Dr. Janet Duffy." },
+    { property: "og:title", content: "Las Vegas Real Estate Blog | Dr. Jan Duffy" },
+    { property: "og:url", content: `${config.seo.siteUrl}/resources/blog` },
+    { property: "og:description", content: "Market insights, tips, and local information from Las Vegas real estate expert Dr. Jan Duffy." },
     { property: "og:type", content: "website" },
     { property: "og:url", content: `${config.seo.siteUrl}/resources/blog` },
   ];
@@ -35,7 +42,7 @@ const blogPosts = [
     title: "Las Vegas Housing Market Update: January 2025",
     excerpt: "The Las Vegas real estate market continues to show strong growth with median home prices reaching new heights. Here's what buyers and sellers need to know.",
     content: "The Las Vegas housing market has started 2025 with impressive momentum. Median home prices have increased by 8.5% year-over-year, reaching $485,000. Inventory remains tight with only 1.2 months of supply, creating a strong seller's market. Summerlin continues to lead in luxury sales, with properties averaging 12 days on market. Interest rates stabilizing around 6.5% have brought more buyers back into the market.",
-    author: "Dr. Janet Duffy",
+    author: "Dr. Jan Duffy",
     date: "2025-01-15",
     readTime: "5 min read",
     category: "Market Analysis",
@@ -47,7 +54,7 @@ const blogPosts = [
     title: "Why Summerlin West is the Hottest Community in Las Vegas",
     excerpt: "Discover what makes Summerlin West the most sought-after community for luxury homebuyers in Las Vegas.",
     content: "Summerlin West has emerged as the crown jewel of Las Vegas luxury real estate. With Red Rock Canyon views, championship golf courses, and world-class amenities, it's no surprise that homes here command premium prices. The community's limited inventory and high demand have created a perfect storm for appreciation, with properties seeing 15% annual growth.",
-    author: "Dr. Janet Duffy",
+    author: "Dr. Jan Duffy",
     date: "2025-01-12",
     readTime: "4 min read",
     category: "Community Spotlight",
@@ -59,7 +66,7 @@ const blogPosts = [
     title: "First-Time Homebuyer Guide: Las Vegas Edition",
     excerpt: "Everything you need to know about buying your first home in Las Vegas, from financing to closing.",
     content: "Buying your first home in Las Vegas can be exciting but overwhelming. Start by getting pre-approved for a mortgage, which will strengthen your offers in this competitive market. Consider neighborhoods like Henderson or North Las Vegas for more affordable options, or explore new construction communities for modern amenities and warranties.",
-    author: "Dr. Janet Duffy",
+    author: "Dr. Jan Duffy",
     date: "2025-01-10",
     readTime: "7 min read",
     category: "Buying Guide",
@@ -71,7 +78,7 @@ const blogPosts = [
     title: "Monument at Reverence: New Construction Opportunities",
     excerpt: "Explore the latest Pulte Homes community offering modern townhomes in Summerlin's northernmost guard-gated community.",
     content: "Monument at Reverence represents the future of Summerlin living. These energy-efficient townhomes offer modern design with HERS scores of 55-65, significantly lower utility costs than resale homes. Starting from the $500s, these properties provide excellent value with Pulte's comprehensive warranty and prime location near Red Rock Canyon.",
-    author: "Dr. Janet Duffy",
+    author: "Dr. Jan Duffy",
     date: "2025-01-08",
     readTime: "6 min read",
     category: "New Construction",
@@ -83,7 +90,7 @@ const blogPosts = [
     title: "Investment Properties in Las Vegas: ROI Analysis",
     excerpt: "Analyze the investment potential of Las Vegas real estate with current rental yields and appreciation trends.",
     content: "Las Vegas offers strong investment opportunities with rental yields averaging 4.2% and consistent appreciation. Areas like Summerlin and Henderson show particular strength, with luxury properties commanding premium rents. The city's growing tech sector and entertainment industry continue to drive demand for quality rental properties.",
-    author: "Dr. Janet Duffy",
+    author: "Dr. Jan Duffy",
     date: "2025-01-05",
     readTime: "8 min read",
     category: "Investment",
@@ -95,7 +102,7 @@ const blogPosts = [
     title: "Selling Your Home in Las Vegas: Maximize Your Value",
     excerpt: "Learn proven strategies to sell your Las Vegas home quickly and for top dollar in today's market.",
     content: "Selling in Las Vegas requires strategic preparation. With inventory low and demand high, properly staged homes sell 15% faster and for 3% more. Focus on curb appeal, decluttering, and highlighting unique features like mountain views or pool access. Professional photography and virtual tours are essential in today's digital market.",
-    author: "Dr. Janet Duffy",
+    author: "Dr. Jan Duffy",
     date: "2025-01-03",
     readTime: "6 min read",
     category: "Selling Tips",
@@ -118,7 +125,7 @@ export default function Blog() {
               Las Vegas Real Estate Blog
             </h1>
             <p className="text-xl md:text-2xl text-primary-100 max-w-3xl mx-auto">
-              Stay informed with market insights, expert tips, and local community updates from Dr. Janet Duffy
+              Stay informed with market insights, expert tips, and local community updates from Dr. Jan Duffy
             </p>
           </div>
         </div>
@@ -252,7 +259,7 @@ export default function Blog() {
           <Card className="bg-primary-600 text-white">
             <CardContent className="text-center py-12">
               <Award className="w-16 h-16 mx-auto mb-4 text-primary-200" />
-              <h3 className="text-2xl font-bold mb-4">Ready to Work with Dr. Janet Duffy?</h3>
+              <h3 className="text-2xl font-bold mb-4">Ready to Work with Dr. Jan Duffy?</h3>
               <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
                 Get personalized real estate guidance from Las Vegas's top agent. Whether you're buying, selling, or investing, I'm here to help you succeed.
               </p>

@@ -19,11 +19,11 @@ import type { Route } from "./+types/buying-mortgage-calculator";
 
 export function meta() {
   return [
-    { title: "Mortgage Calculator | Dr. Janet Duffy" },
-    { name: "description", content: "Calculate your monthly mortgage payments for Las Vegas homes. Dr. Janet Duffy's mortgage calculator helps you understand financing options and budget for your new home." },
+    { title: "Mortgage Calculator | Dr. Jan Duffy" },
+    { name: "description", content: "Calculate your monthly mortgage payments for Las Vegas homes. Dr. Jan Duffy's mortgage calculator helps you understand financing options and budget for your new home." },
     { name: "keywords", content: "mortgage calculator Las Vegas, home loan calculator, mortgage payment calculator, Las Vegas mortgage rates" },
-    { property: "og:title", content: "Mortgage Calculator | Dr. Janet Duffy" },
-    { property: "og:description", content: "Calculate your monthly mortgage payments for Las Vegas homes. Dr. Janet Duffy's mortgage calculator helps you understand financing options and budget for your new home." },
+    { property: "og:title", content: "Mortgage Calculator | Dr. Jan Duffy" },
+    { property: "og:description", content: "Calculate your monthly mortgage payments for Las Vegas homes. Dr. Jan Duffy's mortgage calculator helps you understand financing options and budget for your new home." },
   ];
 }
 
@@ -262,7 +262,7 @@ export default function MortgageCalculator() {
           <CardContent className="p-8 text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to Get Pre-Approved?</h2>
             <p className="text-xl text-primary-100 mb-8">
-              Let Dr. Janet Duffy connect you with trusted lenders to get pre-approved for your Las Vegas home.
+              Let Dr. Jan Duffy connect you with trusted lenders to get pre-approved for your Las Vegas home.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-primary-700 hover:bg-primary-50">

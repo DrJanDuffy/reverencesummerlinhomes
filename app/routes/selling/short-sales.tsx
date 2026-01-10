@@ -1,12 +1,20 @@
 import type { Route } from "./+types/selling-short-sales";
+import { config } from "~/lib/config";
+
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/selling/short-sales` },
+  ];
+}
 
 export function meta() {
   return [
-    { title: "Short Sales | Dr. Janet Duffy" },
-    { name: "description", content: "Navigate short sales with Dr. Janet Duffy's expert guidance. Professional short sale assistance for Las Vegas homeowners facing financial hardship." },
+    { title: "Short Sales | Dr. Jan Duffy" },
+    { name: "description", content: "Navigate short sales with Dr. Jan Duffy's expert guidance. Professional short sale assistance for Las Vegas homeowners facing financial hardship." },
     { name: "keywords", content: "short sale Las Vegas, short sale agent, short sale help, Las Vegas short sales" },
-    { property: "og:title", content: "Short Sales | Dr. Janet Duffy" },
-    { property: "og:description", content: "Navigate short sales with Dr. Janet Duffy's expert guidance. Professional short sale assistance for Las Vegas homeowners facing financial hardship." },
+    { property: "og:title", content: "Short Sales | Dr. Jan Duffy" },
+    { property: "og:description", content: "Navigate short sales with Dr. Jan Duffy's expert guidance. Professional short sale assistance for Las Vegas homeowners facing financial hardship." },
+    { property: "og:url", content: `${config.seo.siteUrl}/selling/short-sales` },
   ];
 }
 
@@ -19,7 +27,7 @@ export default function ShortSales() {
             Short Sales
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A short sale can be a viable alternative to foreclosure when you owe more on your mortgage than your home is worth. Dr. Janet Duffy provides expert guidance through the complex short sale process in Las Vegas.
+            A short sale can be a viable alternative to foreclosure when you owe more on your mortgage than your home is worth. Dr. Jan Duffy provides expert guidance through the complex short sale process in Las Vegas.
           </p>
         </div>
 

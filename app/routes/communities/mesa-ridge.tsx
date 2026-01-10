@@ -30,14 +30,14 @@ import {
 
 export function meta() {
   return [
-    { title: "Mesa Ridge Homes for Sale | Mountain Views & Modern Living | Dr. Janet Duffy" },
-    { name: "description", content: "Discover homes for sale in Mesa Ridge, Las Vegas. Dr. Janet Duffy specializes in Mesa Ridge real estate with mountain views, modern amenities, and scenic living." },
-    { name: "keywords", content: "Mesa Ridge homes for sale, Mesa Ridge Las Vegas real estate, mountain views, modern living, scenic homes, Dr. Janet Duffy" },
+    { title: "Mesa Ridge Homes for Sale | Mountain Views & Modern Living | Dr. Jan Duffy" },
+    { name: "description", content: "Discover homes for sale in Mesa Ridge, Las Vegas. Dr. Jan Duffy specializes in Mesa Ridge real estate with mountain views, modern amenities, and scenic living." },
+    { name: "keywords", content: "Mesa Ridge homes for sale, Mesa Ridge Las Vegas real estate, mountain views, modern living, scenic homes, Dr. Jan Duffy" },
     { property: "og:title", content: "Mesa Ridge Homes for Sale | Mountain Views & Modern Living" },
-    { property: "og:description", content: "Homes for sale in Mesa Ridge, Las Vegas with mountain views, modern amenities, and scenic living. Expert real estate guidance from Dr. Janet Duffy." },
+    { property: "og:description", content: "Homes for sale in Mesa Ridge, Las Vegas with mountain views, modern amenities, and scenic living. Expert real estate guidance from Dr. Jan Duffy." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Mesa Ridge Homes for Sale | Dr. Janet Duffy" },
+    { name: "twitter:title", content: "Mesa Ridge Homes for Sale | Dr. Jan Duffy" },
     { name: "twitter:description", content: "Homes for sale in Mesa Ridge, Las Vegas with mountain views and modern amenities." }
   ];
 }
@@ -366,7 +366,7 @@ export default function MesaRidge() {
               Your Mesa Ridge Real Estate Expert
             </h2>
             <p className="text-xl text-gray-600">
-              Dr. Janet Duffy brings unmatched expertise in Mesa Ridge real estate
+              Dr. Jan Duffy brings unmatched expertise in Mesa Ridge real estate
             </p>
           </div>
 
@@ -419,7 +419,7 @@ export default function MesaRidge() {
             </div>
 
             <div className="bg-gradient-to-br from-emerald-50 to-green-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Janet Duffy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-emerald-600 mr-3" />
@@ -450,7 +450,7 @@ export default function MesaRidge() {
             Ready to Find Your Mesa Ridge Home?
           </h2>
           <p className="text-xl mb-8 text-emerald-100 max-w-2xl mx-auto">
-            Let Dr. Janet Duffy guide you through Mesa Ridge's real estate market with personalized service and local expertise.
+            Let Dr. Jan Duffy guide you through Mesa Ridge's real estate market with personalized service and local expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-emerald-600 hover:bg-emerald-50">

@@ -2,8 +2,8 @@ import type { Route } from "./+types/communities";
 
 export function meta() {
   return [
-    { title: "Ascension Summerlin | Dr. Janet Duffy" },
-    { name: "description", content: "Ascension Summerlin homes for sale. Dr. Janet Duffy helps you find luxury homes in this premier Summerlin community." },
+    { title: "Ascension Summerlin | Dr. Jan Duffy" },
+    { name: "description", content: "Ascension Summerlin homes for sale. Dr. Jan Duffy helps you find luxury homes in this premier Summerlin community." },
   ];
 }
 

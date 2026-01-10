@@ -2,8 +2,8 @@ import type { Route } from "./+types/communities";
 
 export function meta() {
   return [
-    { title: "Astra La Madre Peaks | Dr. Janet Duffy" },
-    { name: "description", content: "Astra La Madre Peaks homes for sale. Dr. Janet Duffy helps you find homes in this exclusive community." },
+    { title: "Astra La Madre Peaks | Dr. Jan Duffy" },
+    { name: "description", content: "Astra La Madre Peaks homes for sale. Dr. Jan Duffy helps you find homes in this exclusive community." },
   ];
 }
 

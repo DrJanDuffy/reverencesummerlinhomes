@@ -2,8 +2,8 @@ import type { Route } from "./+types/communities";
 
 export function meta() {
   return [
-    { title: "Reverence Summerlin | Dr. Janet Duffy" },
-    { name: "description", content: "Reverence Summerlin homes for sale. Dr. Janet Duffy helps you find homes in Reverence Summerlin." },
+    { title: "Reverence Summerlin | Dr. Jan Duffy" },
+    { name: "description", content: "Reverence Summerlin homes for sale. Dr. Jan Duffy helps you find homes in Reverence Summerlin." },
   ];
 }
 

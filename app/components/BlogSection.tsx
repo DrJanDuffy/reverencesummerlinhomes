@@ -4,7 +4,7 @@ const blogPosts = [
   {
     title: "How a Short Sale Can Save Your Credit Score",
     excerpt: "Falling behind on your mortgage doesn't make you irresponsible; it makes you human. Life happens. A job loss, a medical emergency, a divorce, or an unexpected expense can throw even...",
-    author: "Dr. Janet Duffy",
+    author: "Dr. Jan Duffy",
     publishedAt: "2025-10-10",
     category: "Selling",
     image: "/images/blog/short-sale-credit.jpg",
@@ -13,7 +13,7 @@ const blogPosts = [
   {
     title: "How to Avoid Foreclosing On Your Las Vegas Home",
     excerpt: "Owning a home in Las Vegas is more than just a milestone. It's proof of your hard work, your stability, your story. But when life hits hard, job loss, medical...",
-    author: "Dr. Janet Duffy",
+    author: "Dr. Jan Duffy",
     publishedAt: "2025-09-19",
     category: "Selling",
     image: "/images/blog/avoid-foreclosure.jpg",
@@ -22,7 +22,7 @@ const blogPosts = [
   {
     title: "Why The Peaks Summerlin Exemplifies Luxury Real Estate",
     excerpt: "Luxury real estate in Las Vegas has taken many forms over the years, but few communities offer the complete package like The Peaks in Summerlin. This neighborhood is not just...",
-    author: "Dr. Janet Duffy",
+    author: "Dr. Jan Duffy",
     publishedAt: "2025-09-13",
     category: "Communities",
     image: "/images/blog/peaks-luxury.jpg",
@@ -31,7 +31,7 @@ const blogPosts = [
   {
     title: "5 Reasons to Consider Mesa Ridge in Summerlin",
     excerpt: "If you've been searching for a place to call home in Las Vegas that offers more than just a house, Mesa Ridge in Summerlin deserves your attention. Built by Toll...",
-    author: "Dr. Janet Duffy",
+    author: "Dr. Jan Duffy",
     publishedAt: "2025-08-25",
     category: "Communities",
     image: "/images/blog/mesa-ridge.jpg",

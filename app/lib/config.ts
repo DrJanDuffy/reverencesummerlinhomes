@@ -1,12 +1,13 @@
 export const config = {
   agent: {
-    name: "Dr. Janet Duffy",
+    name: "Dr. Jan Duffy",
     title: "Certified Summerlin Home Buyer & Seller Agent",
     credentials: [
       "Certified Summerlin Specialist",
       "Featured Pulte Homes Buying Agent",
       "Monument at Reverence On-Site Agent",
     ],
+    license: "S.0197614.LLC",
     office: {
       address: "10800 Reverence Pkwy",
       city: "Las Vegas",
@@ -16,9 +17,10 @@ export const config = {
     },
   },
   contact: {
-    phone: "(702) 555-0100", // Update with actual phone
+    phone: "(702) 930-8222",
+    phoneSecondary: "702-222-1964", // For urgent/marketing CTAs
     email: "DrJanSells@ReverenceSummerlinHomes.com",
-    calendly: "https://calendly.com/drjanetduffy", // Update with actual Calendly
+    calendly: "https://calendly.com/drjanetduffy",
   },
   social: {
     facebook: "https://facebook.com/drjanetduffy",
@@ -27,10 +29,10 @@ export const config = {
     youtube: "https://youtube.com/@drjanetduffy",
   },
   seo: {
-    siteUrl: "https://reverencesummerlinhomes.com",
-    siteName: "Reverence Summerlin Homes | Dr. Janet Duffy",
+    siteUrl: "https://www.reverencesummerlinhomes.com",
+    siteName: "Reverence Summerlin Homes | Dr. Jan Duffy",
     description:
-      "Expert real estate services in Las Vegas and Summerlin. Dr. Janet Duffy, certified Summerlin specialist and featured Pulte Homes agent at Monument at Reverence.",
+      "Expert real estate services in Las Vegas and Summerlin. Dr. Jan Duffy, certified Summerlin specialist and featured Pulte Homes agent at Monument at Reverence.",
     keywords: [
       "Summerlin real estate",
       "Monument at Reverence",
@@ -38,7 +40,7 @@ export const config = {
       "Reverence Summerlin",
       "Las Vegas homes for sale",
       "Summerlin luxury homes",
-      "Dr. Janet Duffy",
+      "Dr. Jan Duffy",
       "Summerlin real estate agent",
       "New construction Summerlin",
       "Las Vegas relocation",

@@ -1,9 +1,17 @@
 import type { Route } from "./+types/relocate";
+import { config } from "~/lib/config";
+
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/relocate/san-francisco` },
+  ];
+}
 
 export function meta() {
   return [
-    { title: "Relocate from San Francisco to Las Vegas | Dr. Janet Duffy" },
-    { name: "description", content: "Moving from San Francisco to Las Vegas? Dr. Janet Duffy helps SF residents relocate to Las Vegas." },
+    { title: "Relocate from San Francisco to Las Vegas | Dr. Jan Duffy" },
+    { name: "description", content: "Moving from San Francisco to Las Vegas? Dr. Jan Duffy helps SF residents relocate to Las Vegas." },
+    { property: "og:url", content: `${config.seo.siteUrl}/relocate/san-francisco` },
   ];
 }
 

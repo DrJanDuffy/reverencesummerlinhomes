@@ -28,14 +28,14 @@ import {
 
 export function meta() {
   return [
-    { title: "Boulder City Homes for Sale | Historic Small Town Living | Dr. Janet Duffy" },
-    { name: "description", content: "Discover homes for sale in Boulder City, Nevada. Dr. Janet Duffy specializes in Boulder City real estate with historic charm, outdoor recreation, and small-town living." },
-    { name: "keywords", content: "Boulder City homes for sale, Boulder City Nevada real estate, historic homes, outdoor recreation, small town living, Dr. Janet Duffy" },
+    { title: "Boulder City Homes for Sale | Historic Small Town Living | Dr. Jan Duffy" },
+    { name: "description", content: "Discover homes for sale in Boulder City, Nevada. Dr. Jan Duffy specializes in Boulder City real estate with historic charm, outdoor recreation, and small-town living." },
+    { name: "keywords", content: "Boulder City homes for sale, Boulder City Nevada real estate, historic homes, outdoor recreation, small town living, Dr. Jan Duffy" },
     { property: "og:title", content: "Boulder City Homes for Sale | Historic Small Town Living" },
-    { property: "og:description", content: "Homes for sale in Boulder City, Nevada with historic charm, outdoor recreation, and small-town living. Expert real estate guidance from Dr. Janet Duffy." },
+    { property: "og:description", content: "Homes for sale in Boulder City, Nevada with historic charm, outdoor recreation, and small-town living. Expert real estate guidance from Dr. Jan Duffy." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Boulder City Homes for Sale | Dr. Janet Duffy" },
+    { name: "twitter:title", content: "Boulder City Homes for Sale | Dr. Jan Duffy" },
     { name: "twitter:description", content: "Homes for sale in Boulder City, Nevada with historic charm and outdoor recreation." }
   ];
 }
@@ -364,7 +364,7 @@ export default function BoulderCity() {
               Your Boulder City Real Estate Expert
             </h2>
             <p className="text-xl text-gray-600">
-              Dr. Janet Duffy brings unmatched expertise in Boulder City real estate
+              Dr. Jan Duffy brings unmatched expertise in Boulder City real estate
             </p>
           </div>
 
@@ -417,7 +417,7 @@ export default function BoulderCity() {
             </div>
 
             <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Janet Duffy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-amber-600 mr-3" />
@@ -448,7 +448,7 @@ export default function BoulderCity() {
             Ready to Find Your Boulder City Home?
           </h2>
           <p className="text-xl mb-8 text-amber-100 max-w-2xl mx-auto">
-            Let Dr. Janet Duffy guide you through Boulder City's real estate market with personalized service and local expertise.
+            Let Dr. Jan Duffy guide you through Boulder City's real estate market with personalized service and local expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-amber-600 hover:bg-amber-50">

@@ -1,9 +1,17 @@
 import type { Route } from "./+types/relocate";
+import { config } from "~/lib/config";
+
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/relocate/new-york` },
+  ];
+}
 
 export function meta() {
   return [
-    { title: "Relocate from New York to Las Vegas | Dr. Janet Duffy" },
-    { name: "description", content: "Moving from New York to Las Vegas? Dr. Janet Duffy helps NYC residents relocate to Las Vegas." },
+    { title: "Relocate from New York to Las Vegas | Dr. Jan Duffy" },
+    { name: "description", content: "Moving from New York to Las Vegas? Dr. Jan Duffy helps NYC residents relocate to Las Vegas." },
+    { property: "og:url", content: `${config.seo.siteUrl}/relocate/new-york` },
   ];
 }
 

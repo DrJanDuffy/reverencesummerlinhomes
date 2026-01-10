@@ -9,18 +9,18 @@ export async function loader() {
   const images = [
     {
       loc: `${baseUrl}/images/og-image.svg`,
-      title: "Dr. Janet Duffy - Las Vegas Real Estate Expert",
-      caption: "Dr. Janet Duffy, Featured Pulte Homes Agent specializing in Las Vegas and Summerlin real estate"
+      title: "Dr. Jan Duffy - Las Vegas Real Estate Expert",
+      caption: "Dr. Jan Duffy, Featured Pulte Homes Agent specializing in Las Vegas and Summerlin real estate"
     },
     {
       loc: `${baseUrl}/images/twitter-image.svg`,
-      title: "Dr. Janet Duffy Real Estate Services",
+      title: "Dr. Jan Duffy Real Estate Services",
       caption: "Expert real estate services in Las Vegas, Summerlin, and Monument at Reverence"
     },
     {
       loc: `${baseUrl}/images/dr-janet-duffy.svg`,
-      title: "Dr. Janet Duffy Professional Headshot",
-      caption: "Dr. Janet Duffy, Licensed Real Estate Agent serving Las Vegas and Summerlin"
+      title: "Dr. Jan Duffy Professional Headshot",
+      caption: "Dr. Jan Duffy, Licensed Real Estate Agent serving Las Vegas and Summerlin"
     },
     {
       loc: `${baseUrl}/images/communities/monument-at-reverence-hero.jpg`,
@@ -56,18 +56,18 @@ export async function loader() {
     <loc>${baseUrl}</loc>
     <image:image>
       <image:loc>${baseUrl}/images/og-image.svg</image:loc>
-      <image:title>Dr. Janet Duffy - Las Vegas Real Estate Expert</image:title>
-      <image:caption>Dr. Janet Duffy, Featured Pulte Homes Agent specializing in Las Vegas and Summerlin real estate</image:caption>
+      <image:title>Dr. Jan Duffy - Las Vegas Real Estate Expert</image:title>
+      <image:caption>Dr. Jan Duffy, Featured Pulte Homes Agent specializing in Las Vegas and Summerlin real estate</image:caption>
     </image:image>
     <image:image>
       <image:loc>${baseUrl}/images/twitter-image.svg</image:loc>
-      <image:title>Dr. Janet Duffy Real Estate Services</image:title>
+      <image:title>Dr. Jan Duffy Real Estate Services</image:title>
       <image:caption>Expert real estate services in Las Vegas, Summerlin, and Monument at Reverence</image:caption>
     </image:image>
     <image:image>
       <image:loc>${baseUrl}/images/dr-janet-duffy.svg</image:loc>
-      <image:title>Dr. Janet Duffy Professional Headshot</image:title>
-      <image:caption>Dr. Janet Duffy, Licensed Real Estate Agent serving Las Vegas and Summerlin</image:caption>
+      <image:title>Dr. Jan Duffy Professional Headshot</image:title>
+      <image:caption>Dr. Jan Duffy, Licensed Real Estate Agent serving Las Vegas and Summerlin</image:caption>
     </image:image>
   </url>
 </urlset>`;

@@ -1,12 +1,20 @@
 import type { Route } from "./+types/selling-foreclosure-avoidance";
+import { config } from "~/lib/config";
+
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/selling/foreclosure-avoidance` },
+  ];
+}
 
 export function meta() {
   return [
-    { title: "Foreclosure Avoidance | Dr. Janet Duffy" },
-    { name: "description", content: "Avoid foreclosure with Dr. Janet Duffy's expert guidance. Explore loan modifications, short sales, and other alternatives to keep your Las Vegas home." },
+    { title: "Foreclosure Avoidance | Dr. Jan Duffy" },
+    { name: "description", content: "Avoid foreclosure with Dr. Jan Duffy's expert guidance. Explore loan modifications, short sales, and other alternatives to keep your Las Vegas home." },
     { name: "keywords", content: "foreclosure avoidance Las Vegas, loan modification, short sale, foreclosure help Las Vegas" },
-    { property: "og:title", content: "Foreclosure Avoidance | Dr. Janet Duffy" },
-    { property: "og:description", content: "Avoid foreclosure with Dr. Janet Duffy's expert guidance. Explore loan modifications, short sales, and other alternatives to keep your Las Vegas home." },
+    { property: "og:title", content: "Foreclosure Avoidance | Dr. Jan Duffy" },
+    { property: "og:description", content: "Avoid foreclosure with Dr. Jan Duffy's expert guidance. Explore loan modifications, short sales, and other alternatives to keep your Las Vegas home." },
+    { property: "og:url", content: `${config.seo.siteUrl}/selling/foreclosure-avoidance` },
   ];
 }
 
@@ -19,7 +27,7 @@ export default function ForeclosureAvoidance() {
             Foreclosure Avoidance
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Facing foreclosure can be overwhelming, but you have options. Dr. Janet Duffy provides compassionate guidance and expert assistance to help you explore alternatives to foreclosure and protect your Las Vegas home.
+            Facing foreclosure can be overwhelming, but you have options. Dr. Jan Duffy provides compassionate guidance and expert assistance to help you explore alternatives to foreclosure and protect your Las Vegas home.
           </p>
         </div>
 

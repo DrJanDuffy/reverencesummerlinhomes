@@ -22,16 +22,23 @@ import {
   Shield
 } from "lucide-react";
 
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/communities/summerlin-west` },
+  ];
+}
+
 export function meta() {
   return [
-    { title: "Summerlin West Homes for Sale | Luxury Living in Las Vegas | Dr. Janet Duffy" },
-    { name: "description", content: "Discover luxury homes in Summerlin West, Las Vegas. Dr. Janet Duffy specializes in Summerlin West real estate with Red Rock views, golf courses, and premier amenities. Expert guidance for your dream home." },
-    { name: "keywords", content: "Summerlin West homes, Las Vegas luxury real estate, Red Rock views, golf course homes, Summerlin West realtor, Dr. Janet Duffy" },
+    { title: "Summerlin West Homes for Sale | Luxury Living in Las Vegas | Dr. Jan Duffy" },
+    { name: "description", content: "Discover luxury homes in Summerlin West, Las Vegas. Dr. Jan Duffy specializes in Summerlin West real estate with Red Rock views, golf courses, and premier amenities. Expert guidance for your dream home." },
+    { name: "keywords", content: "Summerlin West homes, Las Vegas luxury real estate, Red Rock views, golf course homes, Summerlin West realtor, Dr. Jan Duffy" },
     { property: "og:title", content: "Summerlin West Homes for Sale | Luxury Living in Las Vegas" },
-    { property: "og:description", content: "Discover luxury homes in Summerlin West with Red Rock views, golf courses, and premier amenities. Expert real estate guidance from Dr. Janet Duffy." },
+    { property: "og:description", content: "Discover luxury homes in Summerlin West with Red Rock views, golf courses, and premier amenities. Expert real estate guidance from Dr. Jan Duffy." },
     { property: "og:type", content: "website" },
+    { property: "og:url", content: `${config.seo.siteUrl}/communities/summerlin-west` },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Summerlin West Homes for Sale | Dr. Janet Duffy" },
+    { name: "twitter:title", content: "Summerlin West Homes for Sale | Dr. Jan Duffy" },
     { name: "twitter:description", content: "Luxury homes in Summerlin West with Red Rock views and premier amenities." }
   ];
 }
@@ -476,7 +483,7 @@ export default function SummerlinWest() {
               Your Summerlin West Expert
             </h2>
             <p className="text-xl text-gray-600">
-              Dr. Janet Duffy brings unmatched expertise and local knowledge to your home search
+              Dr. Jan Duffy brings unmatched expertise and local knowledge to your home search
             </p>
           </div>
 
@@ -529,7 +536,7 @@ export default function SummerlinWest() {
             </div>
 
             <div className="bg-gradient-to-br from-primary-50 to-blue-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Janet Duffy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-primary-600 mr-3" />
@@ -560,7 +567,7 @@ export default function SummerlinWest() {
             Ready to Find Your Summerlin West Home?
           </h2>
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-            Let Dr. Janet Duffy guide you through the Summerlin West real estate market with personalized service and expert local knowledge.
+            Let Dr. Jan Duffy guide you through the Summerlin West real estate market with personalized service and expert local knowledge.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-primary-600 hover:bg-blue-50">

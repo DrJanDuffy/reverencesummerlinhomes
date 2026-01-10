@@ -24,11 +24,11 @@ import {
 
 export function meta() {
   return [
-    { title: "Relocate to Las Vegas | Expert Relocation Services | Dr. Janet Duffy" },
-    { name: "description", content: "Expert relocation services to Las Vegas and Summerlin. Dr. Janet Duffy helps families and professionals relocate to Nevada with personalized assistance and market insights." },
-    { name: "keywords", content: "relocate to Las Vegas, Las Vegas relocation, Summerlin relocation, Nevada relocation, Dr. Janet Duffy, California to Las Vegas, New York to Las Vegas" },
-    { property: "og:title", content: "Relocate to Las Vegas | Dr. Janet Duffy" },
-    { property: "og:description", content: "Expert relocation services to Las Vegas and Summerlin. Dr. Janet Duffy helps families and professionals relocate to Nevada with personalized assistance." },
+    { title: "Relocate to Las Vegas | Expert Relocation Services | Dr. Jan Duffy" },
+    { name: "description", content: "Expert relocation services to Las Vegas and Summerlin. Dr. Jan Duffy helps families and professionals relocate to Nevada with personalized assistance and market insights." },
+    { name: "keywords", content: "relocate to Las Vegas, Las Vegas relocation, Summerlin relocation, Nevada relocation, Dr. Jan Duffy, California to Las Vegas, New York to Las Vegas" },
+    { property: "og:title", content: "Relocate to Las Vegas | Dr. Jan Duffy" },
+    { property: "og:description", content: "Expert relocation services to Las Vegas and Summerlin. Dr. Jan Duffy helps families and professionals relocate to Nevada with personalized assistance." },
     { property: "og:type", content: "website" },
     { property: "og:url", content: `${config.seo.siteUrl}/relocate` },
   ];
@@ -110,7 +110,7 @@ export default function RelocateIndex() {
               Relocate to Las Vegas
             </h1>
             <p className="text-xl md:text-2xl text-primary-100 max-w-3xl mx-auto mb-8">
-              Make Las Vegas your new home with expert guidance from Dr. Janet Duffy. 
+              Make Las Vegas your new home with expert guidance from Dr. Jan Duffy. 
               Save thousands annually while enjoying world-class amenities and entertainment.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -282,7 +282,7 @@ export default function RelocateIndex() {
               Comprehensive Relocation Services
             </h2>
             <p className="text-xl text-gray-600">
-              Dr. Janet Duffy provides end-to-end relocation assistance
+              Dr. Jan Duffy provides end-to-end relocation assistance
             </p>
           </div>
 
@@ -358,7 +358,7 @@ export default function RelocateIndex() {
               <Award className="w-16 h-16 mx-auto mb-4 text-primary-200" />
               <h3 className="text-2xl font-bold mb-4">Ready to Relocate to Las Vegas?</h3>
               <p className="text-primary-100 mb-6 max-w-2xl mx-auto">
-                Let Dr. Janet Duffy guide you through every step of your relocation journey. 
+                Let Dr. Jan Duffy guide you through every step of your relocation journey. 
                 From finding the perfect neighborhood to closing on your dream home.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

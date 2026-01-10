@@ -23,14 +23,22 @@ import {
   ExternalLink
 } from "lucide-react";
 import type { Route } from "./+types/properties";
+import { config } from "~/lib/config";
+
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/properties` },
+  ];
+}
 
 export function meta() {
   return [
-    { title: "Las Vegas Properties for Sale | Dr. Janet Duffy" },
-    { name: "description", content: "Browse Las Vegas and Summerlin properties for sale. Dr. Janet Duffy helps you find the perfect home with expert guidance and local market knowledge." },
+    { title: "Las Vegas Properties for Sale | Dr. Jan Duffy" },
+    { name: "description", content: "Browse Las Vegas and Summerlin properties for sale. Dr. Jan Duffy helps you find the perfect home with expert guidance and local market knowledge." },
     { name: "keywords", content: "Las Vegas homes for sale, Summerlin properties, Las Vegas real estate listings" },
-    { property: "og:title", content: "Las Vegas Properties for Sale | Dr. Janet Duffy" },
-    { property: "og:description", content: "Browse Las Vegas and Summerlin properties for sale. Dr. Janet Duffy helps you find the perfect home with expert guidance and local market knowledge." },
+    { property: "og:title", content: "Las Vegas Properties for Sale | Dr. Jan Duffy" },
+    { property: "og:description", content: "Browse Las Vegas and Summerlin properties for sale. Dr. Jan Duffy helps you find the perfect home with expert guidance and local market knowledge." },
+    { property: "og:url", content: `${config.seo.siteUrl}/properties` },
   ];
 }
 
@@ -197,7 +205,7 @@ export default function Properties() {
             </h1>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover exceptional homes in Las Vegas and Summerlin. Dr. Janet Duffy provides expert guidance to help you find the perfect property that meets your needs and budget.
+            Discover exceptional homes in Las Vegas and Summerlin. Dr. Jan Duffy provides expert guidance to help you find the perfect property that meets your needs and budget.
           </p>
         </div>
 
@@ -422,7 +430,7 @@ export default function Properties() {
               <Search className="w-16 h-16 text-gray-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">No Properties Found</h3>
               <p className="text-gray-600 mb-6">
-                Try adjusting your search criteria or contact Dr. Janet Duffy for personalized assistance.
+                Try adjusting your search criteria or contact Dr. Jan Duffy for personalized assistance.
               </p>
               <Button asChild>
                 <Link to="/contact">Get Personalized Search</Link>
@@ -436,7 +444,7 @@ export default function Properties() {
           <CardContent className="p-8 text-center">
             <h2 className="text-3xl font-bold mb-4">Need Help Finding Your Dream Home?</h2>
             <p className="text-xl text-primary-100 mb-8">
-              Dr. Janet Duffy provides personalized property search services and expert guidance throughout your home buying journey.
+              Dr. Jan Duffy provides personalized property search services and expert guidance throughout your home buying journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-white text-primary-700 hover:bg-primary-50">

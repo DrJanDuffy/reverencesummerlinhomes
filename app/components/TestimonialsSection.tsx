@@ -5,21 +5,21 @@ const testimonials = [
     name: "Sarah Johnson",
     location: "Summerlin West",
     rating: 5,
-    text: "Dr. Janet Duffy made our relocation from California seamless. Her knowledge of Summerlin communities and attention to detail helped us find the perfect home. We couldn't be happier with our decision to work with her.",
+    text: "Dr. Jan Duffy made our relocation from California seamless. Her knowledge of Summerlin communities and attention to detail helped us find the perfect home. We couldn't be happier with our decision to work with her.",
     image: "/images/testimonials/sarah-johnson.jpg",
   },
   {
     name: "Michael Chen",
     location: "The Ridges",
     rating: 5,
-    text: "As first-time homebuyers, we were nervous about the process. Dr. Janet guided us through every step and helped us understand the Las Vegas market. Her expertise and patience made all the difference.",
+    text: "As first-time homebuyers, we were nervous about the process. Dr. Jan guided us through every step and helped us understand the Las Vegas market. Her expertise and patience made all the difference.",
     image: "/images/testimonials/michael-chen.jpg",
   },
   {
     name: "Jennifer Martinez",
     location: "Downtown Summerlin",
     rating: 5,
-    text: "Dr. Janet helped us sell our home quickly and for top dollar. Her marketing strategy and professional network ensured we had multiple offers within days. Highly recommend her services!",
+    text: "Dr. Jan helped us sell our home quickly and for top dollar. Her marketing strategy and professional network ensured we had multiple offers within days. Highly recommend her services!",
     image: "/images/testimonials/jennifer-martinez.jpg",
   },
 ];
@@ -69,7 +69,7 @@ export function TestimonialsSection() {
         <div className="text-center mt-12">
           <Link
             to="/about/reviews"
-            className="inline-block bg-primary-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-primary-700 transition-colors"
+            className="inline-block bg-accent text-white px-8 py-3 rounded-md font-semibold hover:bg-accent-600 hover:shadow-lg hover:-translate-y-0.5 transition-all"
           >
             Read More Reviews
           </Link>

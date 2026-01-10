@@ -1,9 +1,17 @@
 import type { Route } from "./+types/relocate";
+import { config } from "~/lib/config";
+
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/relocate/los-angeles` },
+  ];
+}
 
 export function meta() {
   return [
-    { title: "Relocate from Los Angeles to Las Vegas | Dr. Janet Duffy" },
-    { name: "description", content: "Moving from Los Angeles to Las Vegas? Dr. Janet Duffy helps LA residents relocate to Las Vegas with expert guidance." },
+    { title: "Relocate from Los Angeles to Las Vegas | Dr. Jan Duffy" },
+    { name: "description", content: "Moving from Los Angeles to Las Vegas? Dr. Jan Duffy helps LA residents relocate to Las Vegas with expert guidance." },
+    { property: "og:url", content: `${config.seo.siteUrl}/relocate/los-angeles` },
   ];
 }
 

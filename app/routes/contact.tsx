@@ -20,13 +20,19 @@ import {
 } from "lucide-react";
 import type { Route } from "./+types/contact";
 
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/contact` },
+  ];
+}
+
 export function meta() {
   return [
-    { title: "Contact Dr. Janet Duffy | Las Vegas Real Estate Expert" },
-    { name: "description", content: "Contact Dr. Janet Duffy for expert real estate services in Las Vegas and Summerlin. Get personalized assistance for buying, selling, or relocating to Las Vegas." },
-    { name: "keywords", content: "contact real estate agent Las Vegas, Dr. Janet Duffy contact, Las Vegas real estate consultation" },
-    { property: "og:title", content: "Contact Dr. Janet Duffy | Las Vegas Real Estate Expert" },
-    { property: "og:description", content: "Contact Dr. Janet Duffy for expert real estate services in Las Vegas and Summerlin. Get personalized assistance for buying, selling, or relocating to Las Vegas." },
+    { title: "Contact Dr. Jan Duffy | Reverence Summerlin Real Estate Expert | Las Vegas" },
+    { name: "description", content: "Contact Dr. Jan Duffy for expert real estate services in Reverence Summerlin, Monument at Reverence, and Las Vegas. Get personalized assistance for buying, selling, or relocating to Reverence Summerlin." },
+    { name: "keywords", content: "contact Reverence Summerlin real estate, Dr. Jan Duffy contact, Monument at Reverence agent, Reverence Summerlin real estate consultation, Las Vegas real estate contact" },
+    { property: "og:title", content: "Contact Dr. Jan Duffy | Reverence Summerlin Real Estate Expert" },
+    { property: "og:description", content: "Contact Dr. Jan Duffy for expert real estate services in Reverence Summerlin, Monument at Reverence, and Las Vegas. Get personalized assistance for buying, selling, or relocating to Reverence Summerlin." },
     { property: "og:url", content: `${config.seo.siteUrl}/contact` },
   ];
 }
@@ -64,16 +70,114 @@ export default function Contact() {
     <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-12">
+          <Badge className="mb-4">Reverence Summerlin Expert</Badge>
           <div className="flex items-center justify-center mb-4">
             <MessageCircle className="w-8 h-8 text-primary-600 mr-3" />
-            <h1 className="text-4xl font-bold text-gray-900">
-              Contact Dr. Janet Duffy
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
+              Contact Dr. Jan Duffy: Your Reverence Summerlin Real Estate Expert
             </h1>
           </div>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to start your Las Vegas real estate journey? I'm here to help with personalized guidance for buying, selling, or relocating to the Las Vegas area.
+            Ready to start your Reverence Summerlin real estate journey? I'm here to help with personalized guidance for buying Monument at Reverence, selling in Reverence Summerlin, or relocating to the Las Vegas area.
           </p>
         </div>
+
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Why Contact Dr. Jan Duffy for Reverence Summerlin Real Estate?</h2>
+          
+          <div className="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <p className="text-gray-700 mb-4">
+              When you contact Dr. Jan Duffy for Reverence Summerlin real estate needs, you're reaching out to a certified Summerlin specialist with deep expertise in Reverence Summerlin communities, Monument at Reverence new construction, and the greater Las Vegas market. My specialization in Reverence Summerlin real estate means you'll receive guidance based on actual market experience, not just general Las Vegas knowledge.
+            </p>
+            <p className="text-gray-700 mb-4">
+              Whether you're interested in buying Monument at Reverence, selling a Reverence Summerlin property, or investing in the area, contacting me provides access to specialized Reverence Summerlin expertise that benefits every transaction. As the featured on-site agent for Monument at Reverence, I offer unique insights into this premier Reverence Summerlin community that other agents simply can't provide.
+            </p>
+            <p className="text-gray-700">
+              My Reverence Summerlin specialization includes comprehensive knowledge of Monument at Reverence floor plans, Reverence Summerlin market trends, pricing strategies, and transaction processes specific to the area. When you contact me about Reverence Summerlin real estate, you're connecting with an expert who understands the nuances that make Reverence Summerlin desirable and the factors that drive successful transactions in the area.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <Card className="hover:shadow-lg transition-shadow border-l-4 border-primary-600">
+              <CardHeader>
+                <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mb-4">
+                  <Home className="w-6 h-6 text-primary-600" />
+                </div>
+                <CardTitle>Monument at Reverence Specialist</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  As the featured on-site agent for Monument at Reverence in Reverence Summerlin, I provide exclusive access and insights into this premier Pulte Homes community. Contact me to learn more about Monument at Reverence opportunities.
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="hover:shadow-lg transition-shadow border-l-4 border-primary-600">
+              <CardHeader>
+                <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mb-4">
+                  <TrendingUp className="w-6 h-6 text-primary-600" />
+                </div>
+                <CardTitle>Reverence Summerlin Market Expertise</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Deep knowledge of Reverence Summerlin real estate markets, including Monument at Reverence, established neighborhoods, and investment opportunities. Contact me for comprehensive Reverence Summerlin market analysis.
+                </p>
+              </CardContent>
+            </Card>
+            
+            <Card className="hover:shadow-lg transition-shadow border-l-4 border-primary-600">
+              <CardHeader>
+                <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mb-4">
+                  <Users className="w-6 h-6 text-primary-600" />
+                </div>
+                <CardTitle>Personalized Reverence Summerlin Service</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600">
+                  Every Reverence Summerlin client receives personalized attention and dedicated service throughout their transaction. Contact me to experience the difference that specialized Reverence Summerlin expertise makes.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-8">Services Available in Reverence Summerlin</h2>
+          
+          <div className="bg-gradient-to-r from-primary-50 to-primary-100 rounded-lg p-8 mb-8">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">Comprehensive Reverence Summerlin Real Estate Services</h3>
+            <p className="text-gray-700 mb-4">
+              When you contact me about Reverence Summerlin real estate, you're accessing a full range of services designed to meet your needs, whether buying Monument at Reverence, selling in Reverence Summerlin, or investing in the area. My Reverence Summerlin services include:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-gray-700 mb-4">
+              <li>Monument at Reverence new construction consultations and purchases in Reverence Summerlin</li>
+              <li>Reverence Summerlin home buying assistance, including established neighborhoods</li>
+              <li>Comprehensive Reverence Summerlin market analysis and property valuations</li>
+              <li>Strategic pricing and marketing for Reverence Summerlin home sales</li>
+              <li>Reverence Summerlin investment property analysis and opportunities</li>
+              <li>VA loan assistance for military veterans buying in Reverence Summerlin</li>
+              <li>Reverence Summerlin relocation services for families moving to the area</li>
+              <li>Monument at Reverence floor plan consultations and selection guidance</li>
+            </ul>
+            <p className="text-gray-700">
+              These comprehensive Reverence Summerlin services ensure that whether you're buying Monument at Reverence, selling in Reverence Summerlin, or investing in the area, you'll receive expert guidance tailored to your specific needs and goals. Contact me to discuss which Reverence Summerlin services best match your real estate objectives.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-lg p-8">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-4">How to Contact Me About Reverence Summerlin Real Estate</h3>
+            <p className="text-gray-700 mb-4">
+              Contacting me about Reverence Summerlin real estate is easy and convenient. Whether you prefer phone, email, or the contact form below, I'm available to discuss your Reverence Summerlin real estate needs, whether buying Monument at Reverence, selling in Reverence Summerlin, or investing in the area.
+            </p>
+            <p className="text-gray-700 mb-4">
+              For urgent Reverence Summerlin inquiries, especially regarding Monument at Reverence availability or time-sensitive Reverence Summerlin opportunities, calling or texting is the fastest way to reach me. For general Reverence Summerlin questions or to schedule consultations, the contact form provides a convenient way to share your needs and preferred contact method.
+            </p>
+            <p className="text-gray-700">
+              My office is located at the Monument at Reverence Sales Office in Reverence Summerlin, providing convenient access for in-person meetings about Monument at Reverence or other Reverence Summerlin real estate needs. Contact me today to schedule your Reverence Summerlin consultation and begin your real estate journey.
+            </p>
+          </div>
+        </section>
 
         {/* Success Message */}
         {actionData?.success && (
@@ -307,7 +411,7 @@ export default function Contact() {
             
             <Card className="shadow-xl bg-gradient-to-r from-primary-600 to-primary-700 text-white">
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-4">Why Choose Dr. Janet Duffy?</h3>
+                <h3 className="text-xl font-bold mb-4">Why Choose Dr. Jan Duffy?</h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 text-green-400" />

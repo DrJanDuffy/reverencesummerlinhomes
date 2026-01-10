@@ -5,11 +5,11 @@ import type { Route } from "./+types/_layout";
 
 export function meta() {
   return [
-    { title: "Dr. Janet Duffy - Las Vegas Real Estate Expert" },
-    { name: "description", content: "Expert real estate services in Las Vegas and Summerlin. Dr. Janet Duffy provides personalized assistance for buying, selling, and relocating to Las Vegas." },
-    { name: "keywords", content: "Las Vegas real estate, Summerlin homes, Las Vegas real estate agent, Dr. Janet Duffy" },
-    { property: "og:title", content: "Dr. Janet Duffy - Las Vegas Real Estate Expert" },
-    { property: "og:description", content: "Expert real estate services in Las Vegas and Summerlin. Dr. Janet Duffy provides personalized assistance for buying, selling, and relocating to Las Vegas." },
+    { title: "Dr. Jan Duffy - Las Vegas Real Estate Expert" },
+    { name: "description", content: "Expert real estate services in Las Vegas and Summerlin. Dr. Jan Duffy provides personalized assistance for buying, selling, and relocating to Las Vegas." },
+    { name: "keywords", content: "Las Vegas real estate, Summerlin homes, Las Vegas real estate agent, Dr. Jan Duffy" },
+    { property: "og:title", content: "Dr. Jan Duffy - Las Vegas Real Estate Expert" },
+    { property: "og:description", content: "Expert real estate services in Las Vegas and Summerlin. Dr. Jan Duffy provides personalized assistance for buying, selling, and relocating to Las Vegas." },
   ];
 }
 

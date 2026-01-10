@@ -6,24 +6,46 @@ export async function loader() {
   const baseUrl = config.seo.siteUrl;
   const currentDate = new Date().toISOString();
 
-  // Community pages with enhanced SEO data
-  const communityPages = communitiesData.map(community => ({
-    url: `/communities/${community.id}`,
-    priority: community.id === "monument-at-reverence" ? "0.9" : "0.8",
-    changefreq: "weekly",
-    images: [
-      {
-        loc: `${baseUrl}/images/communities/${community.id}-hero.jpg`,
-        title: `${community.name} - Las Vegas Real Estate`,
-        caption: `Beautiful homes in ${community.name}, Las Vegas`
-      },
-      {
-        loc: `${baseUrl}/images/communities/${community.id}-aerial.jpg`,
-        title: `${community.name} Aerial View`,
-        caption: `Aerial view of ${community.name} community`
-      }
-    ]
-  }));
+  // List of community IDs that have actual route files (exclude communities without pages)
+  const validCommunityIds = [
+    "monument-at-reverence",
+    "summerlin-west",
+    "downtown-summerlin",
+    "the-ridges",
+    "red-rock-country-club",
+    "new-construction",
+    "mesa-ridge",
+    "the-peaks",
+    "reverence-summerlin",
+    "kestrel",
+    "skye-canyon",
+    "henderson",
+    "boulder-city",
+    "ascension-summerlin",
+    "astra-la-madre-peaks",
+    "luxury-homes",
+  ];
+
+  // Filter communities to only include those with actual route files
+  const communityPages = communitiesData
+    .filter(community => validCommunityIds.includes(community.id))
+    .map(community => ({
+      url: `/communities/${community.id}`,
+      priority: community.id === "monument-at-reverence" ? "0.9" : "0.8",
+      changefreq: "weekly",
+      images: [
+        {
+          loc: `${baseUrl}/images/communities/${community.id}-hero.jpg`,
+          title: `${community.name} - Las Vegas Real Estate`,
+          caption: `Beautiful homes in ${community.name}, Las Vegas`
+        },
+        {
+          loc: `${baseUrl}/images/communities/${community.id}-aerial.jpg`,
+          title: `${community.name} Aerial View`,
+          caption: `Aerial view of ${community.name} community`
+        }
+      ]
+    }));
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"

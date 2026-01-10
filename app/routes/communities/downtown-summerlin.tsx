@@ -24,16 +24,23 @@ import {
   Utensils
 } from "lucide-react";
 
+export function links() {
+  return [
+    { rel: "canonical", href: `${config.seo.siteUrl}/communities/downtown-summerlin` },
+  ];
+}
+
 export function meta() {
   return [
-    { title: "Downtown Summerlin Homes | Urban Living in Las Vegas | Dr. Janet Duffy" },
-    { name: "description", content: "Discover urban living in Downtown Summerlin, Las Vegas. Dr. Janet Duffy specializes in Downtown Summerlin real estate with shopping, dining, entertainment, and modern amenities." },
-    { name: "keywords", content: "Downtown Summerlin homes, Las Vegas urban real estate, shopping district homes, Downtown Summerlin realtor, Dr. Janet Duffy" },
+    { title: "Downtown Summerlin Homes | Urban Living in Las Vegas | Dr. Jan Duffy" },
+    { name: "description", content: "Discover urban living in Downtown Summerlin, Las Vegas. Dr. Jan Duffy specializes in Downtown Summerlin real estate with shopping, dining, entertainment, and modern amenities." },
+    { name: "keywords", content: "Downtown Summerlin homes, Las Vegas urban real estate, shopping district homes, Downtown Summerlin realtor, Dr. Jan Duffy" },
     { property: "og:title", content: "Downtown Summerlin Homes | Urban Living in Las Vegas" },
-    { property: "og:description", content: "Urban living in Downtown Summerlin with shopping, dining, entertainment, and modern amenities. Expert real estate guidance from Dr. Janet Duffy." },
+    { property: "og:description", content: "Urban living in Downtown Summerlin with shopping, dining, entertainment, and modern amenities. Expert real estate guidance from Dr. Jan Duffy." },
     { property: "og:type", content: "website" },
+    { property: "og:url", content: `${config.seo.siteUrl}/communities/downtown-summerlin` },
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:title", content: "Downtown Summerlin Homes | Dr. Janet Duffy" },
+    { name: "twitter:title", content: "Downtown Summerlin Homes | Dr. Jan Duffy" },
     { name: "twitter:description", content: "Urban living in Downtown Summerlin with shopping, dining, and entertainment." }
   ];
 }
@@ -362,7 +369,7 @@ export default function DowntownSummerlin() {
               Your Downtown Summerlin Expert
             </h2>
             <p className="text-xl text-gray-600">
-              Dr. Janet Duffy brings unmatched expertise in urban real estate
+              Dr. Jan Duffy brings unmatched expertise in urban real estate
             </p>
           </div>
 
@@ -415,7 +422,7 @@ export default function DowntownSummerlin() {
             </div>
 
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Janet Duffy?</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Why Choose Dr. Jan Duffy?</h3>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <Shield className="w-6 h-6 text-purple-600 mr-3" />
@@ -446,7 +453,7 @@ export default function DowntownSummerlin() {
             Ready for Urban Living?
           </h2>
           <p className="text-xl mb-8 text-purple-100 max-w-2xl mx-auto">
-            Let Dr. Janet Duffy guide you through Downtown Summerlin's urban real estate market with personalized service and local expertise.
+            Let Dr. Jan Duffy guide you through Downtown Summerlin's urban real estate market with personalized service and local expertise.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50">

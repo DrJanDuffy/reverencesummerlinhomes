@@ -31,16 +31,17 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          50: "#f0f9ff",
-          100: "#e0f2fe",
-          200: "#bae6fd",
-          300: "#7dd3fc",
-          400: "#38bdf8",
-          500: "#0ea5e9",
-          600: "#0284c7",
-          700: "#0369a1",
-          800: "#075985",
-          900: "#0c4a6e",
+          // Pulte Navy palette
+          50: "#f0f3f8",
+          100: "#d9e1ed",
+          200: "#b3c3db",
+          300: "#8da5c9",
+          400: "#6787b7",
+          500: "#1a2b4a", // Main navy
+          600: "#152340",
+          700: "#0f1a2e", // Darker navy
+          800: "#0a121c",
+          900: "#05090a",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -67,16 +68,18 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
-          50: "#fefce8",
-          100: "#fef9c3",
-          200: "#fef08a",
-          300: "#fde047",
-          400: "#facc15",
-          500: "#eab308",
-          600: "#ca8a04",
-          700: "#a16207",
-          800: "#854d0e",
-          900: "#713f12",
+          // Pulte Gold palette
+          50: "#fefbf0",
+          100: "#fdf6e1",
+          200: "#fbedc3",
+          300: "#f9e4a5",
+          400: "#f7db87",
+          500: "#c9a227", // Main gold
+          600: "#b8922a", // Gold hover
+          700: "#a6822d",
+          800: "#947230",
+          900: "#826233",
+          light: "#f5e6b3", // Light gold for subtle accents
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
