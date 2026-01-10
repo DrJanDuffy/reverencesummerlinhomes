@@ -103,3 +103,8 @@ export function ErrorBoundary() {
     }
   )
 }
+
+// Default export for Vercel serverless function compatibility
+export default function SitemapCommunities() {
+  return null // This route is handled by the loader
+}

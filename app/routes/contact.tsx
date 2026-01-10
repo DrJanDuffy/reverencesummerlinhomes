@@ -1,4 +1,4 @@
-import { Form, useActionData, useNavigation } from 'react-router'
+import { Form, useActionData } from 'react-router'
 import { useFormStatus } from 'react'
 import { Button } from '~/components/ui/button'
 import {
@@ -75,22 +75,22 @@ export async function action({ request }: Route.ActionArgs) {
 
   // Enhanced validation with React Router 7.12 improvements
   const errors: Record<string, string> = {}
-  
+
   if (!name || String(name).trim().length < 2) {
     errors.name = 'Please enter your full name'
   }
-  
+
   if (!email || !String(email).includes('@')) {
     errors.email = 'Please enter a valid email address'
   }
-  
+
   if (phone && String(phone).length > 0) {
     const phoneRegex = /^[\d\s\-\(\)]+$/
     if (!phoneRegex.test(String(phone))) {
       errors.phone = 'Please enter a valid phone number'
     }
   }
-  
+
   if (!message || String(message).trim().length < 10) {
     errors.message = 'Please provide a message with at least 10 characters'
   }
@@ -105,7 +105,11 @@ export async function action({ request }: Route.ActionArgs) {
   }
 
   // Track AI-driven form processing with full provenance
-  const result = await trackAIFeature<{ success: boolean; message: string; errors?: Record<string, string> }>(
+  const result = await trackAIFeature<{
+    success: boolean
+    message: string
+    errors?: Record<string, string>
+  }>(
     'form_processing' as AIFeatureType,
     request,
     async () => {
@@ -164,12 +168,7 @@ function SubmitButton() {
   const { pending } = useFormStatus()
 
   return (
-    <Button
-      type="submit"
-      disabled={pending}
-      className="w-full"
-      size="lg"
-    >
+    <Button type="submit" disabled={pending} className="w-full" size="lg">
       {pending ? (
         <>
           <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
@@ -464,11 +463,19 @@ export default function Contact() {
                       required
                       placeholder="Your full name"
                       aria-invalid={actionData?.errors?.name ? 'true' : 'false'}
-                      aria-describedby={actionData?.errors?.name ? 'name-error' : undefined}
-                      className={actionData?.errors?.name ? 'border-red-500' : ''}
+                      aria-describedby={
+                        actionData?.errors?.name ? 'name-error' : undefined
+                      }
+                      className={
+                        actionData?.errors?.name ? 'border-red-500' : ''
+                      }
                     />
                     {actionData?.errors?.name && (
-                      <p id="name-error" className="text-sm text-red-600" role="alert">
+                      <p
+                        id="name-error"
+                        className="text-sm text-red-600"
+                        role="alert"
+                      >
                         {actionData.errors.name}
                       </p>
                     )}
@@ -482,12 +489,22 @@ export default function Contact() {
                       type="email"
                       required
                       placeholder="your@email.com"
-                      aria-invalid={actionData?.errors?.email ? 'true' : 'false'}
-                      aria-describedby={actionData?.errors?.email ? 'email-error' : undefined}
-                      className={actionData?.errors?.email ? 'border-red-500' : ''}
+                      aria-invalid={
+                        actionData?.errors?.email ? 'true' : 'false'
+                      }
+                      aria-describedby={
+                        actionData?.errors?.email ? 'email-error' : undefined
+                      }
+                      className={
+                        actionData?.errors?.email ? 'border-red-500' : ''
+                      }
                     />
                     {actionData?.errors?.email && (
-                      <p id="email-error" className="text-sm text-red-600" role="alert">
+                      <p
+                        id="email-error"
+                        className="text-sm text-red-600"
+                        role="alert"
+                      >
                         {actionData.errors.email}
                       </p>
                     )}
@@ -502,12 +519,22 @@ export default function Contact() {
                       name="phone"
                       type="tel"
                       placeholder="(702) 555-0123"
-                      aria-invalid={actionData?.errors?.phone ? 'true' : 'false'}
-                      aria-describedby={actionData?.errors?.phone ? 'phone-error' : undefined}
-                      className={actionData?.errors?.phone ? 'border-red-500' : ''}
+                      aria-invalid={
+                        actionData?.errors?.phone ? 'true' : 'false'
+                      }
+                      aria-describedby={
+                        actionData?.errors?.phone ? 'phone-error' : undefined
+                      }
+                      className={
+                        actionData?.errors?.phone ? 'border-red-500' : ''
+                      }
                     />
                     {actionData?.errors?.phone && (
-                      <p id="phone-error" className="text-sm text-red-600" role="alert">
+                      <p
+                        id="phone-error"
+                        className="text-sm text-red-600"
+                        role="alert"
+                      >
                         {actionData.errors.phone}
                       </p>
                     )}
@@ -519,10 +546,18 @@ export default function Contact() {
                       id="service"
                       name="service"
                       className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 ${
-                        actionData?.errors?.service ? 'border-red-500' : 'border-gray-300'
+                        actionData?.errors?.service
+                          ? 'border-red-500'
+                          : 'border-gray-300'
                       }`}
-                      aria-invalid={actionData?.errors?.service ? 'true' : 'false'}
-                      aria-describedby={actionData?.errors?.service ? 'service-error' : undefined}
+                      aria-invalid={
+                        actionData?.errors?.service ? 'true' : 'false'
+                      }
+                      aria-describedby={
+                        actionData?.errors?.service
+                          ? 'service-error'
+                          : undefined
+                      }
                     >
                       <option value="">Select a service</option>
                       <option value="buying">Buying a Home</option>
@@ -534,7 +569,11 @@ export default function Contact() {
                       <option value="other">Other</option>
                     </select>
                     {actionData?.errors?.service && (
-                      <p id="service-error" className="text-sm text-red-600" role="alert">
+                      <p
+                        id="service-error"
+                        className="text-sm text-red-600"
+                        role="alert"
+                      >
                         {actionData.errors.service}
                       </p>
                     )}
@@ -583,14 +622,24 @@ export default function Contact() {
                     rows={4}
                     required
                     className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 ${
-                      actionData?.errors?.message ? 'border-red-500' : 'border-gray-300'
+                      actionData?.errors?.message
+                        ? 'border-red-500'
+                        : 'border-gray-300'
                     }`}
                     placeholder="Tell me about your real estate needs, preferred neighborhoods, or any questions you have..."
-                    aria-invalid={actionData?.errors?.message ? 'true' : 'false'}
-                    aria-describedby={actionData?.errors?.message ? 'message-error' : undefined}
+                    aria-invalid={
+                      actionData?.errors?.message ? 'true' : 'false'
+                    }
+                    aria-describedby={
+                      actionData?.errors?.message ? 'message-error' : undefined
+                    }
                   />
                   {actionData?.errors?.message && (
-                    <p id="message-error" className="text-sm text-red-600" role="alert">
+                    <p
+                      id="message-error"
+                      className="text-sm text-red-600"
+                      role="alert"
+                    >
                       {actionData.errors.message}
                     </p>
                   )}

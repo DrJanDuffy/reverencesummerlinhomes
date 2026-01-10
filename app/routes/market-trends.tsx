@@ -21,8 +21,6 @@ import {
   MapPin,
   Users,
   Building,
-  ArrowUp,
-  ArrowDown,
   Minus,
   Activity,
   Target,

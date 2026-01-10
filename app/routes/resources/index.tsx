@@ -17,14 +17,12 @@ import {
   Mountain,
   Waves,
   TreePine,
-  BookOpen,
   Users,
   Award,
   Phone,
   Home,
   CheckCircle,
   Star,
-  Info,
 } from 'lucide-react'
 
 export function links() {

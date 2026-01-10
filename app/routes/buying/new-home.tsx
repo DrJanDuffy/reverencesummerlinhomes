@@ -22,7 +22,6 @@ import {
   Award,
   Hammer,
   Zap,
-  Leaf,
   Star,
   Phone,
   Calendar,

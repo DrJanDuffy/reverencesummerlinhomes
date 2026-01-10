@@ -21,7 +21,6 @@ import {
   Briefcase,
   GraduationCap,
   Car,
-  Plane,
   ArrowRight,
   CheckCircle,
   Users,
