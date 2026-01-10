@@ -1,127 +1,184 @@
-# Real Estate Website Development Rules for Dr. Janet Duffy - Las Vegas Market
+# .cursorrules — Reverence Summerlin Homes Website
 
-## Project Context
-- **Agent**: Dr. Janet Duffy
-- **Market**: Las Vegas, Nevada (Summerlin focus)
-- **Tech Stack**: React Router v7 + Vercel + RealScout + Follow Up Boss + Homebot
-- **Focus**: Lead generation, property valuations, market insights
+## PROJECT OVERVIEW
+- **Site:** reverencesummerlinhomes.com
+- **Purpose:** Lead generation for Reverence/Summerlin real estate
+- **Agent:** Dr. Jan Duffy
+- **Tracking Phone:** (702) 930-8222 (dedicated to this site)
 
-## Code Standards
+---
 
-### TypeScript & React Router v7
-- Use strict TypeScript with proper type definitions
-- Use standard React function components (not Qwik)
-- Use `loader()` or `loader$()` for data fetching, `action()` or `action$()` for mutations
-- Implement proper error boundaries with `ErrorBoundary`
-- Use `useLoaderData()`, `useActionData()` for type-safe data access
-- Export `meta()` function for page metadata
-- Export `links()` function for canonical tags and other link tags
+## CRITICAL CONTACT INFO FOR THIS SITE
 
-### Component Architecture & UI Component Reuse
-- **CRITICAL**: Always reuse existing UI components from `/app/components/ui/` before creating new ones
-- Available UI primitives: Button, Card, Badge, Input, Label, Dialog, Separator, Skeleton
-- Available custom components in `/app/components/`: Header, Footer, FeaturedCommunities, HeroSection, TestimonialsSection, ContactSection, BlogSection, RelocationSection, VideoSection
-- Create new components by orchestrating existing UI components if possible
-- Only create new components when no existing component solves the problem
-- When creating new UI components, add them to `/app/components/ui/` following shadcn/ui patterns
-- Use proper prop interfaces with JSDoc comments
-- Implement responsive design mobile-first
-- Follow atomic design principles (atoms → molecules → organisms)
-- Check for existing similar components before building new ones
+| Field | Value |
+|-------|-------|
+| Agent Name | Dr. Jan Duffy |
+| Phone (this site) | (702) 930-8222 |
+| License | S.0197614.LLC |
+| Email | DrJanSells@ReverenceSummerlinHomes.com |
+| Address | 10800 Reverence Pkwy, Las Vegas, NV 89134 |
 
-### Real Estate Domain Rules
-- Always consider fair housing compliance in UI/UX decisions
-- Include proper disclaimers for property valuations
-- Implement lead capture forms with proper validation
-- Use professional, trustworthy design patterns
-- Optimize for Core Web Vitals (LCP, FID, CLS)
+### ⚠️ COMMON ERRORS TO FIX:
+- "Dr. Janet Duffy" → "Dr. Jan Duffy"
+- "(702) 555-0100" → "(702) 930-8222"
+- "Reference Summerlin" → "Reverence Summerlin"
+- "License #" (empty) → "License #S.0197614.LLC"
 
-## Integration Patterns
+---
 
-### RealScout Integration
-- Use proper error handling for API calls
-- Implement loading states for property searches
-- Cache property data appropriately
-- Handle authentication flows properly
+## COLOR SYSTEM
 
-### Follow Up Boss Integration
-- Implement proper contact management
-- Use consistent data validation
-- Handle CRM sync errors gracefully
-- Maintain audit trails for compliance
+```css
+:root {
+  /* Primary Brand */
+  --color-navy: #1e3a5f;
+  --color-navy-dark: #152a45;
+  --color-navy-light: #2d5a87;
+  
+  /* Conversion CTAs */
+  --color-cta-primary: #e85d04;       /* Orange */
+  --color-cta-primary-hover: #d54d00;
+  --color-cta-secondary: #10b981;     /* Green */
+  --color-cta-secondary-hover: #059669;
+  
+  /* Neutrals */
+  --color-white: #ffffff;
+  --color-gray-100: #e5e7eb;
+  --color-gray-500: #6b7280;
+  --color-gray-700: #374151;
+  --color-gray-900: #111827;
+  
+  /* Accents */
+  --color-gold: #d4a012;
+  --color-gold-light: #fbbf24;
+}
+```
 
-### Homebot Integration
-- Implement proper loan calculation displays
-- Use accurate market data
-- Include proper disclaimers
-- Handle edge cases in calculations
+---
 
-## SEO & Performance
-- Use semantic HTML5 elements
-- Implement proper meta tags and Open Graph
-- Optimize images with proper alt text
-- Use lazy loading for below-fold content
-- Implement proper sitemap and robots.txt
+## COMPONENT PATTERNS
 
-## Deployment & Build
-- Always use `vercel build` instead of `npm run build`
-- Use `vercel dev` for local development
-- Set proper environment variables
-- Use Vercel CLI for production deployments
-- Avoid running `pnpm build` directly
+### Primary CTA Button
+```css
+.btn-cta-primary {
+  background: linear-gradient(135deg, var(--color-cta-primary) 0%, #ff7b2e 100%);
+  color: white;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(232, 93, 4, 0.4);
+}
+```
 
-## Las Vegas Market Context
-- Include local market trends and insights
-- Use proper Nevada real estate terminology
-- Include relevant local amenities and attractions
-- Consider seasonal market patterns
-- Include proper licensing information
+### Phone Display
+```css
+.phone-cta {
+  color: var(--color-cta-primary);
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+```
 
-## Code Quality
-- Write self-documenting code with clear variable names
-- Include JSDoc comments for complex functions
-- Use proper error handling and user feedback
-- Implement proper loading states
-- Use consistent naming conventions
+### Mobile Sticky Bar
+- Orange gradient background
+- Fixed bottom position
+- Phone icon + clickable number
+- Only visible on screens < 768px
 
-## Security & Compliance
-- Implement proper data validation
-- Use HTTPS for all external API calls
-- Handle sensitive data appropriately
-- Include proper privacy policy links
-- Implement proper cookie consent
+---
 
-## Testing & Browser Integration
-- Use Cursor Browser for visual testing and debugging
-- Test components in the browser before finalizing changes
-- Check console logs for errors after making changes
-- Test responsive design across different viewport sizes
-- Verify forms submit correctly and handle validation
-- Test navigation flows between pages
-- Use browser tools to inspect network requests for API calls
-- Write unit tests for utility functions
-- Test component rendering and interactions
-- Test API integration points
-- Test accessibility compliance (ARIA labels, keyboard navigation)
+## SITE STRUCTURE (Do Not Change)
 
-## Performance Optimization
-- Use React.memo() for expensive components
-- Implement proper code splitting
-- Use lazy loading for routes
-- Optimize bundle size
-- Monitor Core Web Vitals
+```
+/
+├── /buying
+│   ├── /new-home
+│   ├── /military-veterans
+│   ├── /mortgage-calculator
+│   └── /financing
+├── /selling
+│   ├── /foreclosure-avoidance
+│   └── /short-sales
+├── /communities
+│   ├── /monument-at-reverence (Featured)
+│   ├── /summerlin-west
+│   ├── /downtown-summerlin
+│   ├── /the-ridges
+│   ├── /luxury-homes
+│   └── /new-construction
+├── /relocate
+│   ├── /summerlin
+│   ├── /california
+│   ├── /seattle
+│   └── /new-york
+├── /resources
+│   ├── /blog
+│   ├── /youtube
+│   ├── /schools
+│   └── /golf-courses
+├── /about
+├── /valuation
+└── /contact
+```
 
-## Brand Guidelines
-- Use professional, trustworthy design
-- Maintain consistent color scheme
-- Use high-quality images
-- Include proper branding elements
-- Maintain professional tone in copy
+---
 
-## Development Workflow
-- Use Chat for initial implementation and bootstrapping
-- Switch to Inline Edit and Tab for fine-tuning and maintaining flow state
-- When working with UI components, always check `/app/components/ui/` first
-- When implementing forms, reuse existing form patterns from contact/valuation pages
-- For SEO changes, ensure canonical tags, meta tags, and Open Graph tags are all updated
-- After making changes, use Cursor Browser to verify the changes work correctly
+## BUILDER CONTEXT
+
+**Reverence is exclusively built by Pulte Homes.**
+
+Key communities:
+- **Monument at Reverence** — Townhomes, $500s+, 1,654-1,869 sq ft
+- **The Heights at Reverence** — Guard-gated luxury, $650K-$1M+
+- **Collections I-VI** — Various single-family, 1,579-4,815 sq ft
+
+Pulte Sales Office: (702) 505-4705
+
+---
+
+## SEO KEYWORDS
+
+Primary:
+- Reverence Summerlin homes
+- Monument at Reverence
+- Pulte Homes Las Vegas
+- Summerlin new construction
+
+Secondary:
+- Guard-gated Summerlin
+- Summerlin West real estate
+- Las Vegas luxury homes
+- 89138 homes for sale
+
+---
+
+## CONVERSION GOALS
+
+1. **Primary:** Schedule consultation / tour
+2. **Secondary:** Get home valuation
+3. **Tertiary:** Phone call
+
+Every page should have at least ONE clear CTA above the fold.
+
+---
+
+## TESTING CHECKLIST
+
+Before any deployment:
+- [ ] All "Janet" → "Jan" 
+- [ ] All phone numbers = (702) 930-8222
+- [ ] License number present in footer
+- [ ] "Reverence" spelled correctly (not "Reference")
+- [ ] Mobile sticky phone bar works
+- [ ] All tel: links clickable
+- [ ] Forms submit correctly
+- [ ] Page speed < 3s on mobile
+
+---
+
+## DO NOT:
+- Use any phone number other than (702) 930-8222 on this site
+- Change "Dr. Jan Duffy" to any other name variation
+- Remove the Monument at Reverence featured section
+- Break existing URL structure
+- Add pop-ups without approval
