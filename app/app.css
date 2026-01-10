@@ -769,4 +769,27 @@
     outline: 2px solid var(--color-cta-primary);
     outline-offset: 2px;
   }
+  
+  /* Performance optimizations */
+  img {
+    /* Prevent layout shift by setting default aspect ratio */
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Optimize font rendering */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  /* Reduce repaints/reflows */
+  .transition-all,
+  .transition-colors,
+  .transition-opacity,
+  .transition-shadow,
+  .transition-transform {
+    will-change: auto;
+  }
 }

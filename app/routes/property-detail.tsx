@@ -336,6 +336,11 @@ export default function PropertyDetail({ loaderData }: Route.ComponentProps) {
                   src={property.images[0]}
                   alt={property.address}
                   className="w-full h-96 object-cover"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
+                  width="800"
+                  height="400"
                 />
                 <div className="absolute top-4 left-4">
                   <Badge className="bg-primary-600 text-white">
@@ -444,6 +449,10 @@ export default function PropertyDetail({ loaderData }: Route.ComponentProps) {
                         src={image}
                         alt={`${property.address} - Image ${index + 2}`}
                         className="w-full h-48 object-cover rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
+                        loading="lazy"
+                        decoding="async"
+                        width="400"
+                        height="200"
                         onClick={() => {
                           // In a real app, this would open a lightbox
                           window.open(image, '_blank');

@@ -46,6 +46,10 @@ export function TestimonialsSection() {
                   src={testimonial.image}
                   alt={testimonial.name}
                   className="w-12 h-12 rounded-full object-cover mr-4"
+                  loading="lazy"
+                  decoding="async"
+                  width="48"
+                  height="48"
                 />
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900">{testimonial.name}</h3>

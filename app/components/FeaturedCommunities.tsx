@@ -67,6 +67,10 @@ export function FeaturedCommunities() {
                   src={community.image}
                   alt={community.name}
                   className="w-full h-full object-cover transition-transform duration-300"
+                  loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="200"
                 />
                 <div className="absolute top-3 left-3">
                   <span className="badge bg-accent-500 text-white px-3 py-1 rounded-md text-xs font-bold uppercase">

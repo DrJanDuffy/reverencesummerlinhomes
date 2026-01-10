@@ -4,9 +4,14 @@ import { config } from "~/lib/config";
 import "./app.css";
 
 export const links: LinksFunction = () => [
+  // Preconnect to external origins for faster resource loading (critical path)
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
   { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-  { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" },
+  { rel: "preconnect", href: "https://www.googletagmanager.com" },
+  { rel: "dns-prefetch", href: "https://www.google-analytics.com" },
+  // Load fonts asynchronously with font-display: swap (already in URL)
+  // Using only essential font weights to reduce payload (400, 600, 700)
+  { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" },
   { rel: "icon", href: "/favicon.ico" },
   { rel: "apple-touch-icon", href: "/favicon.ico" },
 ];
@@ -132,15 +137,46 @@ export function Layout({ children }: { children: React.ReactNode }) {
           }}
         />
         
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HKNXWWHTR"></script>
+        {/* Google Analytics - Deferred to improve LCP and reduce main thread blocking */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-9HKNXWWHTR');
+              // Defer Google Analytics loading until after page interactive (reduces TBT)
+              if ('requestIdleCallback' in window) {
+                // Use requestIdleCallback if available (Chrome, Edge)
+                requestIdleCallback(function() {
+                  loadGoogleAnalytics();
+                }, { timeout: 2000 });
+              } else {
+                // Fallback: load after page load event
+                window.addEventListener('load', function() {
+                  setTimeout(loadGoogleAnalytics, 1000);
+                });
+              }
+              
+              function loadGoogleAnalytics() {
+                // Load Google Tag Manager asynchronously
+                var script = document.createElement('script');
+                script.async = true;
+                script.defer = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=G-9HKNXWWHTR';
+                document.head.appendChild(script);
+                
+                script.onload = function() {
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', 'G-9HKNXWWHTR', {
+                    'send_page_view': false,
+                    'anonymize_ip': true,
+                    'transport_type': 'beacon'
+                  });
+                  // Send pageview manually after initialization
+                  gtag('event', 'page_view', {
+                    'send_to': 'G-9HKNXWWHTR'
+                  });
+                };
+              }
             `
           }}
         />

@@ -61,6 +61,10 @@ export function BlogSection() {
                   src={post.image}
                   alt={post.title}
                   className="w-full h-48 object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="300"
                 />
               </div>
               <div className="p-6">

@@ -69,6 +69,10 @@ export function VideoSection() {
                   src={video.thumbnail}
                   alt={video.title}
                   className="w-full h-48 object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="200"
                 />
                 <div className="absolute bottom-2 right-2 bg-black bg-opacity-75 text-white px-2 py-1 rounded text-sm">
                   {video.duration}
