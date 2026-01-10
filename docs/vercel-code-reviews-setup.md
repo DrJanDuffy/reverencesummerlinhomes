@@ -5,6 +5,7 @@ This guide explains how to enable and use Vercel's Code Reviews (Beta) feature f
 ## Overview
 
 Vercel Code Reviews (Beta) is an AI-powered code review feature that:
+
 - Automatically reviews draft PRs before they're ready
 - Catches bugs, security issues, and performance problems
 - Integrates with your GitHub repository
@@ -34,10 +35,12 @@ Vercel Code Reviews (Beta) is an AI-powered code review feature that:
 ### Step 2: Configure Review Settings
 
 **Review Draft PRs:**
+
 - ✅ Enabled (recommended): Reviews draft PRs automatically
 - Allows catching issues early before PR is ready for review
 
 **Review Scope:**
+
 - All repositories (recommended for consistent reviews)
 - Or select specific repositories
 
@@ -97,12 +100,14 @@ Vercel Code Reviews works **alongside** your existing quality gates:
 ## Viewing Reviews
 
 ### In Vercel Dashboard:
+
 1. Navigate to your project
 2. Go to **Deployments** or **Code Reviews** tab
 3. Select a PR to view review results
 4. See categorized issues and suggestions
 
 ### In GitHub:
+
 - If integrated, review comments may appear as PR comments
 - Check PR status checks for Vercel review status
 
@@ -128,12 +133,14 @@ Vercel Code Reviews works **alongside** your existing quality gates:
 ### Code Reviews Not Appearing
 
 **Check:**
+
 1. Observability Plus subscription is active
 2. Repository is connected to Vercel
 3. Code Reviews feature is enabled in settings
 4. Sufficient credit available ($16.69 minimum recommended)
 
 **Solution:**
+
 - Verify GitHub App permissions
 - Check Vercel billing/credits page
 - Contact Vercel support if issues persist
@@ -141,6 +148,7 @@ Vercel Code Reviews works **alongside** your existing quality gates:
 ### Reviews Taking Too Long
 
 **Solution:**
+
 - Reviews are processed asynchronously
 - Check Vercel dashboard after 1-2 minutes
 - Larger PRs may take longer
@@ -148,6 +156,7 @@ Vercel Code Reviews works **alongside** your existing quality gates:
 ### False Positives
 
 **Solution:**
+
 - Code Reviews use AI - may have false positives
 - Review suggestions critically
 - Use quality gates for definitive rules
@@ -155,12 +164,14 @@ Vercel Code Reviews works **alongside** your existing quality gates:
 ## Integration with This Project
 
 Your project already has:
+
 - ✅ Comprehensive quality gates (`scripts/quality-gates/`)
 - ✅ GitHub Actions CI workflow (`.github/workflows/ci.yml`)
 - ✅ PR review workflow (`.github/workflows/pr-review.yml`)
 - ✅ Pre-merge checklist (`PRE_MERGE_CHECKLIST.md`)
 
 **Vercel Code Reviews adds:**
+
 - AI-powered pattern detection
 - Security vulnerability scanning
 - Performance issue detection

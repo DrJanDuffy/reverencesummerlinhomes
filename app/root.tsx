@@ -202,6 +202,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   --rs-as-widget-width: 100% !important;
                 }
               }
+              
+              /* Home Value Widget Styles - Brand Colors */
+              realscout-home-value {
+                --rs-hvw-background-color: #ffffff;
+                --rs-hvw-title-color: #1e3a5f;
+                --rs-hvw-subtitle-color: rgba(28, 30, 38, 0.5);
+                --rs-hvw-primary-button-text-color: #ffffff;
+                --rs-hvw-primary-button-color: #e85d04;
+                --rs-hvw-secondary-button-text-color: #1e3a5f;
+                --rs-hvw-secondary-button-color: #ffffff;
+                --rs-hvw-widget-width: auto;
+              }
+              
+              /* Ensure home value widget is responsive */
+              realscout-home-value * {
+                box-sizing: border-box;
+              }
             `,
           }}
         />
