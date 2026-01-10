@@ -2,7 +2,7 @@ import type { Route } from './+types/sitemap'
 import { config } from '~/lib/config'
 import { communitiesData } from '~/lib/data'
 
-export async function loader() {
+export async function loader({ request }: Route.LoaderArgs) {
   try {
     const baseUrl = config.seo.siteUrl
     const currentDate = new Date().toISOString()

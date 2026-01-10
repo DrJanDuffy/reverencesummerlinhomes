@@ -1,7 +1,7 @@
 import type { Route } from './+types/sitemap-images'
 import { config } from '~/lib/config'
 
-export async function loader() {
+export async function loader({ request }: Route.LoaderArgs) {
   try {
     const baseUrl = config.seo.siteUrl
     const currentDate = new Date().toISOString()
