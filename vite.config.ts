@@ -20,10 +20,22 @@ export default defineConfig({
     cssCodeSplit: true, // Split CSS for better caching
     rollupOptions: {
       output: {
-        manualChunks: {
-          // Separate vendor chunks for better caching
-          'react-vendor': ['react', 'react-dom', 'react-router'],
-          'ui-vendor': ['lucide-react', '@radix-ui/react-slot'],
+        // Use function-based manualChunks to avoid external module errors
+        // React/React-DOM are external for SSR builds, so we only chunk UI libraries
+        manualChunks(id) {
+          // Only chunk UI vendor libraries (not React/React-DOM which are external)
+          if (id.includes('node_modules')) {
+            if (id.includes('lucide-react')) {
+              return 'ui-icons';
+            }
+            if (id.includes('@radix-ui')) {
+              return 'ui-components';
+            }
+            if (id.includes('class-variance-authority') || id.includes('clsx') || id.includes('tailwind-merge')) {
+              return 'ui-utils';
+            }
+            // Let other node_modules be bundled by default (React Router handles React externals)
+          }
         },
       },
     },
