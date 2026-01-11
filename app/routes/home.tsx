@@ -14,7 +14,6 @@ import {
 } from '~/components/ui/card'
 import { Badge } from '~/components/ui/badge'
 import { RealScoutListingsWidget } from '~/components/RealScoutListingsWidget'
-import { createDeferred } from '~/lib/streaming'
 import { createProvenanceContext, logger } from '~/lib/logging'
 import { RealScoutAdvancedSearch } from '~/components/RealScoutAdvancedSearch'
 import {
@@ -99,8 +98,7 @@ export const links: LinksFunction = () => [
 ]
 
 /**
- * Loader with streaming/deferred data for performance
- * Critical data loads immediately, non-critical data streams
+ * Loader for homepage data with runtime safety checks
  */
 export async function loader({ request }: { request: Request }) {
   try {
@@ -123,38 +121,10 @@ export async function loader({ request }: { request: Request }) {
       config,
     }
 
-    // Non-critical data: Defer for streaming (loads after initial render)
-    // This improves perceived performance and reduces initial page load time
-    const deferredData = {
-      communities: Promise.resolve(communitiesData)
-        .then(data => {
-          // Log when deferred data loads
-          logger.debug('Deferred communities data loaded', {
-            operationId: context.operationId,
-            route: '/',
-            count: data.length,
-          })
-          return data
-        })
-        .catch(error => {
-          // Handle deferred data loading errors gracefully
-          logger.error('Failed to load deferred communities data', {
-            operationId: context.operationId,
-            route: '/',
-            error: error instanceof Error ? error.message : 'Unknown error',
-          })
-          return [] // Return empty array as fallback
-        }),
+    return {
+      ...criticalData,
+      communities: communitiesData,
     }
-
-    // Combine critical and deferred data
-    return createDeferred(
-      {
-        ...criticalData,
-        ...deferredData,
-      },
-      { route: '/' }
-    )
   } catch (error) {
     const errorMessage =
       error instanceof Error ? error.message : 'Unknown error'
@@ -170,14 +140,11 @@ export async function loader({ request }: { request: Request }) {
     })
 
     // Return fallback data to prevent complete page crash
-    return createDeferred(
-      {
-        monument: monumentData || null,
-        config: config || {},
-        communities: Promise.resolve([]),
-      },
-      { route: '/' }
-    )
+    return {
+      monument: monumentData || null,
+      config: config || {},
+      communities: [],
+    }
   }
 }
 
@@ -399,7 +366,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Communities - Using Suspense for streaming */}
+      {/* Featured Communities */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
